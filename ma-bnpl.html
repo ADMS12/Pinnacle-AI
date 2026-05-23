@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pinnacle AI &times; Co-Card &mdash; Merchant Account &amp; BNPL Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    /* Light green "money" palette */
+    --bg-0: #e7f5e8;          /* page background - light mint */
+    --bg-1: #d6efd8;          /* secondary band */
+    --bg-2: #c4e6c7;          /* deeper accent band */
+    --paper: #ffffff;         /* card / paper */
+    --paper-tint: #f3faf3;    /* subtle card tint */
+    --ink: #102a18;           /* deep forest text */
+    --ink-dim: #355a3f;       /* muted forest */
+    --ink-mute: #6b8c75;      /* light forest */
+    --line: #b9dcbe;          /* divider */
+    --line-soft: #d7ecd9;     /* faint divider */
+    --emerald: #1f8a4c;       /* primary - emerald */
+    --emerald-2: #2faa64;     /* primary hover */
+    --emerald-deep: #0e5a32;  /* primary darker */
+    --pinnacle: #1f8a4c;      /* Pinnacle = emerald */
+    --pinnacle-2: #2faa64;
+    --cocard: #c79a1a;        /* Co-Card = gold (complements green) */
+    --cocard-2: #e6b938;
+    --gold: #d4a017;
+    --teal: #0f8a7e;
+    --good: #1f8a4c;
+    --warn: #d4a017;
+    --bad: #b53b3b;
+    --card: var(--paper);
+    --card-border: #c8e3cc;
+    --radius: 16px;
+    --shadow: 0 6px 24px rgba(31,138,76,0.10), 0 2px 6px rgba(16,42,24,0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(31,138,76,0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(212,160,23,0.14), transparent 60%),
+      linear-gradient(180deg, #eaf6ea 0%, #dff0e0 100%);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(231,245,232,0.85);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; color: var(--ink); }
+  .brand .logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    box-shadow: 0 6px 18px rgba(31,138,76,0.35);
+    display: grid; place-items: center; color: white; font-weight: 800;
+  }
+  nav.top a {
+    color: var(--ink-dim); text-decoration: none; margin-left: 22px; font-size: 14px; font-weight: 500;
+  }
+  nav.top a:hover { color: var(--emerald-deep); }
+  /* HERO */
+  header.hero { padding: 80px 0 60px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(31,138,76,0.12);
+    color: var(--emerald-deep); border: 1px solid rgba(31,138,76,0.35);
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05; margin: 18px 0 16px; font-weight: 800; letter-spacing: -0.5px;
+    color: var(--emerald-deep);
+  }
+  h1 .amp { color: var(--gold); }
+  .lead { font-size: 18px; color: var(--ink-dim); max-width: 760px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--card-border);
+  }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    color: white; border-color: transparent;
+    box-shadow: 0 10px 24px rgba(31,138,76,0.32);
+  }
+  .btn.ghost { background: white; color: var(--emerald-deep); border-color: var(--card-border); }
+  .stats {
+    margin-top: 56px; display: grid;
+    grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .stat {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .stat .k { font-size: 12px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+  .stat .v { font-size: 28px; font-weight: 800; margin-top: 6px; color: var(--emerald-deep); }
+  .stat .v.pin { color: var(--emerald); }
+  .stat .v.cc { color: var(--gold); }
+  .stat .v.good { color: var(--emerald-deep); }
+  /* SECTIONS */
+  section { padding: 70px 0; border-top: 1px solid var(--line-soft); }
+  .eyebrow { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; }
+  h2 { font-size: clamp(26px, 3vw, 38px); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.3px; color: var(--ink); }
+  .sub { color: var(--ink-dim); max-width: 760px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+  .card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
+  .card p { color: var(--ink-dim); margin: 0; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 4px 8px; border-radius: 6px;
+    background: rgba(15,138,126,0.12); color: var(--teal); border: 1px solid rgba(15,138,126,0.3);
+    letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700;
+  }
+  .tag.pin { background: rgba(31,138,76,0.13); color: var(--emerald-deep); border-color: rgba(31,138,76,0.3); }
+  .tag.cc { background: rgba(212,160,23,0.15); color: #8a6911; border-color: rgba(212,160,23,0.4); }
+  /* DIAGRAMS */
+  .diagram {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 22px;
+    overflow-x: auto;
+    box-shadow: var(--shadow);
+  }
+  .diagram svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  /* TABLES */
+  table.fin {
+    width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: var(--ink);
+  }
+  table.fin th, table.fin td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line-soft);
+  }
+  table.fin th { color: var(--ink-mute); font-weight: 700; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+  table.fin tr:last-child td { border-bottom: none; }
+  table.fin .num { text-align: right; }
+  table.fin .total td { font-weight: 800; color: var(--emerald-deep); border-top: 2px solid var(--line); }
+  /* TIMELINE */
+  .timeline { margin-top: 32px; position: relative; }
+  .tl-line {
+    position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--emerald), var(--teal));
+  }
+  .tl-item { position: relative; padding-left: 72px; margin-bottom: 26px; }
+  .tl-dot {
+    position: absolute; left: 20px; top: 8px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--emerald); border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--emerald);
+  }
+  .tl-dot.launch { background: var(--emerald-deep); box-shadow: 0 0 0 2px var(--emerald-deep); }
+  .tl-dot.build { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-dot.run { background: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+  .tl-card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .tl-date { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700; }
+  .tl-title { font-weight: 700; margin: 4px 0; color: var(--ink); }
+  .tl-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 6px; color: var(--ink-dim); font-size: 14px; }
+  .tl-row b { color: var(--ink); }
+  /* CHART */
+  .chart-wrap {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px; margin-top: 22px;
+    box-shadow: var(--shadow);
+  }
+  .chart-wrap .legend-note { color: var(--ink-mute); font-size: 12px; margin-top: 8px; }
+  canvas { max-width: 100%; }
+  /* FOOTER */
+  footer {
+    padding: 40px 0 60px; text-align: center; color: var(--ink-mute);
+    font-size: 13px; border-top: 1px solid var(--line-soft);
+    background: rgba(255,255,255,0.4);
+  }
+  footer .brand { justify-content: center; margin-bottom: 12px; }
+  /* RESPONSIVE */
+  @media (max-width: 880px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    nav.top a:not(.btn) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>Pinnacle&nbsp;AI <span style="color:var(--ink-mute);font-weight:500">&times;</span> Co-Card</div>
+    </div>
+    <div>
+      <a href="#overview">Overview</a>
+      <a href="#lease">Lease</a>
+      <a href="#models">Models</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#revenue">Revenue</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">Business Proposal &middot; June 2026 &ndash; May 2027</span>
+    <h1>A turnkey Merchant Account <span class="amp">&amp;</span> BNPL platform &mdash; built by Pinnacle AI, distributed by Co-Card.</h1>
+    <p class="lead">
+      Co-Card brings the merchant relationships. Pinnacle AI brings the system. Together we license a complete
+      Merchant Account (MA) and Buy Now Pay Later (BNPL) platform to Co-Card&rsquo;s clients, splitting recurring lease and
+      transaction revenue across a 12-month build &amp; scale program.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#overview">Read the proposal &rarr;</a>
+      <a class="btn ghost" href="#revenue">See the numbers</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="k">Initial Funding</div><div class="v">$40,000</div></div>
+      <div class="stat"><div class="k">12-Mo Commitment</div><div class="v">$120,000</div></div>
+      <div class="stat"><div class="k">Co-Card 12-Mo Revenue</div><div class="v cc">$1.92M</div></div>
+      <div class="stat"><div class="k">Pinnacle 12-Mo Revenue</div><div class="v pin">$389K</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PARTNERSHIP OVERVIEW -->
+<section id="overview">
+  <div class="wrap">
+    <div class="eyebrow">Partnership Overview</div>
+    <h2>Who does what, and how value flows.</h2>
+    <p class="sub">
+      Co-Card is a credit card processor with an established book of merchants. Pinnacle AI is the technology
+      provider with experience building MA and BNPL systems. Co-Card seeds development and leases the platform;
+      Pinnacle AI builds, hosts, and continually improves it. Both parties earn from every reseller and every
+      transaction.
+    </p>
+
+    <div class="diagram" style="margin-top:32px">
+      <!-- Partnership flow SVG -->
+      <svg viewBox="0 0 1100 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Partnership flow diagram">
+        <defs>
+          <linearGradient id="gPin" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#1f8a4c"/>
+            <stop offset="1" stop-color="#0e5a32"/>
+          </linearGradient>
+          <linearGradient id="gCC" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#e6b938"/>
+            <stop offset="1" stop-color="#c79a1a"/>
+          </linearGradient>
+          <linearGradient id="gMerc" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#0f8a7e"/>
+            <stop offset="1" stop-color="#2faa64"/>
+          </linearGradient>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#355a3f"/>
+          </marker>
+        </defs>
+
+        <!-- Pinnacle AI box -->
+        <g>
+          <rect x="40" y="50" width="260" height="120" rx="14" fill="url(#gPin)"/>
+          <text x="170" y="90" text-anchor="middle" fill="white" font-size="20" font-weight="700" font-family="Inter">Pinnacle AI</text>
+          <text x="170" y="115" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Inter">Builds &amp; hosts the MA / BNPL system</text>
+          <text x="170" y="135" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Inter">Technology &middot; Underwriting tools</text>
+          <text x="170" y="155" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Inter">Hosting &middot; Support</text>
+        </g>
+
+        <!-- Co-Card box -->
+        <g>
+          <rect x="800" y="50" width="260" height="120" rx="14" fill="url(#gCC)"/>
+          <text x="930" y="90" text-anchor="middle" fill="#3a2c08" font-size="20" font-weight="700" font-family="Inter">Co-Card</text>
+          <text x="930" y="115" text-anchor="middle" fill="#3a2c08" font-size="13" font-family="Inter">Credit-card processor</text>
+          <text x="930" y="135" text-anchor="middle" fill="#3a2c08" font-size="13" font-family="Inter">Merchant book &middot; Sales</text>
+          <text x="930" y="155" text-anchor="middle" fill="#3a2c08" font-size="13" font-family="Inter">Underwriting team</text>
+        </g>
+
+        <!-- Lease arrow Co-Card -> Pinnacle (funding) -->
+        <line x1="800" y1="95" x2="305" y2="95" stroke="#355a3f" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="6 5"/>
+        <rect x="475" y="58" width="180" height="32" rx="8" fill="#ffffff" stroke="#c8e3cc"/>
+        <text x="565" y="79" text-anchor="middle" fill="#102a18" font-size="13" font-family="Inter" font-weight="700">$40K + $8K / month</text>
+
+        <!-- System arrow Pinnacle -> Co-Card (license) -->
+        <line x1="300" y1="135" x2="795" y2="135" stroke="#355a3f" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="455" y="118" width="220" height="32" rx="8" fill="#ffffff" stroke="#c8e3cc"/>
+        <text x="565" y="139" text-anchor="middle" fill="#102a18" font-size="13" font-family="Inter" font-weight="700">MA &amp; BNPL platform (lease)</text>
+
+        <!-- Merchants / Resellers -->
+        <g>
+          <rect x="420" y="270" width="290" height="100" rx="14" fill="url(#gMerc)"/>
+          <text x="565" y="305" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" font-family="Inter">Co-Card Merchants &amp; Resellers</text>
+          <text x="565" y="328" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="13" font-family="Inter">MA resellers &middot; Auto repair &middot; Cosmetic shops</text>
+          <text x="565" y="348" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="13" font-family="Inter">End-consumer financing</text>
+        </g>
+
+        <!-- Co-Card -> Merchants -->
+        <line x1="900" y1="170" x2="650" y2="270" stroke="#355a3f" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="820" y="225" fill="#355a3f" font-size="12" font-family="Inter">Sells &amp; subleases</text>
+
+        <!-- Pinnacle -> Merchants (system) -->
+        <line x1="200" y1="170" x2="480" y2="270" stroke="#355a3f" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="4 4"/>
+        <text x="270" y="225" fill="#355a3f" font-size="12" font-family="Inter">Powers the platform</text>
+
+        <!-- Revenue back -->
+        <line x1="565" y1="370" x2="565" y2="400" stroke="#1f8a4c" stroke-width="2.5"/>
+        <line x1="565" y1="400" x2="170" y2="400" stroke="#1f8a4c" stroke-width="2.5" marker-end="url(#arr)"/>
+        <line x1="565" y1="400" x2="930" y2="400" stroke="#1f8a4c" stroke-width="2.5" marker-end="url(#arr)"/>
+        <line x1="170" y1="400" x2="170" y2="175" stroke="#1f8a4c" stroke-width="2.5"/>
+        <line x1="930" y1="400" x2="930" y2="175" stroke="#1f8a4c" stroke-width="2.5"/>
+        <rect x="455" y="380" width="220" height="26" rx="8" fill="#ffffff" stroke="#1f8a4c"/>
+        <text x="565" y="397" text-anchor="middle" fill="#0e5a32" font-size="12" font-family="Inter" font-weight="700">Revenue split: lease + transaction fees</text>
+      </svg>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="tag pin">Pinnacle AI</span>
+        <h3 style="margin-top:10px">Builds the platform</h3>
+        <p>Develops, hosts, and maintains the MA and BNPL systems. Provides the technology backbone, integrations, and ongoing engineering.</p>
+      </div>
+      <div class="card">
+        <span class="tag cc">Co-Card</span>
+        <h3 style="margin-top:10px">Brings the market</h3>
+        <p>Leverages existing merchant relationships to sell resellers, sublease the platform, and run sales, marketing, and underwriting teams.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Together</span>
+        <h3 style="margin-top:10px">Share the upside</h3>
+        <p>Recurring license fees + transaction fees split between both parties. Once 10 MA resellers are recruited, the lease pays for itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEASE -->
+<section id="lease">
+  <div class="wrap">
+    <div class="eyebrow">System Licensing (Lease)</div>
+    <h2>A low-barrier, milestone-tied 12-month commitment.</h2>
+    <p class="sub">
+      Co-Card funds $40,000 at project start to kick off development, then leases the system for $8,000/month
+      across the remainder of the 12-month term &mdash; a $120,000 total commitment. As Co-Card recruits resellers,
+      sublease revenue offsets the lease.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Lease Commitment</span>
+        <h3 style="margin-top:10px">$40,000 + $8,000 / month</h3>
+        <table class="fin">
+          <tr><th>Component</th><th class="num">Amount</th></tr>
+          <tr><td>Project-start funding</td><td class="num">$40,000</td></tr>
+          <tr><td>Monthly lease (10 months)</td><td class="num">$8,000 / mo</td></tr>
+          <tr><td>Sublease option to Co-Card clients</td><td class="num">Available</td></tr>
+          <tr class="total"><td>Total 12-month commitment</td><td class="num">$120,000</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Reseller Sub-License (MA)</span>
+        <h3 style="margin-top:10px">$5,000 / month per reseller</h3>
+        <table class="fin">
+          <tr><th>Party</th><th class="num">Share</th></tr>
+          <tr><td>Pinnacle AI</td><td class="num">$4,000</td></tr>
+          <tr><td>Co-Card</td><td class="num">$1,000</td></tr>
+          <tr class="total"><td>Break-even threshold</td><td class="num">10 resellers</td></tr>
+        </table>
+        <p style="margin-top:10px;color:var(--ink-dim);font-size:13px">+ $250 transaction fee per loan processed, paid to Pinnacle AI.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Reseller Sub-License (BNPL)</span>
+        <h3 style="margin-top:10px">$99 / month per vendor</h3>
+        <table class="fin">
+          <tr><th>Party</th><th class="num">Share</th></tr>
+          <tr><td>Pinnacle AI</td><td class="num">$89</td></tr>
+          <tr><td>Co-Card</td><td class="num">$10</td></tr>
+        </table>
+        <p style="margin-top:10px;color:var(--ink-dim);font-size:13px">+ 1% of collected interest paid to Co-Card. Target verticals: auto repair, cosmetic shops, and other in-store financing use cases.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Build Milestones</span>
+        <h3 style="margin-top:10px">Payments tied to delivery</h3>
+        <p>Funds release on milestones: development kickoff, beta release, Merchant Account launch, BNPL launch, and system hosting &amp; operation. Co-Card sees progress before each tranche.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSACTION MODELS -->
+<section id="models">
+  <div class="wrap">
+    <div class="eyebrow">Transaction Models</div>
+    <h2>How a single deal flows through the system.</h2>
+    <p class="sub">
+      Two complementary unit economics: a Merchant Account loan on a $10,000 advance, and a BNPL purchase on a
+      $1,000 ticket. Each one earns Co-Card, Pinnacle AI, and the funder in clearly defined slices.
+    </p>
+
+    <div class="grid-2">
+      <!-- MA $10K MODEL -->
+      <div>
+        <div class="card">
+          <span class="tag">Merchant Account</span>
+          <h3 style="margin-top:10px">$10K Loan Breakdown</h3>
+          <table class="fin">
+            <tr><th>Component</th><th class="num">Amount</th><th>Notes</th></tr>
+            <tr><td>Funded amount</td><td class="num">$10,000</td><td>Gross funding</td></tr>
+            <tr><td>Factor payback</td><td class="num">$12,500</td><td>1.25 factor</td></tr>
+            <tr><td>Total fees</td><td class="num">$590</td><td>Underwriting + ACH</td></tr>
+            <tr><td>Net to merchant</td><td class="num">$9,410</td><td>After fees</td></tr>
+            <tr><td>Daily payment (120 days)</td><td class="num">$104.17</td><td>ACH debit</td></tr>
+            <tr class="total"><td>Total cost to merchant</td><td class="num">$3,090</td><td>Factor + fees</td></tr>
+          </table>
+        </div>
+
+        <div class="diagram" style="margin-top:18px">
+          <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" aria-label="MA revenue split">
+            <text x="20" y="28" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Revenue split &mdash; $10K MA loan</text>
+            <!-- Stacked bar -->
+            <g>
+              <rect x="20" y="60" width="660" height="50" rx="8" fill="#e7f5e8" stroke="#c8e3cc"/>
+              <!-- Funder $1500 / Broker $1000 / Co-Card $340 / Pinnacle $250 = 3090 -->
+              <rect x="20" y="60" width="320.39" height="50" fill="#0f8a7e"/>
+              <rect x="340.39" y="60" width="213.59" height="50" fill="#e6b938"/>
+              <rect x="553.98" y="60" width="72.62" height="50" fill="#c79a1a"/>
+              <rect x="626.60" y="60" width="53.40" height="50" fill="#1f8a4c"/>
+              <text x="180" y="90" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="Inter">Funder $1,500</text>
+              <text x="447" y="90" text-anchor="middle" fill="#3a2c08" font-size="13" font-weight="700" font-family="Inter">Co-Card Broker $1,000</text>
+              <text x="590" y="90" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700" font-family="Inter">CC $340</text>
+              <text x="653" y="90" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700" font-family="Inter">Pin $250</text>
+            </g>
+            <!-- Legend -->
+            <g font-family="Inter" font-size="12" fill="#355a3f">
+              <rect x="20" y="140" width="14" height="14" rx="3" fill="#0f8a7e"/><text x="40" y="152">Funder factor profit ($1,500)</text>
+              <rect x="220" y="140" width="14" height="14" rx="3" fill="#e6b938"/><text x="240" y="152">Co-Card broker fee ($1,000)</text>
+              <rect x="420" y="140" width="14" height="14" rx="3" fill="#c79a1a"/><text x="440" y="152">Co-Card UW + ACH ($340)</text>
+              <rect x="20" y="170" width="14" height="14" rx="3" fill="#1f8a4c"/><text x="40" y="182">Pinnacle system fee ($250)</text>
+              <text x="220" y="182" fill="#0e5a32" font-weight="700">Merchant total cost: $3,090</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- BNPL $1K MODEL -->
+      <div>
+        <div class="card">
+          <span class="tag">BNPL</span>
+          <h3 style="margin-top:10px">$1K Purchase Breakdown</h3>
+          <table class="fin">
+            <tr><th>Component</th><th class="num">Amount</th><th>Notes</th></tr>
+            <tr><td>Purchase amount</td><td class="num">$1,000</td><td>Ticket size</td></tr>
+            <tr><td>Merchant discount fee (5%)</td><td class="num">$50</td><td>BNPL provider fee</td></tr>
+            <tr><td>Net to merchant</td><td class="num">$950</td><td>Merchant receives</td></tr>
+            <tr><td>Consumer total paid</td><td class="num">$1,000</td><td>4 &times; $250</td></tr>
+            <tr class="total"><td>Consumer interest</td><td class="num">$0</td><td>Standard BNPL</td></tr>
+          </table>
+        </div>
+
+        <div class="diagram" style="margin-top:18px">
+          <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" aria-label="BNPL revenue split">
+            <text x="20" y="28" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Revenue split &mdash; $1K BNPL ticket ($50 MDF)</text>
+            <!-- 50 MDF: BNPL $25, Pinnacle $15, Co-Card $10 -->
+            <g>
+              <rect x="20" y="60" width="660" height="50" rx="8" fill="#e7f5e8" stroke="#c8e3cc"/>
+              <rect x="20" y="60" width="330" height="50" fill="#0f8a7e"/>
+              <rect x="350" y="60" width="198" height="50" fill="#1f8a4c"/>
+              <rect x="548" y="60" width="132" height="50" fill="#e6b938"/>
+              <text x="185" y="90" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="Inter">BNPL Provider $25</text>
+              <text x="449" y="90" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="Inter">Pinnacle $15</text>
+              <text x="614" y="90" text-anchor="middle" fill="#3a2c08" font-size="14" font-weight="700" font-family="Inter">Co-Card $10</text>
+            </g>
+            <g font-family="Inter" font-size="12" fill="#355a3f">
+              <rect x="20" y="140" width="14" height="14" rx="3" fill="#0f8a7e"/><text x="40" y="152">Funder / BNPL provider ($25)</text>
+              <rect x="240" y="140" width="14" height="14" rx="3" fill="#1f8a4c"/><text x="260" y="152">Pinnacle system fee ($15)</text>
+              <rect x="430" y="140" width="14" height="14" rx="3" fill="#e6b938"/><text x="450" y="152">Co-Card broker fee ($10 / 20%)</text>
+              <text x="20" y="182" fill="#0e5a32" font-weight="700">Merchant fee: $50 &middot; Consumer interest: $0</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow">Project Timeline</div>
+    <h2>From funding to full operation in 12 months.</h2>
+    <p class="sub">
+      The plan stages build, launch, and scale across the first year. The first six weeks fund the team and reach
+      beta. Months 3&ndash;4 launch MA, then BNPL. From month 5 onward we focus on scaling resellers, vendors, and
+      transaction volume.
+    </p>
+
+    <!-- High-level flow diagram -->
+    <div class="diagram" style="margin-top:30px">
+      <svg viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg" aria-label="Project timeline flow">
+        <defs>
+          <linearGradient id="tlLine" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#d4a017"/>
+            <stop offset="0.4" stop-color="#1f8a4c"/>
+            <stop offset="1" stop-color="#0f8a7e"/>
+          </linearGradient>
+        </defs>
+        <!-- Horizontal track -->
+        <line x1="60" y1="110" x2="1140" y2="110" stroke="url(#tlLine)" stroke-width="4"/>
+        <!-- Nodes -->
+        <g font-family="Inter" font-size="11" fill="#102a18">
+          <!-- 1 -->
+          <circle cx="80" cy="110" r="10" fill="#d4a017"/>
+          <text x="80" y="80" text-anchor="middle" fill="#8a6911" font-weight="700">Jun 1, 2026</text>
+          <text x="80" y="140" text-anchor="middle">$40K funding</text>
+          <text x="80" y="156" text-anchor="middle" fill="#6b8c75">Start building</text>
+
+          <!-- 2 -->
+          <circle cx="220" cy="110" r="10" fill="#d4a017"/>
+          <text x="220" y="80" text-anchor="middle" fill="#8a6911" font-weight="700">Jul 1, 2026</text>
+          <text x="220" y="140" text-anchor="middle">Sales &amp; Marketing</text>
+          <text x="220" y="156" text-anchor="middle" fill="#6b8c75">Team formed</text>
+
+          <!-- 3 -->
+          <circle cx="360" cy="110" r="10" fill="#d4a017"/>
+          <text x="360" y="80" text-anchor="middle" fill="#8a6911" font-weight="700">Jul 15, 2026</text>
+          <text x="360" y="140" text-anchor="middle">Underwriting Team</text>
+          <text x="360" y="156" text-anchor="middle" fill="#6b8c75">Beta release</text>
+
+          <!-- 4 -->
+          <circle cx="500" cy="110" r="12" fill="#1f8a4c"/>
+          <text x="500" y="80" text-anchor="middle" fill="#0e5a32" font-weight="700">Aug 1, 2026</text>
+          <text x="500" y="140" text-anchor="middle" font-weight="700">MA Launch</text>
+          <text x="500" y="156" text-anchor="middle" fill="#6b8c75">20 loans / mo</text>
+
+          <!-- 5 -->
+          <circle cx="640" cy="110" r="12" fill="#1f8a4c"/>
+          <text x="640" y="80" text-anchor="middle" fill="#0e5a32" font-weight="700">Sep 1, 2026</text>
+          <text x="640" y="140" text-anchor="middle" font-weight="700">BNPL Launch</text>
+          <text x="640" y="156" text-anchor="middle" fill="#6b8c75">40 loans / mo</text>
+
+          <!-- 6 -->
+          <circle cx="780" cy="110" r="10" fill="#0f8a7e"/>
+          <text x="780" y="80" text-anchor="middle" fill="#0f8a7e" font-weight="700">Oct 1, 2026</text>
+          <text x="780" y="140" text-anchor="middle">Hosting &amp; Ops</text>
+          <text x="780" y="156" text-anchor="middle" fill="#6b8c75">First MA reseller</text>
+
+          <!-- 7 -->
+          <circle cx="920" cy="110" r="10" fill="#0f8a7e"/>
+          <text x="920" y="80" text-anchor="middle" fill="#0f8a7e" font-weight="700">Jan 1, 2027</text>
+          <text x="920" y="140" text-anchor="middle">Scale BNPL</text>
+          <text x="920" y="156" text-anchor="middle" fill="#6b8c75">10 vendors</text>
+
+          <!-- 8 -->
+          <circle cx="1060" cy="110" r="12" fill="#0e5a32"/>
+          <text x="1060" y="80" text-anchor="middle" fill="#0e5a32" font-weight="700">May 1, 2027</text>
+          <text x="1060" y="140" text-anchor="middle" font-weight="700">Full Scale</text>
+          <text x="1060" y="156" text-anchor="middle" fill="#6b8c75">150 loans, 600 tickets</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Vertical detailed timeline -->
+    <div class="timeline" style="margin-top:40px">
+      <div class="tl-line"></div>
+
+      <div class="tl-item">
+        <div class="tl-dot build"></div>
+        <div class="tl-card">
+          <div class="tl-date">June 1, 2026 &middot; Kickoff</div>
+          <div class="tl-title">$40,000 initial funding &mdash; Pinnacle AI starts building.</div>
+          <div class="tl-row"><span><b>Co-Card:</b> seeds project</span><span><b>Pinnacle:</b> dev kickoff</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot build"></div>
+        <div class="tl-card">
+          <div class="tl-date">July 1, 2026</div>
+          <div class="tl-title">Sales &amp; Marketing team in place at Co-Card.</div>
+          <div class="tl-row"><span><b>Co-Card:</b> recruits resellers / vendors</span><span><b>Pinnacle:</b> alpha development</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot build"></div>
+        <div class="tl-card">
+          <div class="tl-date">July 15, 2026 &middot; Beta</div>
+          <div class="tl-title">Underwriting team operational. Beta release of the platform.</div>
+          <div class="tl-row"><span><b>Co-Card:</b> UW team</span><span><b>Pinnacle:</b> beta release</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot launch"></div>
+        <div class="tl-card">
+          <div class="tl-date">August 1, 2026 &middot; Launch</div>
+          <div class="tl-title">Merchant Account launch. First $8K lease payment.</div>
+          <div class="tl-row">
+            <span><b>MA loans:</b> 20 / mo</span><span><b>MA revenue:</b> $40,000</span>
+            <span><b>BNPL vendors:</b> 1</span><span><b>BNPL tickets:</b> 20 / $1,000</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $35,710</span><span><b>Pinnacle:</b> $5,390</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot launch"></div>
+        <div class="tl-card">
+          <div class="tl-date">September 1, 2026 &middot; BNPL Launch</div>
+          <div class="tl-title">BNPL goes live. Second $8K lease payment.</div>
+          <div class="tl-row">
+            <span><b>MA loans:</b> 40 / mo</span><span><b>MA revenue:</b> $80,000</span>
+            <span><b>BNPL tickets:</b> 40 / $2,000</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $71,410</span><span><b>Pinnacle:</b> $10,690</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">October 1, 2026 &middot; Hosting &amp; Ops</div>
+          <div class="tl-title">First MA reseller signs. Recurring sub-license begins.</div>
+          <div class="tl-row">
+            <span><b>MA loans:</b> 80 / mo</span><span><b>MA revenue:</b> $160,000</span>
+            <span><b>MA sub-license:</b> 1 client / $5,000</span>
+            <span><b>BNPL vendors:</b> 2</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $143,820</span><span><b>Pinnacle:</b> $25,380</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">November 1, 2026</div>
+          <div class="tl-title">Volume builds: 100 MA loans, 4 BNPL vendors.</div>
+          <div class="tl-row">
+            <span><b>MA revenue:</b> $200,000</span><span><b>BNPL tickets:</b> 100 / $5,000</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $179,540</span><span><b>Pinnacle:</b> $30,860</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">December 1, 2026</div>
+          <div class="tl-title">Second MA sub-licensee onboarded.</div>
+          <div class="tl-row">
+            <span><b>MA loans:</b> 100 / mo</span><span><b>MA sub-license:</b> 2 / $10,000</span>
+            <span><b>BNPL vendors:</b> 5</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $180,550</span><span><b>Pinnacle:</b> $34,950</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">January 1, 2027</div>
+          <div class="tl-title">BNPL scales to 10 vendors; ticket count doubles.</div>
+          <div class="tl-row">
+            <span><b>MA revenue:</b> $200,000</span><span><b>BNPL tickets:</b> 200 / $10,000</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $184,100</span><span><b>Pinnacle:</b> $36,900</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">February 1, 2027</div>
+          <div class="tl-title">MA volume steps up to 150 loans / month.</div>
+          <div class="tl-row">
+            <span><b>MA revenue:</b> $300,000</span><span><b>MA sub-license:</b> 4 / $20,000</span>
+            <span><b>BNPL tickets:</b> 300 / $15,000</span>
+          </div>
+          <div class="tl-row"><span><b>Co-Card:</b> $277,100</span><span><b>Pinnacle:</b> $58,900</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">March &ndash; April 2027</div>
+          <div class="tl-title">Steady-state scaling. BNPL ticket count grows to 500.</div>
+          <div class="tl-row"><span><b>Combined Co-Card:</b> $564,700</span><span><b>Combined Pinnacle:</b> $122,300</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot launch"></div>
+        <div class="tl-card">
+          <div class="tl-date">May 1, 2027 &middot; Year-end target</div>
+          <div class="tl-title">Full scale: 150 MA loans, 600 BNPL tickets, 15 vendors.</div>
+          <div class="tl-row">
+            <span><b>MA revenue:</b> $300,000</span><span><b>BNPL revenue:</b> $30,000</span>
+            <span><b>Co-Card:</b> $287,650</span><span><b>Pinnacle:</b> $63,850</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue">
+  <div class="wrap">
+    <div class="eyebrow">12-Month Revenue Projection</div>
+    <h2>Both sides win after the lease pays for itself.</h2>
+    <p class="sub">
+      The model below assumes the published ramp: 20 MA loans in August scaling to 150/month, BNPL tickets growing
+      from 20 to 600/month, and 4 active MA sub-licensees by year-end. Co-Card lease commitment of $120K is
+      recovered well within the term.
+    </p>
+
+    <div class="chart-wrap">
+      <canvas id="revChart" height="120"></canvas>
+      <div class="legend-note">Stacked monthly revenue for each party. Hover bars for exact figures.</div>
+    </div>
+
+    <div class="grid-3" style="margin-top:32px">
+      <div class="card">
+        <span class="tag cc">Co-Card 12-Mo</span>
+        <h3 style="margin-top:10px">$1,924,580</h3>
+        <p>Driven primarily by MA broker fees ($2,000 per $10K loan) and underwriting / ACH fees, with steady BNPL royalties.</p>
+      </div>
+      <div class="card">
+        <span class="tag pin">Pinnacle 12-Mo</span>
+        <h3 style="margin-top:10px">$389,220</h3>
+        <p>Built from per-loan system fees ($250), MA sub-license shares ($4,000), and BNPL sub-license shares ($89), plus the $120K lease.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Funding Aggregate</span>
+        <h3 style="margin-top:10px">$2.08M MA + $117K BNPL</h3>
+        <p>Total MA loan volume reaches $2.08M of broker revenue; BNPL adds $117K of merchant discount revenue across the term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Why this works</div>
+    <h2>Aligned incentives. Predictable build. Compounding revenue.</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Low capital risk</h3>
+        <p>$40K seed plus milestone-tied $8K lease payments. Co-Card sees a working beta before the second tranche and a live MA launch before month 3.</p>
+      </div>
+      <div class="card">
+        <h3>Recurring revenue</h3>
+        <p>Every MA sub-licensee adds $5K/mo. Every BNPL vendor adds $99/mo. Recurring SaaS layered on top of transaction-based fees.</p>
+      </div>
+      <div class="card">
+        <h3>Built-in payback</h3>
+        <p>10 MA resellers fully offset Co-Card&rsquo;s monthly lease. Anything beyond that &mdash; plus the $250/loan transaction fees &mdash; is upside for both sides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>Pinnacle&nbsp;AI &times; Co-Card &mdash; Merchant Account &amp; BNPL Partnership</div>
+    </div>
+    <div>Prepared May 2026 &middot; Term: June 2026 &ndash; May 2027 &middot; Confidential business proposal</div>
+  </div>
+</footer>
+
+<script>
+  // Revenue chart based on the timeline in the proposal
+  const labels = [
+    'Aug 26','Sep 26','Oct 26','Nov 26','Dec 26','Jan 27','Feb 27','Mar 27','Apr 27','May 27'
+  ];
+  const coCard  = [35710, 71410, 143820, 179540, 180550, 184100, 277100, 280600, 284100, 287650];
+  const pinnacle= [ 5390, 10690,  25380,  30860,  34950,  36900,  58900,  60400,  61900,  63850];
+
+  const ctx = document.getElementById('revChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Co-Card revenue',
+          data: coCard,
+          backgroundColor: 'rgba(212, 160, 23, 0.85)',
+          borderColor: 'rgba(199, 154, 26, 1)',
+          borderWidth: 1,
+          stack: 'rev'
+        },
+        {
+          label: 'Pinnacle AI revenue',
+          data: pinnacle,
+          backgroundColor: 'rgba(31, 138, 76, 0.85)',
+          borderColor: 'rgba(14, 90, 50, 1)',
+          borderWidth: 1,
+          stack: 'rev'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#102a18', font: { family: 'Inter', size: 12, weight: '600' } } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          ticks: { color: '#355a3f' },
+          grid: { color: 'rgba(16,42,24,0.06)' }
+        },
+        y: {
+          stacked: true,
+          ticks: {
+            color: '#355a3f',
+            callback: function(v) { return '$' + (v/1000) + 'K'; }
+          },
+          grid: { color: 'rgba(16,42,24,0.08)' }
+        }
+      }
+    }
+  });
+  // Ensure the canvas has explicit height for proper rendering
+  document.getElementById('revChart').parentElement.style.height = '360px';
+</script>
+
+</body>
+</html>
