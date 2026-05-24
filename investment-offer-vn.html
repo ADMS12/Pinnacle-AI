@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Đề Xuất Đầu Tư Rosamond &mdash; ROI cho ATAD &amp; Nhà Đầu Tư Tư Nhân</title>
+<meta name="description" content="Tóm tắt cơ hội đầu tư dành cho ATAD và nhà đầu tư tư nhân vào khu chung cư cho thuê 365 căn Rosamond và nhà máy lắp ráp Fast-Build-System (Build-Co)." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --bg-soft:   #f6f8fc;
+    --bg-panel:  #ffffff;
+    --bg-muted:  #eef2f8;
+
+    --ink:       #0f1b3d;
+    --ink-2:     #2b3a64;
+    --ink-mute:  #607094;
+
+    --line:      #d8e0ee;
+    --line-soft: #e7ecf5;
+
+    --accent:    #2459d6;
+    --accent-2:  #4c8dff;
+    --accent-bg: #e8f0ff;
+
+    --orange:    #e07a2b;
+    --orange-2:  #f59c4d;
+    --orange-bg: #fff2e3;
+
+    --good:      #128a64;
+    --good-2:    #2bd4a4;
+    --good-bg:   #e2f7ee;
+
+    --purple:    #5b46d9;
+    --purple-2:  #8a7aff;
+
+    --radius:    14px;
+    --shadow:    0 6px 22px rgba(15,27,61,0.08);
+    --shadow-lg: 0 14px 40px rgba(15,27,61,0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 15px; white-space: nowrap; }
+  .brand .logo {
+    width: 34px; height: 34px; border-radius: 8px; flex: 0 0 34px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    box-shadow: 0 6px 18px rgba(36,89,214,0.30);
+    display: grid; place-items: center; color: white; font-weight: 800; font-size: 14px;
+  }
+  .brand .subtitle { color: var(--ink-mute); font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  nav.top a.nav-link { color: var(--ink-2); text-decoration: none; padding: 8px 12px; font-size: 14px; font-weight: 500; border-radius: 8px; }
+  nav.top a.nav-link:hover { color: var(--accent); background: var(--accent-bg); }
+  nav.top .nav-cta {
+    padding: 9px 14px; border-radius: 10px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white; text-decoration: none; font-size: 14px; white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(36,89,214,0.25);
+  }
+  nav.top .nav-cta:hover { color: white; }
+  .lang-switch {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 6px 10px; border-radius: 8px;
+    background: var(--bg-soft); border: 1px solid var(--line);
+    color: var(--ink-2); text-decoration: none;
+    font-size: 12px; font-weight: 600;
+  }
+  .lang-switch:hover { background: var(--accent-bg); color: var(--accent); border-color: #c9dcff; }
+
+  /* HERO */
+  header.hero {
+    padding: 72px 0 50px;
+    background:
+      radial-gradient(900px 400px at 90% -10%, rgba(36,89,214,0.08), transparent 60%),
+      radial-gradient(700px 320px at -10% 10%, rgba(91,70,217,0.07), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent); border: 1px solid #c9dcff;
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.06; margin: 18px 0 16px; font-weight: 800; letter-spacing: -0.6px;
+    color: var(--ink);
+  }
+  h1 .grad { background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; color: var(--ink-2); max-width: 820px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid transparent; font-size: 15px;
+  }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--purple)); color: white; box-shadow: 0 8px 22px rgba(36,89,214,0.30); }
+  .btn.blue   { background: var(--accent-bg); color: var(--accent); border: 1px solid #c9dcff; }
+  .btn.amber  { background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: white; box-shadow: 0 8px 22px rgba(224,122,43,0.30); }
+
+  /* STAT BAR */
+  .stats { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .stat { background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .stat .k { font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700; }
+  .stat .v { font-size: 30px; font-weight: 800; margin-top: 6px; font-family: 'JetBrains Mono', monospace; color: var(--ink); }
+  .stat .v.acc  { color: var(--accent); }
+  .stat .v.org  { color: var(--orange); }
+  .stat .v.good { color: var(--good); }
+  .stat .v.pur  { color: var(--purple); }
+  .stat .sub { font-size: 12px; color: var(--ink-mute); margin-top: 4px; }
+
+  /* SECTIONS */
+  section { padding: 70px 0; border-top: 1px solid var(--line-soft); }
+  .eyebrow { font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; }
+  h2 { font-size: clamp(26px, 3vw, 36px); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.4px; color: var(--ink); }
+  h2 .grad { background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 .grad.amber { background: linear-gradient(135deg, var(--orange), #c45a18); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { color: var(--ink-2); max-width: 820px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+  .card {
+    background: var(--bg-panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: var(--ink); }
+  .card p { color: var(--ink-2); margin: 0; }
+
+  /* OFFER CARDS */
+  .offer {
+    position: relative;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .offer.atad   { border-top: 5px solid var(--accent); }
+  .offer.build  { border-top: 5px solid var(--orange); }
+  .offer .tag {
+    display: inline-block; padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 700;
+  }
+  .offer.atad  .tag { background: var(--accent-bg); color: var(--accent); border: 1px solid #c9dcff; }
+  .offer.build .tag { background: var(--orange-bg); color: var(--orange); border: 1px solid #f7cfa6; }
+  .offer h3 { font-size: 24px; margin: 12px 0 4px; font-weight: 800; color: var(--ink); }
+  .offer .who { color: var(--ink-mute); font-size: 13px; margin-bottom: 18px; font-weight: 500; }
+
+  .rows { display: grid; gap: 10px; margin: 18px 0 8px; }
+  .row {
+    display: grid; grid-template-columns: 140px 1fr; gap: 14px;
+    padding: 12px 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+  }
+  .row .label { font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; align-self: center; }
+  .row .val { font-size: 14px; color: var(--ink); }
+  .row .val strong { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--ink); }
+
+  .returnbox {
+    margin-top: 22px; padding: 20px 22px;
+    background: var(--good-bg);
+    border: 1px solid #b6e9d3; border-radius: 14px;
+  }
+  .returnbox .lbl { font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--good); font-weight: 800; }
+  .returnbox .big { font-size: 26px; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: var(--ink); margin-top: 4px; }
+  .returnbox .det { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+  .returnbox.amber { background: var(--orange-bg); border-color: #f6cfa3; }
+  .returnbox.amber .lbl { color: var(--orange); }
+
+  /* FLOW DIAGRAM */
+  .flow-wrap {
+    margin-top: 30px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    overflow-x: auto;
+  }
+  svg.flow { width: 100%; min-width: 820px; height: auto; display: block; }
+  svg.timeline { width: 100%; min-width: 940px; height: auto; display: block; }
+
+  /* BENEFITS */
+  .benefit {
+    display: grid; grid-template-columns: 44px 1fr; gap: 14px;
+    padding: 14px 0; border-bottom: 1px dashed var(--line);
+  }
+  .benefit:last-child { border-bottom: none; }
+  .benefit .ico {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: grid; place-items: center; font-size: 16px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--purple)); color: white;
+  }
+  .benefit.alt .ico { background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: white; }
+  .benefit h4 { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink); }
+  .benefit p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+
+  /* COMPARISON TABLE */
+  table.cmp { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 28px; font-size: 14px; background: var(--bg-panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  table.cmp th, table.cmp td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--line-soft); }
+  table.cmp tr:last-child td { border-bottom: none; }
+  table.cmp th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; background: var(--bg-soft); }
+  table.cmp td.num { font-family: 'JetBrains Mono', monospace; color: var(--ink); font-weight: 600; }
+  table.cmp tr td:first-child { color: var(--ink-2); font-weight: 500; }
+
+  /* CTA SECTION */
+  .cta-block {
+    margin-top: 36px;
+    background: linear-gradient(135deg, #eef3ff, #fff);
+    border: 1px solid #c9dcff;
+    border-radius: 18px;
+    padding: 36px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .cta-block h3 { font-size: 24px; margin: 0 0 10px; font-weight: 800; color: var(--ink); }
+  .cta-block p { margin: 0 0 22px; color: var(--ink-2); }
+
+  /* FOOTER */
+  footer { padding: 36px 0 56px; color: var(--ink-mute); font-size: 13px; border-top: 1px solid var(--line-soft); margin-top: 0; background: var(--bg-soft); }
+  footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 120px 1fr; }
+    nav.top a.nav-link { display: none; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    nav.top .row { height: 56px; }
+    .brand { font-size: 14px; }
+    .brand .subtitle { display: none; }
+    nav.top .nav-cta { padding: 8px 12px; font-size: 13px; }
+    .lang-switch { display: none; }
+    header.hero { padding: 40px 0 32px; }
+    h1 { font-size: 28px; line-height: 1.18; }
+    .lead { font-size: 16px; }
+    section { padding: 48px 0; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat { padding: 16px; }
+    .stat .v { font-size: 24px; }
+    .offer { padding: 22px; }
+    .offer h3 { font-size: 20px; }
+    .row { grid-template-columns: 1fr; padding: 10px 12px; gap: 4px; }
+    .row .label { font-size: 10px; }
+    .returnbox .big { font-size: 20px; }
+    .cta-block { padding: 24px 18px; }
+    .cta-block h3 { font-size: 20px; }
+    table.cmp th, table.cmp td { padding: 10px 12px; font-size: 13px; }
+    .btn { font-size: 14px; padding: 11px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="logo">R</div>
+      <div>Rosamond <span class="subtitle">· Đề Xuất Đầu Tư</span></div>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="#atad">ATAD</a>
+      <a class="nav-link" href="#buildco">NĐT Tư Nhân</a>
+      <a class="nav-link" href="#compare">So Sánh</a>
+      <a class="lang-switch" href="investment-offer.html" title="English version">EN</a>
+      <a class="nav-cta" href="https://rosamond2006.vercel.app/lp.html" target="_blank" rel="noopener">Mô Hình Dòng Tiền →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">BẢO MẬT · CƠ HỘI ĐẦU TƯ</span>
+    <h1>Hai con đường tham gia vào khu chung cư cho thuê <span class="grad">365 căn Rosamond</span><br/>&amp; nhà máy lắp ráp Fast-Build-System.</h1>
+    <p class="lead">Một lời mời đặc biệt dành cho <strong>ATAD</strong> — nhà sản xuất thép và vật liệu xây dựng đang mở rộng vào thị trường Mỹ — và một <strong>nhà đầu tư tư nhân</strong> tài trợ cho nhà máy lắp ráp Build-Co, đơn vị sẽ bàn giao dự án và mở đường cho danh mục các dự án phát triển trong tương lai.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://rosamond2006.vercel.app/lp.html" target="_blank" rel="noopener">Xem Mô Hình Dòng Tiền LP Đầy Đủ →</a>
+      <a class="btn blue" href="#atad">Đề Xuất ATAD</a>
+      <a class="btn amber" href="#buildco">Đề Xuất NĐT Tư Nhân</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="k">Quy Mô Dự Án</div>
+        <div class="v pur">365</div>
+        <div class="sub">Căn hộ cho thuê sẽ bàn giao</div>
+      </div>
+      <div class="stat">
+        <div class="k">Lợi Nhuận ATAD (5 năm)</div>
+        <div class="v acc">$37M</div>
+        <div class="sub">Trên $10M vốn chủ + $15M hạn mức</div>
+      </div>
+      <div class="stat">
+        <div class="k">Lợi Nhuận NĐT Tư Nhân</div>
+        <div class="v org">$15.5M</div>
+        <div class="sub">Trên $5M vốn chủ + $10M hạn mức</div>
+      </div>
+      <div class="stat">
+        <div class="k">Doanh Thu Vật Liệu Cho ATAD</div>
+        <div class="v good">~$40M</div>
+        <div class="sub">Khối lượng mua từ dự án</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ATAD OFFER -->
+<section id="atad">
+  <div class="wrap">
+    <div class="eyebrow">Đề Xuất 1 · Đối Tác Sản Xuất</div>
+    <h2>Đầu Tư Vốn Chủ <span class="grad">Danh Mục ATAD</span></h2>
+    <p class="sub">Cam kết vốn của ATAD biến một dự án đơn lẻ thành <strong>đầu cầu vào thị trường Mỹ</strong>: đảm bảo doanh thu vật liệu ngay hôm nay, chia sẻ lợi nhuận khi hoàn thành, và một chỗ đứng lâu dài trong danh mục các dự án phát triển tương lai của Build-Co tại Mỹ.</p>
+
+    <div class="grid-2">
+      <div class="offer atad">
+        <span class="tag">ATAD · Nhà Sản Xuất</span>
+        <h3>Danh Mục BĐS Rosamond</h3>
+        <div class="who">365 Căn Hộ Cho Thuê · Nắm Giữ 5 Năm</div>
+
+        <div class="rows">
+          <div class="row"><div class="label">Đơn Vị</div>     <div class="val">Danh Mục BĐS Rosamond — 365 căn hộ cho thuê</div></div>
+          <div class="row"><div class="label">Khoản Đầu Tư</div> <div class="val"><strong>$10M</strong> vốn chủ dự án (Thư Bày Tỏ Ý Định) + <strong>$15M</strong> hạn mức tín dụng nhà cung cấp</div></div>
+          <div class="row"><div class="label">Thời Hạn</div>   <div class="val">5 năm · $1M T9/2026 · $1M T11/2026 · $8M bằng vật liệu</div></div>
+          <div class="row"><div class="label">Mục Đích</div>   <div class="val">Cấp phép đất · vật liệu xây dựng (~$40M do Rosamond RE mua, ghi nhận là doanh thu của ATAD) · vật liệu khác</div></div>
+        </div>
+
+        <div class="returnbox">
+          <div class="lbl">Lợi Nhuận Dự Kiến</div>
+          <div class="big">15% vốn LP · 40% chia sẻ LN LP</div>
+          <div class="det">≈ <strong>Tổng lợi nhuận $37M</strong> trong 5 năm · cộng thêm ~$40M doanh thu vật liệu ghi nhận qua ATAD trong giai đoạn xây dựng.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--accent)">Tại sao điều này quan trọng với ATAD</h3>
+        <div class="benefit">
+          <div class="ico">1</div>
+          <div>
+            <h4>Mở rộng dấu ấn tại thị trường Mỹ</h4>
+            <p>Đảm bảo lần giao hàng lớn đầu tiên của ATAD tại Mỹ và tạo ra dự án tham chiếu cho các hợp đồng tương lai.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="ico">2</div>
+          <div>
+            <h4>Đảm bảo đầu ra vật liệu</h4>
+            <p>~$40M vật liệu xây dựng được mua từ ATAD — ghi nhận là doanh thu sản xuất trực tiếp, không phải dòng tiền ra của nhà đầu tư.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="ico">3</div>
+          <div>
+            <h4>Lợi nhuận vốn chủ bên cạnh doanh thu</h4>
+            <p>15% vốn LP + 40% chia sẻ LN LP biến mối quan hệ nhà cung cấp thành vị thế sở hữu thực sự trong tài sản.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="ico">4</div>
+          <div>
+            <h4>Hạn mức nhà cung cấp tự thanh khoản</h4>
+            <p>Hạn mức $15M được rút dựa trên chính các lô hàng vật liệu của ATAD — rủi ro hạn chế, đẩy nhanh tiến độ dự án.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATAD FLOW DIAGRAM -->
+    <div class="flow-wrap">
+      <svg class="flow" viewBox="0 0 1100 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gAtadFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#e8f0ff"/>
+            <stop offset="1" stop-color="#f6f9ff"/>
+          </linearGradient>
+          <linearGradient id="gGoodFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#e2f7ee"/>
+            <stop offset="1" stop-color="#f1fbf7"/>
+          </linearGradient>
+        </defs>
+
+        <text x="20" y="28" fill="#607094" font-family="Inter" font-size="11" letter-spacing="2" font-weight="700">DÒNG VỐN ATAD</text>
+
+        <g font-family="Inter" font-weight="700" font-size="13" fill="#0f1b3d">
+          <path d="M30 60 L210 60 L235 95 L210 130 L30 130 Z" fill="url(#gAtadFill)" stroke="#2459d6" stroke-width="1.5"/>
+          <text x="120" y="88" text-anchor="middle">ĐƠN VỊ</text>
+          <text x="120" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">Rosamond RE · 365 căn</text>
+
+          <path d="M245 60 L425 60 L450 95 L425 130 L245 130 L270 95 Z" fill="url(#gAtadFill)" stroke="#2459d6" stroke-width="1.5"/>
+          <text x="345" y="88" text-anchor="middle">ĐẦU TƯ</text>
+          <text x="345" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">$10M vốn + $15M hạn mức</text>
+
+          <path d="M460 60 L640 60 L665 95 L640 130 L460 130 L485 95 Z" fill="url(#gAtadFill)" stroke="#2459d6" stroke-width="1.5"/>
+          <text x="560" y="88" text-anchor="middle">THỜI HẠN</text>
+          <text x="560" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">5 năm</text>
+
+          <path d="M675 60 L855 60 L880 95 L855 130 L675 130 L700 95 Z" fill="url(#gAtadFill)" stroke="#2459d6" stroke-width="1.5"/>
+          <text x="775" y="88" text-anchor="middle">MỤC ĐÍCH</text>
+          <text x="775" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">Đất + ~$40M vật liệu</text>
+
+          <path d="M890 60 L1070 60 L1070 130 L890 130 L915 95 Z" fill="url(#gGoodFill)" stroke="#128a64" stroke-width="1.5"/>
+          <text x="985" y="88" text-anchor="middle" fill="#128a64">LỢI NHUẬN</text>
+          <text x="985" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">$37M trong 5 năm</text>
+        </g>
+
+        <text x="20" y="180" fill="#607094" font-family="Inter" font-size="12">15% vốn LP · 40% chia sẻ LN LP · cộng ~$40M doanh thu vật liệu ghi nhận qua ATAD trong xây dựng</text>
+        <text x="20" y="200" fill="#607094" font-family="Inter" font-size="11" font-style="italic">Lịch giải ngân: $1M T9/2026 · $1M T11/2026 · $8M bằng vật liệu</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD-CO OFFER -->
+<section id="buildco">
+  <div class="wrap">
+    <div class="eyebrow">Đề Xuất 2 · Nhà Đầu Tư Tư Nhân</div>
+    <h2>Đầu Tư Vốn Chủ <span class="grad amber">Build-Co</span></h2>
+    <p class="sub">Cổ phần trực tiếp trong <strong>nhà máy lắp ráp Fast-Build-System (FBS)</strong> — động cơ sản xuất sẽ bàn giao Rosamond và thúc đẩy danh mục dự án bất động sản tương lai của Build-Co tại Mỹ.</p>
+
+    <div class="grid-2">
+      <div class="offer build">
+        <span class="tag">Build-Co · Nhà Máy Lắp Ráp</span>
+        <h3>Nhà Máy Lắp Ráp Fast Build System</h3>
+        <div class="who">Nhà Máy FBS · Tầm Nhìn 3–10 Năm</div>
+
+        <div class="rows">
+          <div class="row"><div class="label">Đơn Vị</div>     <div class="val">Nhà Máy Lắp Ráp Fast Build System (Build-Co)</div></div>
+          <div class="row"><div class="label">Khoản Đầu Tư</div> <div class="val"><strong>$5M</strong> cho vay/vốn chủ + <strong>$10M</strong> hạn mức tín dụng (Thư Bày Tỏ Ý Định)</div></div>
+          <div class="row"><div class="label">Thời Hạn</div>   <div class="val">3 – 10 năm</div></div>
+          <div class="row"><div class="label">Mục Đích</div>   <div class="val">Khởi tạo Build-Co · vận hành Build-Co · các dự án phát triển bất động sản tương lai</div></div>
+        </div>
+
+        <div class="returnbox amber">
+          <div class="lbl">Lợi Nhuận Dự Kiến</div>
+          <div class="big">40% chia sẻ LN LP + vốn chủ</div>
+          <div class="det">≈ <strong>$10M trong Năm 1–3</strong> · <strong>$5.0M hoàn trả khoản vay Năm 3</strong> · <strong>Tổng lợi nhuận $15.5M</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--orange)">Tại sao điều này quan trọng với nhà đầu tư tư nhân</h3>
+        <div class="benefit alt">
+          <div class="ico">1</div>
+          <div>
+            <h4>Sở hữu động cơ, không chỉ dự án</h4>
+            <p>Vốn chủ trong Build-Co có nghĩa là sở hữu nhà máy lắp ráp FBS — tài sản sản xuất tái sử dụng được, không phải cổ phần dự án một lần.</p>
+          </div>
+        </div>
+        <div class="benefit alt">
+          <div class="ico">2</div>
+          <div>
+            <h4>Đòn bẩy danh mục dự án</h4>
+            <p>Sau khi Rosamond hoàn thành, Build-Co trở thành nền tảng bàn giao cho các dự án phát triển tương lai tại Mỹ — mỗi dự án là một dòng tiền bổ sung.</p>
+          </div>
+        </div>
+        <div class="benefit alt">
+          <div class="ico">3</div>
+          <div>
+            <h4>Hoàn vốn ưu tiên giai đoạn đầu</h4>
+            <p>$10M được hoàn trả trong Năm 1–3 cộng với $5M gốc vay được hoàn trả Năm 3 giảm rủi ro vị thế trước khi phân phối vốn chủ cuối cùng.</p>
+          </div>
+        </div>
+        <div class="benefit alt">
+          <div class="ico">4</div>
+          <div>
+            <h4>Đồng hành với đối tác sản xuất</h4>
+            <p>Cam kết song song của ATAD đảm bảo nguồn cung vật liệu và xác thực hệ thống xây dựng cốt lõi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILD-CO FLOW DIAGRAM -->
+    <div class="flow-wrap">
+      <svg class="flow" viewBox="0 0 1100 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gBuildFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#fff2e3"/>
+            <stop offset="1" stop-color="#fffaf3"/>
+          </linearGradient>
+          <linearGradient id="gGoodFill2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#e2f7ee"/>
+            <stop offset="1" stop-color="#f1fbf7"/>
+          </linearGradient>
+        </defs>
+
+        <text x="20" y="28" fill="#607094" font-family="Inter" font-size="11" letter-spacing="2" font-weight="700">DÒNG VỐN NHÀ ĐẦU TƯ TƯ NHÂN</text>
+
+        <g font-family="Inter" font-weight="700" font-size="13" fill="#0f1b3d">
+          <path d="M30 60 L210 60 L235 95 L210 130 L30 130 Z" fill="url(#gBuildFill)" stroke="#e07a2b" stroke-width="1.5"/>
+          <text x="120" y="86" text-anchor="middle">ĐƠN VỊ</text>
+          <text x="120" y="106" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">Nhà Máy FBS</text>
+          <text x="120" y="120" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">(Build-Co)</text>
+
+          <path d="M245 60 L425 60 L450 95 L425 130 L245 130 L270 95 Z" fill="url(#gBuildFill)" stroke="#e07a2b" stroke-width="1.5"/>
+          <text x="345" y="88" text-anchor="middle">ĐẦU TƯ</text>
+          <text x="345" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">$5M vốn + $10M hạn mức</text>
+
+          <path d="M460 60 L640 60 L665 95 L640 130 L460 130 L485 95 Z" fill="url(#gBuildFill)" stroke="#e07a2b" stroke-width="1.5"/>
+          <text x="560" y="88" text-anchor="middle">THỜI HẠN</text>
+          <text x="560" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">3 – 10 năm</text>
+
+          <path d="M675 60 L855 60 L880 95 L855 130 L675 130 L700 95 Z" fill="url(#gBuildFill)" stroke="#e07a2b" stroke-width="1.5"/>
+          <text x="775" y="86" text-anchor="middle">MỤC ĐÍCH</text>
+          <text x="775" y="106" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">Khởi tạo · vận hành ·</text>
+          <text x="775" y="120" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">dự án tương lai</text>
+
+          <path d="M890 60 L1070 60 L1070 130 L890 130 L915 95 Z" fill="url(#gGoodFill2)" stroke="#128a64" stroke-width="1.5"/>
+          <text x="985" y="86" text-anchor="middle" fill="#128a64">LỢI NHUẬN</text>
+          <text x="985" y="106" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">$15.5M tổng</text>
+          <text x="985" y="120" text-anchor="middle" font-size="11" font-weight="500" fill="#2b3a64">40% chia sẻ LN</text>
+        </g>
+
+        <text x="20" y="180" fill="#607094" font-family="Inter" font-size="12">$10M hoàn trả trong Năm 1–3 · $5.0M hoàn trả Năm 3 · 40% chia sẻ LN LP / vốn chủ</text>
+        <text x="20" y="200" fill="#607094" font-family="Inter" font-size="11" font-style="italic">Nhà máy FBS trở thành nền tảng bàn giao tái sử dụng cho các dự án BĐS tương lai của Build-Co</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow">Lịch Trình Triển Khai Vốn</div>
+    <h2>Từ <span class="grad">cam kết</span> đến <span class="grad">lợi nhuận đầy đủ</span></h2>
+    <p class="sub">Cái nhìn đơn giản về dòng tiền vào và ra của cả hai bên trong giai đoạn 5 năm của dự án. Để xem mô hình IRR đầy đủ theo từng kỳ, vui lòng tham khảo Mô Hình Dòng Tiền LP.</p>
+
+    <div class="flow-wrap">
+      <svg class="timeline" viewBox="0 0 1100 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="tl" x1="0" x2="1">
+            <stop offset="0" stop-color="#2459d6"/>
+            <stop offset="1" stop-color="#5b46d9"/>
+          </linearGradient>
+        </defs>
+
+        <line x1="60" y1="170" x2="1040" y2="170" stroke="url(#tl)" stroke-width="3"/>
+
+        <g font-family="JetBrains Mono" font-size="12" fill="#2b3a64" text-anchor="middle">
+          <circle cx="60"   cy="170" r="7" fill="#ffffff" stroke="#2459d6" stroke-width="2"/>
+          <text x="60"   y="200">T9/2026</text>
+          <circle cx="220" cy="170" r="7" fill="#ffffff" stroke="#2459d6" stroke-width="2"/>
+          <text x="220" y="200">T11/2026</text>
+          <circle cx="430" cy="170" r="7" fill="#ffffff" stroke="#2459d6" stroke-width="2"/>
+          <text x="430" y="200">Năm 1</text>
+          <circle cx="620" cy="170" r="7" fill="#ffffff" stroke="#2459d6" stroke-width="2"/>
+          <text x="620" y="200">Năm 3</text>
+          <circle cx="810" cy="170" r="7" fill="#ffffff" stroke="#2459d6" stroke-width="2"/>
+          <text x="810" y="200">Năm 4</text>
+          <circle cx="1000" cy="170" r="9" fill="#128a64" stroke="#ffffff" stroke-width="2"/>
+          <text x="1000" y="200" fill="#128a64" font-weight="700">Năm 5 · Thoái vốn</text>
+        </g>
+
+        <!-- ATAD events ABOVE the axis -->
+        <g font-family="Inter" font-size="11" fill="#0f1b3d">
+          <rect x="20"  y="60"  width="140" height="60" rx="8" fill="#e8f0ff" stroke="#2459d6"/>
+          <text x="90"  y="80"  text-anchor="middle" font-weight="700" fill="#2459d6">ATAD</text>
+          <text x="90"  y="96"  text-anchor="middle">$1M đợt 1</text>
+          <text x="90"  y="110" text-anchor="middle" fill="#2b3a64">vốn chủ dự án</text>
+          <line x1="60"  y1="170" x2="90"  y2="120" stroke="#2459d6" stroke-dasharray="3 3"/>
+
+          <rect x="180" y="60"  width="140" height="60" rx="8" fill="#e8f0ff" stroke="#2459d6"/>
+          <text x="250" y="80"  text-anchor="middle" font-weight="700" fill="#2459d6">ATAD</text>
+          <text x="250" y="96"  text-anchor="middle">$1M đợt 2</text>
+          <text x="250" y="110" text-anchor="middle" fill="#2b3a64">vốn chủ dự án</text>
+          <line x1="220" y1="170" x2="250" y2="120" stroke="#2459d6" stroke-dasharray="3 3"/>
+
+          <rect x="365" y="40"  width="180" height="80" rx="8" fill="#e8f0ff" stroke="#2459d6"/>
+          <text x="455" y="60"  text-anchor="middle" font-weight="700" fill="#2459d6">VẬT LIỆU ATAD</text>
+          <text x="455" y="78"  text-anchor="middle">$8M vốn chủ + ~$40M</text>
+          <text x="455" y="92"  text-anchor="middle">vật liệu xây dựng</text>
+          <text x="455" y="108" text-anchor="middle" fill="#2b3a64">rút trong Năm 1–3</text>
+          <line x1="430" y1="170" x2="455" y2="120" stroke="#2459d6" stroke-dasharray="3 3"/>
+
+          <rect x="900" y="60"  width="180" height="60" rx="8" fill="#e2f7ee" stroke="#128a64"/>
+          <text x="990" y="80"  text-anchor="middle" font-weight="700" fill="#128a64">LỢI NHUẬN ATAD</text>
+          <text x="990" y="96"  text-anchor="middle">$37M · 15% vốn chủ</text>
+          <text x="990" y="110" text-anchor="middle" fill="#2b3a64">+ 40% chia sẻ LN</text>
+          <line x1="1000" y1="170" x2="990" y2="120" stroke="#128a64" stroke-dasharray="3 3"/>
+        </g>
+
+        <!-- Build-Co events BELOW the axis -->
+        <g font-family="Inter" font-size="11" fill="#0f1b3d">
+          <rect x="365" y="225" width="160" height="60" rx="8" fill="#fff2e3" stroke="#e07a2b"/>
+          <text x="445" y="245" text-anchor="middle" font-weight="700" fill="#e07a2b">BUILD-CO KHỞI ĐẦU</text>
+          <text x="445" y="261" text-anchor="middle">$5M vốn chủ</text>
+          <text x="445" y="275" text-anchor="middle" fill="#2b3a64">+ $10M hạn mức</text>
+          <line x1="430" y1="170" x2="445" y2="225" stroke="#e07a2b" stroke-dasharray="3 3"/>
+
+          <rect x="555" y="225" width="160" height="60" rx="8" fill="#fff2e3" stroke="#e07a2b"/>
+          <text x="635" y="245" text-anchor="middle" font-weight="700" fill="#e07a2b">CHI TRẢ NĂM 1–3</text>
+          <text x="635" y="261" text-anchor="middle">$10M hoàn trả</text>
+          <text x="635" y="275" text-anchor="middle" fill="#2b3a64">+ $5M trả gốc Năm 3</text>
+          <line x1="620" y1="170" x2="635" y2="225" stroke="#e07a2b" stroke-dasharray="3 3"/>
+
+          <rect x="900" y="225" width="180" height="60" rx="8" fill="#e2f7ee" stroke="#128a64"/>
+          <text x="990" y="245" text-anchor="middle" font-weight="700" fill="#128a64">LỢI NHUẬN BUILD-CO</text>
+          <text x="990" y="261" text-anchor="middle">$15.5M tổng</text>
+          <text x="990" y="275" text-anchor="middle" fill="#2b3a64">+ vốn chủ tiếp tục</text>
+          <line x1="1000" y1="170" x2="990" y2="225" stroke="#128a64" stroke-dasharray="3 3"/>
+        </g>
+
+        <text x="20" y="30" font-family="Inter" font-size="11" letter-spacing="2" font-weight="700" fill="#607094">ATAD PHÍA TRÊN · BUILD-CO PHÍA DƯỚI</text>
+        <text x="20" y="320" font-family="Inter" font-size="11" fill="#607094" font-style="italic">Lịch trình đơn giản — IRR đầy đủ theo từng kỳ có trong Mô Hình Dòng Tiền LP.</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="wrap">
+    <div class="eyebrow">So Sánh Song Song</div>
+    <h2>Hai đề xuất, <span class="grad">một dự án</span>, kết quả bổ trợ</h2>
+    <p class="sub">Mỗi con đường là độc lập — nhưng chúng củng cố lẫn nhau. ATAD đảm bảo vật liệu; Build-Co đảm bảo bàn giao; cả hai cùng chia sẻ lợi nhuận.</p>
+
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th></th>
+          <th style="color:var(--accent)">ATAD (Nhà Sản Xuất)</th>
+          <th style="color:var(--orange)">NĐT Tư Nhân (Build-Co)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Đơn Vị Mục Tiêu</td><td>Danh Mục BĐS Rosamond (365 căn)</td><td>Nhà Máy FBS (Build-Co)</td></tr>
+        <tr><td>Cam Kết Vốn Chủ</td><td class="num">$10M vốn chủ dự án (LOI)</td><td class="num">$5M cho vay / vốn chủ</td></tr>
+        <tr><td>Hạn Mức Tín Dụng</td><td class="num">$15M hạn mức nhà cung cấp</td><td class="num">$10M hạn mức (LOI)</td></tr>
+        <tr><td>Thời Gian Nắm Giữ</td><td class="num">5 năm</td><td class="num">3 – 10 năm</td></tr>
+        <tr><td>Vốn Chủ / Chia Sẻ LN</td><td class="num">15% vốn LP · 40% chia sẻ LN</td><td class="num">40% chia sẻ LN LP + vốn chủ</td></tr>
+        <tr><td>Tổng Lợi Nhuận Dự Kiến</td><td class="num" style="color:var(--good)">$37M</td><td class="num" style="color:var(--good)">$15.5M</td></tr>
+        <tr><td>Lợi Thế Chiến Lược</td><td>Dấu ấn thị trường Mỹ · ~$40M doanh thu vật liệu</td><td>Nhà máy lắp ráp tái sử dụng cho các dự án tương lai</td></tr>
+        <tr><td>Mục Đích Sử Dụng Vốn</td><td>Cấp phép đất · vật liệu xây dựng</td><td>Khởi tạo Build-Co · vận hành · dự án BĐS tương lai</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cta-block">
+      <h3>Sẵn sàng tìm hiểu chi tiết các con số?</h3>
+      <p>Mở mô hình dòng tiền LP tương tác đầy đủ 5 năm so với 10 năm — vốn triển khai, tiền hoàn trả, MOIC, và IRR thường niên.</p>
+      <a class="btn primary" href="https://rosamond2006.vercel.app/lp.html" target="_blank" rel="noopener" style="font-size:16px; padding:14px 22px;">Mở Mô Hình Dòng Tiền LP Đầy Đủ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap row">
+    <div>BẢO MẬT · Tóm Tắt Đầu Tư LP · Dự Án Rosamond</div>
+    <div>Mô hình tài chính đầy đủ: <a href="https://rosamond2006.vercel.app/lp.html" target="_blank" rel="noopener">rosamond2006.vercel.app/lp.html</a> · <a href="investment-offer.html">English</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
