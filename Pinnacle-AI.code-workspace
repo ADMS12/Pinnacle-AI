@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "PDF"
+    },
+    {
+      "path": "HTML"
+    }
+  ],
+  "settings": {
+    "claude.projectDetection": "workspace"
+  }
+}
