@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PredictAI Brokerage &mdash; Nhà môi giới Giới thiệu cho Thị trường Dự đoán</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    /* Light green "money" palette */
+    --bg-0: #e7f5e8;
+    --bg-1: #d6efd8;
+    --bg-2: #c4e6c7;
+    --paper: #ffffff;
+    --paper-tint: #f3faf3;
+    --ink: #102a18;
+    --ink-dim: #355a3f;
+    --ink-mute: #6b8c75;
+    --line: #b9dcbe;
+    --line-soft: #d7ecd9;
+    --emerald: #1f8a4c;
+    --emerald-2: #2faa64;
+    --emerald-deep: #0e5a32;
+    --gold: #d4a017;
+    --gold-2: #e6b938;
+    --teal: #0f8a7e;
+    --good: #1f8a4c;
+    --warn: #d4a017;
+    --bad: #b53b3b;
+    --card: var(--paper);
+    --card-border: #c8e3cc;
+    --radius: 16px;
+    --shadow: 0 6px 24px rgba(31,138,76,0.10), 0 2px 6px rgba(16,42,24,0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(31,138,76,0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(212,160,23,0.14), transparent 60%),
+      linear-gradient(180deg, #eaf6ea 0%, #dff0e0 100%);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(231,245,232,0.85);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; color: var(--ink); }
+  .brand .logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    box-shadow: 0 6px 18px rgba(31,138,76,0.35);
+    display: grid; place-items: center; color: white; font-weight: 800;
+  }
+  nav.top a {
+    color: var(--ink-dim); text-decoration: none; margin-left: 18px; font-size: 14px; font-weight: 500;
+  }
+  nav.top a:hover { color: var(--emerald-deep); }
+  /* HERO */
+  header.hero { padding: 80px 0 60px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(31,138,76,0.12);
+    color: var(--emerald-deep); border: 1px solid rgba(31,138,76,0.35);
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05; margin: 18px 0 16px; font-weight: 800; letter-spacing: -0.5px;
+    color: var(--emerald-deep);
+  }
+  h1 .amp { color: var(--gold); }
+  .lead { font-size: 18px; color: var(--ink-dim); max-width: 760px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--card-border);
+  }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    color: white; border-color: transparent;
+    box-shadow: 0 10px 24px rgba(31,138,76,0.32);
+  }
+  .btn.ghost { background: white; color: var(--emerald-deep); border-color: var(--card-border); }
+  .stats {
+    margin-top: 56px; display: grid;
+    grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .stat {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .stat .k { font-size: 12px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+  .stat .v { font-size: 28px; font-weight: 800; margin-top: 6px; color: var(--emerald-deep); }
+  .stat .v.pin { color: var(--emerald); }
+  .stat .v.cc { color: var(--gold); }
+  /* SECTIONS */
+  section { padding: 70px 0; border-top: 1px solid var(--line-soft); }
+  .eyebrow { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; }
+  h2 { font-size: clamp(26px, 3vw, 38px); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.3px; color: var(--ink); }
+  .sub { color: var(--ink-dim); max-width: 760px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+  .card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
+  .card p { color: var(--ink-dim); margin: 0; }
+  .card ul { color: var(--ink-dim); margin: 10px 0 0; padding-left: 20px; }
+  .card ul li { margin: 4px 0; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 4px 8px; border-radius: 6px;
+    background: rgba(15,138,126,0.12); color: var(--teal); border: 1px solid rgba(15,138,126,0.3);
+    letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700;
+  }
+  .tag.pin { background: rgba(31,138,76,0.13); color: var(--emerald-deep); border-color: rgba(31,138,76,0.3); }
+  .tag.cc { background: rgba(212,160,23,0.15); color: #8a6911; border-color: rgba(212,160,23,0.4); }
+  /* DIAGRAMS */
+  .diagram {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 22px;
+    overflow-x: auto;
+    box-shadow: var(--shadow);
+  }
+  .diagram svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  /* TABLES */
+  table.fin {
+    width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: var(--ink);
+  }
+  table.fin th, table.fin td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line-soft);
+  }
+  table.fin th { color: var(--ink-mute); font-weight: 700; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+  table.fin tr:last-child td { border-bottom: none; }
+  table.fin .num { text-align: right; }
+  table.fin .total td { font-weight: 800; color: var(--emerald-deep); border-top: 2px solid var(--line); }
+  table.fin .hi td { background: rgba(212,160,23,0.12); font-weight: 700; }
+  table.fin .yes { color: var(--emerald-deep); font-weight: 700; text-align: center; }
+  table.fin .no { color: var(--ink-mute); text-align: center; }
+  /* TIMELINE */
+  .timeline { margin-top: 32px; position: relative; }
+  .tl-line {
+    position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--emerald), var(--teal));
+  }
+  .tl-item { position: relative; padding-left: 72px; margin-bottom: 26px; }
+  .tl-dot {
+    position: absolute; left: 20px; top: 8px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--emerald); border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--emerald);
+  }
+  .tl-dot.launch { background: var(--emerald-deep); box-shadow: 0 0 0 2px var(--emerald-deep); }
+  .tl-dot.build { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-dot.run { background: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+  .tl-card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .tl-date { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700; }
+  .tl-title { font-weight: 700; margin: 4px 0; color: var(--ink); }
+  .tl-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 6px; color: var(--ink-dim); font-size: 14px; }
+  .tl-row b { color: var(--ink); }
+  /* CHART */
+  .chart-wrap {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px; margin-top: 22px;
+    box-shadow: var(--shadow);
+  }
+  .chart-wrap .legend-note { color: var(--ink-mute); font-size: 12px; margin-top: 8px; }
+  canvas { max-width: 100%; }
+  .callout {
+    margin-top: 28px; padding: 22px 26px; border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(212,160,23,0.14), rgba(31,138,76,0.08));
+    border: 1px solid rgba(212,160,23,0.35);
+    color: var(--ink);
+  }
+  .callout strong { color: var(--emerald-deep); }
+  /* FOOTER */
+  footer {
+    padding: 40px 0 60px; text-align: center; color: var(--ink-mute);
+    font-size: 13px; border-top: 1px solid var(--line-soft);
+    background: rgba(255,255,255,0.4);
+  }
+  footer .brand { justify-content: center; margin-bottom: 12px; }
+  /* RESPONSIVE */
+  @media (max-width: 880px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    nav.top a:not(.btn) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>PredictAI <span style="color:var(--ink-mute);font-weight:500">&middot;</span> Nhà môi giới Giới thiệu</div>
+    </div>
+    <div>
+      <a href="#overview">Tổng quan</a>
+      <a href="#structure">Cơ cấu</a>
+      <a href="#services">Dịch vụ</a>
+      <a href="#revenue">Doanh thu</a>
+      <a href="#market">Thị trường</a>
+      <a href="#regulatory">Pháp lý</a>
+      <a href="#roadmap">Lộ trình</a>
+      <a href="#financials">Tài chính</a>
+      <a href="#acquisition">Thu hút KH</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">Kế hoạch Kinh doanh &middot; PredictAI Brokerage LLC</span>
+    <h1>Nhà môi giới Giới thiệu được cấp phép <span class="amp">&plus;</span> trí tuệ AI cho thị trường dự đoán.</h1>
+    <p class="lead">
+      PredictAI Brokerage LLC sẽ hoạt động với tư cách là Nhà môi giới Giới thiệu (Introducing Broker &ndash; IB)
+      đã đăng ký với CFTC, giới thiệu khách hàng cá nhân và khách hàng tổ chức đến các sàn giao dịch thị trường
+      dự đoán được quản lý, thông qua các Nhà môi giới Hoa hồng Hợp đồng Tương lai (FCM) có giấy phép &mdash;
+      kết hợp khả năng tiếp cận thị trường liền mạch với thông tin phân tích AI đạt chuẩn tổ chức.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#overview">Đọc kế hoạch &rarr;</a>
+      <a class="btn ghost" href="#revenue">Xem mô hình doanh thu</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="k">Vốn khởi nghiệp</div><div class="v">300.000 USD</div></div>
+      <div class="stat"><div class="k">Chi phí hàng tháng</div><div class="v">65.000 USD</div></div>
+      <div class="stat"><div class="k">Doanh thu giao dịch năm (minh họa)</div><div class="v pin">960.000 USD</div></div>
+      <div class="stat"><div class="k">Thuê bao AI Pro</div><div class="v cc">9,99 USD/tháng</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="wrap">
+    <div class="eyebrow">Tóm tắt Tổng quan</div>
+    <h2>Không phải sàn giao dịch. Không giữ tiền khách hàng. Một cánh cửa thông minh hơn.</h2>
+    <p class="sub">
+      PredictAI đứng giữa khách hàng và hạ tầng thị trường được quản lý. Toàn bộ bộ máy pháp lý nặng nề &mdash;
+      lưu ký, thanh toán bù trừ, khớp lệnh, niêm yết &mdash; thuộc về sàn giao dịch và FCM. PredictAI tập trung
+      vào điều mình làm tốt nhất: thu hút khách hàng và giúp họ giao dịch thông minh hơn bằng AI.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Công ty sẽ KHÔNG</span>
+        <h3 style="margin-top:10px">Chủ động nằm ngoài phạm vi</h3>
+        <ul>
+          <li>Vận hành sàn giao dịch</li>
+          <li>Nắm giữ tiền của khách hàng</li>
+          <li>Thực hiện thanh toán bù trừ</li>
+          <li>Khớp lệnh</li>
+          <li>Niêm yết hợp đồng</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">PredictAI SẼ</span>
+        <h3 style="margin-top:10px">Giá trị mang lại</h3>
+        <ul>
+          <li>Thu hút khách hàng</li>
+          <li>Cung cấp thông tin phân tích thị trường bằng AI</li>
+          <li>Cung cấp giao diện giao dịch vượt trội</li>
+          <li>Định tuyến lệnh của khách hàng thông qua FCM</li>
+          <li>Kiếm doanh thu từ giao dịch và phí thuê bao (tùy thuộc vào thỏa thuận với đối tác)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">Tầm nhìn</span>
+        <h3 style="margin-top:10px">IB ứng dụng AI hàng đầu</h3>
+        <p>Trở thành nhà môi giới giới thiệu ứng dụng AI hàng đầu cho các thị trường dự đoán tại Bắc Mỹ.</p>
+      </div>
+      <div class="card">
+        <span class="tag cc">Sứ mệnh</span>
+        <h3 style="margin-top:10px">Trí tuệ + khả năng tiếp cận</h3>
+        <p>Cung cấp thông tin phân tích thị trường bằng AI đạt chuẩn tổ chức, đồng thời mang lại khả năng tiếp cận liền mạch đến các thị trường dự đoán được quản lý.</p>
+      </div>
+    </div>
+
+    <div class="diagram" style="margin-top:32px">
+      <svg viewBox="0 0 1100 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ mô hình kinh doanh">
+        <defs>
+          <linearGradient id="gPin" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#1f8a4c"/>
+            <stop offset="1" stop-color="#0e5a32"/>
+          </linearGradient>
+          <linearGradient id="gGold" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#e6b938"/>
+            <stop offset="1" stop-color="#c79a1a"/>
+          </linearGradient>
+          <linearGradient id="gTeal" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#0f8a7e"/>
+            <stop offset="1" stop-color="#2faa64"/>
+          </linearGradient>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#355a3f"/>
+          </marker>
+        </defs>
+        <text x="550" y="30" text-anchor="middle" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Mô hình Kinh doanh &mdash; dòng lệnh &amp; thanh toán</text>
+
+        <g font-family="Inter">
+          <rect x="20" y="60" width="180" height="70" rx="12" fill="#ffffff" stroke="#c8e3cc" stroke-width="2"/>
+          <text x="110" y="100" text-anchor="middle" fill="#102a18" font-size="16" font-weight="700">Khách hàng</text>
+
+          <rect x="240" y="60" width="200" height="70" rx="12" fill="url(#gPin)"/>
+          <text x="340" y="92" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">PredictAI</text>
+          <text x="340" y="112" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Nhà môi giới Giới thiệu (IB)</text>
+
+          <rect x="480" y="60" width="180" height="70" rx="12" fill="url(#gGold)"/>
+          <text x="570" y="100" text-anchor="middle" fill="#3a2c08" font-size="16" font-weight="700">FCM Đối tác</text>
+
+          <rect x="700" y="60" width="170" height="70" rx="12" fill="url(#gTeal)"/>
+          <text x="785" y="100" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Kalshi</text>
+
+          <rect x="910" y="60" width="170" height="70" rx="12" fill="#ffffff" stroke="#0f8a7e" stroke-width="2"/>
+          <text x="995" y="100" text-anchor="middle" fill="#0e5a32" font-size="16" font-weight="700">Thanh toán</text>
+
+          <line x1="200" y1="95" x2="235" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="440" y1="95" x2="475" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="660" y1="95" x2="695" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="870" y1="95" x2="905" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+
+          <text x="550" y="165" text-anchor="middle" fill="#6b8c75" font-size="12">Khách hàng đặt lệnh &rarr; PredictAI định tuyến đến FCM &rarr; FCM định tuyến đến Kalshi &rarr; thanh toán</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section id="structure">
+  <div class="wrap">
+    <div class="eyebrow">Cơ cấu Công ty</div>
+    <h2>Hai thương hiệu: công ty công nghệ và công ty môi giới được quản lý.</h2>
+    <p class="sub">
+      Thay vì một pháp nhân duy nhất mang tên &ldquo;PredictAI Brokerage&rdquo;, cấu trúc được đề xuất tách riêng
+      nền tảng công nghệ khỏi mảng kinh doanh Nhà môi giới Giới thiệu được quản lý &mdash; mang lại sự linh hoạt
+      để cấp phép nền tảng AI ra bên ngoài hoạt động IB của riêng mình, đồng thời hấp dẫn hơn với nhà đầu tư.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Công ty Vận hành</span>
+        <h3 style="margin-top:10px">PredictAI Technologies, Inc.</h3>
+        <p>Pháp nhân sở hữu phần mềm, tài sản trí tuệ và nền tảng AI. Trong tương lai có thể cấp phép nền tảng AI, công cụ phân tích và phần mềm cho các công ty môi giới, FCM hoặc tổ chức tài chính khác &mdash; giá trị vượt ra ngoài mảng kinh doanh môi giới.</p>
+      </div>
+      <div class="card">
+        <span class="tag cc">Bộ phận Kinh doanh</span>
+        <h3 style="margin-top:10px">PredictAI Brokerage</h3>
+        <p>Mảng kinh doanh Nhà môi giới Giới thiệu được quản lý: thu hút khách hàng, giao diện giao dịch, và định tuyến lệnh đến FCM đối tác trong khuôn khổ pháp lý đã thỏa thuận.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="tag">Pháp nhân</span>
+        <h3 style="margin-top:10px">C-Corp Delaware hoặc LLC</h3>
+        <p>Ưu tiên Công ty cổ phần C-Corporation tại Delaware nếu gọi vốn đầu tư mạo hiểm, hoặc ban đầu là LLC nếu tự tài trợ vốn.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Đăng ký</span>
+        <h3 style="margin-top:10px">CFTC + NFA</h3>
+        <ul>
+          <li>Nhà môi giới Giới thiệu (IB) đăng ký với CFTC</li>
+          <li>Thành viên NFA</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Đối tác</span>
+        <h3 style="margin-top:10px">Hệ sinh thái</h3>
+        <ul>
+          <li>Kalshi</li>
+          <li>Một hoặc nhiều FCM</li>
+          <li>Nhà cung cấp dịch vụ xác minh danh tính</li>
+          <li>Các nhà cung cấp dịch vụ thanh toán</li>
+          <li>Hạ tầng đám mây</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow">Dịch vụ</div>
+    <h2>Bốn trụ cột: thu hút, phân tích, định tuyến, báo cáo.</h2>
+    <p class="sub">
+      Sản phẩm của PredictAI bao phủ toàn bộ hành trình khách hàng &mdash; từ điểm chạm đầu tiên trên mạng xã hội
+      đến nghiên cứu có AI hỗ trợ, định tuyến lệnh và phân tích danh mục đầu tư.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">1 &middot; Thu hút Khách hàng</span>
+        <h3 style="margin-top:10px">Thu hút nhà giao dịch cá nhân qua</h3>
+        <ul>
+          <li>SEO</li>
+          <li>YouTube</li>
+          <li>TikTok</li>
+          <li>X</li>
+          <li>Discord</li>
+          <li>Reddit</li>
+          <li>Chương trình giới thiệu (referral)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">2 &middot; Nghiên cứu bằng AI</span>
+        <h3 style="margin-top:10px">Phân tích đạt chuẩn tổ chức</h3>
+        <ul>
+          <li>Phân tích xác suất</li>
+          <li>Tóm tắt tin tức</li>
+          <li>Nghiên cứu sự kiện</li>
+          <li>Lịch kinh tế</li>
+          <li>Chấm điểm rủi ro</li>
+          <li>Cảnh báo thị trường</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">3 &middot; Định tuyến Giao dịch</span>
+        <h3 style="margin-top:10px">Dòng lệnh minh bạch, tuân thủ</h3>
+        <p>Khách hàng đặt lệnh. PredictAI định tuyến lệnh đến FCM. FCM định tuyến lệnh đến Kalshi.</p>
+      </div>
+      <div class="card">
+        <span class="tag pin">4 &middot; Danh mục Đầu tư</span>
+        <h3 style="margin-top:10px">Mọi thứ nhà giao dịch cần theo dõi</h3>
+        <ul>
+          <li>Vị thế</li>
+          <li>Lãi/Lỗ (P/L)</li>
+          <li>Lịch sử giao dịch</li>
+          <li>Phân tích</li>
+          <li>Thông tin chuyên sâu từ AI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue">
+  <div class="wrap">
+    <div class="eyebrow">Doanh thu</div>
+    <h2>Bốn nguồn doanh thu củng cố lẫn nhau.</h2>
+    <p class="sub">
+      Giao dịch thu hút người dùng, AI tăng mức độ gắn kết, và thuê bao tạo ra doanh thu định kỳ có thể dự đoán
+      được. Mục tiêu không phải là tạo ra toàn bộ doanh thu từ hoa hồng &mdash; doanh thu giao dịch và thuê bao
+      cùng nhau cộng hưởng.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Nguồn 1 &middot; Doanh thu Giao dịch</span>
+        <h3 style="margin-top:10px">Doanh thu dựa trên giao dịch</h3>
+        <p>Hoa hồng hoặc chia sẻ doanh thu từ FCM/sàn giao dịch, tùy thuộc vào các thỏa thuận đã đàm phán. Có thể bao gồm hoa hồng theo hợp đồng, chia sẻ doanh thu, phí nền tảng, phí công nghệ, thù lao định tuyến lệnh (nơi được phép), và ưu đãi theo khối lượng giao dịch.</p>
+        <table class="fin">
+          <tr><th>Giả định minh họa</th><th class="num">Giá trị</th></tr>
+          <tr><td>Nhà giao dịch hoạt động</td><td class="num">5.000</td></tr>
+          <tr><td>Hợp đồng / người / ngày</td><td class="num">10</td></tr>
+          <tr><td>Ngày giao dịch / tháng</td><td class="num">22</td></tr>
+          <tr><td>Doanh thu bình quân mỗi hợp đồng</td><td class="num">0,08 USD</td></tr>
+          <tr><td>Khối lượng hàng tháng</td><td class="num">1.100.000</td></tr>
+          <tr><td>Doanh thu hàng tháng</td><td class="num">80.000 USD</td></tr>
+          <tr class="total"><td>Doanh thu giao dịch hàng năm</td><td class="num">960.000 USD</td></tr>
+        </table>
+        <p style="margin-top:10px;font-size:13px;color:var(--ink-mute)">Các con số này chỉ mang tính minh họa. Doanh thu thực tế phụ thuộc vào mức độ hoạt động của khách hàng và các thỏa thuận thương mại.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Nguồn 2 &middot; Thuê bao Cao cấp</span>
+        <h3 style="margin-top:10px">Ba gói, rào cản gia nhập thấp</h3>
+        <table class="fin">
+          <tr><th>Gói</th><th>Giá</th><th>Mục đích</th></tr>
+          <tr><td>FREE</td><td>0 USD</td><td>Giao dịch, dữ liệu thị trường cơ bản, danh mục cơ bản</td></tr>
+          <tr class="hi"><td>AI PRO</td><td>9,99 USD/tháng</td><td>Dự đoán AI, điểm tin cậy, cảnh báo, phân tích danh mục đầu tư</td></tr>
+          <tr><td>AI ELITE</td><td>29,99 USD/tháng</td><td>Mọi tính năng của gói Pro cộng thêm phân tích nâng cao, quyền truy cập API, công cụ chiến lược, hỗ trợ ưu tiên và quyền truy cập sớm vào tính năng mới</td></tr>
+        </table>
+        <p style="margin-top:10px;font-size:13px;color:var(--ink-mute)">Hầu hết các nhà giao dịch sẵn sàng dùng thử dịch vụ 9,99 USD/tháng nếu họ tin rằng nó có thể cải thiện quyết định của mình &mdash; rào cản thấp hơn mức 49 USD/tháng, nhưng vẫn xây dựng được nguồn doanh thu định kỳ đáng kể khi mở rộng quy mô.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Nguồn 3 &middot; API Doanh nghiệp</span>
+        <h3 style="margin-top:10px">Cấp phép công cụ phân tích AI cho tổ chức</h3>
+        <ul>
+          <li>Quỹ phòng hộ (hedge fund)</li>
+          <li>Cố vấn tài chính</li>
+          <li>Công ty giao dịch</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="tag">Nguồn 4 &middot; Nhãn trắng (White Label)</span>
+        <h3 style="margin-top:10px">Cấp phép nền tảng</h3>
+        <p>Cấp phép nền tảng cho các nhà môi giới khác &mdash; pháp nhân PredictAI Technologies giúp điều này khả thi mà không bị giới hạn trong hoạt động IB của riêng công ty.</p>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <canvas id="revChart" height="120"></canvas>
+      <div class="legend-note">Doanh thu hàng năm minh họa theo từng mốc quy mô: doanh thu giao dịch theo số nhà giao dịch hoạt động, doanh thu thuê bao theo số thuê bao (9,99 USD/tháng). Di chuột lên cột để xem con số chính xác.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:32px">
+      <div class="card">
+        <span class="tag pin">Kịch bản Tăng trưởng &mdash; Giao dịch</span>
+        <h3 style="margin-top:10px">Doanh thu giao dịch hàng năm minh họa</h3>
+        <table class="fin">
+          <tr><th>Nhà giao dịch hoạt động</th><th class="num">Doanh thu hàng năm*</th></tr>
+          <tr><td>5.000</td><td class="num">1.056.000 USD</td></tr>
+          <tr><td>10.000</td><td class="num">2.112.000 USD</td></tr>
+          <tr><td>25.000</td><td class="num">5.280.000 USD</td></tr>
+          <tr class="total"><td>50.000</td><td class="num">10.560.000 USD</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <span class="tag cc">Kịch bản Tăng trưởng &mdash; Thuê bao</span>
+        <h3 style="margin-top:10px">Doanh thu thuê bao minh họa (9,99 USD/tháng)</h3>
+        <table class="fin">
+          <tr><th>Số thuê bao</th><th class="num">Hàng tháng</th><th class="num">Hàng năm</th></tr>
+          <tr><td>1.000</td><td class="num">9.990 USD</td><td class="num">119.880 USD</td></tr>
+          <tr><td>5.000</td><td class="num">49.950 USD</td><td class="num">599.400 USD</td></tr>
+          <tr><td>10.000</td><td class="num">99.900 USD</td><td class="num">1.198.800 USD</td></tr>
+          <tr><td>25.000</td><td class="num">249.750 USD</td><td class="num">2.997.000 USD</td></tr>
+          <tr><td>50.000</td><td class="num">499.500 USD</td><td class="num">5.994.000 USD</td></tr>
+          <tr class="total"><td>100.000</td><td class="num">999.000 USD</td><td class="num">11.988.000 USD</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:32px">
+      <div class="card">
+        <span class="tag cc">AI Pro &mdash; Các tính năng bao gồm</span>
+        <h3 style="margin-top:10px">9,99 USD/tháng mở khóa những gì</h3>
+        <ul>
+          <li><b>Công cụ Dự đoán AI:</b> điểm xác suất AI, điểm tin cậy, phân tích tâm lý thị trường, ước tính giá trị hợp lý, so sánh với các sự kiện lịch sử</li>
+          <li><b>Thông tin Thị trường:</b> tóm tắt tin nóng, lịch kinh tế, các sự kiện tác động đến thị trường, giải thích do AI tạo ra, dòng thời gian sự kiện</li>
+          <li><b>Cảnh báo Thông minh:</b> cảnh báo biến động giá, thay đổi xác suất, cập nhật khuyến nghị của AI, thông báo thị trường mới</li>
+          <li><b>Phân tích Danh mục Đầu tư:</b> phân tích hiệu suất, thông tin chuyên sâu về vị thế, theo dõi thắng/thua, phân tích rủi ro, khuyến nghị danh mục từ AI</li>
+          <li><b>Công cụ Nghiên cứu:</b> tìm kiếm thị trường dự đoán, thị trường thịnh hành, xác suất lịch sử, so sánh thị trường</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Miễn phí so với Pro</span>
+        <h3 style="margin-top:10px">So sánh tính năng</h3>
+        <table class="fin">
+          <tr><th>Tính năng</th><th style="text-align:center">Miễn phí</th><th style="text-align:center">Pro (9,99 USD/tháng)</th></tr>
+          <tr><td>Giá thị trường</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Tìm kiếm thị trường</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Danh mục cơ bản</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Đặt lệnh giao dịch</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Xác suất AI</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Điểm tin cậy</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Phân tích tin tức bằng AI</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Ước tính giá trị hợp lý</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Cảnh báo thông minh</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>AI cho danh mục đầu tư</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Phân tích AI lịch sử</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="diagram" style="margin-top:32px">
+      <svg viewBox="0 0 1100 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phễu chiến lược dành cho nhà đầu tư">
+        <text x="550" y="30" text-anchor="middle" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Chiến lược dành cho Nhà đầu tư &mdash; phễu thuê bao</text>
+        <g font-family="Inter">
+          <rect x="60" y="55" width="200" height="64" rx="12" fill="#ffffff" stroke="#c8e3cc" stroke-width="2"/>
+          <text x="160" y="92" text-anchor="middle" fill="#102a18" font-size="15" font-weight="700">Người dùng miễn phí</text>
+
+          <rect x="320" y="55" width="200" height="64" rx="12" fill="#0f8a7e"/>
+          <text x="420" y="92" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Bắt đầu giao dịch</text>
+
+          <rect x="580" y="55" width="200" height="64" rx="12" fill="#1f8a4c"/>
+          <text x="680" y="92" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Sử dụng AI</text>
+
+          <rect x="840" y="55" width="200" height="64" rx="12" fill="#c79a1a"/>
+          <text x="940" y="85" text-anchor="middle" fill="#3a2c08" font-size="15" font-weight="700">Đăng ký thuê bao</text>
+          <text x="940" y="105" text-anchor="middle" fill="#3a2c08" font-size="12" font-weight="600">9,99 USD/tháng</text>
+
+          <line x1="260" y1="87" x2="315" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="520" y1="87" x2="575" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="780" y1="87" x2="835" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+
+          <text x="550" y="150" text-anchor="middle" fill="#6b8c75" font-size="12">Giao dịch thu hút người dùng &middot; AI tăng mức độ gắn kết &middot; Thuê bao tạo doanh thu định kỳ có thể dự đoán</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="eyebrow">Cơ hội Thị trường</div>
+    <h2>Giúp nhà giao dịch quyết định &mdash; không cạnh tranh với sàn.</h2>
+    <p class="sub">
+      Thay vì cạnh tranh với Kalshi, PredictAI giúp khách hàng đưa ra quyết định tốt hơn. Đối tượng mục tiêu bao
+      trùm mọi nhóm nhà giao dịch đã quen với rủi ro theo sự kiện.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Khách hàng Mục tiêu</span>
+        <h3 style="margin-top:10px">PredictAI phục vụ ai</h3>
+        <ul>
+          <li>Nhà đầu tư cá nhân</li>
+          <li>Nhà giao dịch thị trường dự đoán</li>
+          <li>Nhà giao dịch thể thao</li>
+          <li>Nhà đầu tư vĩ mô</li>
+          <li>Nhà giao dịch quyền chọn</li>
+          <li>Nhà giao dịch tiền mã hóa</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag cc">Lợi thế Cạnh tranh</span>
+        <h3 style="margin-top:10px">Nhà môi giới truyền thống so với PredictAI</h3>
+        <table class="fin">
+          <tr><th>Nhà môi giới truyền thống</th><th>PredictAI</th></tr>
+          <tr><td>Giao dịch cơ bản</td><td>Giao dịch hỗ trợ bởi AI</td></tr>
+          <tr><td>Biểu đồ</td><td>Xác suất tính bằng AI</td></tr>
+          <tr><td>Tin tức</td><td>Giải thích bằng AI</td></tr>
+          <tr><td>Danh mục đầu tư</td><td>Danh mục đầu tư + khuyến nghị</td></tr>
+          <tr><td>Nhập lệnh</td><td>Quy trình thực hiện lệnh có AI hỗ trợ</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY -->
+<section id="regulatory">
+  <div class="wrap">
+    <div class="eyebrow">Chiến lược Pháp lý</div>
+    <h2>IB được Bảo lãnh &mdash; FCM gánh phần nặng về pháp lý.</h2>
+    <p class="sub">
+      PredictAI sẽ hoạt động với tư cách Nhà môi giới Giới thiệu được Bảo lãnh (Guaranteed Introducing Broker)
+      dưới một FCM, giữ các chức năng nặng về tuân thủ ở phía bên được xây dựng để xử lý chúng.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag cc">FCM chịu trách nhiệm về</span>
+        <h3 style="margin-top:10px">Hạ tầng được quản lý</h3>
+        <ul>
+          <li>Tiền của khách hàng</li>
+          <li>Quản lý tài khoản</li>
+          <li>KYC (xác minh khách hàng)</li>
+          <li>AML (chống rửa tiền)</li>
+          <li>Thanh toán bù trừ</li>
+          <li>Quyết toán</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">PredictAI tập trung vào</span>
+        <h3 style="margin-top:10px">Trải nghiệm khách hàng</h3>
+        <ul>
+          <li>Tiếp thị</li>
+          <li>Hỗ trợ khách hàng</li>
+          <li>AI</li>
+          <li>Phân tích</li>
+          <li>Phần mềm</li>
+          <li>Định tuyến lệnh (trong khuôn khổ pháp lý đã thỏa thuận)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="eyebrow">Lộ trình Công nghệ</div>
+    <h2>Ba giai đoạn: xây dựng, tích hợp, mở rộng.</h2>
+    <p class="sub">
+      Nền tảng được triển khai theo từng bước &mdash; chứng minh trải nghiệm bằng giao dịch mô phỏng trước,
+      kết nối tiền thật qua FCM và Kalshi sau, rồi mở rộng quy mô sản phẩm.
+    </p>
+
+    <div class="timeline" style="margin-top:36px">
+      <div class="tl-line"></div>
+
+      <div class="tl-item">
+        <div class="tl-dot build"></div>
+        <div class="tl-card">
+          <div class="tl-date">Giai đoạn 1 &middot; Xây dựng</div>
+          <div class="tl-title">Trải nghiệm cốt lõi, không rủi ro.</div>
+          <div class="tl-row">
+            <span><b>Trang web</b></span><span><b>Bảng điều khiển AI</b></span><span><b>Trình duyệt thị trường</b></span>
+            <span><b>Quy trình tiếp nhận khách hàng</b></span><span><b>Giao dịch mô phỏng (paper trading)</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot launch"></div>
+        <div class="tl-card">
+          <div class="tl-date">Giai đoạn 2 &middot; Tích hợp</div>
+          <div class="tl-title">Tiền thật đi vào hoạt động.</div>
+          <div class="tl-row">
+            <span><b>FCM</b></span><span><b>Kalshi</b></span><span><b>Tài khoản khách hàng</b></span>
+            <span><b>Giao dịch bằng tiền thật</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">Giai đoạn 3 &middot; Mở rộng</div>
+          <div class="tl-title">Mở rộng nền tảng và mô hình kinh doanh.</div>
+          <div class="tl-row">
+            <span><b>Ứng dụng di động</b></span><span><b>API doanh nghiệp</b></span><span><b>Các sàn giao dịch bổ sung</b></span>
+            <span><b>Dịch vụ nhãn trắng (white-label)</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section id="financials">
+  <div class="wrap">
+    <div class="eyebrow">Tài chính</div>
+    <h2>300.000 USD để khởi động, 65.000 USD/tháng để vận hành.</h2>
+    <p class="sub">
+      Kế hoạch vốn tinh gọn: chi phí pháp lý và tuân thủ để thành lập pháp nhân được quản lý, 100.000 USD cho
+      xây dựng công nghệ, và khoảng một phần ba số vốn được giữ làm vốn lưu động.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Chi phí Khởi nghiệp</span>
+        <h3 style="margin-top:10px">Tổng cộng 300.000 USD</h3>
+        <table class="fin">
+          <tr><th>Hạng mục</th><th class="num">Chi phí</th></tr>
+          <tr><td>Pháp lý</td><td class="num">40.000 USD</td></tr>
+          <tr><td>Tuân thủ</td><td class="num">25.000 USD</td></tr>
+          <tr><td>Đăng ký</td><td class="num">3.000 USD</td></tr>
+          <tr><td>Công nghệ</td><td class="num">100.000 USD</td></tr>
+          <tr><td>Bảo mật</td><td class="num">15.000 USD</td></tr>
+          <tr><td>Bảo hiểm</td><td class="num">10.000 USD</td></tr>
+          <tr><td>Vốn lưu động</td><td class="num">107.000 USD</td></tr>
+          <tr class="total"><td>Tổng cộng</td><td class="num">300.000 USD</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Chi phí Hàng tháng</span>
+        <h3 style="margin-top:10px">65.000 USD / tháng</h3>
+        <table class="fin">
+          <tr><th>Hạng mục</th><th class="num">Hàng tháng</th></tr>
+          <tr><td>CEO (Giám đốc điều hành)</td><td class="num">15.000 USD</td></tr>
+          <tr><td>Tuân thủ</td><td class="num">5.000 USD</td></tr>
+          <tr><td>Kỹ thuật</td><td class="num">15.000 USD</td></tr>
+          <tr><td>Hạ tầng đám mây</td><td class="num">2.000 USD</td></tr>
+          <tr><td>Tiếp thị</td><td class="num">15.000 USD</td></tr>
+          <tr><td>Hỗ trợ khách hàng</td><td class="num">5.000 USD</td></tr>
+          <tr><td>Bảo hiểm</td><td class="num">1.000 USD</td></tr>
+          <tr><td>Chi phí khác</td><td class="num">7.000 USD</td></tr>
+          <tr class="total"><td>Tổng cộng</td><td class="num">65.000 USD/tháng</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:32px">
+      <span class="tag">Mục tiêu Năm thứ Nhất</span>
+      <h3 style="margin-top:10px">Sáu cột mốc kiểm chứng mô hình</h3>
+      <ul>
+        <li>Đăng ký làm IB được Bảo lãnh (Guaranteed IB)</li>
+        <li>Ký kết thỏa thuận với một FCM và Kalshi</li>
+        <li>Ra mắt nền tảng web</li>
+        <li>Thu hút 1.000 khách hàng đầu tiên có nạp tiền</li>
+        <li>Giới thiệu gói thuê bao AI cao cấp</li>
+        <li>Kiểm chứng mô hình kinh doanh trước khi mở rộng sang các sàn giao dịch khác</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACQUISITION -->
+<section id="acquisition">
+  <div class="wrap">
+    <div class="eyebrow">Lợi thế Chiến lược trong Thu hút Khách hàng</div>
+    <h2>Mạng lưới sẵn có: khoảng 58.000 tiệm nail tại Hoa Kỳ.</h2>
+    <p class="sub">
+      PredictAI có quyền tiếp cận một mạng lưới kinh doanh đã được thiết lập trong ngành làm đẹp &mdash; khoảng
+      58.000 tiệm nail tại Hoa Kỳ với hàng trăm nghìn chủ tiệm, thợ kỹ thuật, nhân viên và khách hàng, cùng hàng
+      nghìn doanh nghiệp địa phương như tiệm sửa xe, nhà hàng, phòng khám nha khoa, quán trà. Đây là kênh phân
+      phối tiềm năng có thể khai thác qua quan hệ đối tác chiến lược, giới thiệu và tiếp thị có mục tiêu &mdash;
+      một lợi thế đặc biệt phù hợp với cộng đồng doanh nhân người Việt vốn chiếm vị thế dẫn đầu trong ngành nail
+      tại Mỹ.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="tag pin">Chiến lược Thu hút</span>
+        <h3 style="margin-top:10px">Nhiều kênh, chi phí thấp hơn</h3>
+        <ul>
+          <li>Tiếp cận trực tiếp các chủ tiệm salon</li>
+          <li>Quan hệ đối tác giới thiệu</li>
+          <li>Chương trình khuyến khích nhân viên</li>
+          <li>Chiến dịch khách hàng giới thiệu khách hàng</li>
+          <li>Hội thảo và hội thảo trực tuyến mang tính giáo dục</li>
+          <li>Tiếp thị số nhắm đến các chuyên gia ngành làm đẹp</li>
+          <li>Quan hệ đối tác quảng bá đồng thương hiệu</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag cc">Cơ hội Bán chéo</span>
+        <h3 style="margin-top:10px">Nhóm nhà đầu tư chưa được phục vụ đầy đủ</h3>
+        <p>Nhiều chủ tiệm salon và chuyên gia làm đẹp là doanh nhân và nhà đầu tư cá nhân năng động &mdash; một thị trường chưa được phục vụ đầy đủ đối với các công cụ tài chính ứng dụng AI.</p>
+        <ul>
+          <li>Nền tảng thị trường dự đoán ứng dụng AI</li>
+          <li>Giáo dục đầu tư</li>
+          <li>Thông tin chuyên sâu về thị trường tài chính</li>
+          <li>Theo dõi danh mục đầu tư</li>
+          <li>Trải nghiệm giao dịch trên di động</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Mở rộng Dài hạn</span>
+        <h3 style="margin-top:10px">Nhân rộng sang các cộng đồng khác</h3>
+        <ul>
+          <li>Đại lý bảo hiểm</li>
+          <li>Chuyên viên tín dụng thế chấp</li>
+          <li>Chuyên gia bất động sản</li>
+          <li>Cố vấn tài chính</li>
+          <li>Chủ doanh nghiệp nhỏ</li>
+          <li>Các hiệp hội nghề nghiệp</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Kênh thu hút khách hàng có khả năng mở rộng và bền vững.</strong> Thay vì chỉ dựa vào quảng cáo
+      trực tuyến tốn kém, PredictAI xây dựng quan hệ đối tác chiến lược theo ngành nhằm giảm chi phí thu hút
+      khách hàng, đẩy nhanh tốc độ tăng trưởng người dùng và bổ trợ cho các nỗ lực tiếp thị số truyền thống.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>PredictAI Brokerage LLC &mdash; Nhà môi giới Giới thiệu được cấp phép cho các Thị trường Dự đoán</div>
+    </div>
+    <div>Kế hoạch Kinh doanh &middot; Soạn tháng 7/2026 &middot; Tài liệu mật &mdash; các con số minh họa phụ thuộc vào thỏa thuận đối tác và quy định pháp luật hiện hành</div>
+  </div>
+</footer>
+
+<script>
+  // Tăng trưởng minh họa: doanh thu giao dịch theo số nhà giao dịch, doanh thu thuê bao theo số thuê bao
+  const tiers = ['5.000', '10.000', '25.000', '50.000'];
+  const txRevenue  = [1056000, 2112000, 5280000, 10560000];   // doanh thu giao dịch hàng năm theo nhà giao dịch hoạt động
+  const subRevenue = [ 599400, 1198800, 2997000,  5994000];   // doanh thu thuê bao hàng năm theo số thuê bao
+
+  const ctx = document.getElementById('revChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: tiers,
+      datasets: [
+        {
+          label: 'Doanh thu giao dịch (theo nhà giao dịch hoạt động)',
+          data: txRevenue,
+          backgroundColor: 'rgba(31, 138, 76, 0.85)',
+          borderColor: 'rgba(14, 90, 50, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Doanh thu thuê bao (theo số thuê bao, 9,99 USD/tháng)',
+          data: subRevenue,
+          backgroundColor: 'rgba(212, 160, 23, 0.85)',
+          borderColor: 'rgba(199, 154, 26, 1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#102a18', font: { family: 'Inter', size: 12, weight: '600' } } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString('vi-VN') + ' USD';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Mốc quy mô (nhà giao dịch hoạt động / số thuê bao)', color: '#6b8c75', font: { family: 'Inter', size: 11 } },
+          ticks: { color: '#355a3f' },
+          grid: { color: 'rgba(16,42,24,0.06)' }
+        },
+        y: {
+          ticks: {
+            color: '#355a3f',
+            callback: function(v) { return (v/1000000).toLocaleString('vi-VN') + ' triệu USD'; }
+          },
+          grid: { color: 'rgba(16,42,24,0.08)' }
+        }
+      }
+    }
+  });
+  document.getElementById('revChart').parentElement.style.height = '380px';
+</script>
+
+</body>
+</html>

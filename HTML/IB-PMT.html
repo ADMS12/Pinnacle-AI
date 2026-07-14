@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PredictAI Brokerage &mdash; Introducing Broker for Prediction Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    /* Light green "money" palette */
+    --bg-0: #e7f5e8;
+    --bg-1: #d6efd8;
+    --bg-2: #c4e6c7;
+    --paper: #ffffff;
+    --paper-tint: #f3faf3;
+    --ink: #102a18;
+    --ink-dim: #355a3f;
+    --ink-mute: #6b8c75;
+    --line: #b9dcbe;
+    --line-soft: #d7ecd9;
+    --emerald: #1f8a4c;
+    --emerald-2: #2faa64;
+    --emerald-deep: #0e5a32;
+    --gold: #d4a017;
+    --gold-2: #e6b938;
+    --teal: #0f8a7e;
+    --good: #1f8a4c;
+    --warn: #d4a017;
+    --bad: #b53b3b;
+    --card: var(--paper);
+    --card-border: #c8e3cc;
+    --radius: 16px;
+    --shadow: 0 6px 24px rgba(31,138,76,0.10), 0 2px 6px rgba(16,42,24,0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(31,138,76,0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(212,160,23,0.14), transparent 60%),
+      linear-gradient(180deg, #eaf6ea 0%, #dff0e0 100%);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(231,245,232,0.85);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; color: var(--ink); }
+  .brand .logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    box-shadow: 0 6px 18px rgba(31,138,76,0.35);
+    display: grid; place-items: center; color: white; font-weight: 800;
+  }
+  nav.top a {
+    color: var(--ink-dim); text-decoration: none; margin-left: 18px; font-size: 14px; font-weight: 500;
+  }
+  nav.top a:hover { color: var(--emerald-deep); }
+  /* HERO */
+  header.hero { padding: 80px 0 60px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(31,138,76,0.12);
+    color: var(--emerald-deep); border: 1px solid rgba(31,138,76,0.35);
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05; margin: 18px 0 16px; font-weight: 800; letter-spacing: -0.5px;
+    color: var(--emerald-deep);
+  }
+  h1 .amp { color: var(--gold); }
+  .lead { font-size: 18px; color: var(--ink-dim); max-width: 760px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--card-border);
+  }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-2));
+    color: white; border-color: transparent;
+    box-shadow: 0 10px 24px rgba(31,138,76,0.32);
+  }
+  .btn.ghost { background: white; color: var(--emerald-deep); border-color: var(--card-border); }
+  .stats {
+    margin-top: 56px; display: grid;
+    grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .stat {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .stat .k { font-size: 12px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+  .stat .v { font-size: 28px; font-weight: 800; margin-top: 6px; color: var(--emerald-deep); }
+  .stat .v.pin { color: var(--emerald); }
+  .stat .v.cc { color: var(--gold); }
+  /* SECTIONS */
+  section { padding: 70px 0; border-top: 1px solid var(--line-soft); }
+  .eyebrow { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; }
+  h2 { font-size: clamp(26px, 3vw, 38px); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.3px; color: var(--ink); }
+  .sub { color: var(--ink-dim); max-width: 760px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+  .card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
+  .card p { color: var(--ink-dim); margin: 0; }
+  .card ul { color: var(--ink-dim); margin: 10px 0 0; padding-left: 20px; }
+  .card ul li { margin: 4px 0; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 4px 8px; border-radius: 6px;
+    background: rgba(15,138,126,0.12); color: var(--teal); border: 1px solid rgba(15,138,126,0.3);
+    letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700;
+  }
+  .tag.pin { background: rgba(31,138,76,0.13); color: var(--emerald-deep); border-color: rgba(31,138,76,0.3); }
+  .tag.cc { background: rgba(212,160,23,0.15); color: #8a6911; border-color: rgba(212,160,23,0.4); }
+  /* DIAGRAMS */
+  .diagram {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 22px;
+    overflow-x: auto;
+    box-shadow: var(--shadow);
+  }
+  .diagram svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  /* TABLES */
+  table.fin {
+    width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: var(--ink);
+  }
+  table.fin th, table.fin td {
+    padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line-soft);
+  }
+  table.fin th { color: var(--ink-mute); font-weight: 700; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+  table.fin tr:last-child td { border-bottom: none; }
+  table.fin .num { text-align: right; }
+  table.fin .total td { font-weight: 800; color: var(--emerald-deep); border-top: 2px solid var(--line); }
+  table.fin .hi td { background: rgba(212,160,23,0.12); font-weight: 700; }
+  table.fin .yes { color: var(--emerald-deep); font-weight: 700; text-align: center; }
+  table.fin .no { color: var(--ink-mute); text-align: center; }
+  /* TIMELINE */
+  .timeline { margin-top: 32px; position: relative; }
+  .tl-line {
+    position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--emerald), var(--teal));
+  }
+  .tl-item { position: relative; padding-left: 72px; margin-bottom: 26px; }
+  .tl-dot {
+    position: absolute; left: 20px; top: 8px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--emerald); border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--emerald);
+  }
+  .tl-dot.launch { background: var(--emerald-deep); box-shadow: 0 0 0 2px var(--emerald-deep); }
+  .tl-dot.build { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-dot.run { background: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+  .tl-card {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .tl-date { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700; }
+  .tl-title { font-weight: 700; margin: 4px 0; color: var(--ink); }
+  .tl-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 6px; color: var(--ink-dim); font-size: 14px; }
+  .tl-row b { color: var(--ink); }
+  /* CHART */
+  .chart-wrap {
+    background: var(--paper); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 22px; margin-top: 22px;
+    box-shadow: var(--shadow);
+  }
+  .chart-wrap .legend-note { color: var(--ink-mute); font-size: 12px; margin-top: 8px; }
+  canvas { max-width: 100%; }
+  .callout {
+    margin-top: 28px; padding: 22px 26px; border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(212,160,23,0.14), rgba(31,138,76,0.08));
+    border: 1px solid rgba(212,160,23,0.35);
+    color: var(--ink);
+  }
+  .callout strong { color: var(--emerald-deep); }
+  /* FOOTER */
+  footer {
+    padding: 40px 0 60px; text-align: center; color: var(--ink-mute);
+    font-size: 13px; border-top: 1px solid var(--line-soft);
+    background: rgba(255,255,255,0.4);
+  }
+  footer .brand { justify-content: center; margin-bottom: 12px; }
+  /* RESPONSIVE */
+  @media (max-width: 880px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    nav.top a:not(.btn) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>PredictAI <span style="color:var(--ink-mute);font-weight:500">&middot;</span> Introducing Broker</div>
+    </div>
+    <div>
+      <a href="#overview">Overview</a>
+      <a href="#structure">Structure</a>
+      <a href="#services">Services</a>
+      <a href="#revenue">Revenue</a>
+      <a href="#market">Market</a>
+      <a href="#regulatory">Regulatory</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#financials">Financials</a>
+      <a href="#acquisition">Acquisition</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">Business Plan &middot; PredictAI Brokerage LLC</span>
+    <h1>A regulated Introducing Broker <span class="amp">&plus;</span> AI intelligence for prediction markets.</h1>
+    <p class="lead">
+      PredictAI Brokerage LLC will operate as a CFTC-registered Introducing Broker (IB) that introduces retail and
+      institutional customers to regulated prediction market exchanges through licensed Futures Commission
+      Merchants (FCMs) &mdash; pairing seamless market access with institutional-grade AI market intelligence.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#overview">Read the plan &rarr;</a>
+      <a class="btn ghost" href="#revenue">See the revenue model</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="k">Startup Capital</div><div class="v">$300,000</div></div>
+      <div class="stat"><div class="k">Monthly Burn</div><div class="v">$65,000</div></div>
+      <div class="stat"><div class="k">Illustrative Annual Trade Revenue</div><div class="v pin">$960K</div></div>
+      <div class="stat"><div class="k">AI Pro Subscription</div><div class="v cc">$9.99/mo</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="wrap">
+    <div class="eyebrow">Executive Summary</div>
+    <h2>Not an exchange. Not a custodian. A smarter front door.</h2>
+    <p class="sub">
+      PredictAI sits between the customer and the regulated market plumbing. The heavy regulatory machinery &mdash;
+      custody, clearing, matching, listing &mdash; stays with the exchange and the FCM. PredictAI focuses on what it
+      can do best: acquiring customers and making them smarter traders with AI.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">The company will NOT</span>
+        <h3 style="margin-top:10px">Out of scope by design</h3>
+        <ul>
+          <li>Operate an exchange</li>
+          <li>Hold customer funds</li>
+          <li>Perform clearing</li>
+          <li>Match orders</li>
+          <li>List contracts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">PredictAI WILL</span>
+        <h3 style="margin-top:10px">The value it delivers</h3>
+        <ul>
+          <li>Acquire customers</li>
+          <li>Provide AI-powered market intelligence</li>
+          <li>Offer a superior trading interface</li>
+          <li>Route customer orders through an FCM</li>
+          <li>Earn transaction-based and subscription revenue (subject to partner agreements)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">Vision</span>
+        <h3 style="margin-top:10px">The leading AI-powered IB</h3>
+        <p>Become the leading AI-powered introducing broker for prediction markets in North America.</p>
+      </div>
+      <div class="card">
+        <span class="tag cc">Mission</span>
+        <h3 style="margin-top:10px">Intelligence + access</h3>
+        <p>Deliver institutional-grade AI market intelligence while providing seamless access to regulated prediction markets.</p>
+      </div>
+    </div>
+
+    <div class="diagram" style="margin-top:32px">
+      <svg viewBox="0 0 1100 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Business model flow diagram">
+        <defs>
+          <linearGradient id="gPin" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#1f8a4c"/>
+            <stop offset="1" stop-color="#0e5a32"/>
+          </linearGradient>
+          <linearGradient id="gGold" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#e6b938"/>
+            <stop offset="1" stop-color="#c79a1a"/>
+          </linearGradient>
+          <linearGradient id="gTeal" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#0f8a7e"/>
+            <stop offset="1" stop-color="#2faa64"/>
+          </linearGradient>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#355a3f"/>
+          </marker>
+        </defs>
+        <text x="550" y="30" text-anchor="middle" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Business Model &mdash; order &amp; settlement flow</text>
+
+        <g font-family="Inter">
+          <rect x="20" y="60" width="180" height="70" rx="12" fill="#ffffff" stroke="#c8e3cc" stroke-width="2"/>
+          <text x="110" y="100" text-anchor="middle" fill="#102a18" font-size="16" font-weight="700">Customer</text>
+
+          <rect x="240" y="60" width="200" height="70" rx="12" fill="url(#gPin)"/>
+          <text x="340" y="92" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">PredictAI</text>
+          <text x="340" y="112" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Introducing Broker</text>
+
+          <rect x="480" y="60" width="180" height="70" rx="12" fill="url(#gGold)"/>
+          <text x="570" y="100" text-anchor="middle" fill="#3a2c08" font-size="16" font-weight="700">Partner FCM</text>
+
+          <rect x="700" y="60" width="170" height="70" rx="12" fill="url(#gTeal)"/>
+          <text x="785" y="100" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Kalshi</text>
+
+          <rect x="910" y="60" width="170" height="70" rx="12" fill="#ffffff" stroke="#0f8a7e" stroke-width="2"/>
+          <text x="995" y="100" text-anchor="middle" fill="#0e5a32" font-size="16" font-weight="700">Settlement</text>
+
+          <line x1="200" y1="95" x2="235" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="440" y1="95" x2="475" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="660" y1="95" x2="695" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="870" y1="95" x2="905" y2="95" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+
+          <text x="550" y="165" text-anchor="middle" fill="#6b8c75" font-size="12">Customers place orders &rarr; PredictAI routes to the FCM &rarr; the FCM routes to Kalshi &rarr; settlement</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section id="structure">
+  <div class="wrap">
+    <div class="eyebrow">Company Structure</div>
+    <h2>Two brands: a technology company and a regulated brokerage.</h2>
+    <p class="sub">
+      Rather than a single &ldquo;PredictAI Brokerage&rdquo; entity, the recommended structure separates the
+      technology platform from the regulated Introducing Broker business &mdash; giving the company flexibility to
+      license its AI platform beyond its own IB operation and making it more attractive to investors.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Operation Company</span>
+        <h3 style="margin-top:10px">PredictAI Technologies, Inc.</h3>
+        <p>The legal entity that owns the software, intellectual property, and AI platform. In the future it can license its AI platform, analytics, and software to other brokerages, FCMs, or financial institutions &mdash; value beyond the brokerage business.</p>
+      </div>
+      <div class="card">
+        <span class="tag cc">Operating Division</span>
+        <h3 style="margin-top:10px">PredictAI Brokerage</h3>
+        <p>The regulated Introducing Broker business: customer acquisition, the trading interface, and order routing to partner FCMs under the agreed regulatory framework.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="tag">Legal Entity</span>
+        <h3 style="margin-top:10px">Delaware C-Corp or LLC</h3>
+        <p>Delaware C-Corporation preferred if raising venture capital, or an LLC initially if self-funded.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Registration</span>
+        <h3 style="margin-top:10px">CFTC + NFA</h3>
+        <ul>
+          <li>CFTC Introducing Broker</li>
+          <li>NFA Member</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Partners</span>
+        <h3 style="margin-top:10px">The ecosystem</h3>
+        <ul>
+          <li>Kalshi</li>
+          <li>One or more FCMs</li>
+          <li>Identity verification provider</li>
+          <li>Payment providers</li>
+          <li>Cloud infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <h2>Four pillars: acquire, inform, route, report.</h2>
+    <p class="sub">
+      PredictAI&rsquo;s product surface covers the full customer journey &mdash; from first touch on social channels
+      to AI-assisted research, order routing, and portfolio intelligence.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">1 &middot; Customer Acquisition</span>
+        <h3 style="margin-top:10px">Acquire retail traders through</h3>
+        <ul>
+          <li>SEO</li>
+          <li>YouTube</li>
+          <li>TikTok</li>
+          <li>X</li>
+          <li>Discord</li>
+          <li>Reddit</li>
+          <li>Referral programs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">2 &middot; AI Research</span>
+        <h3 style="margin-top:10px">Institutional-grade intelligence</h3>
+        <ul>
+          <li>Probability analysis</li>
+          <li>News summaries</li>
+          <li>Event research</li>
+          <li>Economic calendars</li>
+          <li>Risk scoring</li>
+          <li>Market alerts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">3 &middot; Trade Routing</span>
+        <h3 style="margin-top:10px">Clean, compliant order flow</h3>
+        <p>Customers place orders. PredictAI routes orders to the FCM. The FCM routes orders to Kalshi.</p>
+      </div>
+      <div class="card">
+        <span class="tag pin">4 &middot; Portfolio</span>
+        <h3 style="margin-top:10px">Everything a trader needs to see</h3>
+        <ul>
+          <li>Positions</li>
+          <li>P/L</li>
+          <li>History</li>
+          <li>Analytics</li>
+          <li>AI insights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue">
+  <div class="wrap">
+    <div class="eyebrow">Revenue</div>
+    <h2>Four revenue streams that reinforce each other.</h2>
+    <p class="sub">
+      Trading attracts users, AI increases engagement, and subscriptions create predictable recurring revenue.
+      The objective is not to make all revenue from commissions &mdash; transaction revenue and subscriptions
+      compound together.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Stream 1 &middot; Trade Revenue</span>
+        <h3 style="margin-top:10px">Transaction-based revenue</h3>
+        <p>Commission or revenue share from the FCM/exchange, depending on negotiated agreements. May include per-contract commissions, revenue sharing, platform fees, technology fees, order-routing compensation (where permitted), and volume incentives.</p>
+        <table class="fin">
+          <tr><th>Illustrative Assumption</th><th class="num">Value</th></tr>
+          <tr><td>Active traders</td><td class="num">5,000</td></tr>
+          <tr><td>Contracts / trader / day</td><td class="num">10</td></tr>
+          <tr><td>Trading days / month</td><td class="num">22</td></tr>
+          <tr><td>Avg revenue per contract</td><td class="num">$0.08</td></tr>
+          <tr><td>Monthly volume</td><td class="num">1,100,000</td></tr>
+          <tr><td>Monthly revenue</td><td class="num">$80,000</td></tr>
+          <tr class="total"><td>Annual transaction revenue</td><td class="num">$960,000</td></tr>
+        </table>
+        <p style="margin-top:10px;font-size:13px;color:var(--ink-mute)">These figures are illustrative only. Actual revenues depend on customer activity and commercial agreements.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Stream 2 &middot; Premium Subscription</span>
+        <h3 style="margin-top:10px">Three tiers, low barrier to entry</h3>
+        <table class="fin">
+          <tr><th>Plan</th><th>Price</th><th>Purpose</th></tr>
+          <tr><td>FREE</td><td>$0</td><td>Trading, basic market data, basic portfolio</td></tr>
+          <tr class="hi"><td>AI PRO</td><td>$9.99/mo</td><td>AI predictions, confidence scores, alerts, portfolio intelligence</td></tr>
+          <tr><td>AI ELITE</td><td>$29.99/mo</td><td>Everything in Pro plus advanced analytics, API access, strategy tools, priority support, early access</td></tr>
+        </table>
+        <p style="margin-top:10px;font-size:13px;color:var(--ink-mute)">Most traders will try a $9.99/month service if they believe it can improve their decisions &mdash; a lower barrier than $49/month, while still building meaningful recurring revenue at scale.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Stream 3 &middot; Enterprise API</span>
+        <h3 style="margin-top:10px">License AI analytics to institutions</h3>
+        <ul>
+          <li>Hedge funds</li>
+          <li>Financial advisors</li>
+          <li>Trading firms</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="tag">Stream 4 &middot; White Label</span>
+        <h3 style="margin-top:10px">Platform licensing</h3>
+        <p>License the platform to other brokers &mdash; the PredictAI Technologies entity makes this possible without being limited to the company&rsquo;s own IB operation.</p>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <canvas id="revChart" height="120"></canvas>
+      <div class="legend-note">Illustrative annual revenue at each scale tier: transaction revenue by active traders, subscription revenue by subscriber count (at $9.99/mo). Hover bars for exact figures.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:32px">
+      <div class="card">
+        <span class="tag pin">Growth Scenario &mdash; Transactions</span>
+        <h3 style="margin-top:10px">Illustrative annual transaction revenue</h3>
+        <table class="fin">
+          <tr><th>Active Traders</th><th class="num">Annual Revenue*</th></tr>
+          <tr><td>5,000</td><td class="num">$1,056,000</td></tr>
+          <tr><td>10,000</td><td class="num">$2,112,000</td></tr>
+          <tr><td>25,000</td><td class="num">$5,280,000</td></tr>
+          <tr class="total"><td>50,000</td><td class="num">$10,560,000</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <span class="tag cc">Growth Scenario &mdash; Subscriptions</span>
+        <h3 style="margin-top:10px">Illustrative subscription revenue ($9.99/mo)</h3>
+        <table class="fin">
+          <tr><th>Subscribers</th><th class="num">Monthly</th><th class="num">Annual</th></tr>
+          <tr><td>1,000</td><td class="num">$9,990</td><td class="num">$119,880</td></tr>
+          <tr><td>5,000</td><td class="num">$49,950</td><td class="num">$599,400</td></tr>
+          <tr><td>10,000</td><td class="num">$99,900</td><td class="num">$1,198,800</td></tr>
+          <tr><td>25,000</td><td class="num">$249,750</td><td class="num">$2,997,000</td></tr>
+          <tr><td>50,000</td><td class="num">$499,500</td><td class="num">$5,994,000</td></tr>
+          <tr class="total"><td>100,000</td><td class="num">$999,000</td><td class="num">$11,988,000</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:32px">
+      <div class="card">
+        <span class="tag cc">AI Pro &mdash; Included Features</span>
+        <h3 style="margin-top:10px">What $9.99/month unlocks</h3>
+        <ul>
+          <li><b>AI Prediction Engine:</b> AI probability score, confidence score, market sentiment analysis, fair value estimation, historical event comparisons</li>
+          <li><b>Market Intelligence:</b> breaking news summaries, economic calendar, market-moving events, AI-generated explanations, event timeline</li>
+          <li><b>Smart Alerts:</b> price movement alerts, probability changes, AI recommendation updates, new market notifications</li>
+          <li><b>Portfolio Intelligence:</b> performance analytics, position insights, win/loss tracking, risk analysis, AI portfolio recommendations</li>
+          <li><b>Research Tools:</b> search prediction markets, trending markets, historical probabilities, market comparisons</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Free vs Pro</span>
+        <h3 style="margin-top:10px">Feature comparison</h3>
+        <table class="fin">
+          <tr><th>Feature</th><th style="text-align:center">Free</th><th style="text-align:center">Pro ($9.99/mo)</th></tr>
+          <tr><td>Market Prices</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Market Search</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Basic Portfolio</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Place Trades</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>AI Probability</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Confidence Score</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>AI News Analysis</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Fair Value Estimate</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Smart Alerts</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Portfolio AI</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+          <tr><td>Historical AI Analysis</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="diagram" style="margin-top:32px">
+      <svg viewBox="0 0 1100 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Investor strategy funnel">
+        <text x="550" y="30" text-anchor="middle" fill="#355a3f" font-size="13" font-family="Inter" font-weight="700">Investor Strategy &mdash; the subscription funnel</text>
+        <g font-family="Inter">
+          <rect x="60" y="55" width="200" height="64" rx="12" fill="#ffffff" stroke="#c8e3cc" stroke-width="2"/>
+          <text x="160" y="92" text-anchor="middle" fill="#102a18" font-size="15" font-weight="700">Free User</text>
+
+          <rect x="320" y="55" width="200" height="64" rx="12" fill="#0f8a7e"/>
+          <text x="420" y="92" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Starts Trading</text>
+
+          <rect x="580" y="55" width="200" height="64" rx="12" fill="#1f8a4c"/>
+          <text x="680" y="92" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Uses AI</text>
+
+          <rect x="840" y="55" width="200" height="64" rx="12" fill="#c79a1a"/>
+          <text x="940" y="85" text-anchor="middle" fill="#3a2c08" font-size="15" font-weight="700">Subscribes</text>
+          <text x="940" y="105" text-anchor="middle" fill="#3a2c08" font-size="12" font-weight="600">$9.99/month</text>
+
+          <line x1="260" y1="87" x2="315" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="520" y1="87" x2="575" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+          <line x1="780" y1="87" x2="835" y2="87" stroke="#355a3f" stroke-width="2.5" marker-end="url(#arr)"/>
+
+          <text x="550" y="150" text-anchor="middle" fill="#6b8c75" font-size="12">Trading attracts users &middot; AI increases engagement &middot; Subscriptions create predictable recurring revenue</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="eyebrow">Market Opportunity</div>
+    <h2>Help traders decide &mdash; don&rsquo;t compete with the exchange.</h2>
+    <p class="sub">
+      Instead of competing with Kalshi, PredictAI helps customers make better decisions. The target audience spans
+      every trader profile already comfortable with event-driven risk.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Target Customers</span>
+        <h3 style="margin-top:10px">Who PredictAI serves</h3>
+        <ul>
+          <li>Retail investors</li>
+          <li>Prediction market traders</li>
+          <li>Sports traders</li>
+          <li>Macro investors</li>
+          <li>Options traders</li>
+          <li>Crypto traders</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag cc">Competitive Advantage</span>
+        <h3 style="margin-top:10px">Traditional broker vs PredictAI</h3>
+        <table class="fin">
+          <tr><th>Traditional Broker</th><th>PredictAI</th></tr>
+          <tr><td>Basic trading</td><td>AI-powered trading</td></tr>
+          <tr><td>Charts</td><td>AI probability</td></tr>
+          <tr><td>News</td><td>AI explanations</td></tr>
+          <tr><td>Portfolio</td><td>Portfolio + recommendations</td></tr>
+          <tr><td>Order entry</td><td>AI-assisted execution workflow</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY -->
+<section id="regulatory">
+  <div class="wrap">
+    <div class="eyebrow">Regulatory Strategy</div>
+    <h2>A Guaranteed IB &mdash; the FCM carries the regulatory weight.</h2>
+    <p class="sub">
+      PredictAI will operate as a Guaranteed Introducing Broker under an FCM, keeping the compliance-heavy
+      functions with the party built to handle them.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag cc">The FCM is responsible for</span>
+        <h3 style="margin-top:10px">The regulated plumbing</h3>
+        <ul>
+          <li>Customer funds</li>
+          <li>Account carrying</li>
+          <li>KYC</li>
+          <li>AML</li>
+          <li>Clearing</li>
+          <li>Settlement</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag pin">PredictAI focuses on</span>
+        <h3 style="margin-top:10px">The customer experience</h3>
+        <ul>
+          <li>Marketing</li>
+          <li>Customer support</li>
+          <li>AI</li>
+          <li>Analytics</li>
+          <li>Software</li>
+          <li>Order routing (within the agreed regulatory framework)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="eyebrow">Technology Roadmap</div>
+    <h2>Three phases: build, integrate, expand.</h2>
+    <p class="sub">
+      The platform ships in stages &mdash; prove the experience with paper trading first, wire in real money through
+      the FCM and Kalshi second, then scale the surface area.
+    </p>
+
+    <div class="timeline" style="margin-top:36px">
+      <div class="tl-line"></div>
+
+      <div class="tl-item">
+        <div class="tl-dot build"></div>
+        <div class="tl-card">
+          <div class="tl-date">Phase 1 &middot; Build</div>
+          <div class="tl-title">The core experience, risk-free.</div>
+          <div class="tl-row">
+            <span><b>Website</b></span><span><b>AI dashboard</b></span><span><b>Market browser</b></span>
+            <span><b>Customer onboarding</b></span><span><b>Paper trading</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot launch"></div>
+        <div class="tl-card">
+          <div class="tl-date">Phase 2 &middot; Integrate</div>
+          <div class="tl-title">Real money goes live.</div>
+          <div class="tl-row">
+            <span><b>FCM</b></span><span><b>Kalshi</b></span><span><b>Customer accounts</b></span>
+            <span><b>Real-money trading</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot run"></div>
+        <div class="tl-card">
+          <div class="tl-date">Phase 3 &middot; Expand</div>
+          <div class="tl-title">Scale the platform and the business model.</div>
+          <div class="tl-row">
+            <span><b>Mobile app</b></span><span><b>Enterprise API</b></span><span><b>Additional exchanges</b></span>
+            <span><b>White-label offerings</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section id="financials">
+  <div class="wrap">
+    <div class="eyebrow">Financials</div>
+    <h2>$300K to launch, $65K/month to run.</h2>
+    <p class="sub">
+      A lean capital plan: legal and compliance to stand up the regulated entity, a $100K technology build, and
+      roughly a third of the raise held as working capital.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag pin">Startup Cost</span>
+        <h3 style="margin-top:10px">$300,000 total</h3>
+        <table class="fin">
+          <tr><th>Item</th><th class="num">Cost</th></tr>
+          <tr><td>Legal</td><td class="num">$40,000</td></tr>
+          <tr><td>Compliance</td><td class="num">$25,000</td></tr>
+          <tr><td>Registration</td><td class="num">$3,000</td></tr>
+          <tr><td>Technology</td><td class="num">$100,000</td></tr>
+          <tr><td>Security</td><td class="num">$15,000</td></tr>
+          <tr><td>Insurance</td><td class="num">$10,000</td></tr>
+          <tr><td>Working Capital</td><td class="num">$107,000</td></tr>
+          <tr class="total"><td>Total</td><td class="num">$300,000</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <span class="tag cc">Monthly Expenses</span>
+        <h3 style="margin-top:10px">$65,000 / month</h3>
+        <table class="fin">
+          <tr><th>Item</th><th class="num">Monthly</th></tr>
+          <tr><td>CEO</td><td class="num">$15,000</td></tr>
+          <tr><td>Compliance</td><td class="num">$5,000</td></tr>
+          <tr><td>Engineering</td><td class="num">$15,000</td></tr>
+          <tr><td>Cloud</td><td class="num">$2,000</td></tr>
+          <tr><td>Marketing</td><td class="num">$15,000</td></tr>
+          <tr><td>Customer Support</td><td class="num">$5,000</td></tr>
+          <tr><td>Insurance</td><td class="num">$1,000</td></tr>
+          <tr><td>Miscellaneous</td><td class="num">$7,000</td></tr>
+          <tr class="total"><td>Total</td><td class="num">$65,000/mo</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:32px">
+      <span class="tag">Year 1 Objectives</span>
+      <h3 style="margin-top:10px">Six milestones that validate the model</h3>
+      <ul>
+        <li>Register as a Guaranteed IB</li>
+        <li>Execute agreements with an FCM and Kalshi</li>
+        <li>Launch the web platform</li>
+        <li>Acquire the first 1,000 funded customers</li>
+        <li>Introduce premium AI subscriptions</li>
+        <li>Validate the business model before expanding to additional exchanges</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACQUISITION -->
+<section id="acquisition">
+  <div class="wrap">
+    <div class="eyebrow">Strategic Customer Acquisition Advantage</div>
+    <h2>An existing industry network of 58,000 nail salons.</h2>
+    <p class="sub">
+      PredictAI has access to an established business network within the beauty industry &mdash; approximately
+      58,000 U.S. nail salons with hundreds of thousands of salon owners, technicians, employees, and customers,
+      plus thousands of local businesses (car repair shops, restaurants, dentists, tea shops). This network is a
+      distribution channel that can be leveraged through partnerships, referrals, and targeted marketing.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="tag pin">Acquisition Strategy</span>
+        <h3 style="margin-top:10px">Multiple channels, lower CAC</h3>
+        <ul>
+          <li>Direct outreach to salon owners</li>
+          <li>Referral partnerships</li>
+          <li>Employee incentive programs</li>
+          <li>Customer referral campaigns</li>
+          <li>Educational seminars and webinars</li>
+          <li>Digital marketing targeted to beauty professionals</li>
+          <li>Co-branded promotional partnerships</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag cc">Cross-Selling Opportunity</span>
+        <h3 style="margin-top:10px">An underserved investor audience</h3>
+        <p>Many salon owners and beauty professionals are entrepreneurs and active retail investors &mdash; an underserved market for AI-powered financial tools.</p>
+        <ul>
+          <li>AI-powered prediction market platform</li>
+          <li>Investment education</li>
+          <li>Financial market insights</li>
+          <li>Portfolio tracking</li>
+          <li>Mobile trading experience</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Long-Term Expansion</span>
+        <h3 style="margin-top:10px">Replicate across communities</h3>
+        <ul>
+          <li>Insurance agents</li>
+          <li>Mortgage professionals</li>
+          <li>Real estate professionals</li>
+          <li>Financial advisors</li>
+          <li>Small business owners</li>
+          <li>Professional associations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Scalable, defensible acquisition.</strong> Rather than relying solely on expensive online advertising,
+      PredictAI builds strategic industry partnerships that lower customer acquisition costs, accelerate user
+      growth, and complement traditional digital marketing.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>PredictAI Brokerage LLC &mdash; A Regulated Introducing Broker for Prediction Markets</div>
+    </div>
+    <div>Business Plan &middot; Prepared July 2026 &middot; Confidential &mdash; illustrative figures subject to partner agreements and applicable regulations</div>
+  </div>
+</footer>
+
+<script>
+  // Illustrative growth: transaction revenue by active traders, subscription revenue by subscribers
+  const tiers = ['5,000', '10,000', '25,000', '50,000'];
+  const txRevenue  = [1056000, 2112000, 5280000, 10560000];   // annual transaction revenue by active traders
+  const subRevenue = [ 599400, 1198800, 2997000,  5994000];   // annual subscription revenue by subscriber count
+
+  const ctx = document.getElementById('revChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: tiers,
+      datasets: [
+        {
+          label: 'Transaction revenue (by active traders)',
+          data: txRevenue,
+          backgroundColor: 'rgba(31, 138, 76, 0.85)',
+          borderColor: 'rgba(14, 90, 50, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Subscription revenue (by subscribers, $9.99/mo)',
+          data: subRevenue,
+          backgroundColor: 'rgba(212, 160, 23, 0.85)',
+          borderColor: 'rgba(199, 154, 26, 1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#102a18', font: { family: 'Inter', size: 12, weight: '600' } } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Scale tier (active traders / subscribers)', color: '#6b8c75', font: { family: 'Inter', size: 11 } },
+          ticks: { color: '#355a3f' },
+          grid: { color: 'rgba(16,42,24,0.06)' }
+        },
+        y: {
+          ticks: {
+            color: '#355a3f',
+            callback: function(v) { return '$' + (v/1000000) + 'M'; }
+          },
+          grid: { color: 'rgba(16,42,24,0.08)' }
+        }
+      }
+    }
+  });
+  document.getElementById('revChart').parentElement.style.height = '380px';
+</script>
+
+</body>
+</html>
