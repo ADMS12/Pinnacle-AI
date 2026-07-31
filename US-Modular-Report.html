@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>U.S. Modular Building Industry &mdash; Research Report</title>
+<meta name="description" content="Industry research report on the U.S. modular and prefabricated building industry: market size, structure, major players, technology, risks, and five-year outlook. Prepared June 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --bg-soft:   #f6f8fc;
+    --bg-panel:  #ffffff;
+    --bg-muted:  #eef2f8;
+
+    --ink:       #0f1b3d;
+    --ink-2:     #2b3a64;
+    --ink-mute:  #607094;
+
+    --line:      #d8e0ee;
+    --line-soft: #e7ecf5;
+
+    --accent:    #2459d6;
+    --accent-2:  #4c8dff;
+    --accent-bg: #e8f0ff;
+
+    --orange:    #e07a2b;
+    --orange-2:  #f59c4d;
+    --orange-bg: #fff2e3;
+
+    --good:      #128a64;
+    --good-2:    #2bd4a4;
+    --good-bg:   #e2f7ee;
+
+    --bad:       #c0392b;
+    --bad-bg:    #fdecea;
+
+    --purple:    #5b46d9;
+    --purple-2:  #8a7aff;
+
+    --radius:    14px;
+    --shadow:    0 6px 22px rgba(15,27,61,0.08);
+    --shadow-lg: 0 14px 40px rgba(15,27,61,0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-size: 15px; white-space: nowrap; }
+  .brand .logo {
+    width: 34px; height: 34px; border-radius: 8px; flex: 0 0 34px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    box-shadow: 0 6px 18px rgba(36,89,214,0.30);
+    display: grid; place-items: center; color: white; font-weight: 800; font-size: 14px;
+  }
+  .brand .subtitle { color: var(--ink-mute); font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  nav.top a.nav-link { color: var(--ink-2); text-decoration: none; padding: 8px 12px; font-size: 14px; font-weight: 500; border-radius: 8px; }
+  nav.top a.nav-link:hover { color: var(--accent); background: var(--accent-bg); }
+  nav.top .nav-cta {
+    padding: 9px 14px; border-radius: 10px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white; text-decoration: none; font-size: 14px; white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(36,89,214,0.25);
+  }
+  nav.top .nav-cta:hover { color: white; }
+
+  /* HERO */
+  header.hero {
+    padding: 72px 0 50px;
+    background:
+      radial-gradient(900px 400px at 90% -10%, rgba(36,89,214,0.08), transparent 60%),
+      radial-gradient(700px 320px at -10% 10%, rgba(91,70,217,0.07), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent); border: 1px solid #c9dcff;
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.06; margin: 18px 0 16px; font-weight: 800; letter-spacing: -0.6px;
+    color: var(--ink);
+  }
+  h1 .grad { background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; color: var(--ink-2); max-width: 860px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid transparent; font-size: 15px;
+  }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--purple)); color: white; box-shadow: 0 8px 22px rgba(36,89,214,0.30); }
+  .btn.blue   { background: var(--accent-bg); color: var(--accent); border: 1px solid #c9dcff; }
+
+  /* STAT BAR */
+  .stats { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .stat { background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .stat .k { font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700; }
+  .stat .v { font-size: 30px; font-weight: 800; margin-top: 6px; font-family: 'JetBrains Mono', monospace; color: var(--ink); }
+  .stat .v.acc  { color: var(--accent); }
+  .stat .v.org  { color: var(--orange); }
+  .stat .v.good { color: var(--good); }
+  .stat .v.pur  { color: var(--purple); }
+  .stat .sub { font-size: 12px; color: var(--ink-mute); margin-top: 4px; }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-top: 1px solid var(--line-soft); }
+  .eyebrow { font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; }
+  h2 { font-size: clamp(24px, 3vw, 34px); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.4px; color: var(--ink); }
+  h2 .grad { background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 .grad.amber { background: linear-gradient(135deg, var(--orange), #c45a18); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 .grad.green { background: linear-gradient(135deg, var(--good), #0a6a4c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h3.block { font-size: 19px; font-weight: 700; color: var(--ink); margin: 30px 0 10px; }
+  .sub { color: var(--ink-2); max-width: 900px; }
+  .sub strong { color: var(--ink); }
+  p { color: var(--ink-2); max-width: 900px; }
+  p strong { color: var(--ink); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 28px; }
+  .card {
+    background: var(--bg-panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; color: var(--ink); }
+  .card p { color: var(--ink-2); margin: 0; font-size: 14.5px; }
+  .card ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink-2); font-size: 14.5px; }
+  .card li { margin-bottom: 6px; }
+
+  ul.plain { color: var(--ink-2); max-width: 900px; padding-left: 22px; }
+  ul.plain li { margin-bottom: 8px; }
+  ul.plain strong { color: var(--ink); }
+  ol.plain { color: var(--ink-2); max-width: 900px; padding-left: 22px; }
+  ol.plain li { margin-bottom: 8px; }
+  ol.plain strong { color: var(--ink); }
+
+  .note { font-size: 13px; color: var(--ink-mute); font-style: italic; max-width: 900px; margin-top: 10px; }
+
+  /* TABLES */
+  .tbl-scroll { overflow-x: auto; margin-top: 22px; }
+  table.cmp { width: 100%; min-width: 620px; border-collapse: separate; border-spacing: 0; font-size: 14px; background: var(--bg-panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  table.cmp th, table.cmp td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  table.cmp tr:last-child td { border-bottom: none; }
+  table.cmp th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; background: var(--bg-soft); }
+  table.cmp td.num { font-family: 'JetBrains Mono', monospace; color: var(--ink); font-weight: 600; white-space: nowrap; }
+  table.cmp tr td:first-child { color: var(--ink); font-weight: 600; }
+  table.cmp td { color: var(--ink-2); }
+
+  /* CALLOUTS */
+  .callout {
+    margin-top: 24px; padding: 20px 22px; max-width: 900px;
+    background: var(--accent-bg); border: 1px solid #c9dcff; border-radius: 14px;
+  }
+  .callout .lbl { font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--accent); font-weight: 800; }
+  .callout p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-2); }
+  .callout.green { background: var(--good-bg); border-color: #b6e9d3; }
+  .callout.green .lbl { color: var(--good); }
+  .callout.amber { background: var(--orange-bg); border-color: #f6cfa3; }
+  .callout.amber .lbl { color: var(--orange); }
+
+  /* SWOT */
+  .swot { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+  .swot .cell { border-radius: 14px; padding: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .swot .cell h4 { margin: 0 0 10px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 800; }
+  .swot .cell ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink-2); }
+  .swot .cell li { margin-bottom: 6px; }
+  .swot .s { background: var(--good-bg);  } .swot .s h4 { color: var(--good); }
+  .swot .w { background: var(--bad-bg);   } .swot .w h4 { color: var(--bad); }
+  .swot .o { background: var(--accent-bg);} .swot .o h4 { color: var(--accent); }
+  .swot .t { background: var(--orange-bg);} .swot .t h4 { color: var(--orange); }
+
+  /* ADOPTION STATS */
+  .adopt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; max-width: 900px; }
+  .adopt .a { background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); text-align: center; }
+  .adopt .a .v { font-size: 34px; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: var(--accent); }
+  .adopt .a .k { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+
+  /* SOURCES */
+  .sources { margin-top: 24px; max-width: 980px; }
+  .sources ol { padding-left: 22px; color: var(--ink-2); font-size: 13.5px; }
+  .sources li { margin-bottom: 8px; overflow-wrap: anywhere; }
+  .sources a { color: var(--accent); text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { padding: 36px 0 56px; color: var(--ink-mute); font-size: 13px; border-top: 1px solid var(--line-soft); background: var(--bg-soft); }
+  footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .swot { grid-template-columns: 1fr; }
+    .adopt { grid-template-columns: 1fr; }
+    nav.top a.nav-link { display: none; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    nav.top .row { height: 56px; }
+    .brand { font-size: 14px; }
+    .brand .subtitle { display: none; }
+    nav.top .nav-cta { padding: 8px 12px; font-size: 13px; }
+    header.hero { padding: 40px 0 32px; }
+    h1 { font-size: 30px; line-height: 1.15; }
+    .lead { font-size: 16px; }
+    section { padding: 44px 0; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat { padding: 16px; }
+    .stat .v { font-size: 22px; }
+    table.cmp th, table.cmp td { padding: 10px 12px; font-size: 13px; }
+    .btn { font-size: 14px; padding: 11px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="logo">US</div>
+      <div>US Modular <span class="subtitle">· Industry Report</span></div>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="#market">Market Size</a>
+      <a class="nav-link" href="#players">Major Players</a>
+      <a class="nav-link" href="#policy">ROAD Act</a>
+      <a class="nav-link" href="#risks">Risks</a>
+      <a class="nav-link" href="#outlook">Outlook</a>
+      <a class="nav-cta" href="Docs/US_Modular_Prefab_Building_Industry_Report.docx" download>Download DOCX ↓</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">Industry Research Report · Prepared June 2026 · IBIS-Style Format</span>
+    <h1>U.S. <span class="grad">Modular Building</span> Industry</h1>
+    <p class="lead">Permanent Modular · Relocatable Buildings · Panelized &amp; Pod Systems · Factory-Built Housing.<br/>Market size, structure, major players, technology, risks, and the five-year outlook — latest available data through FY2025 / calendar 2025.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#exec">Executive Summary →</a>
+      <a class="btn blue" href="#policy">2026 ROAD to Housing Act</a>
+      <a class="btn blue" href="Rosamond-Steel-BOM.html">← Rosamond Steel BOM</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="k">U.S. Permanent Modular, 2024</div>
+        <div class="v acc">$20.3B</div>
+        <div class="sub">5.1% share of key segments</div>
+      </div>
+      <div class="stat">
+        <div class="k">Forecast Market, 2029</div>
+        <div class="v good">$25.4B</div>
+        <div class="sub">4.5% CAGR, 2024–2029</div>
+      </div>
+      <div class="stat">
+        <div class="k">N. America Relocatable, 2024</div>
+        <div class="v org">$4.7B</div>
+        <div class="sub">~500k-unit relocatable fleet</div>
+      </div>
+      <div class="stat">
+        <div class="k">Manufactured Home Shipments</div>
+        <div class="v pur">~105k</div>
+        <div class="sub">2025 · ~3% offsite single-family share</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<section id="exec">
+  <div class="wrap">
+    <div class="eyebrow">Section 1</div>
+    <h2>Executive <span class="grad">Summary</span></h2>
+    <p class="sub">The U.S. modular and prefabricated building industry remains small relative to conventional construction, yet it is strategically important because it directly attacks the sector's most persistent problems: chronic labor scarcity, schedule risk, housing affordability, inconsistent quality control, and jobsite waste. Offsite construction shifts a substantial portion of a building's value from an uncontrolled jobsite into a controlled factory, where weather, theft, rework, and labor variability can be engineered out.</p>
+    <p>The strongest current demand sits in multifamily housing, affordable and supportive housing, education (classrooms and student housing), workforce and temporary housing, healthcare facilities, lodging/hospitality, and data-center-adjacent and office-support space. Across these segments, the common denominators are repeatability, speed-to-revenue, public or institutional funding, and high carrying costs that reward faster delivery.</p>
+    <div class="callout">
+      <div class="lbl">Bottom Line</div>
+      <p>Modular will not displace conventional construction broadly within five years, but it should keep gaining share in segments where standardization, speed, public funding, and labor scarcity converge. The most durable operators increasingly resemble hybrid manufacturers, developers, logistics operators, and software-enabled construction platforms rather than traditional custom builders. The July 2026 enactment of the <strong>21st Century ROAD to Housing Act</strong> — the first federal housing law in a generation with an entire title devoted to manufactured and modular housing — reinforces the policy tailwind.</p>
+    </div>
+    <p class="note">Primary benchmark: Modular Building Institute (MBI) / FMI Consulting industry analysis. All figures are sourced and listed in the Sources section.</p>
+  </div>
+</section>
+
+<!-- 2. DEFINITION & SCOPE -->
+<section id="scope">
+  <div class="wrap">
+    <div class="eyebrow">Section 2</div>
+    <h2>Industry Definition <span class="grad">&amp; Scope</span></h2>
+    <p class="sub">This industry comprises buildings, rooms, structural sections, panels, pods, and components that are substantially produced offsite in a factory and then transported and assembled onsite. The defining characteristic is the transfer of construction value from the jobsite to a manufacturing environment, ranging from full volumetric rooms to flat-packed panel kits.</p>
+
+    <h3 class="block">Core Categories</h3>
+    <ul class="plain">
+      <li><strong>Permanent modular construction (PMC):</strong> volumetric three-dimensional modules or panelized systems installed as permanent, code-compliant buildings on a fixed foundation.</li>
+      <li><strong>Relocatable modular buildings:</strong> reusable structures — classrooms, jobsite offices, swing/temporary space, clinics, and disaster-response units — designed to be moved and redeployed.</li>
+      <li><strong>Panelized / pre-cut systems:</strong> factory-built walls, floors, roofs, trusses, structural insulated panels (SIPs), and mass-timber assemblies shipped flat and erected onsite.</li>
+      <li><strong>Pods &amp; subassemblies:</strong> prefabricated bathrooms, kitchen/bath modules, MEP racks, and utility walls integrated into otherwise conventional or modular builds.</li>
+      <li><strong>Factory-built (HUD-code) manufactured housing:</strong> adjacent and distinct — factory-built but regulated under a federal HUD code and typically sold and financed through a different channel (often chattel/personal property).</li>
+    </ul>
+
+    <h3 class="block">NAICS Coverage &amp; the Measurement Challenge</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>NAICS</th><th>Category</th><th>Domain</th></tr></thead>
+        <tbody>
+          <tr><td class="num">321991</td><td>Manufactured (mobile) homes</td><td>Manufacturing</td></tr>
+          <tr><td class="num">321992</td><td>Prefabricated wood buildings</td><td>Manufacturing</td></tr>
+          <tr><td class="num">332311</td><td>Prefabricated metal buildings &amp; components</td><td>Manufacturing</td></tr>
+          <tr><td class="num">236 / 238</td><td>Onsite assembly, set, and trade work</td><td>Construction</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Because activity straddles manufacturing and construction codes, no single government series captures the full industry; analysts triangulate MBI/FMI, Census manufactured-housing data, NAHB completions data, and public-company filings.</p>
+  </div>
+</section>
+
+<!-- 3. MARKET SIZE -->
+<section id="market">
+  <div class="wrap">
+    <div class="eyebrow">Section 3</div>
+    <h2>Market Size <span class="grad">&amp; Structure</span></h2>
+
+    <h3 class="block">Permanent Modular Construction</h3>
+    <p>The best available benchmark is the MBI / FMI estimate that U.S. permanent modular construction reached <strong>$20.3 billion in 2024</strong>, equal to <strong>5.1% of construction activity</strong> across the key segments where modular competes. MBI / FMI forecast growth to <strong>$25.4 billion by 2029, a 4.5% CAGR</strong> — led by repeatable, schedule-sensitive building types rather than broad displacement of custom construction.</p>
+
+    <h3 class="block">Relocatable Modular Buildings</h3>
+    <p>MBI reports North American relocatable buildings revenue of <strong>$4.7 billion in 2024</strong>, up roughly 7.9% year over year despite a slight dip in utilization — growth driven primarily by rising rental rates. The total fleet is approximately <strong>500,000 units</strong> (about 300,000 privately owned/leased and 200,000 public-sector classrooms), representing more than $5 billion in assets.</p>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Relocatable Revenue Mix (2024)</th><th>Share</th><th>Character</th></tr></thead>
+        <tbody>
+          <tr><td>Rentals (units + value-added products)</td><td class="num">40%</td><td>Recurring, rate-driven</td></tr>
+          <tr><td>New unit sales</td><td class="num">27%</td><td>Cyclical</td></tr>
+          <tr><td>Services (delivery, install, etc.)</td><td class="num">23%</td><td>Attached to fleet</td></tr>
+          <tr><td>Used unit sales</td><td class="num">10%</td><td>Fleet rotation</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="block">Residential Offsite Adoption Remains Low</h3>
+    <p>NAHB's Census-based analysis found that <strong>28,000 single-family homes</strong> were completed using modular (13,000) or panelized/pre-cut (15,000) methods out of <strong>1.019 million</strong> total single-family completions in 2024 — roughly <strong>3% share</strong>. Multifamily offsite share was also about 3% in 2024, down sharply from 7% in 2023.</p>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Offsite Residential Share</th><th>2023</th><th>2024</th><th>Trend</th></tr></thead>
+        <tbody>
+          <tr><td>Single-family (modular + panelized)</td><td class="num">~3%</td><td class="num">~3%</td><td>Flat / low</td></tr>
+          <tr><td>Multifamily (offsite)</td><td class="num">7%</td><td class="num">~3%</td><td>Declined</td></tr>
+          <tr><td>Highest regional share (Midwest)</td><td class="num">—</td><td class="num">~7%</td><td>NE/MW concentrated</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="block">Manufactured Housing: The Larger Adjacent Market</h3>
+    <p>HUD-code manufactured housing is the larger factory-built adjacency. Industry (MHI-referenced) shipment data show roughly <strong>105,000 units in 2025</strong>, up from about 103,000 (calendar 2024 per Census) and a soft 2023 — but all still well below the long-term historical average above 200,000 units. The segment is highly sensitive to interest rates and chattel-financing availability.</p>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Manufactured Home Shipments</th><th>Units</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>2023</td><td class="num">~104,000</td><td>Industry FY ref.</td><td>Rate-driven downturn</td></tr>
+          <tr><td>2024</td><td class="num">~103,300</td><td>Census calendar</td><td>Stabilizing</td></tr>
+          <tr><td>2025</td><td class="num">~105,000</td><td>Industry FY ref.</td><td>Modest recovery</td></tr>
+          <tr><td>Long-run average</td><td class="num">&gt;200,000</td><td>Historical</td><td>Pre-2008 norms</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MAJOR MARKETS -->
+<section id="segments">
+  <div class="wrap">
+    <div class="eyebrow">Section 4</div>
+    <h2>Major Markets <span class="grad amber">&amp; End-Use Segments</span></h2>
+    <p class="sub">Demand is concentrated where building types are repeatable, where speed converts directly into revenue or cost savings, and where public or institutional funding underwrites delivery.</p>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Segment</th><th>Why Modular Fits</th><th>Demand Outlook</th></tr></thead>
+        <tbody>
+          <tr><td>Multifamily housing</td><td>Repeating unit layouts; speed cuts carrying cost</td><td>Strong / core</td></tr>
+          <tr><td>Affordable &amp; supportive housing</td><td>Public funding, cost certainty, speed mandates</td><td>Strong / policy-driven</td></tr>
+          <tr><td>Education</td><td>Standard classrooms; summer install windows</td><td>Strong (relocatable + PMC)</td></tr>
+          <tr><td>Workforce &amp; temporary housing</td><td>Remote sites, rapid deployment, reuse</td><td>Steady</td></tr>
+          <tr><td>Healthcare</td><td>Repeatable rooms, pods, swing space, clean builds</td><td>Growing</td></tr>
+          <tr><td>Hospitality / lodging</td><td>Identical rooms; faster time-to-open</td><td>Growing</td></tr>
+          <tr><td>Data centers &amp; office support</td><td>Speed, prefab MEP, ancillary space</td><td>Emerging / fast</td></tr>
+          <tr><td>Disaster &amp; rapid response</td><td>Immediate deployable capacity</td><td>Episodic</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Speed, repeatability, public funding, labor scarcity, and high carrying costs are the strongest predictors of where modular wins share.</p>
+  </div>
+</section>
+
+<!-- 5. MAJOR PLAYERS -->
+<section id="players">
+  <div class="wrap">
+    <div class="eyebrow">Section 5</div>
+    <h2>Competitive Landscape <span class="grad">&amp; Major Players</span></h2>
+    <p class="sub">The industry is fragmented and bifurcated. On one side sit large, integrated factory-built housing manufacturers; on the other, dominant commercial modular space and relocatable-building lessors. A long tail of volumetric modular specialists serves multifamily, affordable, and institutional projects.</p>
+
+    <h3 class="block">Factory-Built Housing (Manufactured &amp; Modular Homes)</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Company</th><th>Latest Scale</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Clayton Homes (Berkshire Hathaway)</td><td class="num">~59,000 homes, 2025</td><td>Largest integrated player; site-built, manufactured, CrossMod, modular &amp; tiny homes with captive financing</td></tr>
+          <tr><td>Champion Homes (NYSE: SKY)</td><td class="num">~$2.7B net sales, FY2026</td><td>46 plants; ~22.5% U.S. HUD-code wholesale share; cites #1 U.S. modular builder by units (CY2025)</td></tr>
+          <tr><td>Cavco Industries (NASDAQ: CVCO)</td><td class="num">19,753 homes sold, FY2025</td><td>31 production lines; ~80 company retail stores; ~75% capacity utilization</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="block">Commercial Modular &amp; Relocatable Buildings</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Company</th><th>Latest Scale</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>WillScot (NASDAQ: WSC)</td><td class="num">$2.28B rev; $971M adj. EBITDA, FY2025</td><td>Dominant modular space + portable storage lessor; ~42.6% adj. EBITDA margin; modular leasing ~$1.0B</td></tr>
+          <tr><td>McGrath RentCorp / Mobile Modular</td><td class="num">~$645M revenue, FY2025</td><td>~73% average fleet utilization; rate-led growth; education-heavy mix</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="block">Notable Volumetric &amp; Specialty Modular Firms</h3>
+    <p>Beyond the public leaders, a competitive field of volumetric and specialty manufacturers serves multifamily, affordable, hospitality, and institutional projects. Capacity in this segment has been volatile — several high-profile factories have scaled, paused, or restructured as project pipelines fluctuated.</p>
+    <ul class="plain">
+      <li>Guerdon Modular Buildings; Factory_OS; Volumetric Building Companies (VBC); Autovol; RISE Modular; Volumod; FullStack Modular.</li>
+      <li>Ramtech; Whitley Manufacturing; Satellite Shelters; BOXX Modular; ATCO; plus a broad base of regional panelized, truss, and pod fabricators.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6-7. SUPPLY CHAIN & TECHNOLOGY -->
+<section id="tech">
+  <div class="wrap">
+    <div class="eyebrow">Sections 6–7</div>
+    <h2>Supply Chain, Technology <span class="grad green">&amp; Operating Trends</span></h2>
+    <p class="sub">Modular sits at the intersection of manufacturing, construction, real-estate development, and logistics. Its economics are unusually exposed to the upstream materials supply chain and to the downstream craning, transport, and onsite assembly trades.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent)">Upstream Inputs</h3>
+        <ul>
+          <li>Structural steel, dimensional lumber and engineered wood, mass timber, precast concrete, aluminum, and gypsum.</li>
+          <li>Trusses and structural components; SIPs; windows, doors and cladding; MEP equipment and prefabricated MEP racks; bathroom and kitchen pods.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--orange)">Downstream &amp; Enabling</h3>
+        <ul>
+          <li>Logistics and craning (transport limits often govern module size and freight cost), onsite general contractors, and set crews.</li>
+          <li>Construction software/BIM, DfMA design services, and factory production-tracking systems.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="block">From Prefab Projects to Industrialized Construction</h3>
+    <p>The industry is shifting from "project-by-project prefab" toward industrialized construction: standardized product platforms and repeatable designs replacing one-off engineering on every job. The enabling stack includes BIM-to-factory workflows and Design for Manufacturing and Assembly (DfMA); robotics, automated cutting and framing, and digital quality control on the line; and reality capture, factory production tracking, and standardized product catalogs.</p>
+    <div class="callout green">
+      <div class="lbl">McKinsey Benchmark</div>
+      <p>When design, supply chain, and repeatability are aligned, modular can <strong>reduce manpower needs by up to 40% and accelerate timelines by up to 50%</strong>. The strategic implication: the winners are platform operators who amortize engineering across many repeated units, not custom builders who re-engineer each project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. DEMAND DRIVERS -->
+<section id="drivers">
+  <div class="wrap">
+    <div class="eyebrow">Section 8</div>
+    <h2>Demand Drivers <span class="grad">&amp; External Factors</span></h2>
+
+    <h3 class="block">Adoption Drivers (per MBI)</h3>
+    <div class="adopt">
+      <div class="a"><div class="v">81%</div><div class="k">Cite speed to market</div></div>
+      <div class="a"><div class="v">68%</div><div class="k">Cite cost efficiency</div></div>
+      <div class="a"><div class="v">52%</div><div class="k">Cite labor availability</div></div>
+    </div>
+
+    <h3 class="block">The Labor-Shortage Tailwind</h3>
+    <p>Construction's labor gap is the industry's most durable tailwind. ABC estimated the sector needed roughly <strong>439,000 net new workers in 2025</strong> to meet demand, while industry workforce surveys consistently report that the overwhelming majority of contractors struggle to hire skilled craft labor. By shifting work into factories with more stable, trainable, less weather-dependent labor, modular directly addresses this constraint. (ABC's 2026 estimate moderated to roughly 350,000, but the structural shortage persists.)</p>
+
+    <h3 class="block">Other External Drivers</h3>
+    <ul class="plain">
+      <li><strong>Housing affordability &amp; supply policy:</strong> public funding and state/local initiatives increasingly favor faster, lower-cost delivery.</li>
+      <li><strong>Interest rates &amp; financing:</strong> rate levels heavily influence both manufactured-housing demand and developer appetite for modular multifamily.</li>
+      <li><strong>Sustainability &amp; waste reduction:</strong> factory production reduces material waste and supports embodied-carbon goals, especially with mass timber.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9. POLICY -->
+<section id="policy">
+  <div class="wrap">
+    <div class="eyebrow">Section 9 · Policy Spotlight</div>
+    <h2>The 21st Century <span class="grad amber">ROAD to Housing Act</span> (2026)</h2>
+    <p class="sub">On July 11, 2026, the <strong>21st Century ROAD to Housing Act</strong> became law — the most significant federal housing-supply legislation in decades and the first in a generation to devote an entire title to factory-built housing. It passed with overwhelming bipartisan majorities (Senate 85–5; House 358–32) and became law without the President's signature after the constitutional ten-day window lapsed. Its essential character is <strong>regulatory modernization rather than spending</strong>: no significant net new appropriations, but HUD rulemakings, studies, and incentive grants aimed at the industry's structural constraints.</p>
+
+    <h3 class="block">Provisions That Directly Target Factory-Built Housing</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Provision</th><th>What It Does</th><th>Segment Affected</th></tr></thead>
+        <tbody>
+          <tr><td>Sec. 301 — Housing Supply Expansion</td><td>Eliminates the permanent-chassis requirement for HUD-code homes through a state-level opt-in process; consolidates energy-efficiency standard-setting under HUD.</td><td>Manufactured (HUD-code)</td></tr>
+          <tr><td>Sec. 302 — Modular Housing Production</td><td>Directs HUD to review FHA construction-financing barriers facing modular developers — explicitly including construction draw schedules — and conduct a rulemaking to address them; funds a study of standardized modular building codes.</td><td>Permanent modular</td></tr>
+          <tr><td>Sec. 303 — Loan Modernization</td><td>Raises FHA-insured manufactured-housing loan limits; makes ADUs eligible for FHA property-improvement loans; directs HUD to study the cost-effectiveness of offsite construction techniques.</td><td>Both</td></tr>
+          <tr><td>Sec. 304 — PRICE Act</td><td>Seven-year reauthorization of grants to repair and improve existing manufactured homes and communities.</td><td>Manufactured (HUD-code)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout amber">
+      <div class="lbl">The Headline: Chassis Elimination</div>
+      <p>The permanent steel chassis is a 1970s transportation-safety artifact that has constrained manufactured-home design for five decades. Removing it is expected to cut roughly <strong>$5,000–$10,000 of cost per home</strong>, permit two-story and site-built-style designs, and — most strategically — erode the design and perception boundary between HUD-code product and modular product, pointing toward a more unified, scalable factory-built housing ecosystem.</p>
+    </div>
+
+    <h3 class="block">Demand-Side and Zoning Provisions That Favor Offsite Delivery</h3>
+    <ul class="plain">
+      <li><strong>Innovation Fund (Sec. 208):</strong> $200 million per year in competitive grants to jurisdictions that demonstrate measurable supply increases through streamlined permitting, density bonuses, and zoning reform (seven-year sunset).</li>
+      <li><strong>Pre-approved "pattern book" designs (Sec. 209):</strong> grants for local adoption of pre-reviewed housing designs — ADUs, duplexes, townhouses — with a 10% rural set-aside. Pre-approved, repeatable designs are precisely the conditions under which factory production is most economic.</li>
+      <li><strong>Single-stair multifamily guidance (Sec. 102):</strong> federal guidelines and pilot grants for point-access-block buildings up to six stories — an efficient small-footprint infill format well suited to volumetric modules.</li>
+      <li><strong>Environmental-review streamlining (Secs. 205–206) and CDBG reform (Secs. 204, 213):</strong> expanded NEPA categorical exclusions, delegation of reviews, CDBG eligibility for new affordable construction, and production-linked CDBG bonuses.</li>
+      <li><strong>FHA small-dollar mortgage pilot (Sec. 105):</strong> expands FHA-backed mortgages under $100,000, a financing channel relevant to entry-level manufactured and modular product.</li>
+    </ul>
+
+    <h3 class="block">Impact Assessment: Mapping the Act to Industry Constraints</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Industry Constraint</th><th>ROAD Act Response</th><th>Likely Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Financing friction (draw schedules, factory deposits)</td><td>Sec. 302 HUD review and rulemaking on FHA construction-financing barriers</td><td>Most direct win for permanent modular; depends on rulemaking outcome (2027+)</td></tr>
+          <tr><td>Permitting &amp; inspection complexity</td><td>Innovation Fund, pattern-book grants, NEPA streamlining</td><td>Incentive-based, not preemptive — gradual, jurisdiction-by-jurisdiction</td></tr>
+          <tr><td>Zoning stigma</td><td>Chassis elimination narrows the HUD-code vs. modular design gap; supply frameworks (Sec. 107)</td><td>Slow perception change, but structural convergence begins</td></tr>
+          <tr><td>Fragmented building codes</td><td>Funded study of standardized modular building codes</td><td>Study-stage only; MBI seeking a role in any uniform commercial code</td></tr>
+          <tr><td>Factory underutilization</td><td>Demand-side grants (CDBG, Innovation Fund, RESIDE conversions) favor repeatable pipelines</td><td>Indirect; helps pipeline visibility in grant-winning jurisdictions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="block">Caveats and Timing</h3>
+    <ul class="plain">
+      <li><strong>No new money.</strong> The law reallocates and reauthorizes; its leverage is regulatory and incentive-based.</li>
+      <li><strong>Implementation lag.</strong> The operative mechanisms are HUD rulemakings, studies, and competitive grant cycles; realistic industry impact accrues over 2027–2030.</li>
+      <li><strong>Chassis relief is conditional.</strong> Off-chassis HUD-code homes require HUD implementation and state-by-state opt-in; mandatory HUD energy standards could claw back part of the cost savings.</li>
+      <li><strong>Local control endures.</strong> The Act incentivizes but does not preempt local zoning; adoption will be uneven.</li>
+      <li><strong>Macro still dominates.</strong> Interest rates and tariff policy remain the larger near-term swing factors.</li>
+    </ul>
+    <div class="callout">
+      <div class="lbl">Net Assessment</div>
+      <p>The ROAD to Housing Act is the most favorable federal policy development for factory-built construction in decades, but it strengthens the upside scenario rather than changing the base case. Clearest direct beneficiaries, in order: HUD-code manufacturers (Clayton, Champion, Cavco); modular multifamily and affordable-housing producers; and developers built around repeatable, pre-approved designs. Commercial relocatable fleet operators are largely unaffected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ECONOMICS -->
+<section id="economics">
+  <div class="wrap">
+    <div class="eyebrow">Section 10</div>
+    <h2>Industry Economics <span class="grad">&amp; Cost Structure</span></h2>
+    <p class="sub">The economic promise of modular is schedule compression, lower waste, fewer weather delays, improved and more consistent quality, and reduced onsite labor. The economic problem is <strong>utilization</strong>. Factories carry high fixed costs and require stable, repeatable pipelines to stay efficient — when demand softens, fixed overhead erodes margins quickly. The leasing-based commercial segment is more resilient because revenue is recurring and rate-driven, which is why WillScot and McGrath sustain high EBITDA margins even when utilization dips.</p>
+
+    <h3 class="block">Characteristics of Successful Operators</h3>
+    <ul class="plain">
+      <li>Repeatable, standardized designs that amortize engineering across many units.</li>
+      <li>Integrated manufacturing and installation (controlling the "last-mile" set).</li>
+      <li>Strong, recurring developer/owner relationships and pipeline visibility.</li>
+      <li>Access to financing and balance-sheet strength to survive demand troughs.</li>
+      <li>Geographic density to control freight and craning costs.</li>
+    </ul>
+
+    <h3 class="block">Modular vs. Conventional — Trade-offs</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Dimension</th><th>Modular Advantage</th><th>Modular Constraint</th></tr></thead>
+        <tbody>
+          <tr><td>Schedule</td><td>Parallel site + factory work; up to ~50% faster</td><td>Front-loaded design freeze required</td></tr>
+          <tr><td>Labor</td><td>Less onsite labor; up to ~40% less manpower</td><td>Skilled factory workforce needed</td></tr>
+          <tr><td>Quality / waste</td><td>Controlled environment; less rework &amp; waste</td><td>Defects replicate at scale if uncaught</td></tr>
+          <tr><td>Cost</td><td>Lower carrying cost; predictability</td><td>Freight, craning, low-utilization risk</td></tr>
+          <tr><td>Customization</td><td>Strong for repeatable layouts</td><td>Weak for highly bespoke designs</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 11. RISKS -->
+<section id="risks">
+  <div class="wrap">
+    <div class="eyebrow">Section 11</div>
+    <h2>Key Risks <span class="grad amber">&amp; Constraints</span></h2>
+    <p class="sub">The industry's constraints are as structural as its tailwinds. Most are addressable but slow to change, which is why adoption has plateaued in residential even as commercial modular grows.</p>
+    <ol class="plain">
+      <li><strong>Permitting &amp; inspection complexity:</strong> local code interpretation and inspection of factory-built assemblies remain inconsistent across jurisdictions.</li>
+      <li><strong>Zoning stigma:</strong> perception issues, particularly where modular is conflated with manufactured housing.</li>
+      <li><strong>Financing friction:</strong> lenders are often uncomfortable with large upfront factory deposits and milestone structures that differ from site-built draws.</li>
+      <li><strong>Transport limits:</strong> module dimensions and freight distance cap design and raise cost beyond a certain radius.</li>
+      <li><strong>Factory underutilization:</strong> the central margin risk; fixed costs punish pipeline gaps.</li>
+      <li><strong>Material volatility &amp; tariffs:</strong> concentrated procurement amplifies input-cost shocks.</li>
+      <li><strong>Project customization:</strong> bespoke requirements erode the repeatability that makes modular economic.</li>
+      <li><strong>Coordination failures:</strong> misalignment between designers, factories, GCs, and owners can negate schedule gains.</li>
+    </ol>
+    <div class="callout amber">
+      <div class="lbl">Tariff &amp; Materials Exposure</div>
+      <p>MBI has specifically warned that tariffs on <strong>steel, lumber, aluminum, mechanical systems, and prefabricated components</strong> raise input costs and weaken modular's affordability advantage — the very value proposition that drives adoption. Because modular concentrates material purchasing, input-cost shocks hit the model faster than they hit dispersed site-built procurement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SWOT -->
+<section id="swot">
+  <div class="wrap">
+    <div class="eyebrow">Section 12</div>
+    <h2>SWOT <span class="grad">Summary</span></h2>
+    <div class="swot">
+      <div class="cell s">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Speed-to-market and schedule certainty</li>
+          <li>Reduced onsite labor dependence</li>
+          <li>Quality control and lower waste</li>
+          <li>Recurring, rate-driven leasing economics (commercial)</li>
+        </ul>
+      </div>
+      <div class="cell w">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>High fixed costs; utilization-dependent margins</li>
+          <li>Transport/craning limits and freight cost</li>
+          <li>Design-freeze and customization constraints</li>
+          <li>Financing and permitting friction</li>
+        </ul>
+      </div>
+      <div class="cell o">
+        <h4>Opportunities</h4>
+        <ul>
+          <li>Affordable/multifamily policy funding</li>
+          <li>Industrialized platforms &amp; automation</li>
+          <li>Data-center and healthcare-adjacent demand</li>
+          <li>Mass timber and decarbonization mandates</li>
+        </ul>
+      </div>
+      <div class="cell t">
+        <h4>Threats</h4>
+        <ul>
+          <li>Tariffs and material-price volatility</li>
+          <li>Interest-rate-driven demand swings</li>
+          <li>Factory closures eroding market confidence</li>
+          <li>Zoning stigma and fragmented building codes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. OUTLOOK -->
+<section id="outlook">
+  <div class="wrap">
+    <div class="eyebrow">Section 13</div>
+    <h2>Five-Year <span class="grad green">Outlook</span></h2>
+    <p class="sub">The near-term outlook is mixed but positive. Modular will <em>not</em> replace conventional construction broadly within five years. It should, however, gain share in segments where repetition, speed, public funding, labor scarcity, and high carrying costs matter most: affordable and multifamily housing, student and workforce housing, hospitality, classrooms, healthcare support, and data-center-adjacent facilities.</p>
+    <p>The MBI / FMI base case — permanent modular growing from $20.3B (2024) to $25.4B (2029) at a 4.5% CAGR — implies steady, segment-led expansion rather than a step-change. <strong>The decisive variables are interest rates, tariff policy, and the industry's ability to keep factories utilized.</strong> The 2026 ROAD to Housing Act adds a genuine policy tailwind — easier FHA modular financing, chassis-free HUD-code design freedom, and supply-side grants — but its mechanisms phase in from 2027, favoring the upside scenario rather than lifting the base case.</p>
+
+    <h3 class="block">What the Winners Will Look Like</h3>
+    <p>The successful firms of the next cycle will look less like custom builders and more like hybrid manufacturers, developers, logistics operators, and software-enabled construction platforms — organizations that own repeatability, control the supply chain and the set, and convert standardization into both speed and margin.</p>
+
+    <h3 class="block">Scenarios</h3>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Scenario</th><th>Conditions</th><th>Implication</th></tr></thead>
+        <tbody>
+          <tr><td>Upside</td><td>Rates ease; tariffs contained; policy funding flows</td><td>Faster share gains in multifamily/affordable; utilization stabilizes</td></tr>
+          <tr><td>Base</td><td>Gradual rate normalization; steady policy support</td><td>~4.5% CAGR; segment-led growth to ~$25.4B by 2029</td></tr>
+          <tr><td>Downside</td><td>Tariff escalation; high rates; weak pipelines</td><td>Margin compression; further factory closures; adoption stalls</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 14. KEY STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="eyebrow">Section 14</div>
+    <h2>Key Statistics <span class="grad">Snapshot</span></h2>
+    <div class="tbl-scroll">
+      <table class="cmp">
+        <thead><tr><th>Metric</th><th>Value</th><th>Period</th></tr></thead>
+        <tbody>
+          <tr><td>U.S. permanent modular construction market</td><td class="num">$20.3B</td><td>2024</td></tr>
+          <tr><td>Permanent modular share of relevant segments</td><td class="num">5.1%</td><td>2024</td></tr>
+          <tr><td>Forecast permanent modular market</td><td class="num">$25.4B</td><td>2029</td></tr>
+          <tr><td>Projected CAGR</td><td class="num">4.5%</td><td>2024–29</td></tr>
+          <tr><td>N. America relocatable buildings revenue</td><td class="num">$4.7B</td><td>2024</td></tr>
+          <tr><td>Relocatable fleet (approx.)</td><td class="num">~500,000</td><td>2024</td></tr>
+          <tr><td>Offsite single-family completions</td><td class="num">28,000 / ~3%</td><td>2024</td></tr>
+          <tr><td>Multifamily offsite share</td><td class="num">~3%</td><td>2024</td></tr>
+          <tr><td>Manufactured home shipments (approx.)</td><td class="num">~105,000</td><td>2025</td></tr>
+          <tr><td>Construction net new-worker need (ABC)</td><td class="num">439,000</td><td>2025</td></tr>
+          <tr><td>Adopters citing speed to market</td><td class="num">81%</td><td>MBI</td></tr>
+          <tr><td>Potential manpower reduction (McKinsey)</td><td class="num">up to 40%</td><td>—</td></tr>
+          <tr><td>Potential timeline acceleration (McKinsey)</td><td class="num">up to 50%</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 15. SOURCES -->
+<section id="sources">
+  <div class="wrap">
+    <div class="eyebrow">Section 15</div>
+    <h2>Sources <span class="grad">&amp; References</span></h2>
+    <p class="note">All figures are drawn from the public sources below. Where fiscal-year and calendar-year reporting differ, figures are rounded and labeled directional.</p>
+    <div class="sources">
+      <ol>
+        <li>Modular Building Institute — Industry Analysis (market size, relocatable, adoption drivers) — <a href="https://www.modular.org/industry-analysis/" target="_blank" rel="noopener">modular.org/industry-analysis</a></li>
+        <li>MBI — Policy Position on Tariffs and Their Impact on Modular Construction (2025) — <a href="https://www.modular.org/2025/03/21/mbi-issues-policy-position-on-tariffs-and-their-impact-on-modular-construction/" target="_blank" rel="noopener">modular.org</a></li>
+        <li>NAHB / Eye on Housing — Offsite Construction Market Share Flattens in 2024 — <a href="https://www.nahb.org/blog/2025/08/the-offsite-construction-market-share-flattens-nationally-in-2024" target="_blank" rel="noopener">nahb.org</a></li>
+        <li>U.S. Census Bureau — Manufactured Housing Survey — <a href="https://www.census.gov/programs-surveys/mhs/data/latest-data.html" target="_blank" rel="noopener">census.gov</a></li>
+        <li>Berkshire Hathaway — 2025 Annual Report (Clayton Homes) — <a href="https://berkshirehathaway.com/2025ar/2025ar.pdf" target="_blank" rel="noopener">berkshirehathaway.com</a></li>
+        <li>Champion Homes — FY2026 Form 10-K — <a href="https://www.sec.gov/Archives/edgar/data/0000090896/000119312526239333/sky-20260328.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li>Cavco Industries — FY2025 Form 10-K / Annual Report — <a href="https://investor.cavco.com/public/phhweb/gallery/userupload/ir-doc-1095/cvco_2025.3.29_10_k_2025_05_23_13_26.pdf" target="_blank" rel="noopener">investor.cavco.com</a></li>
+        <li>WillScot — Q4 &amp; Full-Year 2025 Results — <a href="https://www.globenewswire.com/news-release/2026/02/19/3241538/0/en/WillScot-Reports-Fourth-Quarter-and-Full-Year-2025-Results-and-Provides-2026-Outlook.html" target="_blank" rel="noopener">globenewswire.com</a></li>
+        <li>McGrath RentCorp — FY2025 Form 10-K — <a href="https://www.sec.gov/Archives/edgar/data/0000752714/000119312526071463/mgrc-20251231.htm" target="_blank" rel="noopener">sec.gov</a></li>
+        <li>Associated Builders and Contractors — Construction Workforce Shortage of 439,000 in 2025 — <a href="https://www.abc.org/News-Media/News-Releases/abc-construction-industry-faces-workforce-shortage-of-439000-in-2025" target="_blank" rel="noopener">abc.org</a></li>
+        <li>AGC / NCCER — 2025 Workforce Survey — <a href="https://www.nccer.org/research/2025-workforce-survey-agc-nccer/" target="_blank" rel="noopener">nccer.org</a></li>
+        <li>McKinsey — Putting the Pieces Together: Unlocking Success in Modular Construction (2025) — <a href="https://www.mckinsey.com/industries/engineering-construction-and-building-materials/our-insights/putting-the-pieces-together-unlocking-success-in-modular-construction" target="_blank" rel="noopener">mckinsey.com</a></li>
+        <li>Bipartisan Policy Center — Inside the Deal: What's in the Final 21st Century ROAD to Housing Act (2026) — <a href="https://bipartisanpolicy.org/issue-brief/inside-the-deal-whats-in-the-final-21st-century-road-to-housing-act/" target="_blank" rel="noopener">bipartisanpolicy.org</a></li>
+        <li>NPR — Largest Housing Affordability Bill in Decades Becomes Law Without Trump's Signature (July 10, 2026) — <a href="https://www.npr.org/2026/07/10/nx-s1-5885027/housing-bill-without-trump-signature" target="_blank" rel="noopener">npr.org</a></li>
+        <li>Modular Building Institute — Statement on the ROAD to Housing Act — <a href="https://www.modular.org/2025/08/11/statement-on-the-road-to-housing-act/" target="_blank" rel="noopener">modular.org</a></li>
+        <li>Ivory Innovations — The ROAD to Housing Act and the Future of Factory-Built Homes — <a href="https://www.ivoryinnovations.org/post/what-s-next-for-prefab-housing-the-road-to-housing-act-and-the-future-of-factory-built-homes" target="_blank" rel="noopener">ivoryinnovations.org</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap row">
+    <div>U.S. Modular Building Industry — Research Report · Prepared June 2026 · <a href="Docs/US_Modular_Prefab_Building_Industry_Report.docx" download>Download original DOCX</a></div>
+    <div>Independent analytical synthesis of publicly available data in an IBIS-style format; not affiliated with or endorsed by IBISWorld.</div>
+  </div>
+</footer>
+
+</body>
+</html>
