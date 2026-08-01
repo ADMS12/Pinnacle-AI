@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinnacle Planning — Sales Operations Playbook (2026-08-01)</title>
+<style>
+  :root{
+    --navy:#1b2a4a; --navy-2:#243a63; --gold:#b08d3f; --gold-light:#d4b877;
+    --ink:#2a2f3a; --muted:#5c6472; --bg:#f6f5f1; --card:#ffffff; --line:#e3e0d8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:Georgia,'Times New Roman',serif; background:var(--bg); color:var(--ink); line-height:1.65;}
+  .sans{font-family:'Segoe UI',Arial,Helvetica,sans-serif;}
+
+  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%); color:#fff; padding:56px 24px 48px; text-align:center;}
+  header .kicker{font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.25em; text-transform:uppercase; font-size:.75rem; color:var(--gold-light); margin-bottom:14px;}
+  header h1{font-size:2.1rem; font-weight:normal; letter-spacing:.02em;}
+  header .sub{margin-top:12px; color:#c9d2e4; font-size:1.02rem;}
+  header .date{margin-top:18px; display:inline-block; border:1px solid rgba(212,184,119,.5); color:var(--gold-light); padding:6px 18px; border-radius:999px; font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; letter-spacing:.12em;}
+
+  nav{position:sticky; top:0; z-index:50; background:var(--navy); border-bottom:3px solid var(--gold); overflow-x:auto;}
+  nav ul{display:flex; list-style:none; justify-content:center; min-width:max-content; margin:0 auto;}
+  nav a{display:block; padding:12px 18px; color:#dfe6f2; text-decoration:none; font-family:'Segoe UI',Arial,sans-serif; font-size:.82rem; letter-spacing:.06em; white-space:nowrap;}
+  nav a:hover{background:var(--navy-2); color:var(--gold-light);}
+
+  main{max-width:960px; margin:0 auto; padding:40px 20px 80px;}
+  section{margin-top:48px;}
+  h2{font-size:1.55rem; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:8px; margin-bottom:20px; font-weight:normal;}
+  h3{font-family:'Segoe UI',Arial,sans-serif; font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:26px 0 10px;}
+  h4{font-family:'Segoe UI',Arial,sans-serif; font-size:.95rem; color:var(--navy); margin:18px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:8px 0 8px 24px;}
+  li{margin:5px 0;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:30px 34px; box-shadow:0 2px 10px rgba(27,42,74,.06);}
+  .meeting-head{display:flex; align-items:center; gap:16px; margin-bottom:6px;}
+  .badge{flex:0 0 auto; width:52px; height:52px; border-radius:50%; background:var(--navy); color:var(--gold-light); display:flex; align-items:center; justify-content:center; font-family:'Segoe UI',Arial,sans-serif; font-size:1.4rem;}
+  .meeting-head h2{border:none; margin:0; padding:0;}
+  .success{background:#f3efe4; border-left:4px solid var(--gold); padding:12px 16px; margin:14px 0; font-style:italic;}
+
+  blockquote{background:#eef1f7; border-left:4px solid var(--navy); padding:12px 18px; margin:12px 0; font-style:italic; color:var(--navy); border-radius:0 6px 6px 0;}
+  .objection{background:#fbf7ee; border:1px solid var(--line); border-radius:8px; padding:12px 16px; margin:10px 0;}
+  .objection b{color:var(--navy);}
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; background:var(--card); font-size:.95rem;}
+  th{background:var(--navy); color:#fff; font-family:'Segoe UI',Arial,sans-serif; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; text-align:left; padding:10px 14px;}
+  td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#faf9f5;}
+  .table-wrap{overflow-x:auto;}
+
+  .checklist{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:14px;}
+  .check-card{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:8px; padding:16px 18px;}
+  .check-card h4{margin-top:0;}
+
+  footer{background:var(--navy); color:#aeb9cf; text-align:center; padding:34px 24px; font-size:.85rem; margin-top:60px;}
+  footer .brand{color:var(--gold-light); font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; margin-bottom:10px;}
+
+  @media(max-width:640px){
+    header h1{font-size:1.5rem;}
+    .card{padding:22px 18px;}
+  }
+  @media print{
+    nav{display:none;}
+    .card{box-shadow:none; break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Pinnacle Planning · Advanced Division of M&amp;M Wealth Associates</div>
+  <h1>Sales Operations Playbook</h1>
+  <div class="sub">The 4-Meeting Sales Cycle — Advisor Briefing Documents</div>
+  <div class="date">PREPARED · AUGUST 1, 2026</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#how">How to Use</a></li>
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="#m1">Meeting 1 · Discovery</a></li>
+    <li><a href="#m2">Meeting 2 · Landscape</a></li>
+    <li><a href="#m3">Meeting 3 · Proposal</a></li>
+    <li><a href="#m4">Meeting 4 · Go/No-Go</a></li>
+    <li><a href="#objections">Objection Playbook</a></li>
+    <li><a href="#checklist">Data Checklist</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="how">
+  <h2>How to Use This Playbook</h2>
+  <p>This playbook is the operating manual for the Pinnacle Planning client-acquisition process. Client acquisition is limited to <strong>four meetings</strong> — no more. Each meeting has a complete briefing document built on the four required components:</p>
+  <ol>
+    <li><strong>Objective</strong> — the clear, specific goal of the meeting</li>
+    <li><strong>Preparation</strong> — everything the advisor must do before the meeting</li>
+    <li><strong>Execution Plan</strong> — a step-by-step guide with scripts, transitions, objection handling, and pacing</li>
+    <li><strong>Summary &amp; Follow-Up</strong> — how to close, set expectations, assign tasks, and prepare the next meeting</li>
+  </ol>
+  <p>The tone throughout is consultative and fiduciary-first. We coordinate the client's CPA, attorney, and insurance professionals — we do not replace them. Right Capital is the primary planning tool and the bridge from planning into ongoing advisory management with Wealth Advisory Now (WAN).</p>
+</section>
+
+<section id="who">
+  <h2>Who We Serve — Qualification Filter</h2>
+  <p>Run every prospect through this filter <strong>before Meeting 1</strong>. If they don't fit, refer them back to M&amp;M Wealth Associates.</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Attribute</th><th>Qualifying Profile</th></tr>
+    <tr><td>Business type</td><td>Business owner or entrepreneur (LLC, S-Corp, C-Corp, partnership, solopreneur, or 1099 specialist such as an independent physician, dentist, or consultant)</td></tr>
+    <tr><td>Business revenue</td><td>$500K+ gross revenue, operating profitably</td></tr>
+    <tr><td>Personal income</td><td>$250K–$1M+</td></tr>
+    <tr><td>Employees</td><td>1–10 primary target; larger if complexity warrants</td></tr>
+    <tr><td>Age</td><td>40–60</td></tr>
+    <tr><td>Advisor relationship</td><td>None, or unsatisfied — no one they fully trust</td></tr>
+    <tr><td>Mindset</td><td>Coachable, recognizes they need help, values time over money</td></tr>
+    <tr><td>Core pain</td><td>Taxes, feeling financially lost, no coordinated plan, flying blind despite good income</td></tr>
+    <tr><td>Goals</td><td>Retirement, tax reduction, protection, children's college planning, children's financial legacy</td></tr>
+  </table>
+  </div>
+  <p><strong>Not served:</strong> pure W2 employees or C-suite executives without a business entity, non-coachable prospects, people who won't pay for professional advice, and businesses under $500K revenue.</p>
+  <blockquote>The right clients make the business sustainable. The wrong clients make it chaotic. Saying no to the wrong opportunities is what makes Pinnacle Planning the right choice for the right clients.</blockquote>
+</section>
+
+<section id="m1">
+  <div class="card">
+    <div class="meeting-head"><div class="badge">1</div><h2>Meeting 1 — Introduction &amp; Discovery</h2></div>
+
+    <h3>1 · Objective</h3>
+    <p>Build rapport, explain Pinnacle Planning's Quarterback Model, uncover the prospect's real pain points, gather enough financial data to preliminarily populate Right Capital, and earn the right to build their preliminary plan.</p>
+    <div class="success">Success = the prospect agrees to Meeting 2 and commits to providing their documents.</div>
+
+    <h3>2 · Preparation</h3>
+    <ul>
+      <li>Review client intake notes and confirm they pass the qualification filter</li>
+      <li>Research the business: entity type (LLC, S-Corp, C-Corp), industry, approximate size, website/LinkedIn</li>
+      <li>Prepare the Pinnacle Planning intro slide (Google Slides) and confirm Zoom/phone logistics</li>
+      <li>Have the Discovery Question Bank and Right Capital Data-Gathering Checklist at hand</li>
+      <li>Open a blank Right Capital profile, ready to populate live or immediately after</li>
+      <li>Prepare tax, insurance, and retirement probing questions tuned to their entity type</li>
+      <li>Set a 45–60 minute agenda; block 15 minutes afterward for notes and Right Capital entry</li>
+      <li>Mindset check: this meeting is 80% listening. You are diagnosing, not prescribing.</li>
+    </ul>
+
+    <h3>3 · Execution Plan</h3>
+    <h4>Opening (5 min) — warm introduction</h4>
+    <blockquote>"Thank you for taking the time today. Pinnacle Planning is built specifically for business owners who want clarity, control, and a coordinated financial team. Before we dive in, I'd love to learn more about you, your business, and what you're trying to accomplish."</blockquote>
+    <h4>Positioning (5 min) — the Quarterback Model</h4>
+    <blockquote>"Most business owners have a CPA who files taxes and an insurance agent who sold them a policy. Nobody is looking at the full picture. That's where we come in — we coordinate your entire financial life. We don't replace your CPA or attorney; we quarterback the team so nothing falls through the cracks."</blockquote>
+    <h4>Discovery (25–30 min) — structured questions, pain-point extraction</h4>
+    <p>Work through the question bank conversationally. Listen for the four core pains: taxes, lack of clarity, no trusted advisor, flying blind.</p>
+    <ul>
+      <li><em>Business &amp; Income:</em> "Walk me through your business structure." · "What does revenue look like this year?" · "How do you currently pay yourself?"</li>
+      <li><em>Taxes:</em> "What is your biggest tax frustration?" · "Has anyone ever shown you proactive tax planning?" · "Do you feel your CPA is strategic or reactive?"</li>
+      <li><em>Insurance &amp; Protection:</em> "If something happened to you tomorrow, what happens to the business?" · "Do you have key-man or buy-sell coverage in place?"</li>
+      <li><em>Retirement:</em> "What does retirement look like for you — and when?" · "Are you using any advanced retirement structures, like a defined benefit plan?"</li>
+      <li><em>Legacy &amp; Family:</em> "Do you have a trust?" · "What legacy do you want to leave — for your children, your family, your community?" · "Have you started planning for your children's college or their financial future?"</li>
+      <li><em>Pain points:</em> "What keeps you up at night financially?" · "Where do you feel your blind spots are?" · "What do you feel is missing in your current planning?"</li>
+    </ul>
+    <h4>Current advisory map (5 min)</h4>
+    <p>Identify who is already on their team: CPA, financial advisor, banker, attorney. Note the coordination gaps out loud: <em>"So your CPA files the return, but no one is coordinating tax strategy with your insurance and retirement picture — is that fair to say?"</em></p>
+    <h4>Data gathering (10 min) — populate Right Capital</h4>
+    <blockquote>"To build your preliminary plan, I'll need to understand your income, savings, expenses, goals, net worth, and business structure."</blockquote>
+    <p>Capture (or assign as homework): family details; income (W-2, K-1, 1099, distributions); savings; expenses; net worth; business details; real estate holdings; and insurance in force.</p>
+    <h4>Close (5 min) — set expectations for Meeting 2</h4>
+    <blockquote>"Thank you — this gives me everything I need to build your preliminary Right Capital plan. Our next meeting will be a full walkthrough of your financial landscape — everything in one place, most likely for the first time."</blockquote>
+    <h4>Early objections you may hear</h4>
+    <div class="objection"><b>"I already have a CPA."</b><br>"Perfect — we don't replace your CPA. We coordinate them. Most CPAs file taxes; they don't build proactive tax strategy. We fill that gap."</div>
+    <div class="objection"><b>"I'm too busy."</b><br>"That's exactly why we exist. Busy business owners need a coordinated team. We do the heavy lifting — your time investment is minimal: four meetings."</div>
+
+    <h3>4 · Summary &amp; Follow-Up</h3>
+    <ul>
+      <li>Recap their pain points back to them in their own words — this is what Meeting 2 will be built around</li>
+      <li>Recap the data gathered and list exactly what is still missing</li>
+      <li>Assign homework: statements, tax returns, policy documents, entity docs</li>
+      <li>Schedule Meeting 2 before ending the call (target: within 1–2 weeks)</li>
+      <li>Same day: enter all data into Right Capital and begin building the preliminary plan</li>
+      <li>Send a follow-up email: thank you, document list, Meeting 2 date, one-line recap of their top pain point</li>
+      <li>Internal notes: qualification confirmation, pain-point summary, objections heard, coordination gaps identified</li>
+    </ul>
+  </div>
+</section>
+
+<section id="m2">
+  <div class="card">
+    <div class="meeting-head"><div class="badge">2</div><h2>Meeting 2 — Financial Landscape Confirmation &amp; Preliminary Goal Assessment</h2></div>
+
+    <h3>1 · Objective</h3>
+    <p>Present the preliminary Right Capital plan, confirm its accuracy line-by-line, refine and prioritize the client's goals, and introduce initial planning recommendations.</p>
+    <div class="success">Success = the client sees their full financial life in one place, agrees the data is right, and leans into at least one recommendation.</div>
+
+    <h3>2 · Preparation</h3>
+    <ul>
+      <li>Build the preliminary Right Capital plan from Meeting 1 data and homework documents</li>
+      <li>Flag every missing or assumed data point — these become live confirmation items</li>
+      <li>Prepare 2–3 initial proposal options across tax, insurance, and retirement (e.g., defined benefit plan sizing, key-man/buy-sell gap, Section 199A positioning)</li>
+      <li>Prepare objection-handling notes tuned to what you heard in Meeting 1</li>
+      <li>Rehearse driving Right Capital live — updating the plan in front of the client is the demonstration of value</li>
+      <li>Set a 45–60 minute agenda</li>
+    </ul>
+
+    <h3>3 · Execution Plan</h3>
+    <h4>Opening (5 min)</h4>
+    <blockquote>"I've built your preliminary Right Capital plan based on the information you shared. Today, we'll confirm accuracy and begin shaping your goals."</blockquote>
+    <h4>Plan presentation (15 min)</h4>
+    <blockquote>"This dashboard shows your entire financial life in one place — income, savings, retirement projections, tax exposure, and business planning."</blockquote>
+    <p>Walk the dashboard top to bottom. Pause at their stated pain points: <em>"You told me taxes keep you up at night — here's your current projected tax exposure."</em></p>
+    <h4>Confirm and update live (10–15 min)</h4>
+    <p>Go line-by-line. Update Right Capital on screen as they correct figures. Every correction deepens ownership: it becomes <em>their</em> plan.</p>
+    <h4>Goal alignment (10 min)</h4>
+    <blockquote>"Let's refine your goals: retirement, tax reduction, protection, legacy — and for many owners, the kids' college and financial future. Which of these matter most right now?"</blockquote>
+    <p>Rank the top two. These drive the Meeting 3 proposal.</p>
+    <h4>Initial recommendations (10 min)</h4>
+    <blockquote>"Based on your situation, here are the initial strategies that could create meaningful impact…"</blockquote>
+    <p>Introduce 2–3 directional strategies (not full proposals): e.g., a defined benefit plan sheltering $100K–$300K+ of income annually, buy-sell/key-man protection, premium financing for high-income owners. Frame each against the pain it solves.</p>
+    <h4>Early objection handling</h4>
+    <div class="objection"><b>"I'm not sure I need all this."</b><br>"Totally fair. Let's revisit your pain points: taxes, lack of clarity, no coordinated plan. This solves those problems directly."</div>
+    <h4>Close (5 min)</h4>
+    <blockquote>"I'll refine the plan and prepare your full proposal for our next meeting."</blockquote>
+
+    <h3>4 · Summary &amp; Follow-Up</h3>
+    <ul>
+      <li>Recap every update made to the plan and the final goal priorities</li>
+      <li>Recap the initial recommendations and which ones resonated</li>
+      <li>Assign homework: outstanding documents and confirmations (e.g., latest 401k statement, policy declarations)</li>
+      <li>Schedule Meeting 3 before ending the call</li>
+      <li>Begin building the final proposal: full strategy across tax, insurance, retirement, business benefits, and legacy</li>
+      <li>Internal handoff notes: goal rankings, objections raised and status, next-step fields, any items requiring CPA/attorney coordination</li>
+    </ul>
+  </div>
+</section>
+
+<section id="m3">
+  <div class="card">
+    <div class="meeting-head"><div class="badge">3</div><h2>Meeting 3 — Proposal, Objection Handling &amp; How to Move Forward</h2></div>
+
+    <h3>1 · Objective</h3>
+    <p>Present the final Right Capital plan, deliver the full coordinated proposal, handle sophisticated objections directly, and guide the client to decision readiness.</p>
+    <div class="success">Success = the client understands exactly what we propose, what it costs, what it saves, and agrees that Meeting 4 is a go/no-go decision.</div>
+
+    <h3>2 · Preparation</h3>
+    <ul>
+      <li>Finalize the Right Capital plan with all confirmed data</li>
+      <li>Prepare the full proposal: tax strategy, insurance structures, retirement plan design, business owner benefits, legacy planning — with the numbers (projected tax savings, coverage amounts, funding levels, fees)</li>
+      <li>Prepare the engagement options: flat-fee plan ($500–$3,000), insurance implementation, and the path to AUM via Wealth Advisory Now</li>
+      <li>Prepare objection scripts tuned to this client</li>
+      <li>Prepare the decision-making framework: what a "go" looks like, what happens next</li>
+      <li>Set a 45–60 minute agenda</li>
+    </ul>
+
+    <h3>3 · Execution Plan</h3>
+    <h4>Opening (5 min)</h4>
+    <blockquote>"Today, we'll walk through your final plan and the full proposal. This is where everything comes together."</blockquote>
+    <h4>Final plan presentation (10 min)</h4>
+    <p>Show the completed Right Capital plan, including Monte Carlo results and Social Security optimization where relevant. Contrast the baseline ("do nothing") scenario against the proposed plan.</p>
+    <h4>Proposal delivery (15–20 min)</h4>
+    <blockquote>"Here's the coordinated strategy across tax, insurance, retirement, business benefits, and legacy."</blockquote>
+    <p>Present each element as pain → strategy → net benefit. Quantify wherever possible: <em>"This defined benefit plan shelters roughly $X of income this year — that's approximately $Y in tax savings against a plan cost of $Z."</em></p>
+    <h4>Objection handling (10 min) — invite objections; don't wait for them</h4>
+    <blockquote>"Let's talk through what's holding you back. Is it the strategy, the timing, or the implementation?"</blockquote>
+    <div class="objection"><b>Cost:</b> "The real question is whether the plan saves you more than it costs. Our defined benefit plans, tax strategies, and insurance structures typically save $50K–$300K annually. Let's look at the net benefit."</div>
+    <div class="objection"><b>"I need to think about it."</b><br>"Absolutely — this is a meaningful decision. Let's clarify what specifically you want to think through so I can support you. Is it the strategy, the timing, or the implementation?"</div>
+    <div class="objection"><b>"I need to talk to my CPA."</b><br>"We'd welcome that — coordination with your CPA is literally the model. Would it help if we joined that conversation, so nothing gets lost in translation?"</div>
+    <h4>Reinforce value (5 min)</h4>
+    <p>Restate the Quarterback Model: one coordinated team, fiduciary-standard planning, proprietary strategies most owners have never been shown.</p>
+    <h4>Close (5 min)</h4>
+    <blockquote>"Our next meeting is simply a decision — go or no-go."</blockquote>
+
+    <h3>4 · Summary &amp; Follow-Up</h3>
+    <ul>
+      <li>Recap the proposal in a one-page summary (email it the same day)</li>
+      <li>Recap each objection raised and how it was resolved (or what remains open)</li>
+      <li>Assign final homework: anything the client needs to review or discuss with their CPA/spouse/partner</li>
+      <li>Schedule Meeting 4 before ending the call (target: within one week — momentum matters)</li>
+      <li>Prepare onboarding materials so a "go" in Meeting 4 can begin immediately</li>
+      <li>Internal handoff notes: proposal version presented, open objections, decision risk factors, CPA/attorney contacts for coordination</li>
+    </ul>
+  </div>
+</section>
+
+<section id="m4">
+  <div class="card">
+    <div class="meeting-head"><div class="badge">4</div><h2>Meeting 4 — Conclusion (Go / No-Go)</h2></div>
+
+    <h3>1 · Objective</h3>
+    <p>Finalize the decision, set expectations, and either initiate onboarding or close the file professionally.</p>
+    <div class="success">Success = a clear decision, either way. No zombie prospects.</div>
+
+    <h3>2 · Preparation</h3>
+    <ul>
+      <li>Prepare the final plan summary (one page)</li>
+      <li>Prepare the onboarding checklist: agreements, account paperwork, insurance applications, CPA/attorney introduction emails, Right Capital client-portal access</li>
+      <li>Prepare decision-finalization scripts and last-minute objection responses</li>
+      <li>Set a 30–45 minute agenda</li>
+    </ul>
+
+    <h3>3 · Execution Plan</h3>
+    <h4>Opening (5 min)</h4>
+    <blockquote>"We've walked through your plan, refined it, and addressed your questions. Today is about deciding whether you want us as your long-term planning team."</blockquote>
+    <h4>Final plan summary (10 min)</h4>
+    <p>Present the one-page summary: goals, strategies, projected outcomes, and the engagement structure.</p>
+    <h4>Decision ask (direct, unhurried)</h4>
+    <blockquote>"Based on everything we've covered, are you ready to move forward?"</blockquote>
+    <p>Then be quiet. Let them answer.</p>
+    <h4>Handle last-minute objections</h4>
+    <p>Return to the framework: strategy, timing, or implementation? Resolve or narrow to the single blocking issue.</p>
+    <h4>If GO (15 min)</h4>
+    <blockquote>"Excellent. Here's what onboarding looks like: we finalize your plan, we coordinate with your CPA and attorney, we begin implementing tax, insurance, and retirement strategies, and you gain full access to your Right Capital dashboard."</blockquote>
+    <p>Complete or schedule the first onboarding steps in the meeting: signatures, document requests, introduction emails to their CPA/attorney.</p>
+    <h4>If NO-GO (5–10 min)</h4>
+    <blockquote>"Totally understood. If circumstances change, we're here. I'll send a summary of your plan and next steps you can take on your own."</blockquote>
+    <p>Close warmly and professionally. A well-closed no is a future referral source. If they fit the M&amp;M profile better, refer them back to M&amp;M Wealth Associates.</p>
+    <h4>Close</h4>
+    <blockquote>"Thank you for your time and trust. We're here whenever you're ready."</blockquote>
+
+    <h3>4 · Summary &amp; Follow-Up</h3>
+    <ul>
+      <li>Recap the decision in writing the same day</li>
+      <li><strong>If GO:</strong> send onboarding materials, calendar the implementation sequence, introduce Wealth Advisory Now naturally as the planning relationship deepens (the Right Capital plan is the bridge to AUM)</li>
+      <li><strong>If NO-GO:</strong> send a thank-you note with the plan summary and self-serve next steps; set a 6-month check-in reminder</li>
+      <li>Document internal handoff notes: decision, rationale, products/strategies in implementation, responsible parties</li>
+      <li>Update the CRM: stage, revenue stream(s) engaged (commission / flat-fee / AUM), referral notes</li>
+    </ul>
+  </div>
+</section>
+
+<section id="objections">
+  <h2>Objection Playbook (All Meetings)</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Objection</th><th>Response</th></tr>
+    <tr><td>"I need to think about it."</td><td>"Absolutely — this is a meaningful decision. Let's clarify what specifically you want to think through so I can support you. Is it the strategy, the timing, or the implementation?"</td></tr>
+    <tr><td>"I already have a CPA."</td><td>"Perfect — we don't replace your CPA. We coordinate them. Most CPAs file taxes; they don't build proactive tax strategy. We fill that gap."</td></tr>
+    <tr><td>"This seems expensive."</td><td>"I hear you. The real question is whether the plan saves you more than it costs. Our defined benefit plans, tax strategies, and insurance structures typically save $50K–$300K annually. Let's look at the net benefit."</td></tr>
+    <tr><td>"I'm too busy."</td><td>"That's exactly why we exist. Busy business owners need a coordinated team. We do the heavy lifting — your time investment is minimal."</td></tr>
+    <tr><td>"I'm not sure I need all this."</td><td>"Totally fair. Let's revisit your pain points: taxes, lack of clarity, no coordinated plan. This solves those problems directly."</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="checklist">
+  <h2>Right Capital Data-Gathering Checklist</h2>
+  <div class="checklist">
+    <div class="check-card"><h4>Personal</h4><ul><li>Family details</li><li>Age, marital status</li><li>Goals (retirement, legacy, tax reduction, children's college &amp; financial future)</li></ul></div>
+    <div class="check-card"><h4>Income</h4><ul><li>W-2</li><li>K-1</li><li>1099</li><li>Business distributions</li></ul></div>
+    <div class="check-card"><h4>Savings</h4><ul><li>Bank accounts</li><li>Brokerage</li><li>Retirement accounts (401k, IRA)</li></ul></div>
+    <div class="check-card"><h4>Expenses</h4><ul><li>Personal</li><li>Business</li><li>Debt payments</li></ul></div>
+    <div class="check-card"><h4>Net Worth</h4><ul><li>Bank accounts</li><li>Loans</li><li>Investments</li><li>Properties</li><li>Other assets</li></ul></div>
+    <div class="check-card"><h4>Business</h4><ul><li>Entity type</li><li>Revenue &amp; profit</li><li>Employees</li><li>Owner compensation</li><li>Existing benefits</li></ul></div>
+    <div class="check-card"><h4>Real Estate</h4><ul><li>Holdings</li><li>Mortgages</li></ul></div>
+    <div class="check-card"><h4>Insurance</h4><ul><li>Life</li><li>Disability</li><li>Key-man</li><li>Buy-sell</li><li>IUL</li><li>Annuities</li></ul></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">Pinnacle Planning</div>
+  <p>Pinnacle Planning is the advanced division of M&amp;M Wealth Associates. Investment management and comprehensive financial planning are provided through Wealth Advisory Now, a registered investment advisor. All partners are Series 65 holders and Certified Retirement Counselors (CRC).</p>
+</footer>
+
+</body>
+</html>
