@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinnacle Planning — Client Presentation</title>
+<style>
+  :root{
+    --navy:#1b2a4a; --navy-2:#243a63; --navy-3:#101c35;
+    --gold:#b08d3f; --gold-light:#d4b877;
+    --ink:#2a2f3a; --muted:#5c6472; --paper:#f7f6f2; --card:#ffffff; --line:#e3e0d8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-snap-type:y mandatory; scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif; color:var(--ink); background:var(--paper); line-height:1.6;}
+  .sans{font-family:'Segoe UI',Arial,Helvetica,sans-serif;}
+
+  .slide{min-height:100vh; scroll-snap-align:start; display:flex; flex-direction:column; justify-content:center; padding:72px 8vw 64px; position:relative; border-bottom:1px solid var(--line);}
+  .slide-num{position:absolute; bottom:18px; right:26px; font-family:'Segoe UI',Arial,sans-serif; font-size:.72rem; letter-spacing:.15em; color:var(--muted);}
+  .kicker{font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.28em; text-transform:uppercase; font-size:.72rem; color:var(--gold); margin-bottom:14px;}
+  h1{font-size:clamp(2.2rem,5vw,3.6rem); font-weight:normal; color:var(--navy); line-height:1.15;}
+  h2{font-size:clamp(1.6rem,3.2vw,2.3rem); font-weight:normal; color:var(--navy); margin-bottom:22px;}
+  h3{font-family:'Segoe UI',Arial,sans-serif; font-size:.9rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:20px 0 10px;}
+  p{margin:10px 0; max-width:62ch;}
+  ul,ol{margin:10px 0 10px 24px;}
+  li{margin:7px 0;}
+  .lead{font-size:1.12rem;}
+
+  .dark{background:linear-gradient(150deg,var(--navy-3) 0%,var(--navy) 55%,var(--navy-2) 100%); color:#e8ecf5;}
+  .dark h1,.dark h2{color:#ffffff;}
+  .dark .kicker{color:var(--gold-light);}
+  .dark p{color:#c9d2e4;}
+  .dark .slide-num{color:#8fa0be;}
+
+  .tagline{font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.35em; text-transform:uppercase; font-size:.85rem; color:var(--gold-light); margin-top:26px;}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:24px 0;}
+  .stat{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:18px 12px; text-align:center;}
+  .stat .n{font-family:'Segoe UI',Arial,sans-serif; font-size:1.7rem; color:var(--navy); font-weight:600;}
+  .stat .l{font-size:.85rem; color:var(--muted); margin-top:4px;}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:20px 0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px 22px; box-shadow:0 2px 8px rgba(27,42,74,.05);}
+  .card h4{font-family:'Segoe UI',Arial,sans-serif; color:var(--navy); font-size:1rem; margin-bottom:8px;}
+  .card p, .card li{font-size:.95rem;}
+  .card ul{margin-left:18px;}
+
+  .values .card{border-top:3px solid var(--gold); text-align:center;}
+  .values .card h4{letter-spacing:.1em; text-transform:uppercase; font-size:.85rem;}
+
+  blockquote{background:#eef1f7; border-left:4px solid var(--gold); padding:14px 20px; margin:16px 0; font-style:italic; color:var(--navy); border-radius:0 8px 8px 0; max-width:70ch;}
+  .dark blockquote{background:rgba(255,255,255,.07); color:#e8ecf5;}
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; background:var(--card); font-size:.95rem;}
+  th{background:var(--navy); color:#fff; font-family:'Segoe UI',Arial,sans-serif; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; text-align:left; padding:10px 14px;}
+  td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#faf9f5;}
+  .table-wrap{overflow-x:auto;}
+
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:24px 0;}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px 18px; text-align:center; position:relative;}
+  .step .badge{width:44px; height:44px; border-radius:50%; background:var(--navy); color:var(--gold-light); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-family:'Segoe UI',Arial,sans-serif; font-size:1.15rem;}
+  .step h4{font-family:'Segoe UI',Arial,sans-serif; color:var(--navy); font-size:.95rem; margin-bottom:6px;}
+  .step p{font-size:.88rem; color:var(--muted); margin:0;}
+
+  .compass{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:22px 0; max-width:880px;}
+  .compass .card{border-left:4px solid var(--gold);}
+  .dir{font-family:'Segoe UI',Arial,sans-serif; font-size:.78rem; letter-spacing:.22em; color:var(--gold); text-transform:uppercase;}
+
+  .check li::marker{content:"✓  "; color:var(--gold);}
+
+  .note{font-size:.85rem; color:var(--muted); font-style:italic; margin-top:18px;}
+  .fineprint{font-size:.75rem; color:#93a0b8; max-width:90ch; margin-top:30px; line-height:1.5;}
+
+  nav.deck-nav{position:fixed; bottom:18px; left:50%; transform:translateX(-50%); z-index:60; display:flex; gap:8px; background:rgba(27,42,74,.92); border:1px solid rgba(212,184,119,.4); border-radius:999px; padding:8px 14px; align-items:center;}
+  nav.deck-nav button{background:none; border:none; color:var(--gold-light); font-family:'Segoe UI',Arial,sans-serif; font-size:1rem; cursor:pointer; padding:2px 10px;}
+  nav.deck-nav button:hover{color:#fff;}
+  nav.deck-nav .counter{color:#c9d2e4; font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; letter-spacing:.1em; min-width:64px; text-align:center;}
+
+  @media(max-width:640px){ .slide{padding:56px 6vw 72px;} .compass{grid-template-columns:1fr;} }
+  @media print{
+    html{scroll-snap-type:none;}
+    .slide{min-height:auto; page-break-after:always; border:none; padding:40px;}
+    nav.deck-nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 · Title -->
+<section class="slide dark" id="s1">
+  <div class="kicker">A Division of M&amp;M Wealth Associates</div>
+  <h1>Pinnacle Planning</h1>
+  <p class="lead" style="font-size:1.35rem; margin-top:10px;">Advanced Financial Planning for Business Owners</p>
+  <div class="tagline">Clarity &nbsp;•&nbsp; Control &nbsp;•&nbsp; Coordination</div>
+  <div class="slide-num">1</div>
+</section>
+
+<!-- 2 · Agenda -->
+<section class="slide" id="s2">
+  <div class="kicker">Agenda</div>
+  <h2>What We'll Cover Today</h2>
+  <ol class="lead">
+    <li><strong>Intro</strong> — who we are</li>
+    <li><strong>About you</strong> — your challenges, goals, and risks</li>
+    <li><strong>The Quarterback Model</strong> — what's missing from your team</li>
+    <li><strong>Our process</strong> — where you are and what to expect</li>
+    <li><strong>Our framework</strong> — the Wealth Navigator</li>
+    <li><strong>What we deliver</strong> — strategies and proprietary solutions</li>
+    <li><strong>Next steps</strong> — action items and timeline</li>
+  </ol>
+  <div class="slide-num">2</div>
+</section>
+
+<!-- 3 · Who We Are -->
+<section class="slide" id="s3">
+  <div class="kicker">Intro</div>
+  <h2>Who We Are</h2>
+  <p class="lead"><strong>Three coordinated firms. One team working for you.</strong></p>
+  <div class="cards">
+    <div class="card"><h4>M&amp;M Wealth Associates</h4><p>Education, community, and insurance solutions — life, IUL, annuities.</p></div>
+    <div class="card"><h4>Pinnacle Planning</h4><p>The advanced division: tax strategy, insurance structures, retirement, and legacy planning for business owners.</p></div>
+    <div class="card"><h4>Wealth Advisory Now</h4><p>Fiduciary registered investment advisor: investment management and comprehensive planning.</p></div>
+  </div>
+  <h3>Why People Trust Us</h3>
+  <div class="stats">
+    <div class="stat"><div class="n">500+</div><div class="l">Families served</div></div>
+    <div class="stat"><div class="n">$600M+</div><div class="l">Legacy secured</div></div>
+    <div class="stat"><div class="n">100+</div><div class="l">Years combined experience</div></div>
+    <div class="stat"><div class="n">17</div><div class="l">Team of advisors</div></div>
+    <div class="stat"><div class="n">200,000+</div><div class="l">Followers on social media</div></div>
+  </div>
+  <p>All partners are <strong>Series 65</strong> holders and <strong>Certified Retirement Counselors (CRC®)</strong>.</p>
+  <div class="slide-num">3</div>
+</section>
+
+<!-- 4 · Values -->
+<section class="slide" id="s4">
+  <div class="kicker">Intro</div>
+  <h2>Our Core Values: R.I.T.E.E</h2>
+  <div class="cards values">
+    <div class="card"><h4>Responsible</h4><p>Your future matters to us, and we take it as seriously as you do.</p></div>
+    <div class="card"><h4>Integrity</h4><p>Honest guidance. No fluff, no gimmicks — just strategies that work.</p></div>
+    <div class="card"><h4>Transparency</h4><p>No hidden fees, no surprises. Clarity in every conversation.</p></div>
+    <div class="card"><h4>Empathy</h4><p>Your goals aren't just financial, they're personal. We listen, and we care.</p></div>
+    <div class="card"><h4>Excellence</h4><p>Every recommendation, plan, and conversation is tailored for your success.</p></div>
+  </div>
+  <blockquote>"They visually explained to me how changes in small details of my finances can lead to impressive results." — <strong>Lynn B.</strong> ★★★★★</blockquote>
+  <blockquote>"He looked at the big picture: income protection, estate planning risks, and how everything ties together." — <strong>Josh H.</strong> ★★★★★</blockquote>
+  <div class="slide-num">4</div>
+</section>
+
+<!-- 5 · What you're already doing -->
+<section class="slide dark" id="s5">
+  <div class="kicker">About You</div>
+  <h2>What You're Already Doing</h2>
+  <p class="lead">You're the quarterback of your own financial life — <strong>designing, executing, and coordinating</strong> all of it yourself:</p>
+  <div class="cards" style="margin-top:24px;">
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><h4 style="color:var(--gold-light);">Business Side</h4><ul style="color:#c9d2e4;"><li>401(k) administrator</li><li>CPA</li><li>Business / financing broker</li><li>Business consultants</li></ul></div>
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><h4 style="color:var(--gold-light);">Personal Side</h4><ul style="color:#c9d2e4;"><li>Real estate professionals</li><li>Investment advisors</li><li>Insurance agents</li><li>Estate attorneys</li></ul></div>
+  </div>
+  <p class="lead" style="margin-top:20px;"><strong>Every arrow points back to you.</strong> You built a business — and now you're also running an uncoordinated financial team in your spare time.</p>
+  <div class="slide-num">5</div>
+</section>
+
+<!-- 6 · Connect the dots -->
+<section class="slide dark" id="s6">
+  <div class="kicker">The Quarterback Model</div>
+  <h2>We Just Help You Connect the Dots</h2>
+  <p class="lead">We don't replace your professionals. <strong>We coordinate them.</strong></p>
+  <p>Your CPA files taxes. Your insurance agent sold you a policy. Your attorney drafted documents years ago. <strong>Nobody is looking at the full picture — until now.</strong></p>
+  <p>Pinnacle Planning becomes the hub: connecting and aligning every professional on your team so nothing falls through the cracks — and so your time goes back into your business and your family.</p>
+  <div class="slide-num">6</div>
+</section>
+
+<!-- 7 · About you -->
+<section class="slide" id="s7">
+  <div class="kicker">About You</div>
+  <h2>Your Goals, Questions &amp; Risks</h2>
+  <div class="cards">
+    <div class="card"><h4>Your Primary Goals</h4><ul><li>Retire on your own timeline</li><li>Reduce taxes</li><li>Protect what you've built</li><li>Fund your children's college &amp; future</li><li>Build generational wealth</li></ul></div>
+    <div class="card"><h4>Your Questions</h4><ul><li>Is my retirement plan on track?</li><li>Am I paying more tax than I should?</li><li>What happens to the business if something happens to me?</li></ul></div>
+    <div class="card"><h4>Our Concerns</h4><ul><li>No coordinated risk-mitigation strategy</li><li>Concentration — everything tied to the business</li><li>Overpaying on taxes, year after year</li></ul></div>
+  </div>
+  <p class="note">Personalized for each client before the meeting.</p>
+  <div class="slide-num">7</div>
+</section>
+
+<!-- 8 · Pain points -->
+<section class="slide" id="s8">
+  <div class="kicker">About You</div>
+  <h2>The Pain Points We Solve</h2>
+  <ul class="lead check">
+    <li>Paying too much in taxes</li>
+    <li>No coordinated plan — advice comes in fragments</li>
+    <li>No advisor you fully trust</li>
+    <li>Blind spots in insurance, retirement, and legacy</li>
+    <li>Business risk exposure: key person, partnership, continuity</li>
+    <li>No exit or succession plan</li>
+  </ul>
+  <blockquote>If two or more of these sound familiar, you're exactly who we built this for.</blockquote>
+  <div class="slide-num">8</div>
+</section>
+
+<!-- 9 · Who we serve -->
+<section class="slide" id="s9">
+  <div class="kicker">About You</div>
+  <h2>Who We Serve</h2>
+  <p class="lead">We specialize in <strong>business owners and entrepreneurs</strong>:</p>
+  <ul class="lead">
+    <li>$500K+ business revenue</li>
+    <li>$250K–$1M+ personal income</li>
+    <li>Age 40–60</li>
+    <li>Too busy to do this alone — and self-aware enough to know it</li>
+    <li>Coachable, seeking clarity, and ready for a real team</li>
+  </ul>
+  <div class="slide-num">9</div>
+</section>
+
+<!-- 10 · What we deliver -->
+<section class="slide" id="s10">
+  <div class="kicker">What We Deliver</div>
+  <h2>A Coordinated Planning Experience</h2>
+  <div class="cards">
+    <div class="card"><h4>1 · Tax Savings &amp; Strategy</h4><p>Defined benefit plans, Section 199A, compensation structuring, year-round planning with your CPA.</p></div>
+    <div class="card"><h4>2 · Insurance Solutions</h4><p>Key-man, buy-sell, premium financing, IUL, annuities.</p></div>
+    <div class="card"><h4>3 · Retirement Planning</h4><p>Plan design, income strategy, distribution planning.</p></div>
+    <div class="card"><h4>4 · Business Owner Benefits</h4><p>Employee benefit design and executive planning.</p></div>
+    <div class="card"><h4>5 · Legacy &amp; Estate</h4><p>Trusts, tax-efficient transfer, estate liquidity.</p></div>
+    <div class="card"><h4>6 · Investment Management</h4><p>Fiduciary AUM through Wealth Advisory Now.</p></div>
+  </div>
+  <div class="slide-num">10</div>
+</section>
+
+<!-- 11 · Proprietary -->
+<section class="slide dark" id="s11">
+  <div class="kicker">What We Deliver</div>
+  <h2>Proprietary Solutions Others Can't Offer</h2>
+  <p class="lead">Strategies most business owners have <strong>never been shown</strong>:</p>
+  <ul class="lead">
+    <li><strong>Defined benefit plans</strong> that can shelter <strong>$100K–$300K+ of income annually</strong></li>
+    <li><strong>Premium financing</strong> (Kaizen, Trizen) for high-income owners</li>
+    <li><strong>Split dollar</strong> and executive benefit structures</li>
+    <li><strong>Buy-sell &amp; key-man structures</strong> that protect the business and the partnership</li>
+    <li><strong>Right Capital</strong> — institutional-grade planning platform, yours to keep</li>
+  </ul>
+  <div class="slide-num">11</div>
+</section>
+
+<!-- 12 · 4-step process -->
+<section class="slide" id="s12">
+  <div class="kicker">Our Process</div>
+  <h2>Our 4-Step Process</h2>
+  <div class="steps">
+    <div class="step"><div class="badge">1</div><h4>Discovery</h4><p>Understand your needs and goals</p></div>
+    <div class="step"><div class="badge">2</div><h4>Diagnosis</h4><p>Analyze your full financial situation</p></div>
+    <div class="step"><div class="badge">3</div><h4>Design</h4><p>Develop a tailored, coordinated strategy</p></div>
+    <div class="step"><div class="badge">4</div><h4>Deployment</h4><p>Implement, monitor, and evolve</p></div>
+  </div>
+  <blockquote><strong>Plans evolve. We stay proactive.</strong> We adjust as your life — and the tax laws — change.</blockquote>
+  <div class="slide-num">12</div>
+</section>
+
+<!-- 13 · 4 meetings -->
+<section class="slide" id="s13">
+  <div class="kicker">Our Process</div>
+  <h2>What It Looks Like: Four Meetings</h2>
+  <div class="steps">
+    <div class="step"><div class="badge">1</div><h4>Introduction &amp; Discovery</h4><p>We learn your business, goals, and pain points</p></div>
+    <div class="step"><div class="badge">2</div><h4>Financial Landscape</h4><p>Your entire financial life in one dashboard — confirmed and refined together</p></div>
+    <div class="step"><div class="badge">3</div><h4>Proposal &amp; Path Forward</h4><p>The full coordinated strategy, with the numbers</p></div>
+    <div class="step"><div class="badge">4</div><h4>Conclusion: Go / No-Go</h4><p>A clear decision, either way</p></div>
+  </div>
+  <p class="lead"><strong>Clear. Structured. Efficient.</strong> Four meetings — then you decide.</p>
+  <div class="slide-num">13</div>
+</section>
+
+<!-- 14 · Wealth Navigator -->
+<section class="slide dark" id="s14">
+  <div class="kicker">Our Framework</div>
+  <h2>The Wealth Navigator</h2>
+  <p class="lead">Created to orient your financial life with clarity and confidence — <em>simple, modular, systematic, sustainable, scalable.</em></p>
+  <div class="compass">
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><div class="dir">North</div><h4 style="color:#fff;">Retirement Confidence</h4><p style="color:#c9d2e4;">Turning savings into sustainable income for the years ahead.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><div class="dir">East</div><h4 style="color:#fff;">Growth &amp; Tax Optimization</h4><p style="color:#c9d2e4;">Positioning resources to grow efficiently while minimizing drag.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><div class="dir">South</div><h4 style="color:#fff;">Lifestyle &amp; Protection</h4><p style="color:#c9d2e4;">Safeguarding what matters most so your family lives with confidence.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.15);"><div class="dir">West</div><h4 style="color:#fff;">Legacy &amp; Generational Wealth</h4><p style="color:#c9d2e4;">Extending impact beyond your lifetime to those who matter most.</p></div>
+  </div>
+  <div class="slide-num">14</div>
+</section>
+
+<!-- 15 · Curated topics -->
+<section class="slide" id="s15">
+  <div class="kicker">Our Framework</div>
+  <h2>Your Curated Topics (S-E-N-W)</h2>
+  <div class="cards">
+    <div class="card"><h4>South · Lifestyle &amp; Protection</h4><ul><li>Life insurance solutions</li><li>Disability &amp; LTC protection</li><li>Health insurance &amp; HSA coordination</li><li>Property &amp; casualty · liability</li><li>Emergency fund · cash flow</li><li>Guardianship · college planning · real estate</li></ul></div>
+    <div class="card"><h4>East · Growth &amp; Tax Optimization</h4><ul><li>Tax diversification &amp; rate analysis</li><li>Tax-efficient vehicles</li><li>Roth conversions &amp; bracket mgmt</li><li>Capital gains &amp; tax-loss harvesting</li><li>Defined contribution &amp; benefit plans</li><li>Charitable giving · entity structuring</li></ul></div>
+    <div class="card"><h4>North · Retirement Confidence</h4><ul><li>Income planning &amp; distribution</li><li>Social Security optimization</li><li>Pension &amp; RMD planning</li><li>Sustainable withdrawals</li><li>Longevity &amp; inflation protection</li><li>Cash flow modeling · survivor benefits</li></ul></div>
+    <div class="card"><h4>West · Legacy &amp; Generational Wealth</h4><ul><li>Wills &amp; trusts · probate avoidance</li><li>Estate tax mitigation</li><li>Charitable trusts &amp; philanthropy</li><li>Business succession planning</li><li>Multi-generational transfer · gifting</li><li>Special needs · family governance</li></ul></div>
+  </div>
+  <p class="note">We highlight the topics that match your priorities — this is the menu we curate together.</p>
+  <div class="slide-num">15</div>
+</section>
+
+<!-- 16 · Five risks -->
+<section class="slide" id="s16">
+  <div class="kicker">Our Framework</div>
+  <h2>The Five Risks We Plan Against</h2>
+  <div class="cards">
+    <div class="card"><h4>Market Risk</h4><p>Can you afford a downturn <em>in</em> retirement?</p></div>
+    <div class="card"><h4>Inflation Risk</h4><p>Does your money outgrow inflation?</p></div>
+    <div class="card"><h4>Tax Risk</h4><p>Will taxes be higher or lower when you need your money?</p></div>
+    <div class="card"><h4>Longevity Risk</h4><p>Will you outlive your savings? What's left for kids and charity?</p></div>
+    <div class="card"><h4>Medical Risk</h4><p>Health events and long-term care can unwind decades of saving.</p></div>
+  </div>
+  <blockquote>A coordinated plan addresses all five — not just the one your last advisor sold you a product for.</blockquote>
+  <div class="slide-num">16</div>
+</section>
+
+<!-- 17 · Right Capital -->
+<section class="slide" id="s17">
+  <div class="kicker">Our Tools</div>
+  <h2>Right Capital: Your Financial Dashboard</h2>
+  <p class="lead">Your entire financial life in one place:</p>
+  <ul class="lead check">
+    <li>Monte Carlo simulation — the probability your plan actually works</li>
+    <li>Tax projections and bracket planning</li>
+    <li>Retirement income planning</li>
+    <li>Social Security optimization</li>
+    <li>A 50-page comprehensive plan — yours to keep</li>
+  </ul>
+  <blockquote>You'll have full access to your own dashboard — total transparency, updated as life changes.</blockquote>
+  <div class="slide-num">17</div>
+</section>
+
+<!-- 18 · Expect -->
+<section class="slide" id="s18">
+  <div class="kicker">What You Can Expect</div>
+  <h2>What Working With Us Feels Like</h2>
+  <ul class="lead check">
+    <li><strong>Clarity</strong> — see everything in one place, most likely for the first time</li>
+    <li><strong>Coordination</strong> — every professional on your team aligned</li>
+    <li><strong>Tax savings</strong> — proactive strategy, not reactive filing</li>
+    <li><strong>Protection</strong> — for your family, your business, and your partners</li>
+    <li><strong>A long-term relationship</strong> — a team that works for you, held to a fiduciary standard as the relationship deepens</li>
+  </ul>
+  <div class="slide-num">18</div>
+</section>
+
+<!-- 19 · Next steps -->
+<section class="slide" id="s19">
+  <div class="kicker">Next Steps</div>
+  <h2>Action Items &amp; Timeline</h2>
+  <div class="cards">
+    <div class="card"><h4>Your Action Items</h4><ul><li>Schedule Meeting 1 (Discovery)</li><li>Gather initial documents (we'll send the checklist)</li><li>Come with your questions — all of them</li></ul></div>
+    <div class="card"><h4>Our Action Items</h4><ul><li>Send recap and document checklist</li><li>Open your Right Capital profile</li><li>Begin building your preliminary plan</li></ul></div>
+  </div>
+  <p class="lead" style="margin-top:14px;"><em>Your financial clarity starts now.</em></p>
+  <div class="slide-num">19</div>
+</section>
+
+<!-- 20 · Thank you -->
+<section class="slide dark" id="s20">
+  <div class="kicker">Thank You</div>
+  <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);">We appreciate your trust,<br>and we thank you for your time.</h1>
+  <div class="tagline">Clarity. Control. Confidence.</div>
+  <p style="margin-top:26px;">Our goal is to keep expanding, educating, and servicing our community. If you see the value we bring, ask us how you can partner with or support M&amp;M Wealth Associates.</p>
+  <p class="fineprint">Pinnacle Planning is a division of M&amp;M Wealth Associates. Investment management and comprehensive financial planning are provided through Wealth Advisory Now, a registered investment advisor. Insurance products offered through M&amp;M Wealth Associates are not bank deposits or obligations, are not guaranteed by any financial institution, and are not insured by the FDIC, NCUSIF, or any other federal entity. This material is for educational and informational purposes only and is not tax or legal advice — consult your tax professional regarding your specific circumstances.</p>
+  <div class="slide-num">20</div>
+</section>
+
+<nav class="deck-nav">
+  <button id="prev" aria-label="Previous slide">‹</button>
+  <span class="counter" id="counter">1 / 20</span>
+  <button id="next" aria-label="Next slide">›</button>
+</nav>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var counter = document.getElementById('counter');
+  var current = 0;
+
+  function goTo(i){
+    current = Math.max(0, Math.min(slides.length-1, i));
+    slides[current].scrollIntoView({behavior:'smooth'});
+  }
+  document.getElementById('prev').addEventListener('click', function(){ goTo(current-1); });
+  document.getElementById('next').addEventListener('click', function(){ goTo(current+1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='PageDown'){ e.preventDefault(); goTo(current+1); }
+    if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); goTo(current-1); }
+    if(e.key==='Home'){ e.preventDefault(); goTo(0); }
+    if(e.key==='End'){ e.preventDefault(); goTo(slides.length-1); }
+  });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        current = slides.indexOf(entry.target);
+        counter.textContent = (current+1) + ' / ' + slides.length;
+      }
+    });
+  }, {threshold:0.55});
+  slides.forEach(function(s){ observer.observe(s); });
+})();
+</script>
+
+</body>
+</html>
