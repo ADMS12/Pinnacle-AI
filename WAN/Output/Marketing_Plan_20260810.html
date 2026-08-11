@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinnacle Planning — Marketing Plan (2026-08-10)</title>
+<style>
+  :root{
+    --navy:#1b2a4a; --navy-2:#243a63; --gold:#b08d3f; --gold-light:#d4b877;
+    --ink:#2a2f3a; --muted:#5c6472; --bg:#f6f5f1; --card:#ffffff; --line:#e3e0d8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:Georgia,'Times New Roman',serif; background:var(--bg); color:var(--ink); line-height:1.65;}
+
+  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%); color:#fff; padding:56px 24px 48px; text-align:center;}
+  header .kicker{font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.25em; text-transform:uppercase; font-size:.75rem; color:var(--gold-light); margin-bottom:14px;}
+  header h1{font-size:2.1rem; font-weight:normal;}
+  header .sub{margin-top:12px; color:#c9d2e4; font-size:1.02rem; max-width:640px; margin-left:auto; margin-right:auto;}
+  header .date{margin-top:18px; display:inline-block; border:1px solid rgba(212,184,119,.5); color:var(--gold-light); padding:6px 18px; border-radius:999px; font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; letter-spacing:.12em;}
+
+  nav{position:sticky; top:0; z-index:50; background:var(--navy); border-bottom:3px solid var(--gold); overflow-x:auto;}
+  nav ul{display:flex; list-style:none; justify-content:center; min-width:max-content;}
+  nav a{display:block; padding:12px 14px; color:#dfe6f2; text-decoration:none; font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; letter-spacing:.05em; white-space:nowrap;}
+  nav a:hover{background:var(--navy-2); color:var(--gold-light);}
+
+  main{max-width:980px; margin:0 auto; padding:40px 20px 80px;}
+  section{margin-top:52px;}
+  h2{font-size:1.55rem; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:8px; margin-bottom:20px; font-weight:normal;}
+  h3{font-family:'Segoe UI',Arial,sans-serif; font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:26px 0 10px;}
+  p{margin:10px 0;}
+  ul,ol{margin:8px 0 8px 24px;}
+  li{margin:5px 0;}
+  blockquote{background:#eef1f7; border-left:4px solid var(--navy); padding:14px 18px; margin:14px 0; font-style:italic; color:var(--navy); border-radius:0 6px 6px 0;}
+  .callout{background:#f3efe4; border-left:4px solid var(--gold); padding:12px 16px; margin:14px 0;}
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; background:var(--card); font-size:.93rem;}
+  th{background:var(--navy); color:#fff; font-family:'Segoe UI',Arial,sans-serif; font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; text-align:left; padding:10px 13px;}
+  td{padding:10px 13px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#faf9f5;}
+  .table-wrap{overflow-x:auto;}
+  .hl td{background:#f3efe4 !important; font-weight:bold; color:var(--navy);}
+
+  /* ---- Flat diagram primitives ---- */
+  .diagram{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:28px 24px; margin:20px 0;}
+  .diagram .caption{text-align:center; font-family:'Segoe UI',Arial,sans-serif; font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-top:16px;}
+
+  /* Funnel */
+  .funnel{display:flex; flex-direction:column; align-items:center; gap:6px;}
+  .funnel .band{color:#fff; text-align:center; padding:14px 10px; border-radius:8px; font-family:'Segoe UI',Arial,sans-serif;}
+  .funnel .band b{display:block; letter-spacing:.12em; font-size:.8rem; text-transform:uppercase;}
+  .funnel .band span{font-size:.8rem; opacity:.85; font-family:Georgia,serif; font-style:italic;}
+  .funnel .arrow{color:var(--gold); font-size:1.1rem; line-height:1;}
+  .f1{width:100%; background:var(--navy);}
+  .f2{width:82%; background:var(--navy-2);}
+  .f3{width:64%; background:var(--gold); color:#fff;}
+  .f4{width:50%; background:#3d5480;}
+  .f5{width:38%; background:#2e7d5b;}
+  .f6{width:60%; background:#6b5320;}
+
+  /* Hub and spoke */
+  .hub-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; align-items:center;}
+  .spoke{background:#fff; border:1.5px solid var(--navy); border-radius:10px; padding:12px 10px; text-align:center; font-family:'Segoe UI',Arial,sans-serif; font-size:.83rem; color:var(--navy);}
+  .spoke small{display:block; color:var(--muted); font-family:Georgia,serif; font-style:italic; font-size:.75rem; margin-top:3px;}
+  .spoke.essential{border:2.5px solid var(--gold); background:#fbf6ea; font-weight:bold;}
+  .spoke.new{border:2px dashed var(--gold); background:#fbf6ea;}
+  .hub-center{background:var(--navy); color:var(--gold-light); border-radius:50%; width:150px; height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; margin:0 auto; font-family:'Segoe UI',Arial,sans-serif; font-size:.85rem; letter-spacing:.05em; padding:12px; box-shadow:0 0 0 6px rgba(176,141,63,.25);}
+
+  /* Flywheel */
+  .flywheel{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; align-items:center;}
+  .fw-step{background:#fff; border:1.5px solid var(--navy); border-radius:999px; padding:10px 16px; font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; color:var(--navy); text-align:center;}
+  .fw-arrow{color:var(--gold); font-weight:bold;}
+  .fw-loop{width:100%; text-align:center; color:var(--gold); font-family:'Segoe UI',Arial,sans-serif; font-size:.8rem; letter-spacing:.1em; margin-top:6px;}
+
+  /* Sprint timeline */
+  .sprint{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px;}
+  .sprint .phase{background:#fff; border:1px solid var(--line); border-top:4px solid var(--gold); border-radius:10px; padding:18px;}
+  .sprint .phase h4{font-family:'Segoe UI',Arial,sans-serif; color:var(--navy); font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px;}
+  .sprint .phase li{font-size:.92rem;}
+
+  footer{background:var(--navy); color:#aeb9cf; text-align:center; padding:34px 24px; font-size:.85rem; margin-top:60px;}
+  footer .brand{color:var(--gold-light); font-family:'Segoe UI',Arial,sans-serif; letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; margin-bottom:10px;}
+
+  @media(max-width:700px){
+    .hub-grid{grid-template-columns:1fr 1fr;}
+    .hub-center{grid-column:span 2;}
+  }
+  @media print{ nav{display:none;} .diagram{break-inside:avoid;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Pinnacle Planning · Advanced Division of M&amp;M Wealth Associates</div>
+  <h1>Marketing Plan</h1>
+  <div class="sub">Make the right business owner feel seen — and create a natural path to a planning session.</div>
+  <div class="date">PREPARED · AUGUST 10, 2026 · REV. OF AUG 2 PLAN</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#message">Message</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#funnel">Funnel</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#flywheel">Flywheel</a></li>
+    <li><a href="#hispanic">Hispanic Market</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#kpis">KPIs</a></li>
+    <li><a href="#budget">Budget</a></li>
+    <li><a href="#execution">Execution</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="summary">
+  <h2>1 · Executive Summary</h2>
+  <p>Pinnacle Planning's marketing has one job: make the ideal business owner think <strong>"these people help people like me"</strong> — and then book a planning session. Everything in this plan funnels toward that single conversion event, because once a prospect enters the <strong>4-meeting sales cycle</strong>, the Sales Operations Playbook takes over.</p>
+  <p><strong>The strategy in one paragraph:</strong> Lead with tax pain (the universal business-owner frustration), reinforce with the two hooks that speak to the heart — providing for the next generation and having one Wealth Architect who coordinates everything — earn trust through education and community presence (Chamber of Commerce is the essential channel), build referral hubs of CPAs, attorneys, bankers, and now real-estate brokerages who see the pain first, and cultivate the Hispanic business community as our emerging market. Every channel drives to one destination: a booked Discovery meeting.</p>
+  <div class="callout"><strong>Top priorities:</strong> ① Chamber presence — Santa Ana + Hispanic chambers, immediate · ② Referral hubs — CPAs first, real-estate brokerage added · ③ Tax-pain content engine + expanded lead-magnet library · ④ Hispanic emerging-market entry · ⑤ Website &amp; lead magnets as the credibility anchor · ⑥ Sales-force marketing materials produced in Days 1–30.</div>
+</section>
+
+<section id="message">
+  <h2>2 · Positioning &amp; Core Message</h2>
+  <h3>Positioning Statement</h3>
+  <blockquote>For business owners with $500K+ in revenue who are paying too much tax and flying blind despite making good money, Pinnacle Planning is the advanced planning division that quarterbacks your entire financial team — CPA, attorney, insurance, retirement — under a coordinated, fiduciary-minded plan. Unlike product-first agents or file-and-forget CPAs, we look at the whole picture, and we prove it in four structured meetings.</blockquote>
+
+  <h3>Primary Hook #1 · Taxes</h3>
+  <blockquote>"You built something. You're paying a significant tax bill every April. There are legal strategies most business owners never hear about that could shelter $100K to $300K of your income this year and turn your tax burden into your retirement plan. That conversation starts here."</blockquote>
+
+  <h3>Primary Hook #2 · Provide for the Next Generation</h3>
+  <blockquote>"You sacrificed to build this. Now make it last. Your children shouldn't have to start from zero — there's a menu of options that can put them ahead of the crowd: college funding done right, a first-home head start, a business or wealth transfer that doesn't get eaten by taxes. Let's build their head start together."</blockquote>
+  <ul>
+    <li><strong>The idea:</strong> parents who built a business want their children to <em>get ahead of the crowd</em> — and they want a <strong>menu of concrete options</strong> (529 and alternatives, cash-value life insurance for a child, custodial strategies, trusts, succession) so they can choose deliberately instead of hoping.</li>
+    <li><strong>Emotional connection:</strong> <em>You built it — now make it last.</em> Family. Sacrifice. The long hours were never just for you.</li>
+    <li><strong>Where it leads:</strong> the "Roadmap to Provide for the Next Generation" lead magnet (Section 6) and the college-funding conversation in the planning session.</li>
+  </ul>
+
+  <h3>Secondary Hook · The Wealth Architect</h3>
+  <blockquote>"You have partners in your business. But who's on your team for your wealth? Every entrepreneur and high-producing professional needs strong, proactive expertise in taxes, investments, estate planning, and real estate — and, most importantly, a Wealth Architect who puts it all together into one cohesive, holistic plan where every expert is coordinated, in the right role, working in your best interest."</blockquote>
+  <ul>
+    <li><strong>The idea:</strong> high producers usually <em>have</em> advisors — a CPA here, a broker there — but no one is the architect. Pinnacle designs the blueprint and coordinates the specialists (taxes · investments · estate · real estate · insurance). This is the Quarterback Model told from the client's seat.</li>
+    <li><strong>Emotional connection:</strong> <em>free up time — more time for family</em> · a <strong>sounding board</strong> for the quiet stress of having no one to talk business decisions through with · <strong>clarity</strong> — one plan, goals kept aligned.</li>
+    <li><strong>Where it leads:</strong> the Asset Map lead magnet (Section 6) — visual proof that someone finally sees the whole picture.</li>
+  </ul>
+
+  <h3>Secondary Messaging</h3>
+  <p>Insurance gaps · no coordinated plan · wealth trapped in the business · no succession strategy · no trusted advisor · flying blind despite making good money · children's college and financial legacy.</p>
+  <ul>
+    <li><strong>Mechanisms to save on business taxes</strong> — entity-level strategies (Partnership, LLC, S-Corp, C-Corp), qualified plans (DBP/DCP), timing and compensation design — not just filing better, <em>structuring</em> better.</li>
+    <li><strong>Help reduce operational burdens</strong> — a coordinated advisory team takes recurring financial administration and vendor-wrangling off the owner's desk, returning hours to the business or the family.</li>
+  </ul>
+  <div class="callout"><strong>Message discipline:</strong> a hook gets them in the door — taxes for the head, next-generation for the heart, Wealth Architect for the overwhelmed; the full planning experience (Quarterback Model, Wealth Navigator, Right Capital) keeps them. <strong>One hook per asset — never stack all three.</strong></div>
+</section>
+
+<section id="markets">
+  <h2>3 · Target Markets</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Market</th><th>Definition</th><th>Approach</th></tr>
+    <tr><td><strong>Core</strong></td><td>Business owners &amp; entrepreneurs: $500K+ revenue, $250K–$1M+ personal income, age 40–60, coachable, time-poor, no advisor they fully trust</td><td>All seven channels; tax-pain hook; qualification filter applied at booking</td></tr>
+    <tr><td><strong>Emerging: Hispanic business community</strong></td><td>One of the fastest-growing segments of U.S. business ownership; broadly underserved by advanced planning; strong family/legacy values alignment</td><td><strong>Santa Ana Chamber + Hispanic Chamber</strong>, community associations, bilingual materials, cultural fluency — 12-month trust-building horizon (Section 8)</td></tr>
+    <tr><td><strong>Professional practices</strong></td><td>PI lawyers, orthodontists, dentists, eye doctors (incl. pediatric) — high-income practice owners already in the network</td><td>Drop-off package + existing-relationship introductions (Section 9 marketing materials)</td></tr>
+    <tr class="hl"><td><strong>How we identify them</strong></td><td>Target IRS entity types: <strong>Partnership and S-Corp</strong> — ownership most likely a <strong>single owner or husband-and-wife team</strong> (pass-through taxation, compensation design, family involvement — our planning sweet spot)</td><td><strong>CA government/state business registries</strong> (CA Secretary of State search, license boards), <strong>LinkedIn</strong>, local business publications and directories — plus <strong>door-knocking on visibly successful local businesses</strong></td></tr>
+  </table>
+  </div>
+  <p><strong>Why entity type matters:</strong> Partnerships and S-Corps are where the tax hook bites hardest — pass-through income lands on the owner's personal return, so the pain is <em>felt</em> personally every April; husband-and-wife ownership means the family and next-generation hooks land in the same conversation.</p>
+</section>
+
+<section id="funnel">
+  <h2>4 · The Marketing Funnel</h2>
+  <p>Every channel feeds one funnel, and the funnel ends where the Sales Ops Playbook begins.</p>
+  <div class="diagram">
+    <div class="funnel">
+      <div class="band f1"><b>Awareness</b><span>Social content · Chamber visibility · Speaking · Community events</span></div>
+      <div class="arrow">▼</div>
+      <div class="band f2"><b>Trust</b><span>Workshops · Lead magnets · Case studies · Referral endorsements</span></div>
+      <div class="arrow">▼</div>
+      <div class="band f3"><b>Conversion — Book a Planning Session</b><span>The single CTA on every asset</span></div>
+      <div class="arrow">▼</div>
+      <div class="band f4"><b>4-Meeting Sales Cycle</b><span>Discovery → Landscape → Proposal → Go/No-Go</span></div>
+      <div class="arrow">▼</div>
+      <div class="band f5"><b>Client</b><span>Commission · Flat-fee plan · AUM via WAN</span></div>
+      <div class="arrow">▼</div>
+      <div class="band f6"><b>Advocacy → back to the top</b><span>Referrals · Testimonials · Community proof</span></div>
+    </div>
+    <div class="caption">One funnel · one call to action · sales takes over at the session</div>
+  </div>
+  <ul>
+    <li>Every asset has exactly one call to action: <strong>book a planning session.</strong></li>
+    <li>No channel is expected to close business — channels create warm, qualified conversations; the 4-meeting cycle closes.</li>
+    <li>A well-closed "no-go" stays in the flywheel (6-month check-ins, referral potential).</li>
+  </ul>
+</section>
+
+<section id="channels">
+  <h2>5 · Channel Strategy — Seven Channels, One Destination</h2>
+  <div class="diagram">
+    <div class="hub-grid">
+      <div class="spoke essential">6 · Chamber of Commerce<small>ESSENTIAL — Santa Ana + Hispanic</small></div>
+      <div class="spoke">1 · Social Media<small>Facebook &amp; Instagram</small></div>
+      <div class="spoke">2 · UCLA Anderson Network<small>centers of influence</small></div>
+      <div class="spoke">4 · Referral Hub Partners<small>CPAs · attorneys · bankers</small></div>
+      <div class="hub-center">BOOK A<br>PLANNING<br>SESSION</div>
+      <div class="spoke">3 · Toastmasters &amp; Networking<small>speaking authority reps</small></div>
+      <div class="spoke">5 · Website &amp; Content<small>credibility anchor</small></div>
+      <div class="spoke new">7 · Real Estate Brokerage<small>NEW — 20 active agents</small></div>
+      <div class="spoke">↓ 4-Meeting Sales Cycle<small>Sales Ops Playbook takes over</small></div>
+    </div>
+    <div class="caption">All seven channels point at one hub — the booked session</div>
+  </div>
+
+  <h3>Channel 6 — Chamber of Commerce (Essential)</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Element</th><th>Plan</th></tr>
+    <tr><td>Presence</td><td>Join the <strong>Santa Ana Chamber</strong> and the <strong>Hispanic Chamber</strong>; attend every mixer and expo for the first 90 days</td></tr>
+    <tr><td>Authority</td><td>Committee/ambassador role within 6 months; board-adjacent role in year 2</td></tr>
+    <tr><td>Education</td><td>Quarterly "Business Owner Tax Strategy" lunch-and-learn as a free member benefit</td></tr>
+    <tr><td>Sponsorship</td><td>2–3 flagship events per year</td></tr>
+    <tr><td>Conversion</td><td>Every talk ends with the same CTA; Tax Essentials Toolkit as the takeaway</td></tr>
+    <tr class="hl"><td>KPI</td><td>4+ chamber-sourced planning sessions per quarter by Q2 2027</td></tr>
+  </table>
+  </div>
+
+  <h3>Channel 4 — Referral Hub Partners (Highest Lead Quality)</h3>
+  <ul>
+    <li>Named list: 20 CPAs, 10 estate attorneys, 5 commercial bankers, 10 bookkeepers, 5 non-competing agents</li>
+    <li>Value-first cadence: quarterly coffee/lunch, 2026 tax-limits reference card, co-branded workshop invitations</li>
+    <li>Position as their "advanced planning department" — we make them look good, never touch their core service</li>
+    <li>Two-way loop: refer bookkeeping, filing, and legal work back</li>
+    <li><strong>KPI:</strong> 15 active referring partners; 2+ referred sessions/month within 12 months</li>
+  </ul>
+
+  <h3>Channel 7 — Referral Hub: Real Estate Brokerage (New)</h3>
+  <p>A partnered brokerage with <strong>20 active agents</strong> — every agent is a scout, and every property transaction is a financial-planning trigger moment: clients buying or selling are already reorganizing their finances (down payment, cash flow, entity questions, titling, insurance).</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Element</th><th>Plan</th></tr>
+    <tr><td>The agent's give</td><td>A <strong>complimentary planning session</strong> every agent can offer buying/selling clients as a value-add — makes the agent look good, costs them nothing</td></tr>
+    <tr><td>Session delivers</td><td>① <strong>Professional report of the client's financial portfolio</strong> (their full picture, organized) · ② <strong>Gaps / blind spots</strong> — protection shortfalls, titling problems, tax exposure, missing estate documents · ③ <strong>Potential solutions</strong> — a clear, no-pressure menu of next steps</td></tr>
+    <tr><td>Activation</td><td>Train all 20 agents in one lunch session (what to say, who fits, how to hand off); co-branded one-pager; per-agent booking link/QR so referrals are tracked and credited</td></tr>
+    <tr><td>Reciprocity</td><td>We refer buyers, sellers, and 1031/investment-property conversations back to the brokerage</td></tr>
+    <tr class="hl"><td>KPI</td><td>20 agents trained in first 60 days; 2+ brokerage-referred sessions/month by month 6</td></tr>
+  </table>
+  </div>
+
+  <h3>Channel 1 — Social Media (Facebook &amp; Instagram)</h3>
+  <ul>
+    <li>3 posts/week: 2 pain-first educational, 1 trust/community</li>
+    <li>Monthly 60–90s video: "Strategies your CPA never showed you"</li>
+    <li>Geo-targeted boosts on best tax-pain posts; all links → booking page</li>
+    <li><strong>KPI:</strong> cost per booked session, not likes</li>
+  </ul>
+
+  <h3>Channels 2, 3 &amp; 5</h3>
+  <ul>
+    <li><strong>UCLA Anderson:</strong> quarterly value-first touches; 1 speaking engagement/quarter; 3+ quality introductions/quarter</li>
+    <li><strong>Toastmasters &amp; networking:</strong> curiosity-first elevator pitch; reps for the speaking-authority strategy</li>
+    <li><strong>Website &amp; content:</strong> page aligned with the Client Presentation deck; case studies (pain → strategy → net benefit); full lead-magnet library (Section 6) with the Tax Essentials Toolkit as primary; one-click booking from every page</li>
+  </ul>
+</section>
+
+<section id="content">
+  <h2>6 · Content Engine &amp; Lead Magnets</h2>
+
+  <h3>The Lead-Magnet Library</h3>
+  <p>Each magnet is a short, professional PDF (2–6 pages) gated behind an email + one qualifying question. Each maps to a hook and opens a planning conversation:</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Lead Magnet</th><th>Hook It Serves</th><th>Conversation It Opens</th></tr>
+    <tr class="hl"><td>Tax Essentials Toolkit (primary)</td><td>Taxes</td><td>The Discovery meeting itself</td></tr>
+    <tr><td>Business Tax Strategy Guide — by entity: Partnership, LLC, S-Corp, C-Corp</td><td>Taxes</td><td>Entity structure, compensation design, pass-through planning</td></tr>
+    <tr><td>Retirement Income Blueprint</td><td>Taxes / Architect</td><td>Turning the tax burden into the retirement plan</td></tr>
+    <tr><td>Retirement Program Comparison — 401(k), SEP-IRA, IRA, DBP, DCP</td><td>Taxes / Architect</td><td>Which qualified plan fits the business; DBP for high-income owners</td></tr>
+    <tr><td>Premium Financing Primer</td><td>Architect</td><td>Advanced life-insurance funding for high-net-worth owners</td></tr>
+    <tr><td>Asset Map Sample</td><td>Wealth Architect</td><td>"Here's what your whole picture looks like on one page"</td></tr>
+    <tr><td>Trust Preparation Worksheet</td><td>Next Generation</td><td>Estate readiness; what to bring to the attorney</td></tr>
+    <tr><td>Roadmap to Provide for the Next Generation</td><td>Next Generation</td><td>The menu of head-start options for their children</td></tr>
+    <tr><td>College Funding Plans for Your Child — 529 &amp; alternatives</td><td>Next Generation</td><td>College funding as the gateway to legacy planning</td></tr>
+    <tr><td>Business Owner Protection Checklist</td><td>Secondary</td><td>Key-man, buy-sell, owner protection</td></tr>
+  </table>
+  </div>
+
+  <h3>Case Studies &amp; Articles — Each One Feeds a Lead Magnet</h3>
+  <p>Every case study follows <strong>pain → strategy → net benefit</strong> and ends with the CTA to download its paired magnet (second CTA: book a planning session):</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Case Study / Article</th><th>Paired Lead Magnet</th></tr>
+    <tr><td>Premium Financing in action — funding the policy without writing the check</td><td>Premium Financing Primer</td></tr>
+    <tr><td>Defined Benefit Plan: the six-figure deduction most owners have never heard of</td><td>Retirement Program Comparison</td></tr>
+    <tr><td>Annuities &amp; lifetime retirement income: a paycheck that never stops</td><td>Retirement Income Blueprint</td></tr>
+    <tr><td>Life insurance beyond the death benefit (tax-advantaged living uses)</td><td>Business Owner Protection Checklist</td></tr>
+    <tr><td>Helping your children get a head start: one family's plan</td><td>Roadmap to Provide for the Next Generation</td></tr>
+  </table>
+  </div>
+
+  <h3>Monthly Themes (Rotating Quarterly)</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Month</th><th>Theme</th><th>Anchor Content</th><th>Lead Magnet CTA</th></tr>
+    <tr><td>1</td><td>Tax pain</td><td>"Shelter $100K–$300K legally" video + posts</td><td>Tax Essentials Toolkit / Business Tax Strategy Guide</td></tr>
+    <tr><td>2</td><td>Protection &amp; retirement</td><td>Key-man horror story · DBP case study</td><td>Protection Checklist / Retirement Program Comparison</td></tr>
+    <tr><td>3</td><td>Legacy &amp; next generation</td><td>Head-start family case study · 529 vs. alternatives</td><td>Next-Generation Roadmap / College Funding Plans</td></tr>
+  </table>
+  </div>
+  <p>Rotate quarterly with fresh examples. Seasonal spikes: <strong>January</strong> (new-year planning), <strong>March–April</strong> (tax-season pain peak — double the tax content), <strong>September–October</strong> (year-end window: "there's still time to act before December 31").</p>
+
+  <h3>Community Events</h3>
+  <p>Community events are a content channel of their own: chamber expos, sponsored local events, school and youth-sports sponsorships, and Hispanic community celebrations (Section 8). Every event produces content (photos, recap post, one insight learned); every table carries lead magnets and the booking QR code. <strong>Target: one community event per month</strong>, each feeding the social calendar the following week.</p>
+  <div class="callout">Every piece follows the same format: <strong>pain first → one insight → one CTA (book a planning session).</strong></div>
+</section>
+
+<section id="flywheel">
+  <h2>7 · The Referral Flywheel</h2>
+  <div class="diagram">
+    <div class="flywheel">
+      <div class="fw-step">Partner refers<br>business owner</div><span class="fw-arrow">→</span>
+      <div class="fw-step">Planning session<br>booked</div><span class="fw-arrow">→</span>
+      <div class="fw-step">4-meeting<br>cycle runs</div><span class="fw-arrow">→</span>
+      <div class="fw-step">Client win: tax savings<br>+ coordination</div><span class="fw-arrow">→</span>
+      <div class="fw-step">Outcome reported<br>back to partner</div><span class="fw-arrow">→</span>
+      <div class="fw-step">Partner trust grows ·<br>client refers peers</div>
+      <div class="fw-loop">⟲ &nbsp;LOOP BACK TO THE START — THE FLYWHEEL COMPOUNDS</div>
+    </div>
+    <div class="caption">The most-missed step: reporting the outcome back to the referring partner</div>
+  </div>
+  <p>Closing the loop with the referring partner (within privacy bounds) makes the partner the hero — and reliably produces the next referral. This applies equally to CPAs, attorneys, and the real-estate agents in Channel 7.</p>
+</section>
+
+<section id="hispanic">
+  <h2>8 · Emerging Market: Hispanic Business Community</h2>
+  <div class="sprint">
+    <div class="phase"><h4>Phase 1 · Months 1–3 — Presence</h4><ul><li>Join the <strong>Santa Ana Chamber + Hispanic Chamber</strong>; attend consistently</li><li>Map the community's business mix and advisor relationships</li><li>Identify 2–3 community connectors</li></ul></div>
+    <div class="phase"><h4>Phase 2 · Months 4–6 — Education</h4><ul><li>First bilingual tax-strategy workshop, co-presented with a Hispanic CPA or attorney</li><li>Translate Tax Essentials Toolkit + one-page overview into Spanish</li></ul></div>
+    <div class="phase"><h4>Phase 3 · Months 7–12 — Compounding</h4><ul><li>Sponsor one flagship community event</li><li>Monthly Spanish-language social content</li><li>3–5 referring relationships with Hispanic-market CPAs, bookkeepers, lenders</li></ul></div>
+  </div>
+  <p style="margin-top:14px;"><strong>Messaging emphasis:</strong> protect the family, the business, and the next generation — taxes as the entry point, legacy as the resonant theme. The <strong>Next Generation hook is at its strongest in this market.</strong> Cultural fluency over translation alone.</p>
+  <div class="callout"><strong>KPI:</strong> first 5 Hispanic-market planning sessions by Q2 2027; 2 active community referral partners by year end.</div>
+</section>
+
+<section id="roadmap">
+  <h2>9 · Roadmap</h2>
+  <h3>90-Day Launch Sprint</h3>
+  <p><strong>Days 1–30 are marketing-materials days.</strong> Producing the sales-force materials below is an <em>essential</em> first-month deliverable — nothing else in this plan works if advisors show up to chambers, brokerages, and door-knocks empty-handed.</p>
+  <div class="diagram">
+    <div class="sprint">
+      <div class="phase"><h4>Days 1–30</h4><ul><li>Join chambers: Santa Ana + Hispanic</li><li>Booking page + Tax Toolkit live</li><li>Name the 50-partner referral list</li><li><strong>MARKETING MATERIALS produced</strong> (see list below)</li></ul></div>
+      <div class="phase"><h4>Days 31–60</h4><ul><li>Social cadence running 3×/week</li><li>First 10 partner coffees done</li><li>First chamber lunch-and-learn</li><li>Brokerage: 20 agents trained + equipped</li></ul></div>
+      <div class="phase"><h4>Days 61–90</h4><ul><li>First co-branded CPA workshop</li><li>Case study #1 published</li><li>Review KPIs, double down</li></ul></div>
+    </div>
+    <div class="caption">Launch sprint — materials &amp; relationships first, content engine second, proof third</div>
+  </div>
+
+  <h3>Marketing Materials — Days 1–30 Deliverables (Essential)</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Material</th><th>Purpose / Notes</th></tr>
+    <tr><td><strong>Drop-off package for business owners</strong></td><td>The leave-behind for door-knocks and referral introductions. Anchored by a <strong>tax-savings case study</strong> (pain → strategy → net benefit), plus the one-page Pinnacle overview and booking QR</td></tr>
+    <tr><td><strong>Flyer brochure</strong></td><td>General-audience tri-fold; <strong>printing arranged through Scott / Michael's parents</strong> (in-network print resource — confirm specs and turnaround in week 1)</td></tr>
+    <tr><td><strong>"Other services" flyer — existing professional network</strong></td><td>For warm relationships already in the network: <strong>PI lawyer, orthodontist, dentist, eye doctor, kids' eye doctor</strong> — practice owners who are both prospects and referral sources. Message: high-income practice owners have the same tax pain</td></tr>
+    <tr><td><strong>Simplistic / succinct flyers for Mom &amp; Pop owners</strong></td><td>Plain-language, single-page, minimal jargon — <strong>built around Eddie's avatar</strong> (the archetypal local owner). Three messages only: ① <strong>Business tax savings</strong> · ② <strong>Owner protection</strong> · ③ <strong>Generational wealth transfer</strong>. One CTA: the complimentary planning session</td></tr>
+  </table>
+  </div>
+  <div class="callout"><strong>Design rule for all materials:</strong> consistent Pinnacle branding, one hook per piece, one CTA per piece; bilingual versions follow in the Hispanic-market phase (Section 8).</div>
+
+  <h3>12-Month Milestones</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Quarter</th><th>Milestones</th></tr>
+    <tr><td>Q3 2026 (launch)</td><td>Chambers joined (Santa Ana + Hispanic); booking flow + Tax Toolkit live; <strong>all Days 1–30 marketing materials produced</strong>; social engine running; 10 partner meetings</td></tr>
+    <tr><td>Q4 2026</td><td>Year-end planning push; first co-branded workshop; chamber committee role; 5 active referral partners; brokerage hub live (20 agents trained)</td></tr>
+    <tr><td>Q1 2027</td><td>Tax-season content surge; bilingual toolkit live; first Hispanic-market workshop; 3 case studies; lead-magnet library complete</td></tr>
+    <tr><td>Q2 2027</td><td>Chamber-sourced sessions at 4+/quarter; 10+ active partners; first Hispanic-market clients; brokerage referrals at 2+/month; reallocate budget to top 2 channels</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="kpis">
+  <h2>10 · KPIs &amp; Measurement</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Level</th><th>Metric</th><th>Target (by Q2 2027)</th></tr>
+    <tr><td>Funnel top</td><td>Chamber/community interactions per month</td><td>20+</td></tr>
+    <tr><td>Funnel top</td><td>Social reach into local business-owner audience</td><td>Trend up; CPL tracked</td></tr>
+    <tr><td>Funnel mid</td><td>Lead magnet downloads per month</td><td>25+</td></tr>
+    <tr><td>Funnel mid</td><td>Active referral partners (referred in last 6 months)</td><td>15</td></tr>
+    <tr><td>Funnel mid</td><td>Real-estate agents actively referring (last 90 days)</td><td>8 of 20</td></tr>
+    <tr class="hl"><td>Conversion</td><td>Planning sessions booked per month (north star)</td><td>8–10</td></tr>
+    <tr><td>Sales handoff</td><td>Session → Meeting 2 progression rate</td><td>70%+</td></tr>
+    <tr><td>Business</td><td>New clients per quarter (Go decisions)</td><td>6+</td></tr>
+    <tr><td>Business</td><td>Revenue mix (commission / flat-fee / AUM)</td><td>Tracked quarterly</td></tr>
+  </table>
+  </div>
+  <p>Review monthly; reallocate quarterly. Kill or fix any channel with zero booked sessions in two consecutive quarters — except the Hispanic emerging market, which is on a deliberate 12-month trust-building horizon.</p>
+</section>
+
+<section id="budget">
+  <h2>11 · Budget Guidance (Tiered)</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Tier</th><th>Annual Range</th><th>Allocation</th></tr>
+    <tr><td>Lean</td><td>$10K–$20K</td><td>Chamber dues + events 35% · lead magnets/website 25% · print materials 10% · social boosts 15% · workshops 15%</td></tr>
+    <tr><td>Standard</td><td>$20K–$40K</td><td>Adds event sponsorships, bilingual material production, video production, brokerage co-branded materials</td></tr>
+    <tr><td>Growth</td><td>$40K+</td><td>Adds paid social at scale, premium chamber sponsorships, dedicated Hispanic-market campaigns</td></tr>
+  </table>
+  </div>
+  <div class="callout">Time is the bigger budget: plan on <strong>6–8 founder-hours per week</strong> for chamber, networking, and partner meetings — this plan is relationship-led by design.</div>
+</section>
+
+<section id="execution">
+  <h2>12 · Execution</h2>
+  <p>This plan only creates value once it is <strong>signed off, adopted, and reviewed on a rhythm.</strong> The operating cadence:</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Step</th><th>Cadence</th><th>What Happens</th></tr>
+    <tr><td><strong>1 · Sign-off</strong></td><td>Once, at launch</td><td>The team formally approves this Marketing Plan and <strong>adopts the Roadmap (Section 9)</strong> as the working schedule — including the Days 1–30 marketing-materials deliverables</td></tr>
+    <tr><td><strong>2 · Weekly KPI meeting</strong></td><td>Weekly, standing</td><td>Review the KPIs in <strong>Section 10</strong> — sessions booked, magnet downloads, partner activity, channel performance — and assign the week's marketing actions. Short, standing agenda; same day/time every week</td></tr>
+    <tr><td><strong>3 · Progress tracker</strong></td><td>Updated before every weekly meeting</td><td>A <strong>separate tracking document</strong> scores actual results against this plan — each roadmap milestone, each KPI, each channel — so the meeting reviews facts, not memories</td></tr>
+    <tr><td><strong>4 · Monthly revision</strong></td><td>Monthly, by team agreement</td><td>Revise the plan as needed — channels that outperform get budget and hours; channels that stall get fixed or killed (per the Section 10 rule). Each revision is dated (<code>Marketing_Plan_YYYYMMDD</code>) so the plan's evolution stays auditable</td></tr>
+  </table>
+  </div>
+  <div class="callout"><strong>Ownership:</strong> every KPI line and every roadmap item gets one named owner at sign-off. If it has no owner, it isn't in the plan.</div>
+</section>
+
+<section id="alignment">
+  <h2>13 · Alignment With Sales Operations</h2>
+  <ul>
+    <li>Marketing's finish line = a <strong>booked planning session</strong>; the Sales Ops Playbook (WAN-Ops-2026-08-01) owns everything after.</li>
+    <li>The <strong>qualification filter</strong> applies at booking — non-fit leads are referred to M&amp;M Wealth Associates, protecting the Pinnacle brand.</li>
+    <li>The <strong>Client Presentation deck</strong> is the bridge asset: Meeting 1 visual and the leave-behind for referral partners.</li>
+    <li>Marketing and sales claims stay identical: the $100K–$300K shelter figure, the four-meeting promise, the quarterback positioning.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">Pinnacle Planning</div>
+  <p>Pinnacle Planning is a division of M&amp;M Wealth Associates. Investment management and comprehensive financial planning are provided through Wealth Advisory Now, a registered investment advisor. Marketing materials are educational and are not tax or legal advice.</p>
+</footer>
+
+</body>
+</html>
