@@ -1,0 +1,114 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Margin Call Caution</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{color-scheme:light;--bg:#f5f7f4;--panel:#ffffff;--ink:#172621;--ink-soft:#5f6b65;--muted:#8a948f;--rule:#d8ded9;--accent:#1f6b52;--accent-ink:#155540;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--pos:#2a78d6;--neg:#e34948;--grid:#e3e8e3;--bar:#e6ebe6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px 80px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.01em}
+h2{font-size:26px;margin:0 0 6px}
+h3{font-size:18px;margin:0 0 4px}
+p{max-width:68ch;margin:0 0 12px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.lede{font-size:18px;color:var(--ink-soft);max-width:70ch;margin-top:14px}
+.mono,.n{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:32px 0 8px}
+.kpi{background:var(--panel);padding:18px 20px}
+.kpi .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-family:"IBM Plex Mono",monospace;font-size:26px;font-weight:500;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:13px;color:var(--ink-soft)}
+section{margin-top:56px;padding-top:28px;border-top:1px solid var(--rule)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+figure{margin:16px 0 0;background:var(--panel);border:1px solid var(--rule);padding:16px 12px 10px}
+figcaption{font-size:13px;color:var(--ink-soft);padding:6px 6px 0;line-height:1.4}
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--grid);stroke-width:1} .chart .grid.zero{stroke:var(--ink-soft)} .chart .conn{stroke:var(--muted);stroke-dasharray:2 3}
+.chart .tick{font:12px "Source Sans 3",sans-serif;fill:var(--ink-soft)} .chart .lbl{font:13px "Source Sans 3",sans-serif;fill:var(--ink)}
+.chart .val{font:500 12px "IBM Plex Mono",monospace;fill:var(--ink)} .chart .inbar{font:500 12px "IBM Plex Mono",monospace;fill:#fff}
+.chart rect:hover{opacity:.8}
+.tablewrap{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);background:var(--panel)}
+table.data{border-collapse:collapse;width:100%;font-size:14px}
+table.data th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data th.n,table.data td.n{text-align:right;white-space:nowrap}
+table.data tr.sum td{font-weight:600;background:color-mix(in srgb,var(--accent) 6%,var(--panel))}
+table.data tr.total td{border-top:2px solid var(--ink);}
+.up{color:var(--pos)} .dn{color:var(--neg)} .muted{color:var(--muted)} .small{font-size:12.5px}
+.callout{border-left:3px solid var(--accent);padding:6px 16px;margin:18px 0;background:var(--panel)}
+.callout p{margin:6px 0}
+ul.notes{padding-left:18px;color:var(--ink-soft);font-size:14.5px;max-width:80ch} ul.notes li{margin-bottom:8px}
+@media print{body{background:#fff} section{break-inside:avoid}}
+
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;margin-top:18px}
+.ex .box{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;border-top:4px solid var(--s3)}
+.ex .box.warn{border-top-color:var(--s4)} .ex .box.bad{border-top-color:var(--neg)}
+.ex .box h3{font-size:16px} .ex .k{display:flex;justify-content:space-between;font-size:14px;padding:3px 0;border-bottom:1px dotted var(--rule)} .ex .k:last-child{border:0}
+.ex .k b{font-family:"IBM Plex Mono",monospace;font-weight:500}
+.ex .st{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.ex .box .st{color:var(--s3)} .ex .box.warn .st{color:var(--s4)} .ex .box.bad .st{color:var(--neg)}
+</style>
+<div class="wrap">
+<div class="eyebrow">Robinhood account 140450008 · figures at 31 July 2026</div>
+<h1>Margin Call Caution</h1>
+<p class="lede">The Robinhood account owns <b class="mono">$437,464</b> of stock, but <b class="mono">$216,910</b> of that was bought with money borrowed from Robinhood. Your own money in the account — the equity — is <b class="mono">$220,554</b>. This page explains why that arrangement means a <b class="mono">29%</b> fall in the holdings would trigger a margin call, what a margin call is, and why it matters before the account moves to Schwab.</p>
+
+<div class="kpis">
+<div class="kpi"><div class="l">Holdings</div><div class="v">$437,464</div><div class="s">the stocks and ETFs in the account</div></div>
+<div class="kpi"><div class="l">Margin loan</div><div class="v dn">$216,910</div><div class="s">borrowed from Robinhood; stays fixed when prices fall</div></div>
+<div class="kpi"><div class="l">Your equity</div><div class="v">$220,554</div><div class="s">50% of holdings today</div></div>
+<div class="kpi"><div class="l">Call trigger</div><div class="v dn">−29%</div><div class="s">fall in holdings that brings equity to the 30% minimum (−34% if the minimum is 25%)</div></div>
+</div>
+
+<section>
+<div class="eyebrow">1 · The rule</div>
+<h2>Your equity must stay above a minimum share of the holdings</h2>
+<div class="two">
+<div>
+<p>When you borrow to buy stock, the broker sets a <b>maintenance requirement</b>: your equity must remain at least a set percentage of the value of the securities. The regulatory floor is 25%; Robinhood's house level on a portfolio like this is typically <b>30%</b>, and it can set a higher figure on individual volatile stocks.</p>
+<p>The catch is that the loan does not get smaller when the market falls — only your equity does. Every dollar the holdings lose comes out of your <b class="mono">$220,554</b>, not Robinhood's <b class="mono">$216,910</b>. So as prices drop, equity shrinks twice as fast in percentage terms as the holdings do, and the ratio of equity to holdings slides toward the minimum.</p>
+<p>Today equity is <b class="mono">50%</b> of holdings, so there is no call. The chart works out where the line is crossed: if the holdings fall <b class="mono">29%</b>, they are worth about <b class="mono">$309,872</b>, the loan is still <b class="mono">$216,910</b>, and equity is down to about <b class="mono">$92,962</b> — exactly 30%. Any further fall triggers a <b>margin call</b>: Robinhood requires you to deposit cash or sell holdings, usually within days, and if you don't it sells positions of its choosing for you. With a 25% minimum the same arithmetic gives room for a <b class="mono">34%</b> fall.</p>
+</div>
+<div>
+<p>Put another way: with two dollars of stock for every dollar of your own money, a 10% market move is a 20% move in your equity, and a 29% move wipes out nearly 60% of it. That is the price of the extra upside leverage provides — and the reason the cushion matters more than the return.</p>
+<p>The chart below shows the mechanism. The red band is the loan and never moves; the green band is your equity, which absorbs the entire fall; the dashed amber line is the minimum equity the rule demands, which itself falls only slowly. The call comes where the holdings line crosses it.</p>
+</div>
+</div>
+<figure><svg viewBox="0 0 640 300" class="chart" role="img" aria-label="How a market decline eats into equity while the loan stays fixed"><line x1="70" x2="600" y1="250.0" y2="250.0" class="grid"/><text x="62" y="254.0" class="tick" text-anchor="end">$0k</text><line x1="70" x2="600" y1="198.9" y2="198.9" class="grid"/><text x="62" y="202.9" class="tick" text-anchor="end">$100k</text><line x1="70" x2="600" y1="147.8" y2="147.8" class="grid"/><text x="62" y="151.8" class="tick" text-anchor="end">$200k</text><line x1="70" x2="600" y1="96.7" y2="96.7" class="grid"/><text x="62" y="100.7" class="tick" text-anchor="end">$300k</text><line x1="70" x2="600" y1="45.6" y2="45.6" class="grid"/><text x="62" y="49.6" class="tick" text-anchor="end">$400k</text><text x="70.0" y="268" class="tick" text-anchor="middle">−0%</text><text x="158.3" y="268" class="tick" text-anchor="middle">−10%</text><text x="246.7" y="268" class="tick" text-anchor="middle">−20%</text><text x="335.0" y="268" class="tick" text-anchor="middle">−30%</text><text x="423.3" y="268" class="tick" text-anchor="middle">−40%</text><text x="511.7" y="268" class="tick" text-anchor="middle">−50%</text><text x="600.0" y="268" class="tick" text-anchor="middle">−60%</text><text x="335" y="288" class="tick" text-anchor="middle">Fall in the value of the holdings</text><rect x="70" y="139.1" width="530" height="110.9" fill="var(--neg)" opacity="0.18"/><path d="M70.0,139.1 L70.0,26.4 L78.8,28.6 L87.7,30.9 L96.5,33.1 L105.3,35.4 L114.2,37.6 L123.0,39.8 L131.8,42.1 L140.7,44.3 L149.5,46.5 L158.3,48.8 L167.2,51.0 L176.0,53.2 L184.8,55.5 L193.7,57.7 L202.5,59.9 L211.3,62.2 L220.2,64.4 L229.0,66.7 L237.8,68.9 L246.7,71.1 L255.5,73.4 L264.3,75.6 L273.2,77.8 L282.0,80.1 L290.8,82.3 L299.7,84.5 L308.5,86.8 L317.3,89.0 L326.2,91.2 L335.0,93.5 L343.8,95.7 L352.7,98.0 L361.5,100.2 L370.3,102.4 L379.2,104.7 L388.0,106.9 L396.8,109.1 L405.7,111.4 L414.5,113.6 L423.3,115.8 L432.2,118.1 L441.0,120.3 L449.8,122.6 L458.7,124.8 L467.5,127.0 L476.3,129.3 L485.2,131.5 L494.0,133.7 L502.8,136.0 L511.7,138.2 L520.5,140.4 L529.3,142.7 L538.2,144.9 L547.0,147.1 L555.8,149.4 L564.7,151.6 L573.5,153.9 L582.3,156.1 L591.2,158.3 L600.0,160.6 L600.0,139.1 Z" fill="var(--s3)" opacity="0.25"/><path d="M70.0,26.4 L78.8,28.6 L87.7,30.9 L96.5,33.1 L105.3,35.4 L114.2,37.6 L123.0,39.8 L131.8,42.1 L140.7,44.3 L149.5,46.5 L158.3,48.8 L167.2,51.0 L176.0,53.2 L184.8,55.5 L193.7,57.7 L202.5,59.9 L211.3,62.2 L220.2,64.4 L229.0,66.7 L237.8,68.9 L246.7,71.1 L255.5,73.4 L264.3,75.6 L273.2,77.8 L282.0,80.1 L290.8,82.3 L299.7,84.5 L308.5,86.8 L317.3,89.0 L326.2,91.2 L335.0,93.5 L343.8,95.7 L352.7,98.0 L361.5,100.2 L370.3,102.4 L379.2,104.7 L388.0,106.9 L396.8,109.1 L405.7,111.4 L414.5,113.6 L423.3,115.8 L432.2,118.1 L441.0,120.3 L449.8,122.6 L458.7,124.8 L467.5,127.0 L476.3,129.3 L485.2,131.5 L494.0,133.7 L502.8,136.0 L511.7,138.2 L520.5,140.4 L529.3,142.7 L538.2,144.9 L547.0,147.1 L555.8,149.4 L564.7,151.6 L573.5,153.9 L582.3,156.1 L591.2,158.3 L600.0,160.6" fill="none" stroke="var(--s1)" stroke-width="2"/><line x1="70" x2="600" y1="139.1" y2="139.1" stroke="var(--neg)" stroke-width="2"/><path d="M70.0,72.1 L78.8,72.7 L87.7,73.4 L96.5,74.1 L105.3,74.7 L114.2,75.4 L123.0,76.1 L131.8,76.8 L140.7,77.4 L149.5,78.1 L158.3,78.8 L167.2,79.4 L176.0,80.1 L184.8,80.8 L193.7,81.4 L202.5,82.1 L211.3,82.8 L220.2,83.5 L229.0,84.1 L237.8,84.8 L246.7,85.5 L255.5,86.1 L264.3,86.8 L273.2,87.5 L282.0,88.2 L290.8,88.8 L299.7,89.5 L308.5,90.2 L317.3,90.8 L326.2,91.5 L335.0,92.2 L343.8,92.9 L352.7,93.5 L361.5,94.2 L370.3,94.9 L379.2,95.5 L388.0,96.2 L396.8,96.9 L405.7,97.5 L414.5,98.2 L423.3,98.9 L432.2,99.6 L441.0,100.2 L449.8,100.9 L458.7,101.6 L467.5,102.2 L476.3,102.9 L485.2,103.6 L494.0,104.3 L502.8,104.9 L511.7,105.6 L520.5,106.3 L529.3,106.9 L538.2,107.6 L547.0,108.3 L555.8,108.9 L564.7,109.6 L573.5,110.3 L582.3,111.0 L591.2,111.6 L600.0,112.3" fill="none" stroke="var(--s4)" stroke-width="2" stroke-dasharray="5 4"/><line x1="327.6" x2="327.6" y1="20" y2="250" stroke="var(--neg)" stroke-dasharray="2 3"/><circle cx="327.6" cy="91.6" r="5" fill="var(--neg)"/><line x1="369.3" x2="369.3" y1="20" y2="250" stroke="var(--ink-soft)" stroke-dasharray="2 3"/><circle cx="369.3" cy="102.2" r="5" fill="var(--ink-soft)"/><text x="321.6" y="32" class="val" text-anchor="end">Call at −29% (30% rule)</text><text x="375.3" y="50" class="val">−34% if 25%</text><text x="87.7" y="198.6" class="lbl">Margin loan $216,910 — does not shrink</text><text x="87.7" y="103.7" class="lbl">Your equity $220,554 — takes every dollar of loss</text><text x="343.8" y="108.9" class="tick">Minimum equity required (30% of holdings)</text><text x="441.0" y="110.3" class="tick">Value of holdings</text></svg><figcaption>As the holdings (blue line) fall, the loan (red band) stays fixed and only your equity (green band) shrinks. The dashed amber line is the equity Robinhood requires; where the blue line meets it — a 29% fall — a margin call is issued.</figcaption></figure>
+</section>
+
+<section>
+<div class="eyebrow">2 · Worked examples</div>
+<h2>The same account at four price levels</h2>
+<div class="ex"><div class="box "><div class="st">Today</div><h3>Holdings fall 0%</h3><div class="k"><span>Holdings worth</span><b>$437,464</b></div><div class="k"><span>Loan still</span><b>$216,910</b></div><div class="k"><span>Your equity</span><b>$220,554</b></div><div class="k"><span>Equity ÷ holdings</span><b>50%</b></div><p class="small" style="margin:8px 0 0;color:var(--ink-soft)">Comfortably above the 30% line. No action required.</p></div><div class="box "><div class="st">Still safe</div><h3>Holdings fall 15%</h3><div class="k"><span>Holdings worth</span><b>$371,844</b></div><div class="k"><span>Loan still</span><b>$216,910</b></div><div class="k"><span>Your equity</span><b>$154,934</b></div><div class="k"><span>Equity ÷ holdings</span><b>42%</b></div><p class="small" style="margin:8px 0 0;color:var(--ink-soft)">A rough quarter. Equity has fallen a third, but is still 41% of holdings.</p></div><div class="box bad"><div class="st">Margin call</div><h3>Holdings fall 29%</h3><div class="k"><span>Holdings worth</span><b>$309,872</b></div><div class="k"><span>Loan still</span><b>$216,910</b></div><div class="k"><span>Your equity</span><b>$92,962</b></div><div class="k"><span>Equity ÷ holdings</span><b>30%</b></div><p class="small" style="margin:8px 0 0;color:var(--ink-soft)">Equity is exactly 30% of holdings. One more dollar down and Robinhood demands cash or sells positions.</p></div><div class="box bad"><div class="st">Forced selling</div><h3>Holdings fall 45%</h3><div class="k"><span>Holdings worth</span><b>$240,605</b></div><div class="k"><span>Loan still</span><b>$216,910</b></div><div class="k"><span>Your equity</span><b>$23,695</b></div><div class="k"><span>Equity ÷ holdings</span><b>10%</b></div><p class="small" style="margin:8px 0 0;color:var(--ink-soft)">Equity is 9% of holdings. Robinhood would already have liquidated to bring the account back into line — at the bottom.</p></div></div>
+</section>
+
+<section>
+<div class="eyebrow">3 · Why this matters now</div>
+<h2>A 29% fall is not a remote scenario</h2>
+<ul class="notes">
+<li><b>The holdings are volatile.</b> The account is concentrated in large technology stocks and a long tail of quantum-computing, uranium, space and silver positions. The sister SEP IRA, which holds many of the same names, fell 13% in July 2026 alone and swung by more than 13% in three separate months this year. Declines of 30–50% in this kind of portfolio have happened several times in the last decade.</li>
+<li><b>Forced sales happen at the worst moment.</b> A margin call arrives after the fall, so the positions are sold near the low, turning a temporary drop into a permanent loss. Robinhood chooses what to sell.</li>
+<li><b>A transfer freezes the account.</b> Moving the account to Schwab takes roughly five to seven business days, during which nothing can be traded. If a call happens in that window, Robinhood liquidates and you cannot respond. Schwab may also apply stricter requirements on arrival, moving the trigger closer.</li>
+<li><b>The loan is expensive to keep.</b> Interest is about <b class="mono">$732</b> a month today (about 4.5% a year) and would roughly double at Schwab's posted rate — around <b class="mono">$17,000</b> a year against about <b class="mono">$2,700</b> of dividends.</li>
+</ul>
+<div class="callout"><p><b>The remedy is simple:</b> reduce or clear the loan before the transfer. Paying it off entirely (<b class="mono">$216,910</b>) makes a margin call impossible; paying it down to about <b class="mono">$122,000</b> means the holdings would have to fall 60% before a call. The companion page <i>V-A Margin Exit Plan</i> compares the ways to do that and sets out the sequence.</p></div>
+</section>
+
+<section>
+<div class="eyebrow">Notes</div>
+<h2>Assumptions</h2>
+<ul class="notes">
+<li>Figures are from the 31 July 2026 Robinhood statement and will have moved since; the arithmetic is: call trigger = 1 − loan ÷ (holdings × (1 − requirement)).</li>
+<li>Robinhood sets maintenance requirements per security and can change them without notice; 30% is a typical house level, 25% the regulatory minimum.</li>
+<li>This page is an explanation of how margin works, not investment or tax advice.</li>
+</ul>
+</section>
+</div>
+</body></html>

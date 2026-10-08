@@ -1,0 +1,184 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>K-G Portfolio Review</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{color-scheme:light;--bg:#f5f7f4;--panel:#ffffff;--ink:#172621;--ink-soft:#5f6b65;--muted:#8a948f;--rule:#d8ded9;--accent:#1f6b52;--accent-ink:#155540;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--pos:#2a78d6;--neg:#e34948;--grid:#e3e8e3;--bar:#e6ebe6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px 80px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.01em}
+h2{font-size:26px;margin:0 0 6px}
+h3{font-size:18px;margin:0 0 4px}
+p{max-width:68ch;margin:0 0 12px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.lede{font-size:18px;color:var(--ink-soft);max-width:70ch;margin-top:14px}
+.mono,.n{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:32px 0 8px}
+.kpi{background:var(--panel);padding:18px 20px}
+.kpi .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-family:"IBM Plex Mono",monospace;font-size:26px;font-weight:500;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:13px;color:var(--ink-soft)}
+section{margin-top:56px;padding-top:28px;border-top:1px solid var(--rule)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+figure{margin:16px 0 0;background:var(--panel);border:1px solid var(--rule);padding:16px 12px 10px}
+figcaption{font-size:13px;color:var(--ink-soft);padding:6px 6px 0;line-height:1.4}
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--grid);stroke-width:1} .chart .grid.zero{stroke:var(--ink-soft)} .chart .conn{stroke:var(--muted);stroke-dasharray:2 3}
+.chart .tick{font:12px "Source Sans 3",sans-serif;fill:var(--ink-soft)} .chart .lbl{font:13px "Source Sans 3",sans-serif;fill:var(--ink)}
+.chart .val{font:500 12px "IBM Plex Mono",monospace;fill:var(--ink)} .chart .inbar{font:500 12px "IBM Plex Mono",monospace;fill:#fff}
+.chart rect:hover{opacity:.8}
+.tablewrap{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);background:var(--panel)}
+table.data{border-collapse:collapse;width:100%;font-size:14px}
+table.data th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data th.n,table.data td.n{text-align:right;white-space:nowrap}
+table.data tr.sum td{font-weight:600;background:color-mix(in srgb,var(--accent) 6%,var(--panel))}
+table.data tr.total td{border-top:2px solid var(--ink);}
+.up{color:var(--pos)} .dn{color:var(--neg)} .muted{color:var(--muted)} .small{font-size:12.5px}
+.callout{border-left:3px solid var(--accent);padding:6px 16px;margin:18px 0;background:var(--panel)}
+.callout p{margin:6px 0}
+ul.notes{padding-left:18px;color:var(--ink-soft);font-size:14.5px;max-width:80ch} ul.notes li{margin-bottom:8px}
+@media print{body{background:#fff} section{break-inside:avoid}}
+
+.alts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:18px}
+.alt{background:var(--panel);border:1px solid var(--rule);padding:16px 18px;display:flex;flex-direction:column;gap:8px;border-top:4px solid var(--s1)}
+.alt.pick{border-top-color:var(--accent)} .alt.warn{border-top-color:var(--s4)} .alt.bad{border-top-color:var(--neg)}
+.alt h3{font-size:17px}.alt .tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px}.pc h4{margin:0 0 3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.pc .pro h4{color:var(--s3)}.pc .con h4{color:var(--neg)}.pc ul{margin:0;padding-left:15px;color:var(--ink-soft)}.pc li{margin-bottom:3px}
+@media(max-width:480px){.pc{grid-template-columns:1fr}}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--rule);padding:14px 18px 14px 64px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:18px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font:600 15px "Source Sans 3",sans-serif;display:grid;place-items:center}
+ol.steps li b.t{display:block;font-family:"Source Serif 4",serif;font-size:17px;margin-bottom:3px}
+ol.steps li .w{font-size:12.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.risk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:18px}
+.risk .r{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;border-left:4px solid var(--neg)}
+.risk .r.med{border-left-color:var(--s4)} .risk .r.low{border-left-color:var(--s3)}
+.risk .r .lv{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--neg)} .risk .r.med .lv{color:var(--s4)} .risk .r.low .lv{color:var(--s3)}
+.risk .r h3{font-size:16px;margin:4px 0 6px} .risk .r p{font-size:13.5px;color:var(--ink-soft);margin:0}
+</style>
+<div class="wrap">
+<div class="eyebrow">Fidelity Individual TOD · CHRW stock options · Solo 401(k) · statements to 31 Jul 2026</div>
+<h1>K-G Portfolio Review</h1>
+<p class="lede">Kollen Glynn's Fidelity brokerage account holds <b class="mono">$2,108,782</b> in just two positions — Invesco QQQ and C.H. Robinson (CHRW) — plus <b class="mono">$1,241,002</b> of in-the-money CHRW stock options and a <b class="mono">$28,718</b> Solo 401(k) in cash. Nearly two-thirds of the <b class="mono">$3,378,502</b> shown depends on the share price of the employer that also pays the $700k salary, and <b class="mono">$1,426,168</b> of the brokerage value is unrealised gain that would be taxed at about <b class="mono">30%</b> if sold this year. For a 52-year-old single client retiring in two to three years, the job is to take the concentration off the table without paying that rate — and the calendar makes it possible.</p>
+
+<div class="kpis">
+<div class="kpi"><div class="l">Shown in the folder</div><div class="v">$3,378,502</div><div class="s">brokerage $2,108,782 · options $1,241,002 · 401(k) $28,718</div></div>
+<div class="kpi"><div class="l">Tied to CHRW</div><div class="v dn">64%</div><div class="s">$2,165,053 in shares + options; 24,501 share-equivalents</div></div>
+<div class="kpi"><div class="l">July 2026</div><div class="v dn">−$1,071,405</div><div class="s">account −13.5%; options −$740,970; CHRW −21.6%</div></div>
+<div class="kpi"><div class="l">Tax if sold now vs staged</div><div class="v">30% → 15%</div><div class="s">≈ $218,056 saved by selling after retirement under the WA exemption</div></div>
+</div>
+
+<div class="callout"><p><b>What the folder contains — and what it doesn't.</b> Two Fidelity statements: the July 2026 Investment Report for individual TOD account X86-575950 (which also lists the CHRW stock-plan options) and the April–June 2026 report for the Whistler Ventures Self-Employed 401(k) 264-404076. The brokerage account began 2026 at <b class="mono">$6,647,397</b> and transferred <b class="mono">$3,934,185</b> to another Fidelity account during the year; that account is not in the folder, so this review covers roughly half the picture and no year-to-date return can be computed. The company 401(k), any IRAs and the spending plan are also unknown.</p></div>
+
+<section>
+<div class="eyebrow">1 · Concentration</div>
+<h2>Two tickers, one employer</h2>
+<div class="two">
+<div>
+<p>The brokerage account is <b class="mono">54%</b> QQQ, <b class="mono">44%</b> CHRW and 2% cash. QQQ is itself concentrated — the Nasdaq-100 puts about half its weight in ten technology companies — but it is at least a hundred stocks. CHRW is one company, and it is the same company that pays the salary and issued the options.</p>
+<p>Add the options and the picture sharpens: <b class="mono">$924,051</b> of shares plus <b class="mono">$1,241,002</b> of option value is <b class="mono">$2,165,053</b>, or <b class="mono">64%</b> of everything in the folder. Because all 18,246 options are deep in the money they move almost one-for-one with the stock, so the effective position is <b class="mono">24,501</b> shares — <b class="mono">$3,619,533</b> of notional exposure on a <b class="mono">$3,378,502</b> balance sheet. Every $10 move in CHRW is worth <b class="mono">$245,010</b>.</p>
+<p>July showed what that means. CHRW fell from $188.34 to $147.73 (−21.6%); the shares lost <b class="mono">$254,016</b> and the options <b class="mono">$740,970</b>, while QQQ gave up <b class="mono">$80,845</b> (−6.6%). The combined total fell <b class="mono">$1,071,405</b>, or <b class="mono">−24.2%</b>, in one month. The dashed line on the chart is the shares alone; the solid line adds the options, whose value goes to zero if CHRW ever trades below the $72.74 and $88.87 strikes.</p>
+</div>
+<div>
+<figure><svg viewBox="0 0 640 150" class="chart" role="img" aria-label="Composition of wealth shown in the statements"><rect x="20.0" y="20" width="220.4" height="44" fill="var(--neg)"><title>CHRW options (intrinsic): $1,241,002 (36.7%)</title></rect><text x="130.2" y="47" class="inbar" text-anchor="middle">37%</text><rect x="240.4" y="20" width="164.1" height="44" fill="var(--s2)"><title>CHRW shares: $924,051 (27.4%)</title></rect><text x="322.4" y="47" class="inbar" text-anchor="middle">27%</text><rect x="404.5" y="20" width="204.0" height="44" fill="var(--s1)"><title>QQQ: $1,148,943 (34.0%)</title></rect><text x="506.5" y="47" class="inbar" text-anchor="middle">34%</text><rect x="608.5" y="20" width="11.5" height="44" fill="var(--s3)"><title>Cash + Solo 401(k): $64,505 (1.9%)</title></rect><line x1="20" x2="404.5" y1="78" y2="78" stroke="var(--neg)" stroke-width="2"/><text x="20" y="94" class="val">CHRW-linked: $2,165,053 · 64% of the total</text><rect x="20" y="113" width="12" height="10" fill="var(--neg)" rx="2"/><text x="36" y="122" class="tick">CHRW options (intrinsic)</text><rect x="170" y="113" width="12" height="10" fill="var(--s2)" rx="2"/><text x="186" y="122" class="tick">CHRW shares</text><rect x="320" y="113" width="12" height="10" fill="var(--s1)" rx="2"/><text x="336" y="122" class="tick">QQQ</text><rect x="470" y="113" width="12" height="10" fill="var(--s3)" rx="2"/><text x="486" y="122" class="tick">Cash + Solo 401(k)</text></svg><figcaption>Composition of the $3,378,502 shown in the two statements, 31 Jul 2026 (Solo 401(k) at 30 Jun). Option value is intrinsic only.</figcaption></figure>
+<figure><svg viewBox="0 0 640 260" class="chart" role="img" aria-label="Value of CHRW shares plus options at different CHRW prices"><line x1="70" x2="610" y1="210.0" y2="210.0" class="grid"/><text x="62" y="214.0" class="tick" text-anchor="end">$0M</text><line x1="70" x2="610" y1="162.5" y2="162.5" class="grid"/><text x="62" y="166.5" class="tick" text-anchor="end">$1M</text><line x1="70" x2="610" y1="115.0" y2="115.0" class="grid"/><text x="62" y="119.0" class="tick" text-anchor="end">$2M</text><line x1="70" x2="610" y1="67.5" y2="67.5" class="grid"/><text x="62" y="71.5" class="tick" text-anchor="end">$3M</text><line x1="70" x2="610" y1="20.0" y2="20.0" class="grid"/><text x="62" y="24.0" class="tick" text-anchor="end">$4M</text><text x="70.0" y="228" class="tick" text-anchor="middle">$60</text><text x="137.5" y="228" class="tick" text-anchor="middle">$80</text><text x="205.0" y="228" class="tick" text-anchor="middle">$100</text><text x="272.5" y="228" class="tick" text-anchor="middle">$120</text><text x="340.0" y="228" class="tick" text-anchor="middle">$140</text><text x="407.5" y="228" class="tick" text-anchor="middle">$160</text><text x="475.0" y="228" class="tick" text-anchor="middle">$180</text><text x="542.5" y="228" class="tick" text-anchor="middle">$200</text><text x="610.0" y="228" class="tick" text-anchor="middle">$220</text><text x="340" y="248" class="tick" text-anchor="middle">CHRW share price</text><path d="M70.0,192.2 L86.9,190.7 L103.8,189.2 L120.6,186.6 L137.5,182.7 L154.4,178.7 L171.2,174.3 L188.1,168.5 L205.0,162.7 L221.9,156.9 L238.8,151.1 L255.6,145.3 L272.5,139.4 L289.4,133.6 L306.2,127.8 L323.1,122.0 L340.0,116.2 L356.9,110.3 L373.8,104.5 L390.6,98.7 L407.5,92.9 L424.4,87.1 L441.2,81.2 L458.1,75.4 L475.0,69.6 L491.9,63.8 L508.8,58.0 L525.6,52.1 L542.5,46.3 L559.4,40.5 L576.2,34.7 L593.1,28.9 L610.0,23.1 L610.0,210 L70.0,210 Z" fill="var(--neg)" opacity="0.10"/><path d="M70.0,192.2 L86.9,190.7 L103.8,189.2 L120.6,186.6 L137.5,182.7 L154.4,178.7 L171.2,174.3 L188.1,168.5 L205.0,162.7 L221.9,156.9 L238.8,151.1 L255.6,145.3 L272.5,139.4 L289.4,133.6 L306.2,127.8 L323.1,122.0 L340.0,116.2 L356.9,110.3 L373.8,104.5 L390.6,98.7 L407.5,92.9 L424.4,87.1 L441.2,81.2 L458.1,75.4 L475.0,69.6 L491.9,63.8 L508.8,58.0 L525.6,52.1 L542.5,46.3 L559.4,40.5 L576.2,34.7 L593.1,28.9 L610.0,23.1" fill="none" stroke="var(--neg)" stroke-width="2"/><path d="M70.0,192.2 L86.9,190.7 L103.8,189.2 L120.6,187.7 L137.5,186.2 L154.4,184.7 L171.2,183.3 L188.1,181.8 L205.0,180.3 L221.9,178.8 L238.8,177.3 L255.6,175.8 L272.5,174.3 L289.4,172.9 L306.2,171.4 L323.1,169.9 L340.0,168.4 L356.9,166.9 L373.8,165.4 L390.6,163.9 L407.5,162.5 L424.4,161.0 L441.2,159.5 L458.1,158.0 L475.0,156.5 L491.9,155.0 L508.8,153.5 L525.6,152.1 L542.5,150.6 L559.4,149.1 L576.2,147.6 L593.1,146.1 L610.0,144.6" fill="none" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 4"/><circle cx="503.1" cy="59.9" r="5" fill="var(--neg)"/><text x="495.1" y="47.9" class="val" text-anchor="end">1 Jul: $188.34 → $3.16M</text><circle cx="366.1" cy="107.2" r="5" fill="var(--neg)"/><text x="374.1" y="125.2" class="val" text-anchor="start">31 Jul: $147.73 → $2.17M</text><text x="542.5" y="142.6" class="tick" text-anchor="end">Shares only</text><text x="245.5" y="138.7" class="tick">Shares + options</text></svg><figcaption>Value of the CHRW shares plus in-the-money option value at different CHRW prices. Options are treated at intrinsic value; actual option value would be somewhat higher while time remains.</figcaption></figure>
+</div>
+</div>
+<div class="risk">
+<div class="r"><div class="lv">High</div><h3>Employer stock + options + salary</h3><p>64% of visible wealth and 100% of income depend on CHRW. A bad year for the company hits the job, the shares and the options together.</p></div>
+<div class="r"><div class="lv">High</div><h3>Option expiry and separation</h3><p>Grants expire Dec 2028 and Feb 2030; most plans allow only ~90 days after leaving to exercise. Retiring in 2028 could force $1,241,002+ of ordinary income into one year.</p></div>
+<div class="r med"><div class="lv">Medium</div><h3>Embedded tax</h3><p>69% of the brokerage positions is unrealised gain. Sold in a $700k-salary year the combined federal, NIIT and WA rate is ~30%.</p></div>
+<div class="r med"><div class="lv">Medium</div><h3>QQQ = large-cap tech</h3><p>Even after CHRW is dealt with, the other half of the account is a single-index tech bet with no bonds, no international and a 0.4% yield.</p></div>
+<div class="r low"><div class="lv">Low</div><h3>Fees</h3><p>No advisory fees; QQQ costs ~0.20% (~$2,298/yr). Only drag is 1.8% on brokerage cash and the Solo 401(k) sitting entirely in a money fund.</p></div>
+<div class="r low"><div class="lv">Low</div><h3>Liquidity</h3><p>Both positions are among the most liquid securities in the market; options on QQQ are deep and cheap to hedge with.</p></div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">2 · Growth and income</div>
+<h2>Enormous past gains, a rough 2026</h2>
+<div class="two">
+<div>
+<p>The gains themselves tell the growth story. QQQ was bought for <b class="mono">$179,655</b> and is worth <b class="mono">$1,148,943</b> — a 6.4× return, so <b class="mono">84%</b> of every dollar sold is taxable gain. CHRW cost <b class="mono">$467,172</b> ($74.69 a share) and is worth <b class="mono">$924,051</b> even after July's fall, a <b class="mono">49%</b> gain ratio. The options were granted at $88.87 and $72.74.</p>
+<p>This year has been the reverse. The account's investment value is down <b class="mono">−$603,223</b> year-to-date (on the larger pre-transfer base) and <b class="mono">−$329,507</b> in July alone; the options lost <b class="mono">$740,970</b> of intrinsic value in the same month. Dividends and interest run about <b class="mono">$20,830</b> a year (1.0%), three-quarters of it from CHRW — income that would also disappear if the company cut its dividend.</p>
+<p>There are almost no fees: no advisory charge, QQQ's 0.20% expense ratio (~$2,298 a year) and nothing on CHRW. The Solo 401(k) — opened this year with <b class="mono">$28,333</b> — is 100% in a government money fund earning about $1,050 a year; brokerage cash earns 1.82%.</p>
+</div>
+<div class="tablewrap"><table class="data"><thead><tr><th></th><th class="n">July 2026</th><th class="n">2026 YTD</th></tr></thead><tbody>
+<tr><td>Beginning value</td><td class="n">$2,439,217</td><td class="n">$6,647,397</td></tr>
+<tr><td>Transfers to other Fidelity accounts</td><td class="n">—</td><td class="n dn">−$3,934,185</td></tr>
+<tr><td>Deposits / withdrawals (net)</td><td class="n">−$928</td><td class="n">−$1,208</td></tr>
+<tr><td>Dividends &amp; interest (in change below)</td><td class="n">$5,353</td><td class="n">$14,715</td></tr>
+<tr><td>Change in investment value</td><td class="n dn">−$329,507</td><td class="n dn">−$603,223</td></tr>
+<tr class="sum"><td>Ending value</td><td class="n">$2,108,782</td><td class="n">$2,108,782</td></tr>
+<tr><td>Return on beginning value</td><td class="n dn">−13.5%</td><td class="n muted">n/a (transfer)</td></tr>
+<tr><td>Stock options, intrinsic</td><td class="n dn">$1,981,972 → $1,241,002</td><td class="n"></td></tr>
+<tr class="sum total"><td>Total incl. options</td><td class="n dn">$4,421,189 → $3,349,784</td><td class="n"></td></tr>
+</tbody></table></div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">3 · Tax</div>
+<h2>The same gain costs half as much after retirement</h2>
+<div class="two">
+<div>
+<p>Three layers apply to a Washington resident selling appreciated stock: federal long-term capital gains (15% up to $545,500 of taxable income for a single filer in 2026, 20% above), the 3.8% net investment income tax above $200,000, and Washington's capital-gains excise — 7% on gains above the annual exemption (<b class="mono">$278,000</b> for 2025; 2026 not yet indexed) and 9.9% on the part above $1 million.</p>
+<p>Sold in 2026 on top of a $700k salary, every dollar of gain sits in the 20% federal band, pays NIIT, and the <b class="mono">$1,426,168</b> total crosses WA's $1M tier: about <b class="mono">$424,097</b>, or 29.7%. Sold in a retirement year with little other income, a <b class="mono">$278,000</b> slice of gain pays no WA tax at all and about <b class="mono">$41,006</b> federally — <b class="mono">14.8%</b>. Even $400,000 a year comes in at 18.1%. Retirement accounts are exempt from the WA tax entirely, and option-exercise income is ordinary income, not a capital gain, so it never sees the WA tax either.</p>
+<p>That gap — roughly <b class="mono">$218,056</b> on today's gains — is the reason to hedge and wait rather than sell now. The unwind takes about six tax years at the exemption pace; the table shows one path, selling CHRW first because it is the single-stock risk and carries the lower gain ratio, then QQQ.</p>
+</div>
+<figure><svg viewBox="0 0 640 200" class="chart" role="img" aria-label="Effective tax rate on realised gains under different timings"><line x1="250" x2="250" y1="8" y2="168" class="grid"/><text x="250" y="186" class="tick" text-anchor="middle">0%</text><line x1="333" x2="333" y1="8" y2="168" class="grid"/><text x="333" y="186" class="tick" text-anchor="middle">10%</text><line x1="417" x2="417" y1="8" y2="168" class="grid"/><text x="417" y="186" class="tick" text-anchor="middle">20%</text><line x1="500" x2="500" y1="8" y2="168" class="grid"/><text x="500" y="186" class="tick" text-anchor="middle">30%</text><text x="240" y="27" class="lbl" text-anchor="end">Sell everything in 2026 (employed)</text><rect x="250" y="14" width="247.8" height="18" fill="var(--neg)" rx="2"><title>Sell everything in 2026 (employed): $424,097 on $1,426,168 of gain</title></rect><text x="503.8" y="27" class="val">29.7% · $424k</text><text x="240" y="58" class="lbl" text-anchor="end">Sell QQQ only in 2026</text><rect x="250" y="45" width="239.9" height="18" fill="var(--neg)" rx="2"><title>Sell QQQ only in 2026: $279,081 on $969,288 of gain</title></rect><text x="495.9" y="58" class="val">28.8% · $279k</text><text x="240" y="89" class="lbl" text-anchor="end">Sell CHRW only in 2026</text><rect x="250" y="76" width="221.2" height="18" fill="var(--neg)" rx="2"><title>Sell CHRW only in 2026: $121,259 on $456,879 of gain</title></rect><text x="477.2" y="89" class="val">26.5% · $121k</text><text x="240" y="120" class="lbl" text-anchor="end">Retired: $400k of gain in a year</text><rect x="250" y="107" width="151.0" height="18" fill="var(--s4)" rx="2"><title>Retired: $400k of gain in a year: $72,482 on $400,000 of gain</title></rect><text x="407.0" y="120" class="val">18.1% · $72k</text><text x="240" y="151" class="lbl" text-anchor="end">Retired: $278k of gain in a year</text><rect x="250" y="138" width="122.9" height="18" fill="var(--s3)" rx="2"><title>Retired: $278k of gain in a year: $41,006 on $278,000 of gain</title></rect><text x="378.9" y="151" class="val">14.8% · $41k</text></svg><figcaption>All-in effective tax rate (federal + NIIT + Washington) on realised long-term gains, single filer, 2026 parameters. "Retired" assumes ~$20k of other income.</figcaption></figure>
+</div>
+<div class="tablewrap"><table class="data"><thead><tr><th>Ladder (prices flat)</th><th class="n">CHRW start</th><th class="n">QQQ start</th><th class="n">CHRW sold</th><th class="n">QQQ sold</th><th class="n">Gain realised</th><th class="n">Tax</th><th class="n">Net to redeploy</th></tr></thead><tbody><tr><td>Year 1</td><td class="n">$924,051</td><td class="n">$1,148,943</td><td class="n">$562,263</td><td class="n">$0</td><td class="n">$278,000</td><td class="n dn">$41,006</td><td class="n">$521,256</td></tr><tr><td>Year 2</td><td class="n">$361,788</td><td class="n">$1,148,943</td><td class="n">$361,788</td><td class="n">$117,492</td><td class="n">$278,000</td><td class="n dn">$41,006</td><td class="n">$438,274</td></tr><tr><td>Year 3</td><td class="n">$0</td><td class="n">$1,031,451</td><td class="n">$0</td><td class="n">$329,527</td><td class="n">$278,000</td><td class="n dn">$41,006</td><td class="n">$288,520</td></tr><tr><td>Year 4</td><td class="n">$0</td><td class="n">$701,924</td><td class="n">$0</td><td class="n">$329,527</td><td class="n">$278,000</td><td class="n dn">$41,006</td><td class="n">$288,520</td></tr><tr><td>Year 5</td><td class="n">$0</td><td class="n">$372,398</td><td class="n">$0</td><td class="n">$329,527</td><td class="n">$278,000</td><td class="n dn">$41,006</td><td class="n">$288,520</td></tr><tr><td>Year 6</td><td class="n">$0</td><td class="n">$42,871</td><td class="n">$0</td><td class="n">$42,871</td><td class="n">$36,168</td><td class="n dn">$1,008</td><td class="n">$41,864</td></tr>
+<tr class="sum total"><td>Total</td><td></td><td></td><td class="n">$924,051</td><td class="n">$1,148,943</td><td class="n">$1,426,168</td><td class="n dn">$206,040</td><td class="n">$1,866,954</td></tr></tbody></table></div>
+<p class="small muted" style="margin-top:8px">Illustrative: $278k of gain per year, prices held at 31 Jul 2026, ~$20k of other income, 2026 brackets. Any hedging gains/losses, dividends and new contributions would shift the numbers; the workbook recalculates them.</p>
+</section>
+
+<section>
+<div class="eyebrow">4 · Ways forward</div>
+<h2>Four routes to Schwab</h2>
+<div class="alts"><div class="alt bad"><div class="tag">Option 1</div><h3>Sell everything now and rebuild at Schwab</h3><div class="pc"><div class="pro"><h4>For</h4><ul><li>Concentration risk gone immediately.</li><li>Simplest to execute; cash moves cleanly.</li></ul></div><div class="con"><h4>Against</h4><ul><li>About $424,097 of tax in 2026 — 29.7% of the gain — because the sale stacks on $700k of salary and crosses WA's $1M tier.</li><li>Realises a 21% CHRW drawdown month; nothing recovered.</li><li>Gives up the far cheaper post-retirement window.</li></ul></div></div></div><div class="alt pick"><div class="tag">Option 2 · recommended</div><h3>Hedge now, move in kind, sell in stages after retirement</h3><div class="pc"><div class="pro"><h4>For</h4><ul><li>Transfer QQQ and CHRW to Schwab in kind — no tax, no fee.</li><li>Realising ~$278k of gain a year in retirement costs ~15% instead of ~30%: roughly $218,056 saved on the current gains.</li><li>A collar on QQQ and a plan for the options cap the downside while waiting.</li><li>Diversified portfolio is built with proceeds as they arrive.</li></ul></div><div class="con"><h4>Against</h4><ul><li>Takes about six tax years to unwind fully; market risk persists on the unsold balance.</li><li>Collars cap upside; option-hedging on CHRW may be barred by company policy.</li><li>WA exemption and federal brackets can change.</li></ul></div></div></div><div class="alt warn"><div class="tag">Option 3</div><h3>Exchange fund / charitable vehicles for part</h3><div class="pc"><div class="pro"><h4>For</h4><ul><li>An exchange fund (7-year lock-up) diversifies CHRW shares with no sale; a donor-advised fund takes QQQ shares at full value with no gain recognised.</li><li>Gifting appreciated QQQ instead of cash makes every planned donation ~29% cheaper.</li></ul></div><div class="con"><h4>Against</h4><ul><li>Exchange funds take single stocks, rarely ETFs; 7-year illiquidity; fees ~1%+.</li><li>WA's charitable deduction only counts for Washington-based charities; the federal deduction still works.</li><li>Only sensible for money not needed for retirement spending.</li></ul></div></div></div><div class="alt "><div class="tag">Option 4</div><h3>Do nothing until retirement, then sell</h3><div class="pc"><div class="pro"><h4>For</h4><ul><li>No transaction costs or hedging costs now.</li><li>Same cheap tax window as Option 2 if markets cooperate.</li></ul></div><div class="con"><h4>Against</h4><ul><li>Two-thirds of net worth rides on one employer's share price for 2–3 more years — July alone cost $1,071,405 across shares and options.</li><li>Options expire Dec 2028 / Feb 2030, and most plans give only 90 days after leaving to exercise — waiting can force everything into one tax year.</li></ul></div></div></div></div>
+</section>
+
+<section>
+<div class="eyebrow">5 · Recommended path</div>
+<h2>Hedge, move in kind, unwind on the calendar</h2>
+<p>The sequence below assumes retirement in 2028–29. It front-loads the two things that cannot wait — the option expiry clock and the unhedged CHRW exposure — and leaves the taxable sales for the years when they are cheapest.</p>
+<ol class="steps"><li><span class="w">Now</span><b class="t">Pin down the facts that change the plan</b><span>The statement's $3.93M 2026 transfer to another Fidelity account, the CHRW plan's post-termination exercise window and its hedging/pledging policy, the company 401(k) balance, and the intended retirement date and spending need.</span></li><li><span class="w">Now</span><b class="t">Stop the bleeding on the options</b><span>The 18,246 NSOs are pure CHRW exposure with an expiry clock. Exercise-and-sell the 2018 grants (7,890 options, ~$464,405 intrinsic, expiring Dec 2028) in two or three tranches over 2026–27; keep the 2020 grants (expiring 2030) for the lower-income retirement years if the plan permits exercise after separation. The spread is ordinary income at 37% either way while employed, but it is not subject to the WA capital-gains tax.</span></li><li><span class="w">Now</span><b class="t">Hedge the shares you are not selling yet</b><span>On QQQ, a 6–12-month collar (buy a put ~10% below, sell a call ~10–15% above, ~17 contracts) costs near zero and protects $1.15M; keep the strikes wide enough that it is not a constructive sale. On CHRW shares, buy protective puts only if company policy allows hedging; if not, CHRW is the position to sell first.</span></li><li><span class="w">Next 30 days</span><b class="t">Open Schwab and transfer in kind</b><span>Individual account with the same TOD beneficiary; margin off. ACATS moves QQQ, CHRW and cash with cost basis — no sale, no tax, no Fidelity fee, about a week. Keep the options at Fidelity Stock Plan Services (the employer's administrator); exercised shares can be sold there or moved. Move the Solo 401(k) into a Schwab Individual 401(k) (adopt Schwab's plan document, then a plan-to-plan transfer), or roll it to an IRA if Whistler Ventures is winding down.</span></li><li><span class="w">2026–27</span><b class="t">Use the high-income years for the things that don't create gain</b><span>Max the Solo 401(k) from Whistler Ventures income (deferral plus 50+ catch-up plus employer share, coordinated with the company 401(k)); route any charitable giving through appreciated QQQ shares; hold new savings in T-bills / money market at Schwab (SWVXX-type) rather than 1.8% brokerage cash.</span></li><li><span class="w">Retirement year onward</span><b class="t">Run the gain ladder</b><span>Each year sell enough to realise about $278k of gain — CHRW first (≈$560k of shares per year at its 49% gain ratio), then QQQ (≈$330k per year at 84%). WA tax is zero below the exemption and federal comes to ~$41,006 (~15%). About six years clears the current gains; the workbook's ladder recalculates if prices or the exemption change.</span></li><li><span class="w">Retirement year onward</span><b class="t">Build the retirement portfolio with the proceeds</b><span>Target roughly 50–60% diversified equity (total-US, international, a value/small tilt — or a direct-indexing sleeve at Schwab that harvests losses to speed the unwind), 30–40% in a 5-year Treasury/CD ladder covering spending to age 59½ and beyond, 5–10% cash. No single stock above 5%, no employer stock. Use the low-income years before Social Security for Roth conversions from the 401(k)s.</span></li></ol>
+</section>
+
+<section>
+<div class="eyebrow">6 · Long-term shape</div>
+<h2>What the portfolio should look like at 55</h2>
+<div class="two">
+<div>
+<p>A single 55-year-old with roughly four to five years before penalty-free retirement-account access, and a decade before Social Security, needs two things the current book does not have: a spending reserve that does not depend on the Nasdaq, and equity exposure broader than two tickers. A reasonable end state is <b>50–60% diversified equity</b> (total US market, international developed and emerging, a modest value/small tilt), <b>30–40% high-quality fixed income</b> arranged as a 5-year Treasury/CD ladder so that each year's spending is already in hand, and <b>5–10% cash</b>. Employer stock at zero; no single company above 5%.</p>
+<p>The proceeds arrive in instalments, which suits this: each year's ladder sale funds one more rung of bonds and one more slice of broad equity. A direct-indexing account at Schwab can hold the equity sleeve and harvest losses on the way, and those losses can be used to sell CHRW or QQQ faster than the exemption alone would allow. Between retirement and Social Security the low-income years are also the window for Roth conversions from the company and Solo 401(k)s.</p>
+</div>
+<div>
+<figure><svg viewBox="0 0 640 170" class="chart" role="img" aria-label="Current versus target allocation"><text x="100" y="38" class="lbl" text-anchor="end">Today</text><rect x="111" y="16" width="320" height="34" fill="var(--neg)"><title>CHRW shares + options 64%</title></rect><text x="271" y="37" class="inbar" text-anchor="middle">CHRW 64%</text><rect x="431" y="16" width="170" height="34" fill="var(--s1)"><title>QQQ 34%</title></rect><text x="516" y="37" class="inbar" text-anchor="middle">QQQ 34%</text><rect x="601" y="16" width="10" height="34" fill="var(--s3)"><title>Cash 2%</title></rect>
+<text x="100" y="90" class="lbl" text-anchor="end">Target</text><rect x="111" y="68" width="275" height="34" fill="var(--s1)"/><text x="248" y="89" class="inbar" text-anchor="middle">Diversified equity 55%</text><rect x="386" y="68" width="175" height="34" fill="var(--s4)"/><text x="473" y="89" class="inbar" text-anchor="middle">Bond ladder 35%</text><rect x="561" y="68" width="50" height="34" fill="var(--s3)"/><text x="586" y="89" class="inbar" text-anchor="middle">10%</text>
+<g transform="translate(111,130)"><rect width="12" height="10" fill="var(--neg)" rx="2"/><text x="16" y="9" class="tick">Employer stock</text><rect x="120" width="12" height="10" fill="var(--s1)" rx="2"/><text x="136" y="9" class="tick">Equity</text><rect x="200" width="12" height="10" fill="var(--s4)" rx="2"/><text x="216" y="9" class="tick">Fixed income</text><rect x="310" width="12" height="10" fill="var(--s3)" rx="2"/><text x="326" y="9" class="tick">Cash</text></g></svg><figcaption>Today's mix of the $3,378,502 shown versus an illustrative retirement allocation. The target is a starting point for the conversation, not a prescription.</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Method &amp; sources</div>
+<h2>How the numbers were built</h2>
+<ul class="notes">
+<li>Figures transcribed from the two Fidelity PDFs in <span class="mono">WAN\K-G</span>; positions, cash and activity reconcile to the statement totals to the cent (account $2,108,781.87; cost $646,826.69; unrealised $1,426,167.76; options $1,241,001.84). Option values are the statement's intrinsic values (price − strike) × options.</li>
+<li>Tax: 2026 federal LTCG brackets (0% to $49,450, 15% to $545,500, 20% above, single) and 3.8% NIIT above $200,000 from <a href="https://ustax.tools/tax-insights/2026-capital-gains-tax-rate-thresholds/">USTax Tools</a>; Washington 7% / 9.9% tiers from the <a href="https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax">WA Department of Revenue</a>; 2025 exemption $278,000 and the WA-charity limitation from <a href="https://www.thestartuplawblog.com/washington-capital-gains-tax/">The Startup Law Blog</a>. Fidelity charges no outgoing ACATS fee (<a href="https://www.brokerage-review.com/transfer/fd/fidelity-to-charles-schwab.aspx">Brokerage-Review</a>).</li>
+<li>Retirement-year scenarios assume ~$20,000 of other taxable income and no change in law; the WA exemption is indexed annually. Hedging comments assume company policy permits; many issuers prohibit employees from hedging company stock — confirm before placing any CHRW option trade. Collars must keep enough distance between strikes to avoid constructive-sale treatment.</li>
+<li>This is analysis for discussion, not tax, legal or investment advice; the exercise timing of NSOs and the gain ladder should be modelled with the client's CPA once the missing accounts and the plan documents are in hand. Companion workbook: <span class="mono">K-G Portfolio Analysis.xlsx</span> (all inputs editable).</li>
+</ul>
+</section>
+</div>
+</body></html>

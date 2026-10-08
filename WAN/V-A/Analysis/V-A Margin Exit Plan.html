@@ -1,0 +1,132 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>V-A Margin Exit Plan</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{color-scheme:light;--bg:#f5f7f4;--panel:#ffffff;--ink:#172621;--ink-soft:#5f6b65;--muted:#8a948f;--rule:#d8ded9;--accent:#1f6b52;--accent-ink:#155540;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--pos:#2a78d6;--neg:#e34948;--grid:#e3e8e3;--bar:#e6ebe6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141a17;--panel:#1b2320;--ink:#eef1ec;--ink-soft:#b5c0b9;--muted:#8a968f;--rule:#2c3531;--accent:#5cc49b;--accent-ink:#8fe0bf;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--pos:#3987e5;--neg:#e66767;--grid:#26302b;--bar:#26302b}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px 80px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.01em}
+h2{font-size:26px;margin:0 0 6px}
+h3{font-size:18px;margin:0 0 4px}
+p{max-width:68ch;margin:0 0 12px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.lede{font-size:18px;color:var(--ink-soft);max-width:70ch;margin-top:14px}
+.mono,.n{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:32px 0 8px}
+.kpi{background:var(--panel);padding:18px 20px}
+.kpi .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-family:"IBM Plex Mono",monospace;font-size:26px;font-weight:500;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:13px;color:var(--ink-soft)}
+section{margin-top:56px;padding-top:28px;border-top:1px solid var(--rule)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+figure{margin:16px 0 0;background:var(--panel);border:1px solid var(--rule);padding:16px 12px 10px}
+figcaption{font-size:13px;color:var(--ink-soft);padding:6px 6px 0;line-height:1.4}
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--grid);stroke-width:1} .chart .grid.zero{stroke:var(--ink-soft)} .chart .conn{stroke:var(--muted);stroke-dasharray:2 3}
+.chart .tick{font:12px "Source Sans 3",sans-serif;fill:var(--ink-soft)} .chart .lbl{font:13px "Source Sans 3",sans-serif;fill:var(--ink)}
+.chart .val{font:500 12px "IBM Plex Mono",monospace;fill:var(--ink)} .chart .inbar{font:500 12px "IBM Plex Mono",monospace;fill:#fff}
+.chart rect:hover{opacity:.8}
+.tablewrap{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);background:var(--panel)}
+table.data{border-collapse:collapse;width:100%;font-size:14px}
+table.data th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data th.n,table.data td.n{text-align:right;white-space:nowrap}
+table.data tr.sum td{font-weight:600;background:color-mix(in srgb,var(--accent) 6%,var(--panel))}
+table.data tr.total td{border-top:2px solid var(--ink);}
+.up{color:var(--pos)} .dn{color:var(--neg)} .muted{color:var(--muted)} .small{font-size:12.5px}
+.callout{border-left:3px solid var(--accent);padding:6px 16px;margin:18px 0;background:var(--panel)}
+.callout p{margin:6px 0}
+ul.notes{padding-left:18px;color:var(--ink-soft);font-size:14.5px;max-width:80ch} ul.notes li{margin-bottom:8px}
+@media print{body{background:#fff} section{break-inside:avoid}}
+
+.alts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:18px;margin-top:20px}
+.alt{background:var(--panel);border:1px solid var(--rule);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.alt.pick{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}
+.alt h3{font-size:19px}.alt .tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.alt .facts{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:13.5px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:8px 0}
+.alt .facts b{font-family:"IBM Plex Mono",monospace;font-weight:500;display:block;font-size:15px}
+.alt .facts span{color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px}.pc h4{margin:0 0 4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.pc .pro h4{color:var(--s3)}.pc .con h4{color:var(--neg)}.pc ul{margin:0;padding-left:16px;color:var(--ink-soft)}.pc li{margin-bottom:4px}
+@media(max-width:480px){.pc{grid-template-columns:1fr}}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--rule);padding:14px 18px 14px 64px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:18px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font:600 15px "Source Sans 3",sans-serif;display:grid;place-items:center}
+ol.steps li b.t{display:block;font-family:"Source Serif 4",serif;font-size:17px;margin-bottom:3px}
+ol.steps li .w{font-size:12.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+</style>
+<div class="wrap">
+<div class="eyebrow">Robinhood account 140450008 → Charles Schwab · figures at 31 Jul 2026</div>
+<h1>V-A Margin Exit Plan</h1>
+<p class="lede">The Robinhood account holds <b class="mono">$437,464</b> of securities against a <b class="mono">$216,910</b> margin loan — <b class="mono">1.98×</b> leverage. At a 30% maintenance requirement a further <b class="mono">29%</b> decline triggers a margin call, and a transfer freezes the positions for a week. The only way to make a call impossible is to move with no loan; the alternatives below show what each route costs, and the recommended sequence gets to Schwab with the risk removed.</p>
+
+<div class="kpis">
+<div class="kpi"><div class="l">Loan to clear</div><div class="v">$216,910</div><div class="s">equity $220,554 · securities $437,464</div></div>
+<div class="kpi"><div class="l">Call trigger today</div><div class="v dn">−29%</div><div class="s">−34% at a 25% requirement</div></div>
+<div class="kpi"><div class="l">Interest, Robinhood → Schwab</div><div class="v">$9.8k → $17.0k</div><div class="s">per year at posted rates, if the loan moves as-is</div></div>
+<div class="kpi"><div class="l">Recommended</div><div class="v">A</div><div class="s">pay off with cash, then transfer; C as the fallback</div></div>
+</div>
+
+<section>
+<div class="eyebrow">1 · The alternatives</div>
+<h2>Four ways to get to Schwab</h2>
+<p>Each card shows the loan that would remain, the market decline that would then trigger a call (30% maintenance), and the running interest cost at Schwab's posted rate for a $100–250k balance. "Cash in" is money brought from outside; "taxable sales" are positions sold inside the account.</p>
+<div class="alts"><div class="alt pick"><div class="tag">Alternative A</div><h3>Pay the loan off with cash, then transfer</h3>
+<div class="facts"><div><span>Loan after</span><b>$0</b></div><div><span>Leverage</span><b>1.00×</b></div>
+<div><span>Call after a drop of</span><b>never</b></div><div><span>Interest at Schwab / yr</span><b>$0</b></div>
+<div><span>Cash needed</span><b>$216,910</b></div><div><span>Taxable sales</span><b>$0</b></div></div>
+<div class="pc"><div class="pro"><h4>For</h4><ul><li>Margin call becomes impossible — before, during and after the transfer.</li><li>No positions sold, so no capital-gains tax and no change to the portfolio.</li><li>Stops ~$9,800/yr of Robinhood interest (~$17,000/yr at Schwab's posted rate).</li><li>Simplest transfer: a plain long-only account moves cleanly.</li></ul></div><div class="con"><h4>Against</h4><ul><li>Needs $216,910 of outside cash — the largest cheque of any option.</li><li>Ties up cash that may be earning more elsewhere, or is needed for the SEP contribution.</li><li>Leaves the portfolio itself as concentrated as before.</li></ul></div></div></div><div class="alt"><div class="tag">Alternative B</div><h3>Sell securities to retire the loan, then transfer</h3>
+<div class="facts"><div><span>Loan after</span><b>$0</b></div><div><span>Leverage</span><b>1.00×</b></div>
+<div><span>Call after a drop of</span><b>never</b></div><div><span>Interest at Schwab / yr</span><b>$0</b></div>
+<div><span>Cash needed</span><b>$0</b></div><div><span>Taxable sales</span><b>$216,910</b></div></div>
+<div class="pc"><div class="pro"><h4>For</h4><ul><li>No outside cash required; call risk eliminated.</li><li>A natural moment to cut the weakest positions (the 25 names under $3,000, silver, option-income ETFs).</li><li>Halves gross exposure — the SEP IRA already holds the same bets.</li></ul></div><div class="con"><h4>Against</h4><ul><li>$216,910 of sales in a taxable account — Alphabet, Amazon, HOOD and NVIDIA likely carry large gains; the tax bill could be five figures.</li><li>Robinhood prints no cost basis; the tax cost is unknown until the basis export is pulled.</li><li>Selling in a down month locks in July's losses on the speculative tail.</li></ul></div></div></div><div class="alt"><div class="tag">Alternative C</div><h3>Partial pay-down to ~1.4× before transfer</h3>
+<div class="facts"><div><span>Loan after</span><b>$153,112</b></div><div><span>Leverage</span><b>1.54×</b></div>
+<div><span>Call after a drop of</span><b>50%</b></div><div><span>Interest at Schwab / yr</span><b>$11,981</b></div>
+<div><span>Cash needed</span><b>$63,798</b></div><div><span>Taxable sales</span><b>$0</b></div></div>
+<div class="pc"><div class="pro"><h4>For</h4><ul><li>About $63,798 of cash (or $98,151 of sales) moves the call point from a 29% drop to a 50% drop.</li><li>Keeps most of the upside if the thesis on the holdings plays out.</li><li>Interest bill falls by roughly a third; can be finished off at Schwab over time.</li><li>Cash version sells nothing, so no tax.</li></ul></div><div class="con"><h4>Against</h4><ul><li>A call is still possible — 2022-style drawdowns in this mix exceeded 50%.</li><li>Schwab may set higher requirements on concentrated or volatile names, moving the trigger closer.</li><li>Interest cost roughly doubles on arrival at Schwab unless negotiated.</li><li>Sell version realises gains on whatever is sold.</li></ul></div></div></div><div class="alt"><div class="tag">Alternative D</div><h3>Transfer as-is with the margin debit</h3>
+<div class="facts"><div><span>Loan after</span><b>$216,910</b></div><div><span>Leverage</span><b>1.98×</b></div>
+<div><span>Call after a drop of</span><b>29%</b></div><div><span>Interest at Schwab / yr</span><b>$16,973</b></div>
+<div><span>Cash needed</span><b>$0</b></div><div><span>Taxable sales</span><b>$0</b></div></div>
+<div class="pc"><div class="pro"><h4>For</h4><ul><li>Nothing to do beforehand; Schwab can accept a debit balance in a margin-approved account.</li><li>Preserves every position and the full leverage.</li></ul></div><div class="con"><h4>Against</h4><ul><li>Positions are frozen for the 5–7 business days of the transfer: a call during that window means Robinhood liquidates for you.</li><li>Schwab's requirements on this book may exceed 30%, so the call point can move closer on arrival.</li><li>Interest rises from ~4.5% to ~7.8% posted: about $17,000 a year on $217k, versus $2,700 of dividends.</li><li>Robinhood's $100 outgoing fee still applies.</li></ul></div></div></div></div>
+</section>
+
+<section>
+<div class="eyebrow">2 · Side by side</div>
+<h2>How far the market has to fall</h2>
+<div class="two">
+<div>
+<p>The chart is the whole argument. Leaving the loan in place means a 29% drop — a normal bad quarter for this mix; the SEP IRA, which holds the same names, fell 13% in July alone — forces sales. A partial pay-down of about <b class="mono">$63,798</b> pushes the trigger to a 50% crash; only a zero balance removes it.</p>
+<p>The interest comparison matters almost as much. Robinhood's posted rate at this balance is 4.5% (the July charge implies about 4.2%); Schwab's posted rate for $100–250k was about 7.8% in early 2026 and is often negotiable by half to a full point. On the full loan that is roughly <b class="mono">$16,973</b> a year against <b class="mono">$2,731</b> of expected dividends.</p>
+</div>
+<figure><svg viewBox="0 0 640 210" class="chart" role="img" aria-label="Market decline that would trigger a margin call, by alternative"><line x1="230" x2="230" y1="8" y2="176" class="grid"/><text x="230" y="194" class="tick" text-anchor="middle">0%</text><line x1="312" x2="312" y1="8" y2="176" class="grid"/><text x="312" y="194" class="tick" text-anchor="middle">25%</text><line x1="395" x2="395" y1="8" y2="176" class="grid"/><text x="395" y="194" class="tick" text-anchor="middle">50%</text><line x1="478" x2="478" y1="8" y2="176" class="grid"/><text x="478" y="194" class="tick" text-anchor="middle">75%</text><line x1="560" x2="560" y1="8" y2="176" class="grid"/><text x="560" y="194" class="tick" text-anchor="middle">100%</text><text x="220" y="27" class="lbl" text-anchor="end">Transfer as-is</text><rect x="230" y="14" width="96.2" height="18" fill="var(--neg)" rx="2"><title>Transfer as-is: call after a 29% decline</title></rect><text x="332.2" y="27" class="val">29% drop</text><text x="220" y="59" class="lbl" text-anchor="end">Partial pay-down (cash)</text><rect x="230" y="46" width="165.0" height="18" fill="var(--s4)" rx="2"><title>Partial pay-down (cash): call after a 50% decline</title></rect><text x="401.0" y="59" class="val">50% drop</text><text x="220" y="91" class="lbl" text-anchor="end">Partial pay-down (sell)</text><rect x="230" y="78" width="165.0" height="18" fill="var(--s4)" rx="2"><title>Partial pay-down (sell): call after a 50% decline</title></rect><text x="401.0" y="91" class="val">50% drop</text><text x="220" y="123" class="lbl" text-anchor="end">Sell to zero</text><rect x="230" y="110" width="330" height="18" fill="var(--s3)" rx="2"/><text x="236" y="123" class="inbar">no loan — a call is impossible</text><text x="220" y="155" class="lbl" text-anchor="end">Cash payoff</text><rect x="230" y="142" width="330" height="18" fill="var(--s3)" rx="2"/><text x="236" y="155" class="inbar">no loan — a call is impossible</text></svg><figcaption>Further market decline that would trigger a maintenance call under each alternative, assuming a 30% house requirement. Green means no loan remains.</figcaption></figure>
+</div>
+<div class="tablewrap"><table class="data"><thead><tr><th>Alternative</th><th class="n">Cash in</th><th class="n">Sold</th><th class="n">Loan after</th><th class="n">Securities</th><th class="n">Equity</th><th class="n">Leverage</th><th class="n">Call after drop of</th><th class="n">Interest @ RH 4.5%</th><th class="n">Interest @ Schwab 7.8%</th></tr></thead><tbody><tr><td>D · Transfer as-is</td><td class="n">$0</td><td class="n">$0</td><td class="n">$216,910</td><td class="n">$437,464</td><td class="n">$220,554</td><td class="n">1.98×</td><td class="n">29%</td><td class="n">$9,761</td><td class="n">$16,973</td></tr><tr><td>C · Partial pay-down (cash)</td><td class="n">$63,798</td><td class="n">$0</td><td class="n">$153,112</td><td class="n">$437,464</td><td class="n">$284,352</td><td class="n">1.54×</td><td class="n">50%</td><td class="n">$6,890</td><td class="n">$11,981</td></tr><tr><td>C2 · Partial pay-down (sell)</td><td class="n">$0</td><td class="n">$98,151</td><td class="n">$118,760</td><td class="n">$339,313</td><td class="n">$220,554</td><td class="n">1.54×</td><td class="n">50%</td><td class="n">$5,344</td><td class="n">$9,293</td></tr><tr><td>B · Sell to zero</td><td class="n">$0</td><td class="n">$216,910</td><td class="n">$0</td><td class="n">$220,554</td><td class="n">$220,554</td><td class="n">1.00×</td><td class="n">never</td><td class="n">$0</td><td class="n">$0</td></tr><tr class=sum><td>A · Cash payoff</td><td class="n">$216,910</td><td class="n">$0</td><td class="n">$0</td><td class="n">$437,464</td><td class="n">$437,464</td><td class="n">1.00×</td><td class="n">never</td><td class="n">$0</td><td class="n">$0</td></tr></tbody></table></div>
+<p class="small muted" style="margin-top:8px">Call threshold = 1 − loan ÷ (securities × (1 − 30%)). Partial pay-down sized to survive a 50% decline; $94,421 of cash or $131,140 of sales would survive 60%. Interest uses posted rates; Schwab often negotiates for balances of this size.</p>
+</section>
+
+<section>
+<div class="eyebrow">3 · Recommended path</div>
+<h2>Pay it off, then move it</h2>
+<p>Alternative A is the cleanest: it removes the risk entirely, sells nothing, and stops the interest clock before the higher Schwab rate applies. If <b class="mono">$216,910</b> of cash is not available, use Alternative C as the fallback — bring the loan below <b class="mono">$122,490</b> with a mix of cash and low-gain sales <i>before</i> the transfer, then finish the payoff at Schwab. Under no circumstances should the account move with the loan at today's level. The sequence:</p>
+<ol class="steps"><li><span class="w">Now</span><b class="t">Turn off the recurring buys and Gold margin auto-borrow</b><span>The weekly GOOGL and QQQI buys add about $5,750 a month to the loan. Stop them so the balance stops growing while you prepare.</span></li><li><span class="w">Week 1</span><b class="t">Export cost basis from Robinhood</b><span>Account → Statements &amp; History → Tax documents / cost basis. This tells you the tax cost of each candidate sale and settles the cash-versus-sell question.</span></li><li><span class="w">Week 1–2</span><b class="t">Bring the loan to zero — or, at minimum, below ~$120k</b><span>Best: deposit $216,910 and pay it off (Alternative A). If that cash isn't available, deposit what you can and sell the smallest-gain or loss positions first (the sub-$3,000 tail, NVDY-style income ETFs, iShares Silver) until the loan is at or below $122,490 — that survives a 60% drop at a 30% requirement. Let all sales settle (T+1) before the next step.</span></li><li><span class="w">Week 2</span><b class="t">Tidy the fractional shares</b><span>ACATS moves whole shares only. Sixteen positions carry fractions (GOOGL, MSFT, KO, CVX, WMT, SPYG, SPY, QQQI, IWMI, SCHG, PCG, MU, JD, QBTS, RKLB, GLD); Robinhood will sell the fractions, so expect a few small taxable trades. Sell them yourself if you want control of timing.</span></li><li><span class="w">Week 2</span><b class="t">Open the Schwab account as a margin account</b><span>Even if the loan will be zero, margin approval makes the transfer simpler and keeps the option. Ask Schwab about a negotiated margin rate and about reimbursing Robinhood's $100 ACATS fee — both are commonly granted at this account size.</span></li><li><span class="w">Week 3</span><b class="t">Initiate a full ACATS transfer from Schwab's side</b><span>Enter the Robinhood account number and most recent statement. Do not trade at Robinhood once submitted. Typical completion is 5–7 business days; positions and cost basis follow (basis can lag a few weeks).</span></li><li><span class="w">After</span><b class="t">Decide what the leverage is for</b><span>With the loan at zero, any future borrowing at Schwab is a deliberate choice at ~7–8%. If leverage is kept, cap it at 1.3× and keep a cash buffer equal to one year of interest.</span></li></ol>
+</section>
+
+<section>
+<div class="eyebrow">Notes</div>
+<h2>Assumptions and caveats</h2>
+<ul class="notes">
+<li>Balances are from the 31 July 2026 Robinhood statement; the August statement will differ. Recalculate before acting (the companion workbook's Robinhood sheet has the formula, with the maintenance requirement as an editable cell).</li>
+<li>Robinhood publishes a 4.5% rate for $100k–$1M balances; the Schwab tier rates (7.825% for $100–250k) are from a March 2026 comparison and should be confirmed with Schwab, who also set per-security maintenance requirements that can exceed 30%.</li>
+<li>Robinhood's fee schedule lists a $100 outgoing ACATS fee. ACATS transfers whole shares only; fractional shares are liquidated.</li>
+<li>Tax consequences of any sale depend on cost basis that Robinhood does not print on statements. This page is general information, not tax or investment advice — review the sell list with a CPA.</li>
+</ul>
+</section>
+</div>
+</body></html>
