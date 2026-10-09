@@ -1,0 +1,13 @@
+{
+  "name": "eb5-report-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Password-gated host for the EB-5 investigative report",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

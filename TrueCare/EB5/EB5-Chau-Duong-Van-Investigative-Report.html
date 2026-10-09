@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chau Duong Van EB-5 Investigation</title>
+<style>
+  :root{
+    --ink:#1b1f24; --ink-2:#4a5260; --ink-3:#7a8390; --rule:#d9dee5; --paper:#ffffff; --panel:#f4f6f9;
+    --accent:#1f5f8b; --accent-soft:#e3eef7; --warn:#a8541a; --warn-soft:#fbeee4; --bad:#9b2c2c; --bad-soft:#f9e6e6; --good:#2b6b3f; --good-soft:#e5f2e9;
+    --serif:"Georgia","Times New Roman",serif; --sans:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{color-scheme:light}
+  body{margin:0;background:#e9ecf0;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+  .page{max-width:900px;margin:24px auto;background:var(--paper);padding:56px 64px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.2;color:var(--ink);margin:0}
+  h1{font-size:34px;margin-bottom:8px}
+  h2{font-size:24px;margin:44px 0 14px;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  h3{font-size:18px;margin:26px 0 8px}
+  h4{font-size:15px;margin:18px 0 6px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2)}
+  p{margin:0 0 12px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;font-size:13.5px;color:var(--ink-2);margin:18px 0 8px;padding:14px 18px;background:var(--panel);border-radius:6px}
+  .meta b{color:var(--ink)}
+  .note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;margin:14px 0;border-radius:0 6px 6px 0;font-size:14px}
+  .note.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .note.bad{border-color:var(--bad);background:var(--bad-soft)}
+  .note.good{border-color:var(--good);background:var(--good-soft)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin:10px 0 18px}
+  th,td{border-bottom:1px solid var(--rule);padding:7px 9px;vertical-align:top;text-align:left}
+  th{background:var(--panel);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.k1{font-size:11.5px;table-layout:fixed} table.k1 th{white-space:normal} table.k1 th,table.k1 td{padding:5px 5px;overflow-wrap:anywhere} table.k1 td:last-child{font-size:11.5px;color:var(--ink-2)}
+  td.date{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .src{font-size:12px;color:var(--ink-3)}
+  figure{margin:20px 0 26px}
+  figure svg{max-width:100%;height:auto;display:block;color:var(--ink)}
+  figcaption{font-size:13px;color:var(--ink-2);margin-top:8px}
+  .toc{columns:2;column-gap:32px;font-size:14px;padding:0 0 0 18px;margin:8px 0 0}
+  .toc li{margin:3px 0}
+  a{color:var(--accent)}
+  ul,ol{margin:0 0 12px;padding-left:22px}
+  li{margin:4px 0}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 8px}
+  .tile{background:var(--panel);border-radius:6px;padding:12px 14px}
+  .tile .v{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.1}
+  .tile .l{font-size:12px;color:var(--ink-2);margin-top:4px}
+  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;background:var(--panel);color:var(--ink-2);margin-left:4px;vertical-align:middle}
+  .tag.bad{background:var(--bad-soft);color:var(--bad)} .tag.good{background:var(--good-soft);color:var(--good)} .tag.warn{background:var(--warn-soft);color:var(--warn)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+  .card h4{margin-top:0}
+  .q{counter-reset:q}
+  .small{font-size:13px;color:var(--ink-2)}
+  @media (max-width:640px){.page{padding:28px 18px}.meta,.two{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.toc{columns:1}}
+  @media print{
+    body{background:#fff}
+    .page{box-shadow:none;margin:0;max-width:none;padding:0 0.2in}
+    h2{break-after:avoid;page-break-after:avoid}
+    figure,table,.card,.note{break-inside:avoid;page-break-inside:avoid}
+    .pb{break-before:page;page-break-before:always}
+    a{color:inherit;text-decoration:none}
+    @page{margin:0.7in 0.6in;size:Letter}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="kicker">Investigative memorandum · Attorney work product · Draft for review</div>
+<h1>EB-5 Investment of Chau Duong Van in Beach Orangethorpe Hotel III, LLC</h1>
+<p class="small">Chronology, summary of events, current status, and alternative remedies, reconstructed from the 32 documents in the <b>TrueCare/EB5</b> folder.</p>
+
+<div class="meta">
+  <div><b>Investor:</b> Chau Duong Van (born 18 Mar 1977), spouse Tran Thi Thuy Hang</div>
+  <div><b>Prepared:</b> 29 September 2026, revised 30 September 2026 with client answers</div>
+  <div><b>New Commercial Enterprise:</b> Beach Orangethorpe Hotel III, LLC ("BOH3"), California LLC, EIN 81-1757974</div>
+  <div><b>Project:</b> The Source Hotel (Hilton Buena Park), 178 rooms, Buena Park, California</div>
+  <div><b>Regional center / manager:</b> M&amp;D Regional Center, LLC ("MDRC"), managed by M + D Properties (Donald Chae and Min Chae)</div>
+  <div><b>Key proceedings:</b> In re The Source Hotel, LLC, 8:21-bk-10525-ES; In re Donald Chae, 8:21-bk-12493-SC (Bankr. C.D. Cal.)</div>
+</div>
+
+<div class="note warn"><b>Scope and reliability.</b> Nine of the 32 files are scanned images and were read by optical character recognition. Dollar figures and dates were cross-checked against at least one second document wherever possible. Items marked "not in file" are documents referred to but absent from the folder. This memorandum is an investigative work-up for counsel, not legal advice.</div>
+
+<div class="note good" style="margin:18px 0 22px">
+<b>Key takeaways</b>
+<ul style="margin:8px 0 0">
+  <li><b>COVID turned a delay into a total loss.</b> The hotel was 85 percent built and a $42 million refinance with Hall Structured Finance was days from closing on 20 March 2020 when the lockdown orders stopped it. Without that, the hotel likely opens in 2021, the senior loan is repaid, and BOH3's preferred equity is retired on schedule.</li>
+  <li><b>Prospects of recovering the investment are slim.</b> The hotel was foreclosed for a $200,000 credit bid, Min Chae is deceased, Donald Chae is discharged, and the entity-level claims were released for $3 million shared among three entities and roughly 80 investors. Most limitation periods for direct personal claims have run or are about to.</li>
+  <li><b>The immigration objective was fully achieved.</b> I-829 approved 15 March 2024; unconditional permanent residence for the family. This was the primary purpose of the $500,000 and it is secure regardless of anything that follows.</li>
+  <li><b>Recover the project loss through tax first, litigation last.</b> The realistic cash recovery from the settlement is about <b>$30,000 to $36,000</b> gross, paid in installments through July 2027, against net cash lost of <b>$542,851</b>. A capital loss on the roughly <b>$497,000</b> tax basis in BOH3, harvested when the interest is worthless or the entity dissolves, is worth more at ordinary tax rates than any lawsuit against defendants who are dead, discharged, or of doubtful solvency. Pursue the low-cost member accounting demand (§8.A) alongside the tax planning; commit to litigation only if that accounting reveals a solvent target.</li>
+  <li><b>The hotel is gone and the K-1 is almost meaningless.</b> Since the October 2021 foreclosure the hotel has been owned and operated by other, unrelated entities; BOH3 holds no interest in it. The annual K-1 showing a capital account of about $497,000 is a tax-bookkeeping carryover, not a valuation, and should not be taken as evidence that any of that value survives.</li>
+</ul>
+</div>
+
+<h4>Contents</h4>
+<ol class="toc">
+  <li><a href="#s1">Executive summary</a></li>
+  <li><a href="#s2">Parties and deal structure</a></li>
+  <li><a href="#s3">Chronology of events</a></li>
+  <li><a href="#s4">What transpired, in four acts</a></li>
+  <li><a href="#s5">Money trail and K-1 history</a></li>
+  <li><a href="#s6">The Chae bankruptcy and the settlement</a></li>
+  <li><a href="#s7">Current status</a></li>
+  <li><a href="#s8">Alternative remedies</a></li>
+  <li><a href="#s9">Open questions and document gaps</a></li>
+  <li><a href="#s10">Appendix: document index</a></li>
+</ol>
+
+<!-- ============================================================ -->
+<h2 id="s1">1. Executive summary</h2>
+
+<div class="tiles">
+  <div class="tile"><div class="v">$555,000</div><div class="l">Wired to escrow, confirmed 5 Dec 2016 ($500,000 capital + $55,000 service fees to RMI and MDRC)</div></div>
+  <div class="tile"><div class="v">$12,149</div><div class="l">Total cash distributions received (2018 and 2019 K-1s)</div></div>
+  <div class="tile"><div class="v">Approved</div><div class="l">I-829 approved 15 Mar 2024; permanent green card issued</div></div>
+  <div class="tile"><div class="v">≈ $30–36k</div><div class="l">Realistic gross share of the $3M settlement if paid in full through Jul 2027 (estimate, see §6)</div></div>
+</div>
+
+<p>Mr. Chau subscribed on 2 September 2016 for one Class B unit of BOH3, an EB-5 "new commercial enterprise" formed to fund construction of The Source Hotel in Buena Park. BOH3 did not lend to the developer; it made a <b>preferred equity investment</b> in The Source Hotel, LLC ("TSH"), backed only by a "contribution agreement" under which brothers Donald and Min Chae promised to fund the return of investor capital at the end of the term. A separate assurance letter of 1 September 2016, written to his immigration consultant, restated that the Chaes were jointly and severally liable to "retire" BOH3 and promised a refund if his I-526 were denied.</p>
+
+<p>The immigration side succeeded. The investment side failed. Construction stopped at roughly 85 percent in late 2019 when Evertrust Bank withheld the last $4 million of its loan; a $42 million refinance collapsed with the March 2020 COVID lockdown; Evertrust sold the note to Shady Bird Lending, which forced TSH into Chapter 11 in February 2021 and then <b>foreclosed on the hotel leasehold on 4 October 2021 for a $200,000 credit bid</b>. Min Chae died on 18 September 2021. Donald Chae filed personal Chapter 11 on 3 October 2021 listing about $530 million of guaranty-type debt, and his plan was confirmed on 29 June 2023 with an estimated recovery for unsecured creditors of roughly one cent on the dollar. He received a discharge on 14 July 2023.</p>
+
+<p>Investor-side counsel (Edward Wu, Reid &amp; Wise, later EDW Firm) organized the three hotel investor entities (BOH1, BOH2, BOH3), had special managers appointed, filed a $14.5 million claim for BOH3, and in 2023–2024 settled all three entities' claims against Chae, M + D Properties, MDRC and roughly 30 affiliates for <b>$3 million total</b>: $1 million paid up front and $2 million in 48 monthly installments ending 1 July 2027, secured by a junior deed of trust on a Pizza Hut parcel at 6832 Beach Blvd. The settlement releases the Chae parties and waives unknown claims (Civil Code §1542), but expressly does not purport to release the direct claims of individual investors who are not parties.</p>
+
+<p>Mr. Chau's own attempts to recover, a refund demand to MDRC on 2 April 2024 and a follow-up on 12 July 2024, were redirected by M + D's counsel to the BOH3 special manager (Beijing Jiasheng Changqing Consulting Co., Ltd.) and its lawyer, Mr. Wu. Mr. Chau confirms that he never signed the special-manager consent or the Reid &amp; Wise retainer, and that neither the special manager nor Mr. Wu has ever written to him, offered him the distribution ballot that BOH2 investors received in September 2024, or accounted for BOH3's share of settlement receipts. Meanwhile BOH3's K-1s, still prepared from MDRC's post office box, carry his capital account at about $497,000 as if the investment were intact.</p>
+
+<div class="note"><b>Bottom line.</b> The hotel is gone, the guarantor brothers are respectively deceased and discharged, and the entity-level claims are released. The realistic recovery paths are (1) forcing an accounting and pro-rata distribution of BOH3's settlement share, (2) monitoring the M + D note for default, which would revive up to $15 million of entity claims, and (3) evaluating any <b>direct</b>, unreleased personal claims against solvent parties before limitation periods close, several of which may already have run. Section 8 ranks these.</div>
+
+<!-- ============================================================ -->
+<h2 id="s2">2. Parties and deal structure</h2>
+
+<table>
+  <tr><th style="width:26%">Party</th><th>Role</th><th style="width:30%">Source</th></tr>
+  <tr><td>Chau Duong Van; spouse Tran Thi Thuy Hang</td><td>EB-5 investor, Class B member no. 27 of BOH3. Founder/chair of Saigon Polytechnic College, Cu Chi, Ho Chi Minh City. Now resides at 205 Campbell Ave., Altoona, PA.</td><td class="src">Subscription pages; questionnaire; K-1s 2019–2025</td></tr>
+  <tr><td>Robert Mullins International ("RMI"), Michael Le M. Hai</td><td>Immigration consultant (not a law firm). Prepared source-of-funds report and I-526; fee $25,000 or 5% of investment, whichever is larger; AAA arbitration clause.</td><td class="src">Service Agreement; I-526 preparer block</td></tr>
+  <tr><td>Beach Orangethorpe Hotel III, LLC ("BOH3")</td><td>New commercial enterprise. Operating Agreement dated 11 Mar 2016. Class A: MDRC ($1,000, 100 units). Class B: EB-5 investors at $500,000 each. Chau's share 3.448% implies 29 Class B members ($14.5M, matching BOH3's proof of claim).</td><td class="src">Exhibit A capital schedule; K-1s; Disclosure Statement</td></tr>
+  <tr><td>M&amp;D Regional Center, LLC ("MDRC")</td><td>USCIS-designated regional center and Class A manager of BOH3. Owned by M + D Properties, in turn owned 50/50 by Donald and Min Chae (100% Donald after Min's death via the Min Chae Living Trust).</td><td class="src">Disclosure Statement Ex. 3 org chart</td></tr>
+  <tr><td>The Source Hotel, LLC ("TSH")</td><td>Developer and ground lessee (99-year lease from The Source at Beach, LLC, effective 6 Apr 2015). Received BOH3's funds as preferred equity, and BOH1/BOH2 funds as loans guaranteed by the Chaes.</td><td class="src">Disclosure Statement §II.B</td></tr>
+  <tr><td>Donald Chae and Min Chae ("Contributors")</td><td>Principals. Jointly and severally obligated under the Contribution Agreement to fund the retirement of BOH3 if the developer defaulted. Min died 18 Sep 2021; Donald filed Chapter 11 on 3 Oct 2021.</td><td class="src">Assurance letter 1 Sep 2016; MDRC letter 26 Oct 2021</td></tr>
+  <tr><td>Wells Fargo Advisors (Brandon Ly)</td><td>Escrow agent under agreement dated 14 Mar 2016; confirmed receipt of $555,000 on 5 Dec 2016.</td><td class="src">Wire instructions; wire confirmation</td></tr>
+  <tr><td>Evertrust Bank → Shady Bird Lending, LLC</td><td>Senior construction lender ($29.5M). Evertrust sold the note to Shady Bird in Dec 2020; Shady Bird foreclosed 4 Oct 2021 and holds a $31.9M claim in the Chae case.</td><td class="src">MDRC letters; Disclosure Statement</td></tr>
+  <tr><td>Edward Wu (Reid &amp; Wise LLC, later EDW Firm, LLC)</td><td>Counsel to the investor coalition and to the special managers of BOH1/2/3; receives all settlement payments in trust.</td><td class="src">3 Sep 2021 email; Settlement Agreement §1(c)</td></tr>
+  <tr><td>Beijing Jiasheng Changqing Consulting Co., Ltd. (Guo Sheng Jun)</td><td>Special Manager of BOH3 appointed by majority of Class B members under Operating Agreement §5.2.4; sat on the Creditors' Committee in the Chae case.</td><td class="src">Womble letter 23 Jul 2024; docket p. 2</td></tr>
+  <tr><td>Womble Bond Dickinson (John C. Kang); Smiley Wang-Ekvall (Robert Marticello)</td><td>Counsel to M + D / MDRC, and bankruptcy counsel to Donald Chae, respectively.</td><td class="src">Settlement Agreement §30</td></tr>
+</table>
+
+<figure>
+<svg viewBox="0 0 980 420" role="img" aria-label="Money flow: investor funds pass through Wells Fargo escrow into BOH3, then as preferred equity into The Source Hotel LLC, which also borrowed from Evertrust Bank; Shady Bird bought that loan and foreclosed on the hotel, leaving BOH3's equity behind the senior lender; the Chae brothers stood behind BOH3 through a contribution agreement." xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="arRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9b2c2c"/></marker>
+    <marker id="arBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5f8b"/></marker>
+  </defs>
+  <!-- top row -->
+  <rect x="360" y="30" width="170" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="445" y="52" text-anchor="middle" font-weight="600">MDRC / M + D Properties</text>
+  <text x="445" y="70" text-anchor="middle" fill="#4a5260">Class A manager of BOH3</text>
+  <rect x="590" y="30" width="170" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="675" y="52" text-anchor="middle" font-weight="600">Donald &amp; Min Chae</text>
+  <text x="675" y="70" text-anchor="middle" fill="#4a5260">own M+D, TSH and affiliates</text>
+  <line x1="590" y1="58" x2="532" y2="58" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="561" y="48" text-anchor="middle" fill="#4a5260" font-size="11">own</text>
+  <line x1="445" y1="86" x2="445" y2="138" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="452" y="116" fill="#4a5260" font-size="11">manages</text>
+  <line x1="600" y1="86" x2="522" y2="138" stroke="#1f5f8b" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arBlue)"/>
+  <text x="578" y="112" fill="#1f5f8b" font-size="11" font-weight="600">contribution agreement</text>
+  <text x="578" y="125" fill="#1f5f8b" font-size="11">Chaes fund BOH3's retirement if TSH defaults</text>
+  <!-- middle row -->
+  <rect x="20" y="150" width="130" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="85" y="175" text-anchor="middle" font-weight="600">Chau Duong Van</text>
+  <text x="85" y="192" text-anchor="middle" fill="#4a5260">$555,000 · Dec 2016</text>
+  <rect x="190" y="150" width="130" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="255" y="175" text-anchor="middle" font-weight="600">Wells Fargo</text>
+  <text x="255" y="192" text-anchor="middle" fill="#4a5260">escrow agent</text>
+  <rect x="360" y="140" width="170" height="80" rx="6" fill="#e3eef7" stroke="#1f5f8b" stroke-width="2"/>
+  <text x="445" y="165" text-anchor="middle" font-weight="600">BOH3</text>
+  <text x="445" y="182" text-anchor="middle" fill="#4a5260">29 investors × $500k = $14.5M</text>
+  <text x="445" y="199" text-anchor="middle" fill="#4a5260">Chau = 3.45%</text>
+  <rect x="590" y="140" width="170" height="80" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="675" y="165" text-anchor="middle" font-weight="600">The Source Hotel, LLC</text>
+  <text x="675" y="182" text-anchor="middle" fill="#4a5260">developer · 99-yr ground lease</text>
+  <text x="675" y="199" text-anchor="middle" fill="#4a5260">178-room Hilton, 85% built</text>
+  <rect x="810" y="150" width="150" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="885" y="175" text-anchor="middle" font-weight="600">Hotel leasehold</text>
+  <text x="885" y="192" text-anchor="middle" fill="#4a5260">the only real asset</text>
+  <line x1="150" y1="180" x2="188" y2="180" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="320" y1="180" x2="358" y2="180" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="339" y="234" text-anchor="middle" fill="#4a5260" font-size="11">released on I-526 filing</text>
+  <line x1="339" y1="222" x2="339" y2="190" stroke="#d9dee5" stroke-width="1"/>
+  <line x1="530" y1="180" x2="588" y2="180" stroke="#1f5f8b" stroke-width="2" marker-end="url(#arBlue)"/>
+  <text x="559" y="234" text-anchor="middle" fill="#1f5f8b" font-size="11" font-weight="600">preferred equity, not a loan</text>
+  <line x1="559" y1="222" x2="559" y2="190" stroke="#d9dee5" stroke-width="1"/>
+  <line x1="760" y1="180" x2="808" y2="180" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <!-- bottom row -->
+  <rect x="590" y="300" width="170" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="675" y="325" text-anchor="middle" font-weight="600">Evertrust Bank</text>
+  <text x="675" y="342" text-anchor="middle" fill="#4a5260">$29.5M construction loan</text>
+  <line x1="675" y1="300" x2="675" y2="222" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="682" y="262" fill="#4a5260" font-size="11">1st lien on leasehold</text>
+  <rect x="810" y="300" width="150" height="60" rx="6" fill="#f9e6e6" stroke="#9b2c2c" stroke-width="2"/>
+  <text x="885" y="325" text-anchor="middle" font-weight="600" fill="#9b2c2c">Shady Bird Lending</text>
+  <text x="885" y="342" text-anchor="middle" fill="#4a5260">distressed-debt buyer</text>
+  <line x1="760" y1="330" x2="808" y2="330" stroke="#9b2c2c" stroke-width="1.5" marker-end="url(#arRed)"/>
+  <text x="784" y="378" text-anchor="middle" fill="#9b2c2c" font-size="11">sells note, Dec 2020</text>
+  <line x1="885" y1="300" x2="885" y2="212" stroke="#9b2c2c" stroke-width="2" marker-end="url(#arRed)"/>
+  <text x="893" y="250" fill="#9b2c2c" font-size="11" font-weight="600">forecloses</text>
+  <text x="893" y="263" fill="#9b2c2c" font-size="11">4 Oct 2021</text>
+  <text x="893" y="276" fill="#9b2c2c" font-size="11">$200k credit bid</text>
+  <text x="20" y="405" fill="#4a5260" font-size="11.5">BOH3's equity sat behind the senior lender. When Shady Bird foreclosed, the hotel left the Chae structure; BOH3's only recourse was the Chaes' personal promise.</text>
+</svg>
+<figcaption>Figure 1. How the money moved and why it was lost. Mr. Chau's capital reached the hotel as preferred equity subordinate to a $29.5 million bank loan. The foreclosure wiped out the equity; the Chaes' contribution promise became a claim against a dead man's trust and a bankrupt.</figcaption>
+</figure>
+
+<!-- ============================================================ -->
+<h2 id="s3">3. Chronology of events</h2>
+
+<figure>
+<svg viewBox="0 0 1200 330" role="img" aria-label="Timeline 2015 to 2027 in four phases: investment and construction 2016 to 2019, distress 2019 to 2021, bankruptcies 2021 to 2023, and settlement payout 2023 to 2027, with key events marked and today, September 2026, indicated." xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <!-- phase bands: x = 60 + (year-2015)*90 -->
+  <rect x="195" y="150" width="270" height="22" fill="#e3eef7"/>
+  <text x="330" y="165" text-anchor="middle" fill="#1f5f8b" font-size="11" font-weight="600">INVEST &amp; BUILD</text>
+  <rect x="465" y="150" width="163" height="22" fill="#fbeee4"/>
+  <text x="546" y="165" text-anchor="middle" fill="#a8541a" font-size="11" font-weight="600">DISTRESS</text>
+  <rect x="628" y="150" width="152" height="22" fill="#f9e6e6"/>
+  <text x="704" y="165" text-anchor="middle" fill="#9b2c2c" font-size="11" font-weight="600">BANKRUPTCIES</text>
+  <rect x="780" y="150" width="345" height="22" fill="#e5f2e9"/>
+  <text x="952" y="165" text-anchor="middle" fill="#2b6b3f" font-size="11" font-weight="600">SETTLEMENT PAYOUT · 48 INSTALLMENTS</text>
+  <!-- axis -->
+  <line x1="60" y1="185" x2="1140" y2="185" stroke="currentColor" stroke-width="1.5"/>
+  <g fill="currentColor" font-size="11">
+    <text x="60" y="203" text-anchor="middle">2015</text><text x="150" y="203" text-anchor="middle">2016</text><text x="240" y="203" text-anchor="middle">2017</text><text x="330" y="203" text-anchor="middle">2018</text><text x="420" y="203" text-anchor="middle">2019</text><text x="510" y="203" text-anchor="middle">2020</text><text x="600" y="203" text-anchor="middle">2021</text><text x="690" y="203" text-anchor="middle">2022</text><text x="780" y="203" text-anchor="middle">2023</text><text x="870" y="203" text-anchor="middle">2024</text><text x="960" y="203" text-anchor="middle">2025</text><text x="1050" y="203" text-anchor="middle">2026</text><text x="1140" y="203" text-anchor="middle">2027</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1"><line x1="60" y1="181" x2="60" y2="189"/><line x1="150" y1="181" x2="150" y2="189"/><line x1="240" y1="181" x2="240" y2="189"/><line x1="330" y1="181" x2="330" y2="189"/><line x1="420" y1="181" x2="420" y2="189"/><line x1="510" y1="181" x2="510" y2="189"/><line x1="600" y1="181" x2="600" y2="189"/><line x1="690" y1="181" x2="690" y2="189"/><line x1="780" y1="181" x2="780" y2="189"/><line x1="870" y1="181" x2="870" y2="189"/><line x1="960" y1="181" x2="960" y2="189"/><line x1="1050" y1="181" x2="1050" y2="189"/><line x1="1140" y1="181" x2="1140" y2="189"/></g>
+  <!-- today -->
+  <line x1="1118" y1="120" x2="1118" y2="230" stroke="#1f5f8b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="1118" y="112" text-anchor="middle" fill="#1f5f8b" font-size="11" font-weight="600">today</text>
+  <!-- events above (x, label) -->
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="210" y1="185" x2="210" y2="70"/>
+    <line x1="435" y1="185" x2="435" y2="70"/>
+    <line x1="615" y1="185" x2="615" y2="40"/>
+    <line x1="668" y1="185" x2="668" y2="100"/>
+    <line x1="825" y1="185" x2="825" y2="70"/>
+    <line x1="1118" y1="185" x2="1118" y2="230"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="210" cy="185" r="5"/><circle cx="435" cy="185" r="5"/><circle cx="615" cy="185" r="5"/><circle cx="668" cy="185" r="5"/><circle cx="825" cy="185" r="5"/>
+  </g>
+  <g font-size="11.5">
+    <text x="210" y="52" text-anchor="middle" font-weight="600">Sep–Dec 2016</text>
+    <text x="210" y="66" text-anchor="middle">subscribes; $555k to escrow</text>
+    <text x="435" y="52" text-anchor="middle" font-weight="600">Late 2019</text>
+    <text x="435" y="66" text-anchor="middle">bank pulls $4M; work stops at 85%</text>
+    <text x="615" y="22" text-anchor="middle" font-weight="600">26 Feb 2021</text>
+    <text x="615" y="36" text-anchor="middle">TSH files Chapter 11</text>
+    <text x="668" y="82" text-anchor="middle" font-weight="600">Sep–Oct 2021</text>
+    <text x="668" y="96" text-anchor="middle">Min dies · Donald Ch.11 · foreclosure</text>
+    <text x="825" y="52" text-anchor="middle" font-weight="600">Jun–Jul 2023</text>
+    <text x="825" y="66" text-anchor="middle">plan confirmed; Chae discharged</text>
+  </g>
+  <!-- events below -->
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="330" y1="185" x2="330" y2="240"/>
+    <line x1="885" y1="185" x2="885" y2="240"/>
+    <line x1="900" y1="185" x2="900" y2="290"/>
+    <line x1="1140" y1="185" x2="1140" y2="240"/>
+  </g>
+  <g fill="currentColor"><circle cx="330" cy="185" r="5"/><circle cx="885" cy="185" r="5"/><circle cx="900" cy="185" r="5"/><circle cx="1140" cy="185" r="5"/></g>
+  <g font-size="11.5">
+    <text x="330" y="256" text-anchor="middle" font-weight="600">2018–2019</text>
+    <text x="330" y="270" text-anchor="middle">only distributions: $12,149</text>
+    <text x="885" y="256" text-anchor="middle" font-weight="600">Mar 2024</text>
+    <text x="885" y="270" text-anchor="middle">I-829 approved; $3M settlement signed</text>
+    <text x="900" y="306" text-anchor="middle" font-weight="600">Apr–Jul 2024</text>
+    <text x="900" y="320" text-anchor="middle">refund demands redirected to special manager</text>
+    <text x="1140" y="256" text-anchor="end" font-weight="600">1 Jul 2027</text>
+    <text x="1140" y="270" text-anchor="end">final installment due</text>
+  </g>
+</svg>
+<figcaption>Figure 2. Eleven years from subscription to the last scheduled settlement payment. Roughly ten months of settlement installments remain after today.</figcaption>
+</figure>
+
+<table>
+  <tr><th style="width:14%">Date</th><th>Event</th><th style="width:26%">Source document</th></tr>
+  <tr><td class="date">28 Oct 2015</td><td>B-1/B-2 visitor visas issued in Ho Chi Minh City to Mr. Chau and his wife (valid to 22 Oct 2016).</td><td class="src">Questionnaire packet, passport/visa pages</td></tr>
+  <tr><td class="date">11 Mar 2016</td><td>BOH3 Operating Agreement dated. Arbitration clause at §10.9; special-manager mechanism at §5.2.4 (per later correspondence).</td><td class="src">Joinder; Spousal Consent; Womble letter</td></tr>
+  <tr><td class="date">14 Mar 2016</td><td>Escrow agreement among BOH3, MDRC and Wells Fargo Advisors.</td><td class="src">Wire confirmation</td></tr>
+  <tr><td class="date">1 Sep 2016</td><td>MDRC "assurance letter" to RMI regarding Mr. Chau: the Developer will retire BOH3 at term end; on default the Contributors (Min and Donald Chae) are jointly and severally liable to fund retirement; on final I-526 denial, $500,000 and any administration fee refunded within 60 days.</td><td class="src">Assurance Letter</td></tr>
+  <tr><td class="date">2 Sep 2016</td><td>In Westminster, CA, Mr. Chau signs the Subscription Agreement, Investment Representation Statement and Joinder; wife signs Spousal Consent. RMI Immigration Consultant Service Agreement signed around this time (date field illegible).</td><td class="src">EB5 Chau, Duong Van packet; Service Agreement</td></tr>
+  <tr><td class="date">5 Dec 2016</td><td>Wells Fargo Advisors confirms receipt of <b>$555,000</b> for applicant Chau Duong Van.</td><td class="src">Wire Confirmation; Wire Instructions</td></tr>
+  <tr><td class="date">2016–2017</td><td>I-526 filed (RMI listed as preparer; form edition 09/24/13). Filing and approval dates not in file.</td><td class="src">I-526 page 3</td></tr>
+  <tr><td class="date">Tax year 2017</td><td>First K-1: $500,000 capital contributed; profit/loss share 3.4480381%; income allocated $9,729; §1446 withholding $3,874 credited.</td><td class="src">K-1 2017 / Form 8805</td></tr>
+  <tr><td class="date">Q4 2017</td><td>Hilton Buena Park quarterly construction report: façade, plumbing, HVAC, electrical feeders, mock-up rooms, FF&amp;E deliveries.</td><td class="src">Hilton Quarterly Report</td></tr>
+  <tr><td class="date">Tax year 2018</td><td>Income $14,443; cash distribution $4,973; withholding $5,383.</td><td class="src">K-1 2018</td></tr>
+  <tr><td class="date">Tax year 2019</td><td>Income $14,756; distribution $7,176. K-1 now mailed to Altoona, PA, indicating the family had entered the U.S. as conditional residents by 2019.</td><td class="src">K-1 2019</td></tr>
+  <tr><td class="date">Late 2019</td><td>Evertrust Bank refuses to fund the final $4 million citing cost overruns; construction halts at about 85 percent, roughly $65 million spent.</td><td class="src">Disclosure Statement §II.C; BOH3 letter 20 Aug 2021</td></tr>
+  <tr><td class="date">Mar 2020</td><td>$42 million refinance with Hall Structured Finance, targeted to close 20 March 2020, put on indefinite hold by COVID lockdown orders.</td><td class="src">Disclosure Statement</td></tr>
+  <tr><td class="date">Dec 2020</td><td>Evertrust sells its note to Shady Bird Lending, LLC.</td><td class="src">MDRC investor letter (May 2021)</td></tr>
+  <tr><td class="date">2 Feb 2021</td><td>Shady Bird records notice of trustee's sale for 1 March 2021; obtains temporary receiver order 17 Feb 2021.</td><td class="src">MDRC investor letter</td></tr>
+  <tr><td class="date">26 Feb 2021</td><td>TSH files voluntary Chapter 11, Case 8:21-bk-10525-ES (Santa Ana). Automatic stay halts foreclosure.</td><td class="src">MDRC investor letter; BOH3 letter</td></tr>
+  <tr><td class="date">30 Jun 2021</td><td>EB-5 Regional Center Program lapses in Congress (later reauthorized in 2022). Investors already holding conditional residence told they remain eligible.</td><td class="src">BOH3 letter 20 Aug 2021</td></tr>
+  <tr><td class="date">29 Jul 2021</td><td>Min Chae creates the Min Chae Living Trust; Donald is sole successor trustee and beneficiary.</td><td class="src">Disclosure Statement</td></tr>
+  <tr><td class="date">20 Aug 2021</td><td>MDRC letter to BOH3 investors: auction set for 30 Sep 2021; $45 million needed to keep the hotel; warns jobs created to date are insufficient for I-829s; asks investors to put in more capital.</td><td class="src">BOH Letter - 8NBOH3</td></tr>
+  <tr><td class="date">3 Sep 2021</td><td>Edward Wu (Reid &amp; Wise) emails all EB-5 investors after obtaining the investor list by court order: 23 investors already organized; plan to credit-bid; asks investors to sign a special-manager consent and a retainer. Notes the manager is owned by the same people who own the debtor and gave the guarantees.</td><td class="src">Edward Wu letter 9-3-21; BOH2 consent form (13 Aug 2021)</td></tr>
+  <tr><td class="date">18 Sep 2021</td><td>Min Chae dies.</td><td class="src">MDRC letter 26 Oct 2021</td></tr>
+  <tr><td class="date">30 Sep – 1 Oct 2021</td><td>Court denies TSH's sale motion: bids of $22.0M and $22.25M never became qualified; Shady Bird obtains stay relief.</td><td class="src">Disclosure Statement; MDRC letter</td></tr>
+  <tr><td class="date">3 Oct 2021</td><td>Donald Chae files personal Chapter 11, Case 8:21-bk-12493-SC (Judge Clarkson). Scheduled unsecured debt $530.5 million, "largely secondary liabilities based on guaranty or other agreements."</td><td class="src">Voluntary petition; docket; Disclosure Statement</td></tr>
+  <tr><td class="date">4 Oct 2021</td><td>Shady Bird forecloses on TSH's leasehold at a sale lasting under ten minutes, acquiring the hotel for a <b>$200,000 credit bid</b>.</td><td class="src">Disclosure Statement; MDRC letter</td></tr>
+  <tr><td class="date">26 Oct 2021</td><td>MDRC notifies investors of the foreclosure, Donald's bankruptcy and Min's death; "currently assessing all options."</td><td class="src">MDRC_Hotel Letter</td></tr>
+  <tr><td class="date">5–10 Nov 2021</td><td>Wu admitted pro hac vice for BOH1/BOH2; U.S. Trustee appoints Creditors' Committee including BOH1 (c/o Reid &amp; Wise), BOH3 (Guo Sheng Jun, Beijing), an individual investor Hoi Thi Nguyen, Shady Bird, and The Source at Beach Lenders.</td><td class="src">Docket nos. 48–52</td></tr>
+  <tr><td class="date">8 Nov 2021 &amp; 10 Jan 2022</td><td>Proofs of claim filed: BOH3 <b>$14,500,000</b> (POC 6), BOH1 $10,000,000 (POC 7), BOH2 $11,500,000 (POC 12). BOH3's is described as "a preferred equity investment in TSH subject to a contribution agreement with the Debtor."</td><td class="src">Settlement Agreement recital C; Disclosure Statement</td></tr>
+  <tr><td class="date">7 Jan 2022</td><td>General deadline to object to discharge or dischargeability (§523) passes; extended for the three BOH entities only.</td><td class="src">Docket header; docket no. 183</td></tr>
+  <tr><td class="date">1 Apr 2022</td><td>BOH1 sues Evertrust Bank, M + D and MDRC in Orange County Superior Court, Case 30-2022-01252985.</td><td class="src">Settlement Agreement recital B</td></tr>
+  <tr><td class="date">18 Jul 2022</td><td>Court extends the BOH entities' deadline to file a §523 nondischargeability complaint to 18 Oct 2022. No such complaint appears in the record reviewed.</td><td class="src">Docket no. 183; Disclosure Statement</td></tr>
+  <tr><td class="date">Tax year 2022</td><td>BOH3 K-1 reports a $70,820 loss; capital account falls from $557,120 to $486,300. An updated K-1 dated 10 Oct 2023 recharacterizes most of it as a §481(a) accounting-method adjustment.</td><td class="src">K-1 2022 (both versions)</td></tr>
+  <tr><td class="date">9–10 Mar 2023</td><td>Disclosure Statement approved; First Amended Plan filed. Plan estimates $267.6 million of general unsecured claims sharing about $2.68 million (≈1 percent). Confirmation hearing set for 15 Jun 2023.</td><td class="src">Notice of hearing; Plan §II.4</td></tr>
+  <tr><td class="date">1 Jun 2023</td><td>Settlement Term Sheet among BOH1/2/3, M + D, MDRC and Chae; BOH entities vote for the plan and drop opposition.</td><td class="src">Settlement Agreement recitals F, §5</td></tr>
+  <tr><td class="date">15–29 Jun 2023</td><td>Confirmation hearing; Second Amended Plan filed 22 Jun; confirmation order entered 29 Jun 2023.</td><td class="src">Settlement Agreement recitals D–E</td></tr>
+  <tr><td class="date">14 Jul 2023</td><td>Plan Effective Date. Donald Chae discharged of all pre-confirmation debts, expressly including the BOH entities' claims and the settlement itself.</td><td class="src">Settlement Agreement §6</td></tr>
+  <tr><td class="date">Aug 2023 – Mar 2024</td><td>$1,000,000 initial payment wired by escrow agent to Wu; first eight monthly installments ($333,333.28) due by 15 Mar 2024.</td><td class="src">Settlement Agreement §1</td></tr>
+  <tr><td class="date">Mar 2024</td><td>Definitive Settlement Agreement, $2,000,000 Promissory Note and Junior Deed of Trust on 6832 Beach Blvd. executed by Donald Chae for M + D and MDRC (BOH signature blocks blank in the copy on file).</td><td class="src">Settlement Agreement, Exhibits A–C</td></tr>
+  <tr><td class="date">15 Mar 2024</td><td>USCIS approves Mr. Chau's I-829 (receipt WAC2290053852); permanent resident card issued.</td><td class="src">Refund request letter</td></tr>
+  <tr><td class="date">2 Apr 2024</td><td>Mr. Chau writes to MDRC requesting repayment of $500,000 plus 1 percent within 90 days, citing the Subscription and Operating Agreements.</td><td class="src">Request refund letter</td></tr>
+  <tr><td class="date">12 Jul 2024</td><td>Mr. Chau writes again (letter not in file).</td><td class="src">Referenced in Womble letter</td></tr>
+  <tr><td class="date">23 Jul 2024</td><td>Womble Bond Dickinson, for M + D, replies: the Special Manager (Beijing Jiasheng Changqing Consulting Co., Ltd.) "has the sole right and responsibility to represent BOH3"; direct all questions to Edward Wu.</td><td class="src">Letter to Duong Van Chau</td></tr>
+  <tr><td class="date">23 Aug – 10 Sep 2024</td><td>EDW Firm tells BOH2 investors that BOH2's share is $1 million; $306,246 net of fees received to date, about $13,315 per investor; ballot on early distribution due 30 Sep 2024. <b>No equivalent BOH3 communication is in the file.</b></td><td class="src">MD-BOH2 Letter 9-10-24</td></tr>
+  <tr><td class="date">Tax years 2024–2025</td><td>Capital account $497,510 then $497,411; profit share rises from 3.448% to 3.571%, consistent with one of 29 members exiting; "other increase" of $12,149 in 2024 equals his lifetime distributions. No distributions.</td><td class="src">K-1 2024, 2025</td></tr>
+  <tr><td class="date">1 Jul 2027</td><td>Forty-eighth and final installment ($41,666.98) due from M + D.</td><td class="src">Settlement Agreement §1(b)</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="s4" class="pb">4. What transpired, in four acts</h2>
+
+<h3>Act 1 · Subscription and funding (2016–2019)</h3>
+<p>Mr. Chau came to the project through RMI, a Vietnamese-language immigration consultancy with offices in San Jose, Westminster and Ho Chi Minh City. RMI's contract disclaims any promise about outcome and charges $25,000 or 5 percent of the investment. The suitability questionnaire records that the $500,000 represented about 20 percent of the family's net worth and that he had "some" experience only with real estate; every other asset class is marked "none." He nonetheless certified accredited-investor status and that he could bear a total loss.</p>
+<p>Two features of the paperwork matter later. First, the 1 September 2016 assurance letter was written by MDRC to RMI, naming Mr. Chau, one day before he signed. It promises that the Contributors will be "jointly and severally liable to contribute enough capital … to retire the Company" and that a final I-526 denial triggers a 60-day refund. A promise of return of capital sits uneasily with the EB-5 "at risk" rule, which Chae's own disclosure statement later cites for the proposition that "the individual investors are not creditors of the Debtor." Second, the wire confirmation shows $555,000, not $500,000. Mr. Chau confirms the extra $55,000 was paid as service fees to RMI and MDRC. The split between them and the invoices are not in the file; the assurance letter's refund promise covers "the administration fee (if any)," so the MDRC portion was part of the bargain the Chaes stood behind.</p>
+<p>For three years the investment behaved. BOH3 allocated income of roughly $10,000 to $15,000 a year and paid two small cash distributions. The family obtained conditional permanent residence and moved to Pennsylvania.</p>
+
+<h3>Act 2 · Distress (late 2019 – early 2021)</h3>
+<p>The hotel was 85 percent built when Evertrust Bank refused the last $4 million draw. A replacement lender was at the closing table in March 2020 when the lockdowns hit. Evertrust then sued the Chaes on their guaranties and, in December 2020, sold the note to Shady Bird Lending, a distressed-debt buyer, which immediately moved to foreclose and to install a receiver. TSH's Chapter 11 filing on 26 February 2021 bought seven months.</p>
+
+<h3>Act 3 · Collapse (2021)</h3>
+<p>The bankruptcy court approved a marketing process ending in an auction on 30 September 2021. Two bidders offered about $22 million, but neither posted a qualifying deposit, and the sale motion was denied. On the investor side, Mr. Wu's coalition wanted to credit-bid the EB-5 debt with a partner, which required replacing MDRC as manager of BOH1 and BOH2; the record shows he could only obtain the investor list by court order because the Chae-controlled manager would not supply it. Nothing in the file shows a credit bid was made. Min Chae died on 18 September. Donald Chae filed Chapter 11 on Sunday 3 October, inside a tolling window negotiated with Shady Bird, to strip Shady Bird's attachment liens. Shady Bird foreclosed the next morning for a $200,000 credit bid against a $31.9 million claim. Two weeks earlier, MDRC's letter had still been asking investors to put in more money.</p>
+
+<h3>Act 4 · Bankruptcy, settlement and silence (2021–2026)</h3>
+<p>The three BOH entities sat on the Creditors' Committee and filed claims totalling $36 million. They obtained one extension to bring a fraud-based nondischargeability complaint but, on this record, never filed one; instead they signed a term sheet on 1 June 2023 and voted for the plan. The plan itself paid general unsecured creditors about a penny on the dollar from a trust funded largely by non-estate Malibu properties. The side settlement gave the BOH entities $3 million over four years and released Chae, M + D, MDRC and about thirty affiliates, with a §1542 waiver of unknown claims. If M + D misses a payment and fails to cure within 30 days, the entities may reassert up to $5 million each, less amounts paid, with limitation periods tolled.</p>
+<p>Mr. Chau's immigration case closed successfully in March 2024. His two refund letters were answered only by M + D's lawyer, who pointed him to the special manager. The BOH2 investors received an accounting and a ballot in September 2024; Mr. Chau confirms he received nothing comparable, that he never signed the special-manager consent or the Reid &amp; Wise retainer, and that his 12 July 2024 letter drew no reply from the special manager or Mr. Wu.</p>
+
+<!-- ============================================================ -->
+<h2 id="s5">5. Money trail and K-1 history</h2>
+
+<table class="k1">
+  <tr><th style="width:9%">Tax year</th><th class="num" style="width:12%">Opening capital</th><th class="num" style="width:12%">Income (loss)</th><th class="num" style="width:11%">Distri­butions</th><th class="num" style="width:16%">Other</th><th class="num" style="width:12%">Closing capital</th><th class="num" style="width:8%">Share</th><th>Notes</th></tr>
+  <tr><td>2017</td><td class="num">0</td><td class="num">9,729</td><td class="num">0</td><td class="num">+500,000 contributed</td><td class="num">509,729</td><td class="num">3.448%</td><td>§1446 tax withheld $3,874</td></tr>
+  <tr><td>2018</td><td class="num">509,729</td><td class="num">14,443</td><td class="num">(4,973)</td><td class="num">—</td><td class="num">519,199</td><td class="num">3.448%</td><td>§1446 tax withheld $5,383</td></tr>
+  <tr><td>2019</td><td class="num">519,199</td><td class="num">14,756</td><td class="num">(7,176)</td><td class="num">—</td><td class="num">526,634</td><td class="num">3.448%</td><td>Address changes to Altoona, PA</td></tr>
+  <tr><td>2020</td><td class="num">526,634</td><td class="num">14,344</td><td class="num">0</td><td class="num">—</td><td class="num">540,978</td><td class="num">3.448%</td><td>Construction already halted</td></tr>
+  <tr><td>2021</td><td class="num">540,978</td><td class="num">16,142</td><td class="num">0</td><td class="num">—</td><td class="num">557,120</td><td class="num">3.448%</td><td>Income allocated in the foreclosure year</td></tr>
+  <tr><td>2022 (orig.)</td><td class="num">557,120</td><td class="num">(70,820)</td><td class="num">0</td><td class="num">—</td><td class="num">486,300</td><td class="num">3.448%</td><td>Reported as ordinary loss</td></tr>
+  <tr><td>2022 (upd. 10 Oct 2023)</td><td class="num">557,120</td><td class="num">(468)</td><td class="num">0</td><td class="num">(70,308) §481(a) adj.</td><td class="num">486,299</td><td class="num">3.448%</td><td>Recharacterized as Box 13 code W deduction</td></tr>
+  <tr><td>2023</td><td class="num">486,299</td><td class="num">(413)</td><td class="num">0</td><td class="num">(408)</td><td class="num">485,478</td><td class="num">3.448%</td><td></td></tr>
+  <tr><td>2024</td><td class="num">485,478</td><td class="num">(117)</td><td class="num">0</td><td class="num">+12,149</td><td class="num">497,510</td><td class="num">3.571%</td><td>Share implies 29 → 28 members; add-back equals lifetime distributions</td></tr>
+  <tr><td>2025</td><td class="num">497,510</td><td class="num">(99)</td><td class="num">0</td><td class="num">—</td><td class="num">497,411</td><td class="num">3.571%</td><td>Capital share 3.606%</td></tr>
+</table>
+
+<figure>
+<svg viewBox="0 0 760 290" role="img" aria-label="Line chart of Mr. Chau's BOH3 tax capital account from 2017 to 2025: it rises from about 510 thousand to 557 thousand dollars in 2021, drops to about 486 thousand in 2022, and sits near 497 thousand in 2024 and 2025, never reflecting the loss of the hotel." xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+  <g stroke="#d9dee5" stroke-width="1">
+    <line x1="60" y1="59" x2="720" y2="59"/><line x1="60" y1="97" x2="720" y2="97"/><line x1="60" y1="135" x2="720" y2="135"/><line x1="60" y1="173" x2="720" y2="173"/><line x1="60" y1="211" x2="720" y2="211"/>
+  </g>
+  <g fill="#7a8390" text-anchor="end">
+    <text x="54" y="63">$560k</text><text x="54" y="101">$540k</text><text x="54" y="139">$520k</text><text x="54" y="177">$500k</text><text x="54" y="215">$480k</text>
+  </g>
+  <line x1="60" y1="173" x2="720" y2="173" stroke="#a8541a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="66" y="168" fill="#a8541a">$500,000 invested</text>
+  <polyline fill="none" stroke="#1f5f8b" stroke-width="2" stroke-linejoin="round" points="60,154.5 140,136.5 220,122.4 300,95.1 380,64.5 460,199 540,200.6 620,177.7 700,177.9"/>
+  <g fill="#1f5f8b" stroke="#ffffff" stroke-width="2">
+    <circle cx="60" cy="154.5" r="4.5"/><circle cx="140" cy="136.5" r="4.5"/><circle cx="220" cy="122.4" r="4.5"/><circle cx="300" cy="95.1" r="4.5"/><circle cx="380" cy="64.5" r="4.5"/><circle cx="460" cy="199" r="4.5"/><circle cx="540" cy="200.6" r="4.5"/><circle cx="620" cy="177.7" r="4.5"/><circle cx="700" cy="177.9" r="4.5"/>
+  </g>
+  <g fill="#1b1f24" text-anchor="middle">
+    <text x="380" y="52" font-weight="600">$557,120</text>
+    <text x="460" y="220" font-weight="600">$486,299</text>
+    <text x="700" y="166" font-weight="600">$497,411</text>
+  </g>
+  <g fill="#4a5260" text-anchor="middle">
+    <text x="60" y="240">2017</text><text x="140" y="240">2018</text><text x="220" y="240">2019</text><text x="300" y="240">2020</text><text x="380" y="240">2021</text><text x="460" y="240">2022</text><text x="540" y="240">2023</text><text x="620" y="240">2024</text><text x="700" y="240">2025</text>
+  </g>
+  <rect x="418" y="30" width="2" height="190" fill="#9b2c2c"/>
+  <text x="424" y="40" fill="#9b2c2c" font-weight="600">Oct 2021 foreclosure</text>
+  <text x="60" y="275" fill="#4a5260">Source: Schedule K-1 (Form 1065), Beach Orangethorpe Hotel III, LLC, partner no. 27, tax years 2017–2025.</text>
+</svg>
+<figcaption>Figure 3. The tax capital account is a bookkeeping figure, not a valuation. It was written down by only about $70,000 after the hotel was lost, and later partly written back up. It should not be read as evidence that $497,000 of value remains.</figcaption>
+</figure>
+
+<div class="note"><b>Observations on the money.</b>
+<ul>
+  <li>Net cash out of pocket is $555,000 less $12,149 received, or <b>$542,851</b>, before RMI's consultant fee (at least $25,000 under the contract) and before the §1446 withholding credits of $9,257, which were creditable on his 1040-NR returns for 2017 and 2018 and should be confirmed as claimed.</li>
+  <li>BOH3 continued to allocate taxable income to him in 2020 and 2021 while the project was dead. Whether that income was real (for instance preferred-return accruals from TSH) or merely accrued on paper is a question for the special manager's accountants; the 2022 §481(a) adjustment suggests a change in accounting method that reversed prior accruals.</li>
+  <li>The 2024 change in profit share from 1/29 to 1/28 means one member left BOH3. How that member exited, and on what terms, is a fact worth learning: it may indicate a redemption, a transfer, or a separate deal.</li>
+  <li>The K-1s are still issued from "PO Box 489, Buena Park," MDRC's address, three years after the special manager took over. Tax preparation for BOH3 therefore still appears to run through the Chae organization.</li>
+</ul></div>
+
+<!-- ============================================================ -->
+<h2 id="s6" class="pb">6. The Chae bankruptcy and the settlement</h2>
+
+<h3>How the BOH entities fared in the plan</h3>
+<p>The Chae plan placed the BOH entities in Class 7, general unsecured claims, estimated at $267.6 million in total, to share pro rata in a Plan Trust the debtor valued at about $2.68 million. BOH3's $14.5 million claim would, on those numbers, be worth on the order of $145,000 before the plan's offset rule: the "Allowed GUC Distribution Amount" is reduced dollar-for-dollar by anything the creditor receives from the primary obligor, other guarantors, or third-party collateral. Settlement payments from M + D likely count as such "Other Distributions," so BOH3's trust recovery may be small or nil. The file does not show whether the claim was allowed or whether any trust distribution has been made.</p>
+
+<h3>The settlement in one picture</h3>
+<figure>
+<svg viewBox="0 0 900 330" role="img" aria-label="Settlement waterfall: M plus D Properties pays 3 million dollars, 1 million up front and 2 million over 48 months secured by a junior deed of trust on a Pizza Hut parcel, into EDW Firm's trust account, split one third each to BOH1, BOH2 and BOH3, then net of attorneys fees to roughly 28 BOH3 investors at about 30 to 36 thousand dollars each." xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <rect x="20" y="40" width="190" height="90" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="115" y="62" text-anchor="middle" font-weight="600">M + D Properties</text>
+  <text x="115" y="80" text-anchor="middle" fill="#4a5260">$1,000,000 initial (paid)</text>
+  <text x="115" y="96" text-anchor="middle" fill="#4a5260">$2,000,000 · 48 × $41,666.66</text>
+  <text x="115" y="112" text-anchor="middle" fill="#4a5260">Aug 2023 → 1 Jul 2027, 0% interest</text>
+  <rect x="20" y="150" width="190" height="70" rx="6" fill="#f4f6f9" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="115" y="172" text-anchor="middle" font-weight="600">Security</text>
+  <text x="115" y="189" text-anchor="middle" fill="#4a5260" font-size="11">junior deed of trust, 6832 Beach Blvd</text>
+  <text x="115" y="204" text-anchor="middle" fill="#4a5260" font-size="11">behind a $1.006M first lien</text>
+  <line x1="115" y1="150" x2="115" y2="132" stroke="currentColor" stroke-width="1" marker-end="url(#ar2)"/>
+  <line x1="210" y1="85" x2="268" y2="85" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar2)"/>
+  <text x="239" y="76" text-anchor="middle" fill="#4a5260" font-size="11">wires</text>
+  <rect x="270" y="55" width="150" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="345" y="80" text-anchor="middle" font-weight="600">EDW Firm trust acct</text>
+  <text x="345" y="98" text-anchor="middle" fill="#4a5260">$3,000,000 collective</text>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="420" y1="85" x2="478" y2="40" marker-end="url(#ar2)"/>
+    <line x1="420" y1="85" x2="478" y2="85" marker-end="url(#ar2)"/>
+    <line x1="420" y1="85" x2="478" y2="130" marker-end="url(#ar2)"/>
+  </g>
+  <text x="474" y="32" text-anchor="end" fill="#4a5260" font-size="11">one third each (per BOH2 letter)</text>
+  <rect x="480" y="20" width="120" height="40" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="540" y="45" text-anchor="middle">BOH1 · $1.0M</text>
+  <rect x="480" y="65" width="120" height="40" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="540" y="90" text-anchor="middle">BOH2 · $1.0M</text>
+  <rect x="480" y="110" width="120" height="40" rx="6" fill="#e3eef7" stroke="#1f5f8b" stroke-width="2"/>
+  <text x="540" y="135" text-anchor="middle" font-weight="600" fill="#1f5f8b">BOH3 · $1.0M</text>
+  <line x1="600" y1="130" x2="658" y2="130" stroke="#1f5f8b" stroke-width="1.5" marker-end="url(#ar2)"/>
+  <text x="629" y="121" text-anchor="middle" fill="#4a5260" font-size="11">less fees</text>
+  <rect x="660" y="100" width="220" height="60" rx="6" fill="none" stroke="#1f5f8b" stroke-width="1.5"/>
+  <text x="770" y="122" text-anchor="middle" font-weight="600">≈ 28 BOH3 investors</text>
+  <text x="770" y="140" text-anchor="middle" fill="#4a5260" font-size="11">≈ $30k – $36k each over 4 years</text>
+  <text x="770" y="154" text-anchor="middle" fill="#4a5260" font-size="10.5">BOH2: $13,315 each on $306k net, Aug 2024</text>
+  <!-- default branch -->
+  <rect x="270" y="200" width="330" height="70" rx="6" fill="#fbeee4" stroke="#a8541a" stroke-width="1.5"/>
+  <text x="435" y="222" text-anchor="middle" font-weight="600" fill="#a8541a">If M + D misses a payment and does not cure in 30 days</text>
+  <text x="435" y="240" text-anchor="middle" fill="#4a5260">entities may reassert claims up to $5M each ($15M total)</text>
+  <text x="435" y="256" text-anchor="middle" fill="#4a5260">less amounts paid · limitations tolled 6 months past default</text>
+  <line x1="345" y1="115" x2="345" y2="198" stroke="#a8541a" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ar2)"/>
+  <text x="20" y="300" fill="#4a5260" font-size="11.5">Released in exchange: all entity claims against Chae (discharged anyway), M + D, MDRC and about 30 affiliates, known and unknown (Civ. Code §1542 waived).</text>
+  <text x="20" y="316" fill="#4a5260" font-size="11.5">Direct claims of non-party investors are not represented as released (§15).</text>
+</svg>
+<figcaption>Figure 4. Where the settlement money goes. The per-investor figure is an estimate: it assumes an equal three-way split, 20 to 30 percent for fees and costs, and that M + D pays every installment through July 2027.</figcaption>
+</figure>
+
+<h3>Terms that matter for Mr. Chau</h3>
+<ul>
+  <li><b>Payments and default (§§1–2, Note §2).</b> Installments are due the first business day of each month. Default requires written notice by email to Womble; a 30-day cure period follows. Only after an "Uncured Default" may the entities enforce or reassert claims. Someone must actually be watching the wire log and sending notices; investors have no direct standing.</li>
+  <li><b>Security (§§3–4).</b> A junior deed of trust on the Pizza Hut parcel at 6832 Beach Blvd., Buena Park (APN 276-323-01), behind a $1,006,000 first lien to J &amp; K PLC recorded 12 Apr 2022. The entities "may record" it at any time. Whether it was in fact recorded is not shown.</li>
+  <li><b>Releases (§§8–10).</b> Sweeping, but given by the entities only. Section 15 states that nothing "shall be construed as a representation by a BOH Investor Entity that it has the authority to release the direct claims of any party who is not a Party." Section 17 lets M + D terminate as to any entity whose special manager lacked authority, with disgorgement of payments. An investor who challenges the special manager's authority therefore risks unwinding the entity's recovery.</li>
+  <li><b>Immigration (§7).</b> The Chae parties promise only to "continue to provide assistance to the extent that they can." Mr. Chau no longer needs this.</li>
+  <li><b>Allocation (§19).</b> The split among the three entities and among their members is entirely the entities' responsibility. This is where his leverage lies: he is a member entitled to an accounting.</li>
+  <li><b>Confidentiality (§29).</b> The agreement may be shown to members "with the instruction … to keep this Agreement and its terms confidential." He is entitled to a copy.</li>
+  <li><b>Fee-shifting (§22).</b> Prevailing party recovers attorneys' fees in any action to enforce or interpret the agreement.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="s7">7. Current status (as of 29 September 2026)</h2>
+
+<div class="two">
+  <div class="card"><h4>Immigration <span class="tag good">resolved</span></h4>
+    <p>I-829 approved 15 Mar 2024; unconditional permanent residence. Eligible to apply for naturalization on or after the fifth anniversary of the original conditional-residence date (which is not in the file). Any dispute over the investment no longer affects status.</p></div>
+  <div class="card"><h4>Underlying asset <span class="tag bad">lost</span></h4>
+    <p>The hotel leasehold passed to Shady Bird Lending on 4 Oct 2021. BOH3's preferred equity in TSH has no value. TSH's own Chapter 11 outcome after the foreclosure is not in the file.</p></div>
+  <div class="card"><h4>Guarantors <span class="tag bad">unavailable</span></h4>
+    <p>Min Chae died 18 Sep 2021; his assets passed to the Min Chae Living Trust, of which Donald is trustee and beneficiary. Donald Chae's debts, including under the contribution agreement and the settlement, were discharged on 14 Jul 2023.</p></div>
+  <div class="card"><h4>Entity-level recovery <span class="tag warn">in progress</span></h4>
+    <p>BOH3 is entitled to a share of $3 million payable through 1 Jul 2027, plus any Plan Trust distribution on its $14.5 million Class 7 claim. Roughly 38 of 48 installments should have been paid by now if M + D is current. No accounting has reached Mr. Chau.</p></div>
+  <div class="card"><h4>Governance <span class="tag warn">opaque</span></h4>
+    <p>BOH3 is run by a Beijing consulting company as special manager, represented by EDW Firm in New York. K-1s are still produced from MDRC's post office box. Mr. Chau confirms he has never heard from the special manager or its counsel, never consented to the appointment, and never signed a retainer. Whoever purported to act for BOH3 in the settlement did so without his vote.</p></div>
+  <div class="card"><h4>Direct claims <span class="tag warn">unassessed, clock running</span></h4>
+    <p>Mr. Chau did not file a proof of claim in the Chae case, is not a party to the settlement, and has released no one. Whether any personal claim survives against a solvent party turns on limitation periods that began running, at the latest, in 2021. See §8.</p></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s8" class="pb">8. Alternative remedies</h2>
+<p>Ranked by expected value net of cost. Remedies A and B cost little and should be pursued regardless; C through F require a decision about litigation budget and are subject to limitation-period analysis that should be done first.</p>
+
+<h3>A. Enforce member rights inside BOH3 <span class="tag good">low cost · highest probability</span></h3>
+<p>Mr. Chau remains a Class B member. California's Revised Uniform LLC Act (Corp. Code §17704.10) gives a member the right, on written demand, to inspect and copy the operating agreement, the member list, tax returns, financial statements and "books and records," and to be informed of matters affecting the company. The 23 July 2024 Womble letter is itself an admission that the special manager and Mr. Wu are the people who must answer. Because Mr. Chau never signed the special-manager consent or any retainer, he is not Mr. Wu's client and owes the special manager no deference; conversely, the special manager owes him, as a non-consenting member, the same fiduciary duties of candor and equal treatment it owes the members who appointed it.</p>
+<ol>
+  <li>Serve a written demand on the Special Manager, care of EDW Firm (4630 Center Blvd. #903, Long Island City, NY 11109; edward.wu@edwlawgroup.com), for: the executed Settlement Agreement, Term Sheet, Note and recorded Junior Deed of Trust; the written consents by which the special manager was appointed under §5.2.4; BOH3's proof of claim no. 6 and any Plan Trust correspondence; a ledger of every settlement receipt and its allocation among BOH1/2/3; the engagement letter and fee arrangement with EDW Firm; the current member list; and the explanation for the 2022 §481(a) adjustment and the 2024 membership change.</li>
+  <li>Demand the same distribution election the BOH2 investors were offered on 10 September 2024, or an explanation of why BOH3 investors were not.</li>
+  <li>Ask whether default notices have ever been sent to M + D and whether every installment has been received on time. A missed installment is the single event that revives up to $15 million of claims, and the entities must send the notice to trigger it.</li>
+  <li>If the demand is refused, Corp. Code §17704.10(g) authorizes a court order compelling inspection with attorneys' fees to the member. Alternatively the Operating Agreement's §10.9 arbitration clause may govern.</li>
+</ol>
+<p>Expected outcome: a pro-rata share of BOH3's settlement receipts, roughly $30,000 to $36,000 gross over the payment term, plus transparency that informs every other option.</p>
+
+<h3>B. Organize the BOH3 members <span class="tag good">low cost</span></h3>
+<p>A majority of Class B members appointed the special manager and can replace it or direct it. Once the member list is obtained, the Vietnamese-speaking investors introduced through RMI (the assurance letter refers to "investors … introduced by the Client," suggesting Mr. Chau brought others) are natural allies. Collective action also spreads the cost of any of the remedies below across 28 investors.</p>
+
+<h3>C. Preserve and evaluate direct personal claims <span class="tag warn">limitation risk · do first</span></h3>
+<p>Because the settlement releases only entity claims, Mr. Chau's own causes of action are, in principle, intact. The candidates and their obstacles:</p>
+<table>
+  <tr><th style="width:24%">Claim</th><th>Basis in the file</th><th style="width:34%">Obstacles</th></tr>
+  <tr><td>Breach of the 1 Sep 2016 assurance letter / contribution agreement</td><td>Written promise that the Contributors would fund BOH3's retirement, addressed to his consultant and naming him, arguably making him an intended third-party beneficiary.</td><td>Donald: discharged. Min: claim against the Min Chae Living Trust is governed by CCP §366.2, one year from death (18 Sep 2022), which has likely expired absent tolling. The promise may also be unenforceable as inconsistent with EB-5 "at risk" rules.</td></tr>
+  <tr><td>Securities misrepresentation (Corp. Code §§25401/25501; Rule 10b-5) and common-law fraud / negligent misrepresentation</td><td>Sale of an "at risk" security accompanied by a written assurance of capital return; the August 2021 solicitation for more capital two weeks before the foreclosure; the manager's refusal to share the investor list.</td><td>Federal: 2 years from discovery, 5-year repose from the 2016 sale (expired 2021). State: 2 years (§25506) or 3 years from discovery (fraud, CCP §338(d)). Discovery arguably no later than the 26 Oct 2021 letter, so late 2023 to late 2024 at best. Defendants MDRC/M + D are of doubtful solvency; Donald is discharged unless a §523 fraud exception was preserved, and it was not.</td></tr>
+  <tr><td>Breach of fiduciary duty by the manager</td><td>MDRC sat on both sides of the transaction (manager of the lender/investor entity and owner of the borrower).</td><td>Released as to BOH3's derivative claims; a direct claim requires injury distinct from other members. 4-year statute (CCP §343) or 3 years if fraud-based. Same solvency problem.</td></tr>
+  <tr><td>Claims against RMI (immigration consultant)</td><td>RMI selected the regional center ("assist the client in identifying reliable Regional Centers"), took a fee of at least $25,000, and channelled the assurance letter. Cal. Bus. &amp; Prof. Code §22440 et seq. regulates immigration consultants, requires a $100,000 bond, and voids contracts that violate the Act.</td><td>Contract disclaims outcome, requires AAA arbitration, and RMI performed its immigration services successfully. Weak unless RMI received undisclosed compensation from MDRC, which the file neither shows nor excludes. Worth a targeted question, not a lawsuit.</td></tr>
+  <tr><td>Claims against Shady Bird or Evertrust</td><td>BOH1 sued Evertrust in state court; the theory is not in the file.</td><td>Mr. Chau has no privity; any claim belongs to BOH3 or TSH.</td></tr>
+</table>
+<div class="note bad"><b>Urgency.</b> Every limitation period above began running by October 2021 and most have already expired or will expire soon. A limitation-period memorandum, with the discovery-rule facts pinned down, is the first legal task, not the last. Where a period may still be open, a tolling agreement or a protective filing should be considered immediately.</div>
+
+<h3>D. Monitor the settlement and the collateral <span class="tag good">low cost · ongoing</span></h3>
+<ul>
+  <li>Confirm recording of the Junior Deed of Trust against APN 276-323-01 with the Orange County Recorder; if unrecorded, insist that it be recorded. An unrecorded junior lien is worthless against a later buyer or lender.</li>
+  <li>Check the Orange County Recorder for any new encumbrance or transfer of 6832 Beach Blvd. The due-on-sale clause accelerates the note on any transfer.</li>
+  <li>Monitor the Chae Plan Trust docket for distributions to Class 7 and any objection to BOH3's claim.</li>
+  <li>Calendar 1 July 2027 and each first business day until then.</li>
+</ul>
+
+<h3>E. Regulatory channels <span class="tag">pressure, not recovery</span></h3>
+<ul>
+  <li><b>USCIS Immigrant Investor Program Office.</b> Regional centers must file annual Form I-956G and can be terminated for failing to promote economic growth or for misconduct. A complaint will not return money but records the pattern. Since his status is final, there is no downside to him.</li>
+  <li><b>SEC.</b> EB-5 offerings are securities; the SEC has brought numerous regional-center actions. A tip through the SEC's TCR portal is free and may matter if other MDRC vehicles (BO1–BO7, PMR, 6555 Beach) show the same pattern. The disclosure statement lists at least fourteen MDRC-managed investor entities.</li>
+  <li><b>California DFPI</b> for the securities aspects and the <b>Orange County District Attorney / California DOJ</b> for the Immigration Consultant Act, as the RMI contract itself instructs.</li>
+</ul>
+
+<h3>F. Tax remedies <span class="tag good">certain value · coordinate with CPA</span></h3>
+<ul>
+  <li>Confirm the §1446 withholding credits ($3,874 for 2017; $5,383 for 2018) were claimed on the 1040-NR returns; if not, amended returns may still be possible for open years or refund claims may be barred, which itself is a fact worth knowing.</li>
+  <li>The tax basis in the BOH3 interest is roughly $497,000. When the interest becomes worthless or BOH3 dissolves, a capital loss under IRC §165 is available; if BOH3 distributes settlement proceeds and dissolves, the loss is recognized then. A worthlessness claim in an earlier year requires an identifiable event; the October 2021 foreclosure is a candidate but the entity's continued receipt of settlement money complicates it. Ask the CPA to model the timing.</li>
+  <li>The 2020 and 2021 income allocations were taxed as ordinary income while no cash was paid. If those accruals were reversed by the 2022 §481(a) adjustment, the character mismatch (ordinary income earlier, capital loss later) is a real cost that a member accounting could quantify.</li>
+</ul>
+
+<h3>What is not worth pursuing</h3>
+<ul>
+  <li>A direct suit against Donald Chae. His discharge covers the contribution agreement and the settlement; the §523 deadline for fraud exceptions passed in January 2022 (October 2022 for the entities) without a complaint.</li>
+  <li>A demand for "$500,000 plus 1 percent within 90 days" addressed to MDRC. The clause Mr. Chau relies on has not been located in the file; even if it exists, MDRC's obligations to BOH3 were released and it is run by a discharged debtor. The 2 April 2024 letter has been answered by redirection and will not be answered differently.</li>
+  <li>Challenging the special manager's authority to settle. Mr. Chau's non-consent is a genuine fact, but §17 lets M + D terminate the settlement as to any entity whose special manager lacked authority and claw back payments, so raising it could unwind BOH3's recovery entirely. Use the fact as leverage for an accounting, not as a claim.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="s9">9. Open questions and document gaps</h2>
+<p>Answers to the following would change the analysis; several are for Mr. Chau himself.</p>
+<ol>
+  <li><b>Offering documents.</b> The Private Placement Memorandum, the full Subscription Agreement, the 11 March 2016 Operating Agreement (including §5.2.4 on special managers and §10.9 on arbitration), and the Contribution Agreement are all referred to but absent. His refund letter cites a "full repayment within 90 days for $500,000 plus 1% interest" clause that needs to be verified against the actual text.</li>
+  <li><b>Immigration dates.</b> I-526 filing and approval dates, immigrant visa or adjustment date, conditional-residence start date, and I-829 filing date. These fix the naturalization clock and the discovery-rule analysis.</li>
+  <li><b>The $55,000</b> <span class="tag good">answered</span> — paid as service fees to RMI and MDRC. Still needed: the split between them, the invoices, and whether RMI's separate contract fee was in addition.</li>
+  <li><b>Contact from the investor coalition</b> <span class="tag good">answered</span> — Mr. Chau never signed the special-manager consent or the Reid &amp; Wise retainer and has received no ballot or accounting from EDW Firm. Still needed: whether he received the 3 September 2021 email at all.</li>
+  <li><b>His 12 July 2024 letter</b> <span class="tag good">answered</span> — no reply was ever received from the special manager or Mr. Wu; the only response was Womble's 23 July 2024 redirection. A copy of the 12 July letter itself is still needed for the file.</li>
+  <li><b>Payments.</b> Has any money other than the 2018 and 2019 distributions ever reached him?</li>
+  <li><b>The other Vietnamese investors.</b> Names and contact details of anyone he introduced to the offering, and whether any of them has engaged counsel.</li>
+  <li><b>TSH case outcome.</b> Whether The Source Hotel, LLC's bankruptcy was dismissed, converted, or resolved with any distribution to preferred equity.</li>
+  <li><b>Plan Trust.</b> Whether BOH3's Class 7 claim was allowed and whether the Plan Trustee has made any distribution.</li>
+  <li><b>Deed of trust.</b> Recording information for the Junior Deed of Trust on 6832 Beach Blvd.</li>
+</ol>
+
+<!-- ============================================================ -->
+<h2 id="s10">10. Appendix: document index</h2>
+<table>
+  <tr><th style="width:36%">File</th><th style="width:12%">Date</th><th>What it is</th></tr>
+  <tr><td>eb5-questnare-pp duong v Chau.pdf</td><td class="date">2016</td><td>MDRC Confidential Investor Suitability Questionnaire (10 pp., scanned) with passports and B-1/B-2 visas for both spouses.</td></tr>
+  <tr><td>Service Agreement (Mr. Duong &amp; Mr. Hai).pdf</td><td class="date">2016</td><td>RMI Immigration Consultant Service Agreement (bilingual), EB-5 process flowcharts, and an undated MDRC COVID-era investor letter.</td></tr>
+  <tr><td>Assurance Letter Chau Duong Van.pdf</td><td class="date">1 Sep 2016</td><td>MDRC letter to RMI: Contributors jointly and severally liable; I-526 denial refund.</td></tr>
+  <tr><td>EB5 Chau, Duong Van.pdf</td><td class="date">2 Sep 2016</td><td>I-526 page 3, W-8BEN, Investment Representation Statement, Subscription Agreement signature page, Exhibit A capital schedule, Spousal Consent, Joinder.</td></tr>
+  <tr><td>Chau Van Duong … Wire Instructions.pdf</td><td class="date">2016</td><td>Wells Fargo Advisors incoming wire instructions.</td></tr>
+  <tr><td>Wire Confirmation - Chau, Duong Van.pdf</td><td class="date">5 Dec 2016</td><td>Escrow agent confirms receipt of $555,000.</td></tr>
+  <tr><td>HILTON QUARTERLY REPORT END OF 4TH QTR 2017.pdf</td><td class="date">Q4 2017</td><td>M + D Properties construction progress report with photographs.</td></tr>
+  <tr><td>K1 - 17P … through K1 - 25P …</td><td class="date">2017–2025</td><td>Nine Schedule K-1s and Forms 8805 for partner no. 27 (two versions for 2022).</td></tr>
+  <tr><td>EB-5 Investor Letter.pdf</td><td class="date">c. May 2021</td><td>MDRC letter announcing TSH's Chapter 11 (text version of the letter also in the Service Agreement file).</td></tr>
+  <tr><td>Source Hotel - BOH 2 - Consent to Appointment of Special Manager 8 13 21 v2.pdf</td><td class="date">13 Aug 2021</td><td>Form written consent appointing Jian Hua as special manager of BOH2.</td></tr>
+  <tr><td>BOH Letter - 8NBOH3.pdf</td><td class="date">20 Aug 2021</td><td>MDRC letter to BOH3 investors: 85% complete, $45M needed, auction 30 Sep, request for more capital.</td></tr>
+  <tr><td>Edward Wu letter to investors 9-3-21.doc</td><td class="date">3 Sep 2021</td><td>Reid &amp; Wise email to all EB-5 investors (English and Chinese).</td></tr>
+  <tr><td>Donald Chae-Voluntary BK petition-10_3_21_BK Pett.pdf</td><td class="date">3 Oct 2021</td><td>Chapter 11 petition with creditor matrix listing BOH1/2/3.</td></tr>
+  <tr><td>MDRC_Hotel Letter.pdf</td><td class="date">26 Oct 2021</td><td>MDRC notice of foreclosure, Donald's bankruptcy, Min's death.</td></tr>
+  <tr><td>Donald Chae Disclosure Stmt (1).pdf</td><td class="date">10 Mar 2023</td><td>First Amended Disclosure Statement, 224 pp., including organizational chart and Class 7 claims list.</td></tr>
+  <tr><td>Donald Chae Plan (1).pdf</td><td class="date">10 Mar 2023</td><td>First Amended Plan of Reorganization, 71 pp.</td></tr>
+  <tr><td>Smiley Wang-Ekvall LLP.pdf; Donald chae-bk-notice on hearing.pdf</td><td class="date">10 Mar 2023</td><td>Notice of confirmation hearing and deadlines (two copies).</td></tr>
+  <tr><td>Donald Chae-Summary_CM_ECF ….pdf</td><td class="date">to 30 May 2023</td><td>PACER docket report, 38 pp.</td></tr>
+  <tr><td>BOH - Settlement Agreement - Signed by Chae (Bank Account Redacted).pdf</td><td class="date">Mar 2024</td><td>Settlement Agreement, Promissory Note, Junior Deed of Trust, Exhibit C list of released affiliates.</td></tr>
+  <tr><td>Request refund letter-BOH3-Duong Van CHAU.pdf</td><td class="date">2 Apr 2024</td><td>Mr. Chau's refund demand to MDRC.</td></tr>
+  <tr><td>Letter to Duong Van Chau ….pdf</td><td class="date">23 Jul 2024</td><td>Womble Bond Dickinson reply redirecting him to the special manager.</td></tr>
+  <tr><td>MD-BOH2 - Letter 9 10 24 to Investors-EDW LAW FIRM (1).pdf</td><td class="date">10 Sep 2024</td><td>EDW Firm accounting and ballot to BOH2 investors.</td></tr>
+</table>
+
+<p class="small">Prepared from documents supplied by the client. Figures derived from OCR of scanned pages were verified against typed documents where available. Amounts in the settlement waterfall and the per-investor estimate are approximations and depend on facts not in the file.</p>
+
+</div>
+</body>
+</html>

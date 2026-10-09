@@ -4,6 +4,15 @@
       "path": "PDF"
     },
     {
+      "path": "Docs"
+    },
+    {
+      "path": "TrueCare"
+    },
+    {
+      "path": "WAN"
+    },
+    {
       "path": "HTML"
     }
   ],

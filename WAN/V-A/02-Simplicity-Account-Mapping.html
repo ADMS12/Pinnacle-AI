@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplicity Account Mapping</title>
+<meta name="description" content="Incoming accounts and proposed Charles Schwab accounts as stated in the Simplicity Wealth proposal for Vanessa Adraneda dated September 18, 2026.">
+<style>
+:root{--bg:#fcfcfb;--panel:#ffffff;--panel2:#f3f3f1;--border:#dedcd6;--text:#0b0b0b;--muted:#52514e;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--grey:#b9b7b0;--bad:#e34948;--axis:#8a8880}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1a1a19;--panel:#222221;--panel2:#2a2a28;--border:#3a3a37;--text:#ffffff;--muted:#c3c2b7;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--grey:#6b6a64;--bad:#e66767;--axis:#8a8880}}
+:root[data-theme="dark"]{--bg:#1a1a19;--panel:#222221;--panel2:#2a2a28;--border:#3a3a37;--text:#ffffff;--muted:#c3c2b7;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--grey:#6b6a64;--bad:#e66767;--axis:#8a8880}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 16px 72px}
+.kicker{color:var(--s1);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.3rem;margin:2em 0 .5em;padding-top:.5em;border-top:1px solid var(--border)}
+p,li{max-width:78ch}.byline{color:var(--muted);margin:0 0 1em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:1em 0}.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px}.card .v{font-size:1.45rem;font-weight:700;white-space:nowrap}.card .l{color:var(--muted);font-size:.85rem}
+figure{margin:1.2em 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}figure svg{display:block;width:100%;height:auto}figcaption{color:var(--muted);font-size:.85rem;padding-top:8px}
+table{border-collapse:collapse;width:100%;margin:.6em 0 1.2em;font-size:.9rem}th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}th{background:var(--panel2)}
+td.num,th.num{text-align:right;white-space:nowrap}td.mono{font-family:ui-monospace,Consolas,monospace;font-size:.86rem;white-space:nowrap}
+tr.tot td{font-weight:700;border-top:2px solid var(--axis)}
+.note{background:var(--panel2);border:1px solid var(--border);border-left:4px solid var(--s2);border-radius:8px;padding:12px 16px;margin:1em 0}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">WAN · V-A · 02</div>
+<h1>Simplicity proposal: incoming accounts and proposed Schwab accounts</h1>
+<p class="byline">As stated in the Simplicity Request Summary (case 00117022, created September 18, 2026) and the Simplicity Investment Proposal dated September 18, 2026, asset mapping pages 18 to 20. Compiled October 7, 2026.</p>
+
+<p>Simplicity proposes to move eight incoming accounts totaling $1,147,325 into six accounts in custody at Charles Schwab, under a 1.24% advisory fee, with all incoming positions liquidated. Three incoming accounts in Vanessa's name are merged into one Schwab individual account. No Schwab account numbers have been assigned yet; the proposal was rejected twice internally on September 18 for allocation adjustments.</p>
+
+<div class="cards">
+<div class="card"><div class="v">8 → 6</div><div class="l">Incoming accounts into proposed Schwab accounts</div></div>
+<div class="card"><div class="v">$1,147,325</div><div class="l">Total proposed portfolio (proposal page 5)</div></div>
+<div class="card"><div class="v">1.24%</div><div class="l">Client advisory fee; current fee 0.00%</div></div>
+<div class="card"><div class="v">76</div><div class="l">Risk score on every account; all Growth, Active</div></div>
+</div>
+
+<h2>Mapping diagram</h2>
+<figure>
+<svg viewBox="0 0 1000 640" role="img" aria-label="Eight incoming accounts on the left mapped to six proposed Schwab accounts on the right, with amounts" font-size="12">
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--axis)"/></marker></defs>
+  <text x="30" y="28" font-size="14" font-weight="700" fill="var(--text)">Incoming (as Simplicity lists them)</text>
+  <text x="640" y="28" font-size="14" font-weight="700" fill="var(--text)">Proposed at Charles Schwab</text>
+  <!-- left boxes: x=30 w=300 h=50 -->
+  <g>
+    <rect x="30" y="50" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="70" fill="var(--text)" font-weight="600">Business Account</text><text x="42" y="88" fill="var(--muted)">Business · custodian not stated · $300,000</text>
+    <rect x="30" y="120" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="140" fill="var(--text)" font-weight="600">Robinhood Child Savings x3365</text><text x="42" y="158" fill="var(--muted)">UGMA · Vanessa guardian, Luke minor · $20,065</text>
+    <rect x="30" y="190" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="210" fill="var(--text)" font-weight="600">Savings for Luke</text><text x="42" y="228" fill="var(--muted)">Individual · Vanessa · custodian not stated · $106,000</text>
+    <rect x="30" y="260" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="280" fill="var(--text)" font-weight="600">SEP-IRA</text><text x="42" y="298" fill="var(--muted)">SEP IRA · Vanessa · E*TRADE · $254,706</text>
+    <rect x="30" y="330" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="350" fill="var(--text)" font-weight="600">Trust Account</text><text x="42" y="368" fill="var(--muted)">Trust · Vanessa trustee · Centier · $200,000</text>
+    <rect x="30" y="400" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="420" fill="var(--text)" font-weight="600">eTrade Individual x228</text><text x="42" y="438" fill="var(--muted)">Individual · Vanessa · E*TRADE · $11,000</text>
+    <rect x="30" y="470" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="490" fill="var(--text)" font-weight="600">Robinhood Checking</text><text x="42" y="508" fill="var(--muted)">Individual · Vanessa · Robinhood · $35,000</text>
+    <rect x="30" y="540" width="300" height="50" rx="8" fill="var(--panel2)" stroke="var(--border)"/><text x="42" y="560" fill="var(--text)" font-weight="600">Taxable Investment (Robinhood)</text><text x="42" y="578" fill="var(--muted)">Individual · Vanessa · Robinhood · $220,554</text>
+  </g>
+  <!-- right boxes: x=640 w=330 -->
+  <g>
+    <rect x="640" y="50" width="330" height="50" rx="8" fill="var(--s1)" fill-opacity="0.12" stroke="var(--s1)" stroke-width="1.5"/><text x="652" y="70" fill="var(--text)" font-weight="600">Business · $300,000</text><text x="652" y="88" fill="var(--muted)">Indexing Series 80-20 (S&amp;P 500 80% / CTMRX 20%)</text>
+    <rect x="640" y="120" width="330" height="50" rx="8" fill="var(--s2)" fill-opacity="0.12" stroke="var(--s2)" stroke-width="1.5"/><text x="652" y="140" fill="var(--text)" font-weight="600">Uniform Gift to Minors · $20,065</text><text x="652" y="158" fill="var(--muted)">Avantis Moderate Growth ETF 100%</text>
+    <rect x="640" y="190" width="330" height="50" rx="8" fill="var(--s1)" fill-opacity="0.12" stroke="var(--s1)" stroke-width="1.5"/><text x="652" y="210" fill="var(--text)" font-weight="600">Individual ("Savings for Luke") · $106,000</text><text x="652" y="228" fill="var(--muted)">Simplicity Large Cap (S&amp;P 500) 100%</text>
+    <rect x="640" y="260" width="330" height="50" rx="8" fill="var(--s1)" fill-opacity="0.12" stroke="var(--s1)" stroke-width="1.5"/><text x="652" y="280" fill="var(--text)" font-weight="600">SEP IRA (Qualified) · $254,706</text><text x="652" y="298" fill="var(--muted)">Avantis Moderate Growth ETF 100%</text>
+    <rect x="640" y="330" width="330" height="50" rx="8" fill="var(--s3)" fill-opacity="0.12" stroke="var(--s3)" stroke-width="1.5"/><text x="652" y="350" fill="var(--text)" font-weight="600">Trust · $200,000</text><text x="652" y="368" fill="var(--muted)">Indexing Series 80-20 (S&amp;P 500 80% / CTMRX 20%)</text>
+    <rect x="640" y="470" width="330" height="50" rx="8" fill="var(--s1)" fill-opacity="0.12" stroke="var(--s1)" stroke-width="1.5"/><text x="652" y="490" fill="var(--text)" font-weight="600">Merged Individual Account · $266,554</text><text x="652" y="508" fill="var(--muted)">Simplicity Large Cap (S&amp;P 500) 100%</text>
+  </g>
+  <!-- arrows -->
+  <line x1="330" y1="75" x2="636" y2="75" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="330" y1="145" x2="636" y2="145" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="330" y1="215" x2="636" y2="215" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="330" y1="285" x2="636" y2="285" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="330" y1="355" x2="636" y2="355" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M330,425 L480,425 L480,495 L636,495" fill="none" stroke="var(--axis)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M330,495 L480,495" fill="none" stroke="var(--axis)" stroke-width="1.5"/>
+  <path d="M330,565 L480,565 L480,495" fill="none" stroke="var(--axis)" stroke-width="1.5"/>
+  <text x="485" y="480" fill="var(--muted)" font-size="11">three accounts merge</text>
+  <text x="30" y="625" fill="var(--muted)">Total incoming $1,147,325 = total proposed $1,147,325. Liquidate: Yes on all accounts.</text>
+</svg>
+<figcaption>Source: proposal pages 7 to 9 (Proposed Account Breakdown) and 18 to 20 (Asset Mapping). Account names on the left are Simplicity's labels, not the names on the statements.</figcaption>
+</figure>
+
+<h2>Incoming accounts as listed by Simplicity</h2>
+<table>
+<thead><tr><th>Simplicity label</th><th>Registration</th><th>Owner</th><th>Custodian (per proposal)</th><th>Account no. given</th><th class="num">Request summary</th><th class="num">Proposal amount</th></tr></thead>
+<tbody>
+<tr><td>Business Account</td><td>Business</td><td>Vanessa Adraneda</td><td>Not stated</td><td class="mono">none</td><td class="num">$300,000.00</td><td class="num">$300,000</td></tr>
+<tr><td>Robinhood Child Savings x3365</td><td>Uniform Gift to Minors Account</td><td>Guardian Vanessa Adraneda; minor Luke Adraneda</td><td>Robinhood</td><td class="mono">x3365</td><td class="num">$20,065.00</td><td class="num">$20,065</td></tr>
+<tr><td>Savings for Luke</td><td>Individual</td><td>Vanessa Adraneda</td><td>Not stated</td><td class="mono">none</td><td class="num">$106,000.00</td><td class="num">$106,000</td></tr>
+<tr><td>SEP-IRA</td><td>SEP IRA</td><td>Vanessa Adraneda</td><td>E*TRADE</td><td class="mono">none</td><td class="num">$254,705.96</td><td class="num">$254,706</td></tr>
+<tr><td>Trust Account</td><td>Trust</td><td>Vanessa Adraneda, trustee</td><td>Centier</td><td class="mono">none</td><td class="num">$212,000.00</td><td class="num">$200,000</td></tr>
+<tr><td>eTrade Individual x228</td><td>Individual</td><td>Vanessa Adraneda</td><td>E*TRADE</td><td class="mono">x228</td><td class="num">$11,000.00</td><td class="num">$11,000</td></tr>
+<tr><td>Robinhood Checking</td><td>Individual</td><td>Vanessa Adraneda</td><td>Robinhood</td><td class="mono">none</td><td class="num">$35,000.00</td><td class="num">$35,000</td></tr>
+<tr><td>Taxable Investment (Robinhood)</td><td>Individual</td><td>Vanessa Adraneda</td><td>Robinhood</td><td class="mono">none</td><td class="num">$220,553.58</td><td class="num">$220,554</td></tr>
+<tr class="tot"><td colspan="5">Total</td><td class="num">$1,159,324.54</td><td class="num">$1,147,325</td></tr>
+</tbody>
+</table>
+<p>The request summary and the proposal differ only on the Trust Account, $212,000 against $200,000. Every account carries the same settings in the request summary: risk score 76, Growth portfolio focus, Active management, Tax Sensitive tax management except the SEP-IRA, which is marked Taxable.</p>
+
+<h2>Proposed Schwab accounts</h2>
+<table>
+<thead><tr><th>Proposed account</th><th>Registration</th><th>Owner / title</th><th>Custodian</th><th>Schwab account no.</th><th>Model</th><th class="num">Amount</th><th>Funded from</th></tr></thead>
+<tbody>
+<tr><td>Business Account</td><td>Business</td><td>Vanessa Adraneda</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Simplicity Indexing Series 80-20: Simplicity Large Cap (S&amp;P 500) 80%, Columbia Intermediate Duration Muni Bond Inst2 (CTMRX) 20%</td><td class="num">$300,000</td><td>Business Account</td></tr>
+<tr><td>Robinhood Child Savings x3365</td><td>Uniform Gift to Minors Account</td><td>Guardian Vanessa Adraneda; minor Luke Adraneda</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Avantis Moderate Growth ETF 100%</td><td class="num">$20,065</td><td>Robinhood Child Savings x3365</td></tr>
+<tr><td>Savings for Luke</td><td>Individual</td><td>Vanessa Adraneda</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Simplicity Large Cap (S&amp;P 500) 100%</td><td class="num">$106,000</td><td>Savings for Luke</td></tr>
+<tr><td>SEP-IRA</td><td>SEP IRA (Qualified)</td><td>Vanessa Adraneda</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Avantis Moderate Growth ETF 100%</td><td class="num">$254,706</td><td>SEP-IRA at E*TRADE</td></tr>
+<tr><td>Trust Account</td><td>Trust</td><td>Vanessa Adraneda, trustee</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Simplicity Indexing Series 80-20</td><td class="num">$200,000</td><td>Trust Account at Centier</td></tr>
+<tr><td>Merged Individual Account</td><td>Individual</td><td>Vanessa Adraneda</td><td>Charles Schwab</td><td class="mono">not yet assigned</td><td>Simplicity Large Cap (S&amp;P 500) 100%</td><td class="num">$266,554</td><td>eTrade Individual x228 ($11,000) + Robinhood Checking ($35,000) + Taxable Investment Robinhood ($220,554)</td></tr>
+<tr class="tot"><td colspan="6">Total proposed</td><td class="num">$1,147,325</td><td></td></tr>
+</tbody>
+</table>
+
+<h2>Proposed allocation, household</h2>
+<table>
+<thead><tr><th>Asset class</th><th class="num">Current</th><th class="num">Proposed</th></tr></thead>
+<tbody>
+<tr><td>Cash / money market</td><td class="num">60.01%</td><td class="num">0.47%</td></tr>
+<tr><td>Domestic equity</td><td class="num">35.63%</td><td class="num">80.69%</td></tr>
+<tr><td>Domestic fixed income</td><td class="num">0.00%</td><td class="num">11.79%</td></tr>
+<tr><td>International equity</td><td class="num">0.00%</td><td class="num">3.60%</td></tr>
+<tr><td>Emerging markets equity</td><td class="num">1.26%</td><td class="num">1.86%</td></tr>
+<tr><td>International fixed income</td><td class="num">0.00%</td><td class="num">1.24%</td></tr>
+<tr><td>Alternative</td><td class="num">2.96%</td><td class="num">0.34%</td></tr>
+<tr><td>Other</td><td class="num">0.14%</td><td class="num">0.00%</td></tr>
+</tbody>
+</table>
+
+<div class="note"><b>Status in Simplicity's system.</b> Case owner Hien Matthew Wu noted "Client has ~1M in available funds for management." Reviewer Matthew McCormack rejected the case twice on September 18, 2026: "adjust SEP allocation" at 5:09 PM and "double check allocations" at 6:23 PM. The proposal PDF uploaded at 6:25 PM is the version reviewed here. Attachments on the case are the seven statements in the V-A folder (the 2020 E*TRADE statement and the second SEP-IRA copy are not attached).</div>
+
+<footer>Sources: Vanessa Adraneda - Simplicity Request Summary.pdf (3 pages); Vanessa Adraneda - Simplicity Investment Proposal - 09-18-2026.pdf (86 pages), pages 5, 7 to 20. Figures are quoted as printed; Simplicity rounds proposal amounts to whole dollars.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>H-Le Simplicity Proposal Comparison</title><style>
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:#fff; color:#0b0b0b; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-size: 11.5px; line-height:1.45; }
+.page { width: 8.5in; height: 11in; padding: 0.55in 0.6in 0.5in; page-break-after: always; position: relative; overflow:hidden; }
+.page:last-child { page-break-after: auto; }
+h1 { font-size: 26px; margin: 0 0 4px; letter-spacing:-0.3px; color:#0d366b; }
+h2 { font-size: 17px; margin: 0 0 8px; color:#0d366b; }
+h3 { font-size: 12px; margin: 12px 0 5px; color:#0b0b0b; text-transform: uppercase; letter-spacing: .6px; }
+p { margin: 0 0 8px; }
+.kicker { font-size: 11px; color:#52514e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.sub { color:#52514e; font-size: 12px; margin-bottom: 14px; }
+.row { display:flex; gap: 16px; }
+.col { flex:1; min-width:0; }
+.tiles { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0 12px; }
+.tile { background:#f4f3ef; border-radius: 8px; padding: 10px 12px; }
+.tile .v { font-size: 20px; font-weight: 700; color:#0b0b0b; line-height:1.1; }
+.tile .l { font-size: 10.5px; color:#52514e; margin-top: 4px; }
+.tile.a { border-left: 5px solid #2a78d6; } .tile.b { border-left: 5px solid #eb6834; } .tile.c { border-left: 5px solid #1baf7a; }
+table { width:100%; border-collapse: collapse; font-size: 11px; }
+th, td { padding: 4px 7px; border-bottom: 1px solid #e2e1dc; text-align: right; vertical-align: top; }
+th:first-child, td:first-child { text-align:left; }
+th { background:#f4f3ef; color:#52514e; font-weight:600; font-size: 10.5px; }
+.good { color:#008300; font-weight:700; } .bad { color:#e34948; font-weight:700; }
+.verdict { background:#eef4fc; border-left: 5px solid #2a78d6; border-radius: 6px; padding: 12px 14px; margin: 12px 0; }
+.verdict b { color:#0d366b; }
+.card { border:1px solid #e2e1dc; border-radius: 8px; padding: 10px 12px; }
+.card.a { border-top: 5px solid #2a78d6; } .card.b { border-top: 5px solid #eb6834; }
+.card h4 { margin: 0 0 4px; font-size: 13px; }
+.card ul { margin: 4px 0 0 16px; padding:0; } .card li { margin-bottom: 3px; }
+ul.tight { margin: 4px 0 8px 18px; padding:0; } ul.tight li { margin-bottom: 4px; }
+.foot { position:absolute; bottom: 0.35in; left:0.6in; right:0.6in; font-size: 9.5px; color:#8a8984; display:flex; justify-content:space-between; border-top:1px solid #e2e1dc; padding-top:5px; }
+.ill { width: 2.2in; flex: none; }
+.note { font-size: 10px; color:#52514e; }
+.small { font-size: 10.5px; }
+.chip { display:inline-block; padding:1px 7px; border-radius: 10px; font-size:10px; font-weight:700; color:#fff; }
+.chip.a { background:#2a78d6; } .chip.b { background:#eb6834; }
+td.l { text-align:left; }
+table.compact th, table.compact td { padding: 3px 6px; }
+</style></head><body>
+<div class="page">
+ <div class="row">
+  <div class="col">
+   <div class="kicker">Rollover IRA $1,180,000 · Roth IRA $30,100 · NAC annuity $64,650</div>
+   <h1>Two Simplicity proposals for Huong Le</h1>
+   <div class="sub">Comparing the October 6 proposal (Multi-Manager Aggressive) with the October 8 revision (State Street Moderate Growth) on fees, potential gain, and risk, against the current Merrill accounts. Both move the two Merrill IRAs to Charles Schwab under Simplicity Wealth. The annuity is unchanged in both. Revised October 9 with the advisory fee at 0.92% instead of the printed 1.60%.</div>
+  </div>
+  <div class="ill"><svg viewBox="0 0 320 200" width="100%" role="img" aria-label="Two roads leading from one point toward two flags">
+<rect x="0" y="150" width="320" height="50" fill="#dfeaf8"/>
+<circle cx="256" cy="46" r="22" fill="#eda100"/>
+<path d="M30 170 C 110 150, 150 90, 250 70" stroke="#2a78d6" stroke-width="14" fill="none" stroke-linecap="round"/>
+<path d="M30 170 C 120 170, 170 130, 280 125" stroke="#eb6834" stroke-width="14" fill="none" stroke-linecap="round"/>
+<circle cx="30" cy="170" r="12" fill="#0d366b"/>
+<rect x="250" y="40" width="3" height="34" fill="#0d366b"/><path d="M253 40 l 28 8 l -28 8 z" fill="#2a78d6"/>
+<rect x="280" y="95" width="3" height="34" fill="#0d366b"/><path d="M283 95 l 28 8 l -28 8 z" fill="#eb6834"/>
+<circle cx="70" cy="60" r="14" fill="#fff"/><circle cx="86" cy="60" r="18" fill="#fff"/><circle cx="104" cy="60" r="12" fill="#fff"/><rect x="56" y="60" width="60" height="12" fill="#fff"/>
+</svg></div>
+ </div>
+ <div class="tiles">
+  <div class="tile a"><div class="v">1.30%</div><div class="l">Proposal A all-in cost on the IRAs · $15,722 a year</div></div>
+  <div class="tile b"><div class="v">0.98%</div><div class="l">Proposal B all-in cost on the IRAs · $11,898 a year</div></div>
+  <div class="tile c"><div class="v">1.23%</div><div class="l">Today at Merrill, estimated · $14,884 a year</div></div>
+  <div class="tile a"><div class="v">11.3%</div><div class="l">A: 5-year hypothetical return a year, net of the 0.92% fee (07/2021–06/2026); B 6.8%, Merrill proxy 9.3%</div></div>
+ </div>
+ <div class="row">
+  <div class="col card a"><h4><span class="chip a">A</span> October 6 · Multi-Manager Aggressive</h4>
+   <ul class="small">
+    <li><b>Rollover IRA:</b> seven sleeves. Bridgeway Blue Chip stocks 29%, Avantis International ETF 27%, Horizon Upside Plus small/mid stocks 16%, First Trust buffer ETF 11%, First Trust alternatives 10%, Avantis Emerging Markets 5%, global REIT 2%.</li>
+    <li><b>Roth IRA:</b> BlackRock Target Allocation 80/20 (iShares ETFs).</li>
+    <li>Household mix: 72% stocks, 18% alternatives, 3% bonds, 5% annuity.</li>
+   </ul></div>
+  <div class="col card b"><h4><span class="chip b">B</span> October 8 · SSGA Moderate Growth</h4>
+   <ul class="small">
+    <li><b>Both IRAs:</b> one State Street Strategic Asset Allocation ETF model (75/25). SPDR S&P 500 32%, developed ex-US 17%, aggregate bond 15%, emerging markets 9%, mid and small cap 10%, plus other bonds, real estate, commodities.</li>
+    <li>All index ETFs, 0.06% weighted expense ratio.</li>
+    <li>Household mix: 67% stocks, 24% bonds, 2% alternatives, 5% annuity.</li>
+   </ul></div>
+ </div>
+ <div class="verdict">
+  <b>Recommendation: Proposal A (October 6) at the 0.92% advisory rate.</b> Huong is 43 with a 20-plus-year horizon and currently holds 95% stocks. Proposal A keeps a growth posture, adds real diversifiers, and its sleeves beat their benchmark on every period with 82% downside capture. At 0.92% its all-in cost is within $838 a year of what she pays Merrill today, so the move is close to cost-neutral. Proposal B is cheaper still, about $2,986 a year below Merrill, and simpler, but it is a 75/25 index model that trails its own benchmark after fees, cuts stock exposure by nearly 30 points from today, and still fell 22% in 2022. Choose B only if the October 8 revision reflects Huong asking for less risk. In that case her tolerance, not the numbers, decides.
+ </div>
+ <h3>What to watch in either case</h3>
+ <ul class="tight small">
+  <li><b>The 0.92% rate changes the cost picture.</b> At the printed 1.60%, both proposals cost $5,000 to $9,000 a year more than Merrill. At 0.92%, A costs about the same as today and B costs less. Get the 0.92% in the signed advisory agreement, with the tier schedule, before any transfer.</li>
+  <li><b>Hypothetical returns are a backtest</b> of the 2021 to 2026 window, which favored US mega-cap growth and international value. Simplicity printed them net of a 1.60% fee; this report restates them at 0.92% by adding 0.68% a year. They do not reflect actual trading.</li>
+  <li><b>The Merrill comparison is a proxy.</b> Simplicity did not back-test the current holdings and the full Merrill fund list was not available, so the current accounts are represented by a 95% global stock, 5% bond index mix less the 1.23% she pays today. Her actual 2026 result through August is 13.7% net.</li>
+  <li><b>The annuity is a wash.</b> The NAC VersaChoice 10 was issued March 2026 and carries a $4,371 surrender charge, so it stays in place under both proposals.</li>
+ </ul>
+ <div class="foot"><span>Huong Le · Simplicity proposal comparison · October 9, 2026, revised at a 0.92% advisory fee · Pinnacle Planning</span><span>Page 1 of 5</span></div>
+</div>
+<div class="page">
+ <div class="kicker">Section 1</div><h2>What each proposal holds</h2>
+ <p class="small">Household allocation as printed in each proposal, beside the August 2026 Merrill statements. The annuity is counted in both proposals; Merrill's bar shows only the two IRAs.</p>
+ <svg viewBox="0 0 800 185" width="100%" font-family="Segoe UI, Arial, sans-serif"><text x="140" y="30.0" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Today (Merrill IRAs)</text><rect x="150.0" y="12" width="407.2" height="26" rx="3" fill="#1c5cab"><title>Today (Merrill IRAs): US equity 66.0%</title></rect><text x="354.6" y="29.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">66%</text><rect x="559.2" y="12" width="134.4" height="26" rx="3" fill="#5598e7"><title>Today (Merrill IRAs): International equity 22.0%</title></rect><text x="627.4" y="29.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">22%</text><rect x="695.6" y="12" width="41.4" height="26" rx="3" fill="#9ec5f4"><title>Today (Merrill IRAs): Emerging markets 7.0%</title></rect><text x="717.3" y="29.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">7%</text><rect x="739.0" y="12" width="21.6" height="26" rx="3" fill="#1baf7a"><title>Today (Merrill IRAs): Fixed income 3.8%</title></rect><rect x="762.6" y="12" width="5.4" height="26" rx="3" fill="#bdbcb5"><title>Today (Merrill IRAs): Cash & multi-asset 1.2%</title></rect><text x="140" y="74.0" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Proposal A · Oct 6</text><rect x="150.0" y="56" width="259.0" height="26" rx="3" fill="#1c5cab"><title>Proposal A · Oct 6: US equity 42.1%</title></rect><text x="280.5" y="73.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">42%</text><rect x="411.0" y="56" width="154.7" height="26" rx="3" fill="#5598e7"><title>Proposal A · Oct 6: International equity 25.3%</title></rect><text x="489.4" y="73.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">25%</text><rect x="567.8" y="56" width="27.4" height="26" rx="3" fill="#9ec5f4"><title>Proposal A · Oct 6: Emerging markets 4.8%</title></rect><rect x="597.2" y="56" width="111.4" height="26" rx="3" fill="#eb6834"><title>Proposal A · Oct 6: Alternatives 18.3%</title></rect><text x="653.9" y="73.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">18%</text><rect x="710.6" y="56" width="13.6" height="26" rx="3" fill="#1baf7a"><title>Proposal A · Oct 6: Fixed income 2.5%</title></rect><rect x="726.2" y="56" width="10.3" height="26" rx="3" fill="#bdbcb5"><title>Proposal A · Oct 6: Cash & multi-asset 2.0%</title></rect><rect x="738.6" y="56" width="29.4" height="26" rx="3" fill="#eda100"><title>Proposal A · Oct 6: Annuity 5.1%</title></rect><text x="140" y="118.0" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Proposal B · Oct 8</text><rect x="150.0" y="100" width="245.2" height="26" rx="3" fill="#1c5cab"><title>Proposal B · Oct 8: US equity 39.9%</title></rect><text x="273.6" y="117.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">40%</text><rect x="397.2" y="100" width="115.7" height="26" rx="3" fill="#5598e7"><title>Proposal B · Oct 8: International equity 19.0%</title></rect><text x="456.1" y="117.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">19%</text><rect x="514.9" y="100" width="48.0" height="26" rx="3" fill="#9ec5f4"><title>Proposal B · Oct 8: Emerging markets 8.1%</title></rect><text x="539.9" y="117.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">8%</text><rect x="565.0" y="100" width="9.8" height="26" rx="3" fill="#eb6834"><title>Proposal B · Oct 8: Alternatives 1.9%</title></rect><rect x="576.7" y="100" width="148.1" height="26" rx="3" fill="#1baf7a"><title>Proposal B · Oct 8: Fixed income 24.2%</title></rect><text x="651.8" y="117.0" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">24%</text><rect x="726.8" y="100" width="9.8" height="26" rx="3" fill="#bdbcb5"><title>Proposal B · Oct 8: Cash & multi-asset 1.9%</title></rect><rect x="738.6" y="100" width="29.4" height="26" rx="3" fill="#eda100"><title>Proposal B · Oct 8: Annuity 5.1%</title></rect><rect x="60" y="150" width="12" height="12" rx="2" fill="#1c5cab"/><text x="76" y="160" font-size="10.5" fill="#52514e">US equity</text><rect x="136.6" y="150" width="12" height="12" rx="2" fill="#5598e7"/><text x="152.6" y="160" font-size="10.5" fill="#52514e">International equity</text><rect x="272.6" y="150" width="12" height="12" rx="2" fill="#9ec5f4"/><text x="288.6" y="160" font-size="10.5" fill="#52514e">Emerging markets</text><rect x="387.0" y="150" width="12" height="12" rx="2" fill="#eb6834"/><text x="403.0" y="160" font-size="10.5" fill="#52514e">Alternatives</text><rect x="479.8" y="150" width="12" height="12" rx="2" fill="#1baf7a"/><text x="495.8" y="160" font-size="10.5" fill="#52514e">Fixed income</text><rect x="572.6" y="150" width="12" height="12" rx="2" fill="#bdbcb5"/><text x="588.6" y="160" font-size="10.5" fill="#52514e">Cash & multi-asset</text><rect x="697.8000000000001" y="150" width="12" height="12" rx="2" fill="#eda100"/><text x="713.8000000000001" y="160" font-size="10.5" fill="#52514e">Annuity</text></svg>
+ <h3>Proposal A: seven managers in one account</h3>
+ <table>
+  <tr><th>Sleeve</th><th>Weight</th><th style="text-align:left">What it is</th><th>Expense</th></tr>
+  <tr><td>Bridgeway Blue Chip</td><td>29.1%</td><td class="l">About 37 US mega-cap stocks, roughly equal weight, held directly</td><td>none</td></tr>
+  <tr><td>Avantis International (AVDE)</td><td>26.9%</td><td class="l">Developed ex-US stocks with a value and profitability tilt; 1-yr +44.7%, 5-yr 10.6%</td><td>0.23%</td></tr>
+  <tr><td>Horizon Upside Plus SMID</td><td>16.4%</td><td class="l">About 25 small and mid-cap stock picks on a 12-month view, 3.7% each</td><td>none</td></tr>
+  <tr><td>FT Cboe Vest Buffer (BUFR)</td><td>10.6%</td><td class="l">Laddered S&P 500 buffer ETFs; first 10% of loss cushioned, upside capped</td><td>1.05%</td></tr>
+  <tr><td>First Trust Alternatives</td><td>9.6%</td><td class="l">Managed futures, long/short equity, commodities, short-duration bonds</td><td>~1.0%</td></tr>
+  <tr><td>Avantis Emerging Markets (AVEM)</td><td>5.1%</td><td class="l">Broad emerging-market stocks, value tilt</td><td>0.33%</td></tr>
+  <tr><td>iShares Global REIT (REET)</td><td>2.4%</td><td class="l">Global listed real estate</td><td>0.14%</td></tr>
+ </table>
+ <div class="row" style="margin-top:10px">
+  <div class="col">
+   <h3>Proposal B: one index model for both IRAs</h3>
+   <p class="small">State Street's Strategic Asset Allocation Moderate Growth model targets about 75% stocks and real assets and 25% bonds and cash, rebalanced yearly. Its public factsheet shows 19.1% for one year, 14.8% for three years, and 7.8% for five years to June 30, 2026 before the advisory fee, which lines up with the 6.1% net figure in the proposal. The weighted expense ratio is 0.06%.</p>
+   <h3>How they differ</h3>
+   <ul class="tight small">
+    <li><b>Stock exposure:</b> A keeps 72%, B drops to 67%, and the Merrill accounts hold 95% today. For a 43-year-old with no withdrawals planned, B is the more conservative posture by a wide margin.</li>
+    <li><b>Concentration:</b> 45% of A's Rollover IRA is in two lists of individual stocks. Each small-cap name in the Horizon sleeve is about $7,100 of her money. B holds thousands of stocks through index ETFs.</li>
+    <li><b>Transparency:</b> B can be checked against a public factsheet. A's blended result exists only in the proposal, because the mix is custom.</li>
+    <li><b>Roth IRA:</b> A gives the $30,100 Roth its own BlackRock 80/20 model. B uses the same 75/25 model as the Rollover. Either is fine at this size.</li>
+   </ul>
+  </div>
+  <div class="ill"><svg viewBox="0 0 320 200" width="100%" role="img" aria-label="A balance scale weighing coins against a shield">
+<rect x="150" y="60" width="20" height="110" rx="4" fill="#0d366b"/>
+<rect x="100" y="166" width="120" height="14" rx="6" fill="#0d366b"/>
+<rect x="40" y="52" width="240" height="10" rx="5" fill="#0d366b" transform="rotate(-6 160 57)"/>
+<line x1="70" y1="52" x2="70" y2="100" stroke="#52514e" stroke-width="3"/><line x1="250" y1="76" x2="250" y2="124" stroke="#52514e" stroke-width="3"/>
+<path d="M30 100 h80 l-8 26 h-64 z" fill="#2a78d6"/>
+<path d="M210 124 h80 l-8 26 h-64 z" fill="#eb6834"/>
+<ellipse cx="70" cy="92" rx="18" ry="6" fill="#eda100"/><ellipse cx="70" cy="84" rx="18" ry="6" fill="#eda100"/><ellipse cx="70" cy="76" rx="18" ry="6" fill="#eda100"/>
+<path d="M250 96 l 18 8 v 14 c 0 12 -8 20 -18 24 c -10 -4 -18 -12 -18 -24 v -14 z" fill="#1baf7a"/>
+</svg></div>
+ </div>
+ <div class="foot"><span>Huong Le · Simplicity proposal comparison · October 9, 2026, revised at a 0.92% advisory fee · Pinnacle Planning</span><span>Page 2 of 5</span></div>
+</div>
+<div class="page">
+ <div class="kicker">Section 2</div><h2>Fees</h2>
+ <p class="small">Simplicity prints fees blended across the whole household including the annuity, at a 1.60% advisory rate. The figures below are restated on the $1,210,100 that actually pays the fee, the two IRAs, at the 0.92% advisory rate now on the table for both proposals.</p>
+ <svg viewBox="0 0 800 168" width="100%" font-family="Segoe UI, Arial, sans-serif"><text x="160" y="30" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Today (Merrill, est.)</text><rect x="170.0" y="12" width="128.1" height="28" rx="3" fill="#1baf7a"><title>Today (Merrill, est.) adv 0.68%</title></rect><text x="235.0" y="30" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">0.68%</text><rect x="300.1" y="12" width="103.2" height="28" rx="3" fill="#bdbcb5"><title>Today (Merrill, est.) er 0.55%</title></rect><text x="352.7" y="30" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">0.55%</text><text x="413.3" y="30" font-size="12" fill="#0b0b0b" font-weight="700">1.23%  ·  $14,884 / yr</text><text x="160" y="74" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Proposal A · Oct 6</text><rect x="170.0" y="56" width="174.0" height="28" rx="3" fill="#2a78d6"><title>Proposal A · Oct 6 adv 0.92%</title></rect><text x="258.0" y="74" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">0.92%</text><rect x="346.0" y="56" width="16.1" height="28" rx="3" fill="#7a7974"><title>Proposal A · Oct 6 mgmt 0.09%</title></rect><rect x="364.1" y="56" width="52.4" height="28" rx="3" fill="#bdbcb5"><title>Proposal A · Oct 6 er 0.28%</title></rect><text x="391.3" y="74" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">0.28%</text><text x="426.5" y="74" font-size="12" fill="#0b0b0b" font-weight="700">1.30%  ·  $15,722 / yr</text><text x="160" y="118" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="600">Proposal B · Oct 8</text><rect x="170.0" y="100" width="174.0" height="28" rx="3" fill="#eb6834"><title>Proposal B · Oct 8 adv 0.92%</title></rect><text x="258.0" y="118" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">0.92%</text><rect x="346.0" y="100" width="10.1" height="28" rx="3" fill="#bdbcb5"><title>Proposal B · Oct 8 er 0.06%</title></rect><text x="366.1" y="118" font-size="12" fill="#0b0b0b" font-weight="700">0.98%  ·  $11,898 / yr</text><rect x="170" y="146" width="12" height="12" rx="2" fill="#52514e"/><text x="186" y="156" font-size="10.5" fill="#52514e">Advisory fee (billed)</text><rect x="320" y="146" width="12" height="12" rx="2" fill="#7a7974"/><text x="336" y="156" font-size="10.5" fill="#52514e">Strategist fee (billed)</text><rect x="480" y="146" width="12" height="12" rx="2" fill="#bdbcb5"/><text x="496" y="156" font-size="10.5" fill="#52514e">Fund expense ratios (inside returns)</text></svg>
+ <table style="margin-top:8px">
+  <tr><th>Annual cost line</th><th>Today at Merrill (est.)</th><th>Proposal A · Oct 6</th><th>Proposal B · Oct 8</th></tr>
+  <tr><td>Advisory fee, billed to the account</td><td>0.68% ($8,229)</td><td>0.92% ($11,133)</td><td>0.92% ($11,133)</td></tr>
+  <tr><td>Strategist (manager) fee, billed</td><td>none</td><td>0.09% ($1,147)</td><td>none</td></tr>
+  <tr><td>Fund expense ratios, inside returns</td><td>~0.55% ($6,656)</td><td>0.28% ($3,442)</td><td>0.06% ($765)</td></tr>
+  <tr><td><b>All-in</b></td><td><b>1.23% ($14,884)</b></td><td><b>1.30% ($15,722)</b></td><td><b>0.98% ($11,898)</b></td></tr>
+  <tr><td>Change versus today</td><td>—</td><td class="bad">+$838 a year</td><td class="good">−$2,986 a year</td></tr>
+  <tr><td>At the printed 1.60% rate, for reference</td><td></td><td>1.98% ($23,951)</td><td>1.66% ($20,126)</td></tr>
+  <tr><td>A minus B</td><td></td><td colspan="2" style="text-align:center"><b>$3,824 a year</b>, about $53,431 over ten years as the balance grows</td></tr>
+ </table>
+ <div class="row" style="margin-top:14px">
+  <div class="col">
+   <h3>Reading the fee stack</h3>
+   <ul class="tight small">
+    <li><b>0.92% is a good rate.</b> It is below the 1.00% to 1.25% that is typical on $1.2 million and well under the 1.60% printed in both proposals. The cut is worth $8,229 a year, more than twice the 0.32% product-cost gap between A and B.</li>
+    <li><b>Merrill's program fee is 0.85%</b> list, reduced to 0.70% or lower for Preferred Rewards members. Huong's statements show about 0.68% being deducted, so she already has the discount. Her real extra cost at Merrill is the active mutual funds, estimated at 0.55%.</li>
+    <li><b>Where A's extra cost sits:</b> the buffer ETF at 1.05% and the First Trust alternatives near 1.0% are 20% of the Rollover IRA. The individual-stock sleeves carry no fund expense but a 0.10% strategist fee.</li>
+    <li><b>Not in either table:</b> Schwab transaction or custody charges, and trading costs inside Horizon's 12-month stock list. Inside an IRA there is no tax cost to turnover.</li>
+   </ul>
+   <h3>Before signing</h3>
+   <p class="small">The proposals show a single blended rate. Ask Simplicity to reissue the fee page at 0.92% and to confirm whether the rate is flat or tiered, since a tiered schedule can drift back up if the household is split across registrations.</p>
+  </div>
+  <div class="ill"><svg viewBox="0 0 320 200" width="100%" role="img" aria-label="An umbrella over a jar of coins with rain">
+<path d="M60 90 Q 160 10 260 90 Z" fill="#2a78d6"/>
+<rect x="158" y="90" width="4" height="90" fill="#0d366b"/>
+<path d="M162 180 q 0 14 -14 14" stroke="#0d366b" stroke-width="4" fill="none"/>
+<rect x="110" y="120" width="100" height="70" rx="10" fill="#1baf7a"/>
+<ellipse cx="160" cy="150" rx="30" ry="7" fill="#eda100"/><ellipse cx="160" cy="162" rx="30" ry="7" fill="#eda100"/><ellipse cx="160" cy="174" rx="30" ry="7" fill="#eda100"/>
+<g fill="#9ec5f4"><rect x="20" y="20" width="4" height="16" rx="2"/><rect x="40" y="60" width="4" height="16" rx="2"/><rect x="290" y="30" width="4" height="16" rx="2"/><rect x="275" y="110" width="4" height="16" rx="2"/><rect x="30" y="120" width="4" height="16" rx="2"/><rect x="300" y="150" width="4" height="16" rx="2"/></g>
+</svg></div>
+ </div>
+ <div class="foot"><span>Huong Le · Simplicity proposal comparison · October 9, 2026, revised at a 0.92% advisory fee · Pinnacle Planning</span><span>Page 3 of 5</span></div>
+</div>
+<div class="page">
+ <div class="kicker">Section 3</div><h2>Potential gain</h2>
+ <p class="small">Simplicity's hypothetical returns for the Rollover IRA model, July 2021 to June 2026, restated net of the 0.92% advisory fee. The dashed tick is the benchmark Simplicity assigned to each model, with the same fee deducted.</p>
+ <svg viewBox="0 0 800 186" width="100%" font-family="Segoe UI, Arial, sans-serif"><line x1="70" x2="780" y1="140.0" y2="140.0" stroke="#e2e1dc"/><text x="62" y="144.0" text-anchor="end" font-size="11" fill="#8a8984">0%</text><line x1="70" x2="780" y1="99.3" y2="99.3" stroke="#e2e1dc"/><text x="62" y="103.3" text-anchor="end" font-size="11" fill="#8a8984">10%</text><line x1="70" x2="780" y1="58.6" y2="58.6" stroke="#e2e1dc"/><text x="62" y="62.6" text-anchor="end" font-size="11" fill="#8a8984">20%</text><rect x="118.33333333333331" y="37.0" width="64" height="103.0" rx="4" fill="#2a78d6"><title>1 year: 25.30% (benchmark 21.44%)</title></rect><rect x="118.33333333333331" y="136" width="64" height="4" fill="#2a78d6"/><text x="150.33333333333331" y="31.0" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">25.3%</text><line x1="114.33333333333331" x2="186.33333333333331" y1="52.7" y2="52.7" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><rect x="192.33333333333331" y="66.9" width="64" height="73.1" rx="4" fill="#eb6834"><title>1 year: 17.95% (benchmark 17.38%)</title></rect><rect x="192.33333333333331" y="136" width="64" height="4" fill="#eb6834"/><text x="224.33333333333331" y="60.9" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">17.9%</text><line x1="188.33333333333331" x2="260.3333333333333" y1="69.2" y2="69.2" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><text x="188.33333333333331" y="158" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="600">1 year</text><rect x="354.99999999999994" y="62.4" width="64" height="77.6" rx="4" fill="#2a78d6"><title>3 years: 19.06% (benchmark 16.06%)</title></rect><rect x="354.99999999999994" y="136" width="64" height="4" fill="#2a78d6"/><text x="386.99999999999994" y="56.4" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">19.1%</text><line x1="350.99999999999994" x2="422.99999999999994" y1="74.6" y2="74.6" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><rect x="428.99999999999994" y="84.5" width="64" height="55.5" rx="4" fill="#eb6834"><title>3 years: 13.64% (benchmark 14.60%)</title></rect><rect x="428.99999999999994" y="136" width="64" height="4" fill="#eb6834"/><text x="460.99999999999994" y="78.5" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">13.6%</text><line x1="424.99999999999994" x2="496.99999999999994" y1="80.6" y2="80.6" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><text x="424.99999999999994" y="158" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="600">3 years</text><rect x="591.6666666666666" y="93.8" width="64" height="46.2" rx="4" fill="#2a78d6"><title>5 years: 11.34% (benchmark 7.90%)</title></rect><rect x="591.6666666666666" y="136" width="64" height="4" fill="#2a78d6"/><text x="623.6666666666666" y="87.8" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">11.3%</text><line x1="587.6666666666666" x2="659.6666666666666" y1="107.8" y2="107.8" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><rect x="665.6666666666666" y="112.4" width="64" height="27.6" rx="4" fill="#eb6834"><title>5 years: 6.79% (benchmark 7.26%)</title></rect><rect x="665.6666666666666" y="136" width="64" height="4" fill="#eb6834"/><text x="697.6666666666666" y="106.4" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="700">6.8%</text><line x1="661.6666666666666" x2="733.6666666666666" y1="110.4" y2="110.4" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><text x="661.6666666666666" y="158" text-anchor="middle" font-size="12" fill="#0b0b0b" font-weight="600">5 years</text><rect x="70" y="172" width="12" height="12" rx="2" fill="#2a78d6"/><text x="86" y="182" font-size="11" fill="#52514e">Proposal A (Multi-Manager Aggressive)</text><rect x="320" y="172" width="12" height="12" rx="2" fill="#eb6834"/><text x="336" y="182" font-size="11" fill="#52514e">Proposal B (SSGA Moderate Growth)</text><line x1="560" x2="582" y1="178" y2="178" stroke="#0b0b0b" stroke-width="2" stroke-dasharray="4 3"/><text x="588" y="182" font-size="11" fill="#52514e">Assigned benchmark, same fee deducted</text></svg>
+ <table style="margin-top:2px">
+  <tr><th>Rollover IRA model, net of fee</th><th>YTD 2026</th><th>1 yr</th><th>3 yr</th><th>5 yr</th><th>10 yr</th><th>Volatility</th><th>Worst drop</th><th>Sharpe</th><th>Down capture</th><th>Yield</th></tr>
+  <tr><td><span class="chip a">A</span> Multi-Manager Aggressive</td><td>12.4%</td><td>25.3%</td><td>19.1%</td><td>11.3%</td><td>n/a</td><td>13.0%</td><td>-22.4%</td><td>2.20</td><td>82%</td><td>2.0%</td></tr>
+  <tr class="note"><td>&nbsp;&nbsp;its benchmark</td><td>9.5%</td><td>21.4%</td><td>16.1%</td><td>7.9%</td><td>n/a</td><td>13.7%</td><td>-24.6%</td><td>1.22</td><td>100%</td><td></td></tr>
+  <tr><td><span class="chip b">B</span> SSGA Moderate Growth</td><td>9.1%</td><td>17.9%</td><td>13.6%</td><td>6.8%</td><td>8.7%</td><td>12.2%</td><td>-22.5%</td><td>1.06</td><td>98%</td><td>2.6%</td></tr>
+  <tr class="note"><td>&nbsp;&nbsp;its benchmark (75% ACWI / 25% Agg)</td><td>8.1%</td><td>17.4%</td><td>14.6%</td><td>7.3%</td><td>9.0%</td><td>12.4%</td><td>-23.9%</td><td>1.16</td><td>100%</td><td></td></tr>
+  <tr class="note"><td>Roth under A: BlackRock 80/20</td><td>11.7%</td><td>22.2%</td><td>16.9%</td><td>9.5%</td><td>10.8%</td><td>13.2%</td><td>-22.3%</td><td>1.69</td><td>98%</td><td>1.7%</td></tr>
+ </table>
+ <h3 style="margin-top:6px">Potential gain model: the two proposals against the current Merrill accounts</h3>
+ <table class="compact">
+  <tr><th>Net of all fees, to June 30, 2026</th><th>All-in cost</th><th>YTD 2026</th><th>1 yr</th><th>3 yr</th><th>5 yr</th><th>10 yr</th><th>Gain on $1.21M at the 5-yr rate</th><th>Worst drop</th></tr>
+  <tr><td><span class="chip" style="background:#1baf7a">M</span> Today at Merrill (95/5 index proxy)</td><td>1.23%</td><td>13.7% actual</td><td>21.8%</td><td>17.8%</td><td>9.3%</td><td>11.1%</td><td>$112,176 a year</td><td>about -24%</td></tr>
+  <tr><td><span class="chip a">A</span> Multi-Manager Aggressive + BlackRock 80/20</td><td>1.30%</td><td>12.4%</td><td>25.3%</td><td>19.1%</td><td>11.3%</td><td>n/a</td><td>$136,678 a year</td><td>-22.4%</td></tr>
+  <tr><td><span class="chip b">B</span> SSGA Moderate Growth, both IRAs</td><td>0.98%</td><td>9.1%</td><td>17.9%</td><td>13.6%</td><td>6.8%</td><td>8.7%</td><td>$82,166 a year</td><td>-22.5%</td></tr>
+ </table>
+ <p class="note" style="margin-top:3px">Merrill proxy: 95% MSCI ACWI net index plus 5% US Aggregate bonds, less the 1.23% she pays today; her actual 2026 result through August was 13.7% net. On this proxy the current all-stock posture out-earned B and sat between A and B over five years, with the deepest drawdown of the three and no buffer.</p>
+ <h3 style="margin-top:4px">Ten-year projection of the two IRAs</h3>
+ <svg viewBox="0 0 800 196" width="100%" font-family="Segoe UI, Arial, sans-serif"><line x1="80" x2="560" y1="156.0" y2="156.0" stroke="#e2e1dc"/><text x="72" y="160.0" text-anchor="end" font-size="11" fill="#8a8984">$1.0M</text><line x1="80" x2="560" y1="131.7" y2="131.7" stroke="#e2e1dc"/><text x="72" y="135.7" text-anchor="end" font-size="11" fill="#8a8984">$1.5M</text><line x1="80" x2="560" y1="107.3" y2="107.3" stroke="#e2e1dc"/><text x="72" y="111.3" text-anchor="end" font-size="11" fill="#8a8984">$2.0M</text><line x1="80" x2="560" y1="83.0" y2="83.0" stroke="#e2e1dc"/><text x="72" y="87.0" text-anchor="end" font-size="11" fill="#8a8984">$2.5M</text><line x1="80" x2="560" y1="58.7" y2="58.7" stroke="#e2e1dc"/><text x="72" y="62.7" text-anchor="end" font-size="11" fill="#8a8984">$3.0M</text><line x1="80" x2="560" y1="34.3" y2="34.3" stroke="#e2e1dc"/><text x="72" y="38.3" text-anchor="end" font-size="11" fill="#8a8984">$3.5M</text><line x1="80" x2="560" y1="10.0" y2="10.0" stroke="#e2e1dc"/><text x="72" y="14.0" text-anchor="end" font-size="11" fill="#8a8984">$4.0M</text><text x="80.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Today</text><text x="176.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Year 2</text><text x="272.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Year 4</text><text x="368.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Year 6</text><text x="464.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Year 8</text><text x="560.0" y="174" text-anchor="middle" font-size="11" fill="#8a8984">Year 10</text><polyline points="80.0,145.8 128.0,139.1 176.0,131.7 224.0,123.5 272.0,114.3 320.0,104.1 368.0,92.7 416.0,80.1 464.0,66.0 512.0,50.4 560.0,33.0" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-dasharray="6 3"><title>A backtest: 11.3%/yr</title></polyline><circle cx="560.0" cy="33.0" r="4" fill="#2a78d6" stroke="#fff" stroke-width="2"/><polyline points="80.0,145.8 128.0,141.8 176.0,137.5 224.0,132.9 272.0,128.1 320.0,122.9 368.0,117.3 416.0,111.4 464.0,105.1 512.0,98.3 560.0,91.1" fill="none" stroke="#eb6834" stroke-width="2.5" stroke-dasharray="6 3"><title>B backtest: 6.8%/yr</title></polyline><circle cx="560.0" cy="91.1" r="4" fill="#eb6834" stroke="#fff" stroke-width="2"/><polyline points="80.0,145.8 128.0,140.3 176.0,134.4 224.0,127.8 272.0,120.7 320.0,112.9 368.0,104.4 416.0,95.1 464.0,85.0 512.0,73.9 560.0,61.8" fill="none" stroke="#1baf7a" stroke-width="2.5" stroke-dasharray="6 3"><title>Merrill proxy backtest: 9.3%/yr</title></polyline><circle cx="560.0" cy="61.8" r="4" fill="#1baf7a" stroke="#fff" stroke-width="2"/><polyline points="80.0,145.8 128.0,142.8 176.0,139.8 224.0,136.5 272.0,133.1 320.0,129.5 368.0,125.8 416.0,121.9 464.0,117.7 512.0,113.4 560.0,108.8" fill="none" stroke="#2a78d6" stroke-width="2.5"><title>A forward: 5.0%/yr</title></polyline><circle cx="560.0" cy="108.8" r="4" fill="#2a78d6" stroke="#fff" stroke-width="2"/><polyline points="80.0,145.8 128.0,142.8 176.0,139.6 224.0,136.3 272.0,132.8 320.0,129.1 368.0,125.2 416.0,121.2 464.0,116.9 512.0,112.4 560.0,107.7" fill="none" stroke="#eb6834" stroke-width="2.5"><title>B forward: 5.1%/yr</title></polyline><circle cx="560.0" cy="107.7" r="4" fill="#eb6834" stroke="#fff" stroke-width="2"/><polyline points="80.0,145.8 128.0,142.6 176.0,139.3 224.0,135.8 272.0,132.1 320.0,128.3 368.0,124.2 416.0,119.9 464.0,115.4 512.0,110.6 560.0,105.5" fill="none" stroke="#1baf7a" stroke-width="2.5"><title>Merrill forward: 5.3%/yr</title></polyline><circle cx="560.0" cy="105.5" r="4" fill="#1baf7a" stroke="#fff" stroke-width="2"/><line x1="564" x2="574" y1="33.0" y2="33.0" stroke="#2a78d6" stroke-width="1.5"/><text x="578" y="37.0" font-size="11" fill="#0b0b0b" font-weight="600">$3.53M  A backtest, 11.3%/yr</text><line x1="564" x2="574" y1="61.8" y2="61.8" stroke="#1baf7a" stroke-width="1.5"/><text x="578" y="65.8" font-size="11" fill="#0b0b0b" font-weight="600">$2.94M  Merrill proxy backtest, 9.3%/yr</text><line x1="564" x2="574" y1="91.1" y2="91.1" stroke="#eb6834" stroke-width="1.5"/><text x="578" y="95.1" font-size="11" fill="#0b0b0b" font-weight="600">$2.33M  B backtest, 6.8%/yr</text><line x1="564" x2="574" y1="105.5" y2="106.1" stroke="#1baf7a" stroke-width="1.5"/><text x="578" y="110.1" font-size="11" fill="#0b0b0b" font-weight="600">$2.04M  Merrill forward, 5.3%/yr</text><line x1="564" x2="574" y1="107.7" y2="121.1" stroke="#eb6834" stroke-width="1.5"/><text x="578" y="125.1" font-size="11" fill="#0b0b0b" font-weight="600">$1.99M  B forward, 5.1%/yr</text><line x1="564" x2="574" y1="108.8" y2="136.1" stroke="#2a78d6" stroke-width="1.5"/><text x="578" y="140.1" font-size="11" fill="#0b0b0b" font-weight="600">$1.97M  A forward, 5.0%/yr</text><text x="80" y="191" font-size="10.5" fill="#52514e">Dashed: 5-year net returns to 06/2026 carried forward. Solid: forward assumptions net of all fees. $1,210,100 start, no contributions.</text></svg>
+ <table class="compact" style="margin-top:0">
+  <tr><th>Basis</th><th>Proposal A</th><th>Proposal B</th><th>Merrill</th><th style="text-align:left">Comment</th></tr>
+  <tr><td>5-year net returns carried forward (11.3% / 6.8% / 9.3%)</td><td>$3,528,314</td><td>$2,334,141</td><td>$2,936,505</td><td class="l note">Optimistic. Assumes the 2021–2026 pattern repeats.</td></tr>
+  <tr><td>Forward assumptions net of all fees (5.0% / 5.1% / 5.3%)</td><td>$1,969,146</td><td>$1,992,204</td><td>$2,036,664</td><td class="l note">Stocks 6.5–7.5%, bonds 4.5%, alternatives 5.0% before fees. Merrill leads only because it stays 95% in stocks.</td></tr>
+ </table>
+ <div class="foot"><span>Huong Le · Simplicity proposal comparison · October 9, 2026, revised at a 0.92% advisory fee · Pinnacle Planning</span><span>Page 4 of 5</span></div>
+</div>
+<div class="page">
+ <div class="kicker">Section 4</div><h2>Risk, suitability, and the call</h2>
+ <p class="small">Simplicity's Value at Risk figures for the whole $1,274,750 household, at 95% confidence over one year, and the AssetLock alert floor each proposal sets.</p>
+ <svg viewBox="0 0 800 140" width="100%" font-family="Segoe UI, Arial, sans-serif"><line x1="330" x2="330" y1="8" y2="112" stroke="#52514e" stroke-width="1.5"/><rect x="332" y="18" width="280.1" height="28" rx="4" fill="#2a78d6"><title>Proposal A upside $338,055</title></rect><rect x="192.2" y="18" width="135.8" height="28" rx="4" fill="#e34948"><title>Proposal A downside $-163,868</title></rect><text x="618.1" y="37" font-size="12" fill="#0b0b0b" font-weight="700">+$338,055  (+26.5%)</text><text x="186.2" y="37" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="700">−$163,868  (-12.9%)</text><text x="186.2" y="13" text-anchor="end" font-size="11" fill="#52514e">Proposal A</text><rect x="332" y="66" width="264.0" height="28" rx="4" fill="#eb6834"><title>Proposal B upside $318,654</title></rect><rect x="205.6" y="66" width="122.4" height="28" rx="4" fill="#e34948"><title>Proposal B downside $-147,711</title></rect><text x="602.0" y="85" font-size="12" fill="#0b0b0b" font-weight="700">+$318,654  (+25.0%)</text><text x="199.6" y="85" text-anchor="end" font-size="12" fill="#0b0b0b" font-weight="700">−$147,711  (-11.6%)</text><text x="199.6" y="61" text-anchor="end" font-size="11" fill="#52514e">Proposal B</text><text x="324" y="132" text-anchor="end" font-size="11" fill="#52514e">Potential one-year downside (95% confidence)</text><text x="336" y="132" font-size="11" fill="#52514e">Potential one-year upside</text></svg>
+ <div class="row">
+  <div class="col">
+   <table>
+    <tr><th>Risk measure</th><th>Proposal A</th><th>Proposal B</th></tr>
+    <tr><td>Potential one-year upside</td><td>+$338,055 (+26.5%)</td><td>+$318,654 (+25.0%)</td></tr>
+    <tr><td>Potential one-year downside</td><td>−$163,868 (-12.9%)</td><td>−$147,711 (-11.6%)</td></tr>
+    <tr><td>AssetLock alert threshold</td><td>12.85% ($1,110,882)</td><td>11.59% ($1,127,039)</td></tr>
+    <tr><td>Worst 5-year drawdown, Rollover model</td><td>-22.4%</td><td>-22.5%</td></tr>
+    <tr><td>Annualized volatility</td><td>13.0%</td><td>12.2%</td></tr>
+    <tr><td>Beta to benchmark</td><td>0.93</td><td>0.97</td></tr>
+   </table>
+   <p class="note" style="margin-top:6px">B's 24% in bonds bought almost no drawdown protection in this window: both models fell about 22% in 2022, when bonds fell with stocks. A's cushion came from the buffer ETF and the alternatives sleeve instead, which is why its downside capture is 82% against B's 98%.</p>
+  </div>
+  <div class="ill"><svg viewBox="0 0 320 200" width="100%" role="img" aria-label="Ascending steps with a flag at the top">
+<rect x="20" y="150" width="60" height="40" fill="#dfeaf8"/><rect x="80" y="120" width="60" height="70" fill="#b7d3f6"/><rect x="140" y="90" width="60" height="100" fill="#86b6ef"/><rect x="200" y="60" width="60" height="130" fill="#2a78d6"/>
+<rect x="262" y="20" width="3" height="40" fill="#0d366b"/><path d="M265 20 l 30 9 l -30 9 z" fill="#eb6834"/>
+<circle cx="50" cy="128" r="10" fill="#0d366b"/><rect x="42" y="138" width="16" height="12" rx="3" fill="#0d366b"/>
+<circle cx="290" cy="150" r="14" fill="#eda100"/>
+</svg></div>
+ </div>
+ <div class="verdict">
+  <b>Recommendation.</b> Go with <b>Proposal A (October 6)</b> for the Rollover IRA, and the BlackRock 80/20 model for the Roth, on three conditions:
+  <ol class="small" style="margin:6px 0 0 18px; padding:0">
+   <li>Lock the 0.92% advisory rate into the signed agreement, with the tier schedule. The printed proposals still say 1.60%, and the difference is $8,229 a year.</li>
+   <li>Confirm Huong is comfortable that 45% of the Rollover is two lists of individual stocks, including 25 small caps that turn over yearly. If not, ask Simplicity to swap the Horizon sleeve for a small-cap ETF such as Avantis US Small Cap Value and keep the rest.</li>
+   <li>Get the AssetLock threshold in writing at the 12.85% shown, with a plan for what happens at the alert. It is a notification, not a stop-loss.</li>
+  </ol>
+  <p class="small" style="margin:8px 0 0"><b>When B is the right answer.</b> If the October 8 revision came from Huong saying she wants less risk than her Merrill accounts carry, Proposal B matches that request and the fee is lower. In that case, point out that she is paying 0.98% all-in for an index model that trailed its own benchmark on every period, and ask whether Simplicity offers the same 75/25 posture with the buffer and alternatives sleeves from A.</p>
+  <p class="small" style="margin:8px 0 0"><b>Either way, name the trade-off plainly.</b> At 0.92%, A costs about the same as Merrill and B saves roughly $2,986 a year, so cost is no longer the obstacle. What changes is risk: both proposals take her from 95% stocks to 67% to 72%, and on a plain index proxy her current posture would have earned as much as A over five years with a deeper drawdown. The case for moving rests on risk management, monitoring, and planning, and it has to be justified on the next downturn, not the last rally.</p>
+ </div>
+ <h3>Sources and limits</h3>
+ <ul class="tight note">
+  <li>Simplicity Wealth proposals for Huong Le dated October 6, 2026 (75 pages) and October 8, 2026 (64 pages): allocation, fee, VaR, AssetLock and hypothetical performance pages. Returns are hypothetical, printed net of a 1.60% advisory fee for 07/2021–06/2026, and restated here at 0.92% by adding 0.68% a year (0.34% to the half-year YTD). They are not actual client results.</li>
+  <li>Merrill Rollover and Roth IRA statements for August 2026 as analyzed in the H-Le Portfolio Review; NAC VersaChoice 10 contract summary as of September 15, 2026.</li>
+  <li>Public data retrieved October 9, 2026: Merrill Guided Investing with Advisor fee 0.85%, reduced for Preferred Rewards (NerdWallet, Merrill CRS); BUFR expense 1.05% and returns (etfrc.com); AVDE returns and 0.23% expense (etfdb.com); State Street Strategic AA Moderate Growth factsheet to June 30, 2026 (ssga.com); BlackRock Target Allocation 80/20 fund returns (blackrock.com); S&P 500 total return 15.2% a year for the ten years to September 30, 2026 (chartrow.com); MSCI ACWI net index returns to June 30, 2026 of 23.9% (1 yr), 19.8% (3 yr), 11.1% (5 yr) and 12.9% (10 yr) via the iShares ACWI ETF page (blackrock.com); US Aggregate bond figures are approximate.</li>
+  <li>Merrill fund expense ratio of 0.55% is an estimate; the full holdings page was not available. Forward return assumptions are the analyst's, stated on page 4, and are not forecasts. Nothing here is tax or legal advice.</li>
+ </ul>
+ <div class="foot"><span>Huong Le · Simplicity proposal comparison · October 9, 2026, revised at a 0.92% advisory fee · Pinnacle Planning</span><span>Page 5 of 5</span></div>
+</div></body></html>

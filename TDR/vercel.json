@@ -1,0 +1,4 @@
+{
+  "cleanUrls": true,
+  "rewrites": [{ "source": "/", "destination": "/SPY-01-UserGuide" }]
+}

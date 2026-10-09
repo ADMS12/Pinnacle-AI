@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanessa Accounts Map</title>
+<meta name="description" content="Map of Vanessa Pepino Adraneda's accounts by type, with owner, institution, account number, balance and statement date, from the statements in the V-A folder.">
+<style>
+:root{--bg:#fcfcfb;--panel:#ffffff;--panel2:#f3f3f1;--border:#dedcd6;--text:#0b0b0b;--muted:#52514e;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--grey:#b9b7b0;--bad:#e34948;--axis:#8a8880}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1a1a19;--panel:#222221;--panel2:#2a2a28;--border:#3a3a37;--text:#ffffff;--muted:#c3c2b7;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--grey:#6b6a64;--bad:#e66767;--axis:#8a8880}}
+:root[data-theme="dark"]{--bg:#1a1a19;--panel:#222221;--panel2:#2a2a28;--border:#3a3a37;--text:#ffffff;--muted:#c3c2b7;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--grey:#6b6a64;--bad:#e66767;--axis:#8a8880}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 16px 72px}
+.kicker{color:var(--s1);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.3rem;margin:2em 0 .5em;padding-top:.5em;border-top:1px solid var(--border)}
+p,li{max-width:78ch}.byline{color:var(--muted);margin:0 0 1em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:1em 0}.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px}.card .v{font-size:1.45rem;font-weight:700;white-space:nowrap}.card .l{color:var(--muted);font-size:.85rem}
+figure{margin:1.2em 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}figure svg{display:block;width:100%;height:auto}figcaption{color:var(--muted);font-size:.85rem;padding-top:8px}
+table{border-collapse:collapse;width:100%;margin:.6em 0 1.2em;font-size:.92rem}th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}th{background:var(--panel2)}
+td.num,th.num{text-align:right;white-space:nowrap}td.mono{font-family:ui-monospace,Consolas,monospace;font-size:.88rem;white-space:nowrap}
+tr.sub td{background:var(--panel2);font-weight:600}tr.tot td{font-weight:700;border-top:2px solid var(--axis)}
+.tag{display:inline-block;font-size:.75rem;padding:1px 7px;border-radius:999px;border:1px solid var(--border);color:var(--muted);margin-left:6px;vertical-align:middle}
+.note{background:var(--panel2);border:1px solid var(--border);border-left:4px solid var(--s2);border-radius:8px;padding:12px 16px;margin:1em 0}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">WAN · V-A · Client accounts</div>
+<h1>Vanessa Adraneda: map of current accounts</h1>
+<p class="byline">Compiled October 7, 2026 from the statements in the V-A folder. Balances are as of each statement's closing date, July 31 to September 10, 2026.</p>
+
+<p>Eight accounts are current across three institutions, held three ways: in Vanessa's own name, in her living trust, and for her son Luke. Together they hold $1,071,920 of assets against a $216,911 Robinhood margin loan, for net household balances of $855,010. A ninth account, an E*TRADE individual account opened in June 2020, has no 2026 statement and is listed separately as historical.</p>
+
+<div class="cards">
+<div class="card"><div class="v">$855,010</div><div class="l">Net balances, all current accounts</div></div>
+<div class="card"><div class="v">$1,071,920</div><div class="l">Gross assets before the margin loan</div></div>
+<div class="card"><div class="v">-$216,911</div><div class="l">Robinhood margin loan, Jul 31, 2026</div></div>
+<div class="card"><div class="v">8</div><div class="l">Current accounts at Centier, E*TRADE and Robinhood</div></div>
+</div>
+
+<h2>Account map</h2>
+<figure>
+<svg viewBox="0 0 1050 560" role="img" aria-label="Tree of Vanessa Adraneda's accounts grouped by owner: individual, living trust, and custodial for Luke, with institution and balance for each" font-size="12">
+  <defs><marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"><circle cx="5" cy="5" r="4" fill="var(--axis)"/></marker></defs>
+  <!-- root -->
+  <rect x="380" y="18" width="220" height="54" rx="10" fill="var(--panel2)" stroke="var(--axis)" stroke-width="1.5"/>
+  <text x="490" y="40" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Vanessa Pepino Adraneda</text>
+  <text x="490" y="58" text-anchor="middle" fill="var(--muted)">Net balances $855,010</text>
+  <!-- connectors root to owners -->
+  <line x1="490" y1="72" x2="490" y2="96" stroke="var(--axis)" stroke-width="1.5"/>
+  <line x1="165" y1="96" x2="815" y2="96" stroke="var(--axis)" stroke-width="1.5"/>
+  <line x1="165" y1="96" x2="165" y2="116" stroke="var(--axis)" stroke-width="1.5"/>
+  <line x1="490" y1="96" x2="490" y2="116" stroke="var(--axis)" stroke-width="1.5"/>
+  <line x1="815" y1="96" x2="815" y2="116" stroke="var(--axis)" stroke-width="1.5"/>
+  <!-- owner nodes -->
+  <g>
+    <rect x="35" y="116" width="260" height="58" rx="10" fill="var(--s1)" fill-opacity="0.14" stroke="var(--s1)" stroke-width="2"/>
+    <text x="165" y="139" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="700">Individual (own name)</text>
+    <text x="165" y="158" text-anchor="middle" fill="var(--muted)">3 accounts · net $510,525</text>
+  </g>
+  <g>
+    <rect x="360" y="116" width="260" height="58" rx="10" fill="var(--s3)" fill-opacity="0.14" stroke="var(--s3)" stroke-width="2"/>
+    <text x="490" y="139" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="700">Living Trust dtd 04/11/2024</text>
+    <text x="490" y="158" text-anchor="middle" fill="var(--muted)">Vanessa, trustee · 2 accounts · $216,563</text>
+  </g>
+  <g>
+    <rect x="685" y="116" width="260" height="58" rx="10" fill="var(--s2)" fill-opacity="0.14" stroke="var(--s2)" stroke-width="2"/>
+    <text x="815" y="139" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="700">For Luke Adraneda (minor)</text>
+    <text x="815" y="158" text-anchor="middle" fill="var(--muted)">Vanessa, custodian · 2 accounts · $127,922</text>
+  </g>
+  <!-- individual leaves -->
+  <line x1="165" y1="174" x2="165" y2="458" stroke="var(--s1)" stroke-width="1.5"/>
+  <g>
+    <line x1="165" y1="226" x2="190" y2="226" stroke="var(--s1)" stroke-width="1.5"/>
+    <rect x="190" y="196" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)"/>
+    <text x="200" y="214" fill="var(--muted)" font-size="11">RETIREMENT · E*TRADE</text>
+    <text x="200" y="231" fill="var(--text)" font-weight="600">SEP IRA</text>
+    <text x="200" y="248" fill="var(--text)">$254,650 · Aug 31, 2026</text>
+  </g>
+  <g>
+    <line x1="165" y1="316" x2="190" y2="316" stroke="var(--s1)" stroke-width="1.5"/>
+    <rect x="190" y="286" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)"/>
+    <text x="200" y="304" fill="var(--muted)" font-size="11">TAXABLE BROKERAGE · ROBINHOOD</text>
+    <text x="200" y="321" fill="var(--text)" font-weight="600">Individual margin account</text>
+    <text x="200" y="338" fill="var(--text)">$220,554 net · Jul 31, 2026</text>
+  </g>
+  <g>
+    <line x1="165" y1="406" x2="190" y2="406" stroke="var(--s1)" stroke-width="1.5"/>
+    <rect x="190" y="376" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)"/>
+    <text x="200" y="394" fill="var(--muted)" font-size="11">BANK · ROBINHOOD / COASTAL</text>
+    <text x="200" y="411" fill="var(--text)" font-weight="600">Personal Savings ···0081</text>
+    <text x="200" y="428" fill="var(--text)">$35,321 · Aug 31, 2026</text>
+  </g>
+  <g>
+    <line x1="165" y1="458" x2="190" y2="458" stroke="var(--bad)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="190" y="446" width="250" height="24" rx="6" fill="none" stroke="var(--bad)" stroke-dasharray="4 3"/>
+    <text x="200" y="462" fill="var(--bad)" font-size="11">Margin loan inside Robinhood: -$216,911</text>
+  </g>
+  <!-- trust leaves -->
+  <line x1="490" y1="174" x2="490" y2="316" stroke="var(--s3)" stroke-width="1.5"/>
+  <g>
+    <line x1="490" y1="226" x2="515" y2="226" stroke="var(--s3)" stroke-width="1.5"/>
+    <rect x="515" y="196" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)"/>
+    <text x="525" y="214" fill="var(--muted)" font-size="11">BANK · CENTIER</text>
+    <text x="525" y="231" fill="var(--text)" font-weight="600">Trust checking ···4554</text>
+    <text x="525" y="248" fill="var(--text)">$164,712 · Aug 21, 2026</text>
+  </g>
+  <g>
+    <line x1="490" y1="316" x2="515" y2="316" stroke="var(--s3)" stroke-width="1.5"/>
+    <rect x="515" y="286" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)"/>
+    <text x="525" y="304" fill="var(--muted)" font-size="11">BANK CD · CENTIER</text>
+    <text x="525" y="321" fill="var(--text)" font-weight="600">3-month CD, 3.34%</text>
+    <text x="525" y="338" fill="var(--text)">$51,850 · Sep 10, 2026</text>
+  </g>
+  <!-- Luke leaves -->
+  <line x1="815" y1="174" x2="815" y2="316" stroke="var(--s2)" stroke-width="1.5"/>
+  <g>
+    <line x1="815" y1="226" x2="840" y2="226" stroke="var(--s2)" stroke-width="1.5"/>
+    <rect x="780" y="196" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)" transform="translate(60 0)"/>
+    <text x="850" y="214" fill="var(--muted)" font-size="11">CUSTODIAL · E*TRADE</text>
+    <text x="850" y="231" fill="var(--text)" font-weight="600">UTMA/IN until age 21</text>
+    <text x="850" y="248" fill="var(--text)">$107,857 · Aug 31, 2026</text>
+  </g>
+  <g>
+    <line x1="815" y1="316" x2="840" y2="316" stroke="var(--s2)" stroke-width="1.5"/>
+    <rect x="780" y="286" width="190" height="62" rx="8" fill="var(--panel)" stroke="var(--border)" transform="translate(60 0)"/>
+    <text x="850" y="304" fill="var(--muted)" font-size="11">BANK · ROBINHOOD / COASTAL</text>
+    <text x="850" y="321" fill="var(--text)" font-weight="600">Child Savings ···3365</text>
+    <text x="850" y="338" fill="var(--text)">$20,065 · Aug 31, 2026</text>
+  </g>
+  <!-- historical -->
+  <g>
+    <rect x="35" y="500" width="330" height="44" rx="8" fill="none" stroke="var(--grey)" stroke-dasharray="5 4"/>
+    <text x="45" y="518" fill="var(--muted)" font-size="11">HISTORICAL · NO 2026 STATEMENT</text>
+    <text x="45" y="535" fill="var(--muted)">E*TRADE individual 4754-9228 · $11,102 · Jun 30, 2020</text>
+  </g>
+</svg>
+<figcaption>Grouped by how each account is titled. Balances are rounded; exact figures are in the table below. Robinhood savings accounts are bank deposits at Coastal Community Bank through Robinhood.</figcaption>
+</figure>
+
+<h2>Accounts by type</h2>
+<table>
+<thead><tr><th>Account</th><th>Owner / title</th><th>Institution</th><th>Account number</th><th class="num">Balance</th><th>Balance date</th><th>Source statement</th></tr></thead>
+<tbody>
+<tr class="sub"><td colspan="7">Bank deposits</td></tr>
+<tr><td>Checking</td><td>Vanessa Pepino Adraneda Living Trust dtd 04/11/2024, Vanessa P. Adraneda, trustee</td><td>Centier Bank</td><td class="mono">XXXXX4554</td><td class="num">$164,712.49</td><td>Aug 21, 2026</td><td>Vanessa Trust Account Checking.pdf (period Jul 18 to Aug 21, 2026)</td></tr>
+<tr><td>3-month certificate of deposit, 3.340%, matures Dec 10, 2026</td><td>Vanessa Pepino Adraneda Living Trust (per file name; the CD printout shows no owner name)</td><td>Centier Bank</td><td class="mono">*5501-553155501</td><td class="num">$51,850.33</td><td>Sep 10, 2026</td><td>Vanessa Trust CD.pdf (printed Sep 15, 2026)</td></tr>
+<tr><td>Personal Savings, 3.56% APY</td><td>Vanessa Adraneda</td><td>Robinhood, deposits held at Coastal Community Bank</td><td class="mono">···0081</td><td class="num">$35,321.05</td><td>Aug 31, 2026</td><td>Robinhood Vanessa Bank Statement Aug 2026.pdf</td></tr>
+<tr><td>Child Savings, 3.56% APY</td><td>Vanessa Adraneda for Luke Adraneda</td><td>Robinhood, deposits held at Coastal Community Bank</td><td class="mono">···3365</td><td class="num">$20,065.22</td><td>Aug 31, 2026</td><td>Robinhood Luke Bank Statement Aug 2026.pdf</td></tr>
+<tr class="tot"><td colspan="4">Bank deposits subtotal</td><td class="num">$271,949.09</td><td colspan="2"></td></tr>
+
+<tr class="sub"><td colspan="7">Retirement</td></tr>
+<tr><td>SEP IRA</td><td>Vanessa Pepino Adraneda</td><td>E*TRADE from Morgan Stanley (Morgan Stanley Smith Barney LLC)</td><td class="mono">459-855137-203</td><td class="num">$254,650.28</td><td>Aug 31, 2026</td><td>Etrade SEP IRA 8 2026.pdf; eTrade SEP-IRA Statements 20260831.pdf is a duplicate of the same statement</td></tr>
+<tr class="tot"><td colspan="4">Retirement subtotal</td><td class="num">$254,650.28</td><td colspan="2"></td></tr>
+
+<tr class="sub"><td colspan="7">Taxable brokerage</td></tr>
+<tr><td>Individual margin account: securities $437,464.08 less margin loan $216,910.50</td><td>Vanessa Adraneda</td><td>Robinhood Financial</td><td class="mono">140450008</td><td class="num">$220,553.58</td><td>Jul 31, 2026</td><td>Robinhood Account statement-2026-07-31.pdf</td></tr>
+<tr class="tot"><td colspan="4">Taxable brokerage subtotal (net of margin loan)</td><td class="num">$220,553.58</td><td colspan="2"></td></tr>
+
+<tr class="sub"><td colspan="7">Custodial for a minor</td></tr>
+<tr><td>UTMA brokerage account, Indiana, until age 21</td><td>Vanessa Pepino Adraneda as custodian for Luke Adraneda</td><td>E*TRADE from Morgan Stanley</td><td class="mono">459-403795-201</td><td class="num">$107,856.89</td><td>Aug 31, 2026</td><td>Etrade Custodian Account 8 2026.pdf</td></tr>
+<tr class="tot"><td colspan="4">Custodial subtotal (the Robinhood Child Savings is counted under bank deposits)</td><td class="num">$107,856.89</td><td colspan="2"></td></tr>
+
+<tr class="tot"><td colspan="4">Total net balances, current accounts</td><td class="num">$855,009.84</td><td colspan="2"></td></tr>
+
+<tr class="sub"><td colspan="7">Historical, not current</td></tr>
+<tr><td>Individual brokerage account <span class="tag">opened Jun 2020</span></td><td>Vanessa Pepino Adraneda</td><td>E*TRADE</td><td class="mono">4754-9228</td><td class="num">$11,101.90</td><td>Jun 30, 2020</td><td>ClientStatements_3568_063020.pdf. No 2026 statement in the folder; status unknown, excluded from totals</td></tr>
+</tbody>
+</table>
+
+<h2>By owner</h2>
+<table>
+<thead><tr><th>Title</th><th>Accounts</th><th class="num">Net balance</th><th class="num">Share</th></tr></thead>
+<tbody>
+<tr><td>Vanessa Adraneda, individually</td><td>SEP IRA; Robinhood margin account; Robinhood Personal Savings</td><td class="num">$510,524.91</td><td class="num">59.7%</td></tr>
+<tr><td>Vanessa Pepino Adraneda Living Trust</td><td>Centier checking; Centier CD</td><td class="num">$216,562.82</td><td class="num">25.3%</td></tr>
+<tr><td>Luke Adraneda, via Vanessa as custodian</td><td>E*TRADE UTMA; Robinhood Child Savings</td><td class="num">$127,922.11</td><td class="num">15.0%</td></tr>
+<tr class="tot"><td colspan="2">Total</td><td class="num">$855,009.84</td><td class="num">100%</td></tr>
+</tbody>
+</table>
+
+<div class="note"><b>Points to confirm with the client.</b> The Centier CD printout carries no owner name; it is placed in the trust on the strength of the file name. The 2020 E*TRADE individual account 4754-9228 does not appear in any 2026 statement and may have been closed or transferred. The statements carry three different mailing addresses: 7126 W 87th Ave, Crown Point, IN (Centier, E*TRADE UTMA, 2020 E*TRADE); 10060 Prairie Knoll Ct, Saint John, IN (Robinhood); and 1328 Main St, Crete, IL (E*TRADE SEP IRA). The Robinhood margin balance is as of July 31 and will have moved with the market and any paydown since.</div>
+
+<footer>Sources: the nine statement PDFs in WAN/V-A. Account numbers are shown as printed on each statement. This is an inventory for planning purposes, not a valuation or tax document.</footer>
+</div>
+</body>
+</html>
