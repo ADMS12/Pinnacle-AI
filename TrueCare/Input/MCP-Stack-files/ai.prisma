@@ -1,0 +1,47 @@
+// Append to your schema.prisma (or use prisma multi-file schema).
+
+enum ProposalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  APPLIED
+  FAILED
+}
+
+model ScheduleProposal {
+  id            String         @id @default(cuid())
+  providerId    String
+  requestedById String
+  rangeStart    DateTime
+  rangeEnd      DateTime
+  objectives    Json           // weights sent to solver
+  solverBackend String         // "timefold" | "self_hosted"
+  solverJobId   String?
+  assignments   Json           // SolverAssignment[]
+  unassigned    Json           // SolverUnassigned[]
+  score         Json?
+  explanation   String?
+  status        ProposalStatus @default(PENDING)
+  approvedById  String?
+  approvedAt    DateTime?
+  appliedAt     DateTime?
+  createdAt     DateTime       @default(now())
+
+  @@index([providerId, status])
+}
+
+model AiToolAudit {
+  id         String   @id @default(cuid())
+  providerId String
+  userId     String
+  channel    String   // "mcp" | "orchestrator"
+  toolName   String
+  input      Json
+  outputHash String?
+  durationMs Int
+  ok         Boolean
+  error      String?
+  createdAt  DateTime @default(now())
+
+  @@index([providerId, createdAt])
+}

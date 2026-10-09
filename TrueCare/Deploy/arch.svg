@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <style>
+    .t{font-size:13px;fill:#111827}.h{font-size:15px;font-weight:700;fill:#111827}.s{font-size:11px;fill:#4b5563}
+    .lbl{font-size:11px;fill:#374151}.ex{fill:#eef2f7;stroke:#64748b;stroke-width:1.5}
+    .new{fill:#ecfdf5;stroke:#0f766e;stroke-width:2}.p2{fill:#fffbeb;stroke:#b45309;stroke-width:2;stroke-dasharray:6 4}
+    .ext{fill:#f5f3ff;stroke:#6d28d9;stroke-width:1.5}.band{fill:none;stroke:#cbd5e1;stroke-width:1;stroke-dasharray:3 3}
+    .ln{stroke:#4b5563;stroke-width:1.5;fill:none;marker-end:url(#arrow)}.lnG{stroke:#0f766e;stroke-width:2;fill:none;marker-end:url(#arrowG)}
+    .lnD{stroke:#b45309;stroke-width:1.5;fill:none;stroke-dasharray:6 4;marker-end:url(#arrow)}
+  </style>
+
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">True Care System — AI Scheduling Architecture (MCP)</text>
+
+  <!-- Legend -->
+  <g transform="translate(860,48)">
+    <rect x="0" y="0" width="18" height="12" class="ex"/><text x="24" y="10" class="lbl">Existing</text>
+    <rect x="90" y="0" width="18" height="12" class="new"/><text x="114" y="10" class="lbl">New (Phase 1)</text>
+    <rect x="210" y="0" width="18" height="12" class="p2"/><text x="234" y="10" class="lbl">Phase 2 swap</text>
+  </g>
+
+  <!-- Band labels -->
+  <text x="20" y="90" class="s">USERS</text>
+  <text x="20" y="215" class="s">CLIENT LAYER</text>
+  <text x="20" y="370" class="s">API LAYER (NestJS)</text>
+  <text x="20" y="610" class="s">SOLVER + AI</text>
+  <text x="20" y="790" class="s">DATA + INTEGRATIONS</text>
+  <line x1="20" y1="195" x2="1180" y2="195" class="band"/>
+  <line x1="20" y1="350" x2="1180" y2="350" class="band"/>
+  <line x1="20" y1="590" x2="1180" y2="590" class="band"/>
+  <line x1="20" y1="770" x2="1180" y2="770" class="band"/>
+
+  <!-- Users -->
+  <rect x="140" y="105" width="200" height="60" rx="8" class="ex"/>
+  <text x="240" y="130" text-anchor="middle" class="h">Office / Admin</text>
+  <text x="240" y="150" text-anchor="middle" class="s">Schedulers, billing, compliance</text>
+  <rect x="440" y="105" width="200" height="60" rx="8" class="ex"/>
+  <text x="540" y="130" text-anchor="middle" class="h">Supervisors</text>
+  <text x="540" y="150" text-anchor="middle" class="s">Approve proposed schedules</text>
+  <rect x="740" y="105" width="200" height="60" rx="8" class="ex"/>
+  <text x="840" y="130" text-anchor="middle" class="h">DSPs (field staff)</text>
+  <text x="840" y="150" text-anchor="middle" class="s">Shifts, check-in/out, notes</text>
+
+  <!-- Client layer -->
+  <rect x="140" y="230" width="230" height="95" rx="8" class="ex"/>
+  <text x="255" y="255" text-anchor="middle" class="h">Web Portal</text>
+  <text x="255" y="275" text-anchor="middle" class="s">Next.js + TypeScript</text>
+  <text x="255" y="295" text-anchor="middle" class="s">+ new "AI Assistant" panel and</text>
+  <text x="255" y="310" text-anchor="middle" class="s">"Review proposed schedule" screen</text>
+
+  <rect x="740" y="230" width="230" height="95" rx="8" class="ex"/>
+  <text x="855" y="255" text-anchor="middle" class="h">Mobile App</text>
+  <text x="855" y="275" text-anchor="middle" class="s">React Native + Expo (iOS/Android)</text>
+  <text x="855" y="295" text-anchor="middle" class="s">+ new "Ask" chat for DSPs</text>
+  <text x="855" y="310" text-anchor="middle" class="s">(my shifts, directions, open shifts)</text>
+
+  <rect x="440" y="230" width="230" height="95" rx="8" class="new"/>
+  <text x="555" y="255" text-anchor="middle" class="h">Claude AI Assistant</text>
+  <text x="555" y="275" text-anchor="middle" class="s">"Selena 2.0" — chat surface shared by</text>
+  <text x="555" y="295" text-anchor="middle" class="s">portal and mobile; sends user intent to</text>
+  <text x="555" y="310" text-anchor="middle" class="s">the AI Orchestrator (never touches DB)</text>
+
+  <!-- API layer -->
+  <rect x="140" y="385" width="360" height="185" rx="8" class="ex"/>
+  <text x="320" y="410" text-anchor="middle" class="h">Existing NestJS API</text>
+  <text x="320" y="430" text-anchor="middle" class="s">Business rules · REST endpoints</text>
+  <rect x="160" y="445" width="150" height="34" rx="6" fill="#fff" stroke="#94a3b8"/>
+  <text x="235" y="467" text-anchor="middle" class="lbl">Scheduling module</text>
+  <rect x="330" y="445" width="150" height="34" rx="6" fill="#fff" stroke="#94a3b8"/>
+  <text x="405" y="467" text-anchor="middle" class="lbl">EVV / Visits module</text>
+  <rect x="160" y="490" width="150" height="34" rx="6" fill="#fff" stroke="#94a3b8"/>
+  <text x="235" y="512" text-anchor="middle" class="lbl">Billing / Payroll</text>
+  <rect x="330" y="490" width="150" height="34" rx="6" fill="#fff" stroke="#94a3b8"/>
+  <text x="405" y="512" text-anchor="middle" class="lbl">Authorizations</text>
+  <rect x="160" y="533" width="320" height="26" rx="6" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="320" y="551" text-anchor="middle" class="lbl">Auth · RBAC · Provider Isolation · Audit Log (shared)</text>
+
+  <rect x="540" y="385" width="520" height="185" rx="8" class="new"/>
+  <text x="800" y="410" text-anchor="middle" class="h">NEW: AI Orchestrator + MCP Server (NestJS module)</text>
+  <text x="800" y="428" text-anchor="middle" class="s">MCP TypeScript SDK · reuses Prisma + RBAC/provider-scope middleware · every call audit-logged</text>
+  <rect x="560" y="445" width="150" height="50" rx="6" fill="#fff" stroke="#0f766e"/>
+  <text x="635" y="463" text-anchor="middle" class="lbl">Read tools</text>
+  <text x="635" y="478" text-anchor="middle" class="s">open_shifts, dsp_availability,</text>
+  <text x="635" y="490" text-anchor="middle" class="s">authorizations, evv_status, kpis</text>
+  <rect x="725" y="445" width="150" height="50" rx="6" fill="#fff" stroke="#0f766e"/>
+  <text x="800" y="463" text-anchor="middle" class="lbl">Optimizer tools</text>
+  <text x="800" y="478" text-anchor="middle" class="s">optimize_schedule,</text>
+  <text x="800" y="490" text-anchor="middle" class="s">recommend_replacement</text>
+  <rect x="890" y="445" width="150" height="50" rx="6" fill="#fff" stroke="#0f766e"/>
+  <text x="965" y="463" text-anchor="middle" class="lbl">Write tools (gated)</text>
+  <text x="965" y="478" text-anchor="middle" class="s">apply_schedule → requires</text>
+  <text x="965" y="490" text-anchor="middle" class="s">human approval in portal</text>
+  <rect x="560" y="505" width="480" height="26" rx="6" fill="#d1fae5" stroke="#0f766e"/>
+  <text x="800" y="523" text-anchor="middle" class="lbl">Solver Adapter (interface) — fixed tool contract; backend is swappable</text>
+  <rect x="560" y="538" width="480" height="24" rx="6" fill="#fff" stroke="#0f766e"/>
+  <text x="800" y="554" text-anchor="middle" class="s">Future tools: summarize_daily_notes · explain_claim_rejection · check_compliance_gaps</text>
+
+  <!-- Solver + AI -->
+  <rect x="140" y="625" width="260" height="120" rx="8" class="ext"/>
+  <text x="270" y="650" text-anchor="middle" class="h">Claude (Anthropic API)</text>
+  <text x="270" y="670" text-anchor="middle" class="s">Reasoning + tool calling · under BAA</text>
+  <text x="270" y="688" text-anchor="middle" class="s">Receives only provider-scoped data</text>
+  <text x="270" y="706" text-anchor="middle" class="s">the MCP tools return; decides which</text>
+  <text x="270" y="724" text-anchor="middle" class="s">tools to call; explains proposals</text>
+
+  <rect x="540" y="625" width="250" height="120" rx="8" class="new"/>
+  <text x="665" y="650" text-anchor="middle" class="h">Timefold Platform (Phase 1)</text>
+  <text x="665" y="670" text-anchor="middle" class="s">Field Service Routing API · managed</text>
+  <text x="665" y="688" text-anchor="middle" class="s">JSON in / JSON out · maps + travel time</text>
+  <text x="665" y="706" text-anchor="middle" class="s">Real-time replanning · recommendations</text>
+  <text x="665" y="724" text-anchor="middle" class="s">Sent: IDs, coords, windows, skills (no PHI)</text>
+
+  <rect x="820" y="625" width="240" height="120" rx="8" class="p2"/>
+  <text x="940" y="650" text-anchor="middle" class="h">Self-hosted Solver (Phase 2)</text>
+  <text x="940" y="670" text-anchor="middle" class="s">Timefold Solver CE (Java) or</text>
+  <text x="940" y="688" text-anchor="middle" class="s">Google OR-Tools (Python) container</text>
+  <text x="940" y="706" text-anchor="middle" class="s">+ OSRM/Google distance matrix</text>
+  <text x="940" y="724" text-anchor="middle" class="s">Zero license cost · same adapter</text>
+
+  <!-- Data -->
+  <rect x="300" y="800" width="360" height="80" rx="8" class="ex"/>
+  <text x="480" y="825" text-anchor="middle" class="h">PostgreSQL (Prisma ORM)</text>
+  <text x="480" y="845" text-anchor="middle" class="s">Providers · Clients · DSPs · Shifts · Visits · Authorizations · Notes · Claims</text>
+  <text x="480" y="865" text-anchor="middle" class="s">+ new tables: schedule_proposals, ai_tool_audit</text>
+
+  <rect x="740" y="800" width="230" height="80" rx="8" class="ext"/>
+  <text x="855" y="825" text-anchor="middle" class="h">Sandata Open EVV</text>
+  <text x="855" y="845" text-anchor="middle" class="s">Client / Employee / Visit APIs</text>
+  <text x="855" y="865" text-anchor="middle" class="s">(unchanged)</text>
+
+  <!-- Arrows: users -> clients -->
+  <path d="M240,165 L250,230" class="ln"/>
+  <path d="M540,165 L540,230" class="ln"/>
+  <path d="M840,165 L850,230" class="ln"/>
+  <path d="M340,135 L440,240" class="ln"/>
+  <path d="M740,135 L670,240" class="ln"/>
+
+  <!-- clients -> API -->
+  <path d="M255,325 L280,385" class="ln"/>
+  <path d="M855,325 L840,385" class="ln"/>
+  <path d="M555,325 L720,385" class="lnG"/>
+  <text x="640" y="350" class="lbl">chat requests (HTTPS)</text>
+
+  <!-- Existing API <-> MCP -->
+  <path d="M500,470 L540,470" class="lnG"/>
+  <path d="M540,485 L500,485" class="lnG"/>
+  <text x="520" y="462" text-anchor="middle" class="s">reuse</text>
+
+  <!-- MCP <-> Claude -->
+  <path d="M600,570 L330,625" class="lnG"/>
+  <path d="M320,625 L590,575" class="lnG"/>
+  <text x="440" y="590" class="lbl">MCP protocol: tool list / tool calls / results</text>
+
+  <!-- Adapter -> solvers -->
+  <path d="M700,570 L680,625" class="lnG"/>
+  <text x="705" y="605" class="lbl">REST</text>
+  <path d="M900,570 L930,625" class="lnD"/>
+  <text x="920" y="605" class="lbl">later</text>
+
+  <!-- API -> DB -->
+  <path d="M320,570 L420,800" class="ln"/>
+  <path d="M800,570 L540,800" class="lnG"/>
+  <text x="640" y="770" text-anchor="middle" class="lbl">Prisma (provider-scoped queries)</text>
+
+  <!-- API -> Sandata -->
+  <path d="M480,540 L740,820" class="ln"/>
+</svg>

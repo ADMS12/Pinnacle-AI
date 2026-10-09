@@ -1,0 +1,55 @@
+Admin Web App
+Tru Care  vừa tạo chức năng AI Scheduling trong Schedule. Cách test:
+https://test-app.truecaresystem.com/
+Vào Menu Schedule, chọn 1 Individual, xong set Master Schedule (service, Time) cho các ngày trong tuần =&gt; chưa có DSP
+Bấm nút AI Schedule
+AI sẽ đi tìm danh sách tất cả DSP thõa màn và tối ưu nhất về: Availibility time, không conflict, Qualification chuyên môn, không overtime 40h/week, distance từ nhà DSP đến Individual ... và sẽ đề xuất lên trên đầu cho mỗi shift (và cũng cho phép người lập lịch thay đổi DSP khác nếu họ muốn, cho phép gợi ý DSP tốt nhất nếu shift đó đang có DSP chọn sẳn, Nếu bất kỳ 1 shift nào mà AI không tìm ra DSP phù hợp thì sẽ note luôn cho người làm schedule chọn thủ công hoặc có quyết định riêng.
+Cho phép Generate ra max = 4 tuần
+Bấm Approve
+Sau đó Schedule tự động cập nhật tên DSP lên từng Shift trong tuần và genarate sang n tuần mình đã chọn, và tự động kết nối sang Mobile App cho DSP nhận Schedule.
+------------------------------------------------ Nếu các anh thấy ổn, Dưỡng sẽ tiếp tục tạo chức năng AI Support để người lên Schedule có thể Ask AI về Schedule của 1 Individule cụ thể. Chẳng hạn ask bằng giọng nói hoặc message command:
+Hãy lên Schedule cho Individual tên David từ ngày ... đến ngày ....
+[IMG media/image26.png 0.3x0.1in]
+[IMG media/image5.png 11.8x5.7in]
+[IMG media/image13.png 11.7x3.3in]
+[IMG media/image15.png 11.1x5.4in]
+[IMG media/image11.png 11.7x5.2in]
+[IMG media/image28.png 6.2x6.8in]
+[IMG media/image23.png 6.2x6.7in]
+Question: Làm thế nào để mình lấy 1 DSP ra (ví dụ như emergency time off) để xem AI có thể soạn lại Schedule với những nhân viên còn lại? 
+Answer:  cho Selena tự dò các Shift nào có status là BACKUP OPEN trước để hỏi thêm người yêu cầu có muốn gọp tìm luôn những DSP phù hợp hay không? Nên nếu trong hệ thống có bất kỳ Shift nào đang status là BACKUP OPEN là Selena sẽ thông báo luôn cho người lập Schedule. 
+[IMG media/image7.png 5.3x5.5in]
+[IMG media/image24.png 11.6x5.6in]
+[IMG media/image14.png 3.5x5.7in]
+[IMG media/image2.png 11.3x5.6in]
+Như vậy, Selena AI sẽ đa dạng cho mình tự thay thế DSP hoặc Selena sẽ giúp mình tự cập nhật DSP xong rồi báo cáo cho mình biết chi tiết
+Nếu Provider nào có hàng răm Individual thì True Care sẽ xử lý Schedule cho họ tích tắc trong vòng vài chục giây.
+[IMG media/image3.png 4.2x5.7in]
+[IMG media/image22.png 4.0x5.5in]
+[IMG media/image17.png 4.0x5.6in]
+Đây là Setting để set trọng số ưu tiên khi hệ thống lookup DSP, tùy theo quyết định của mỗi Provider họ quyết định trọng số theo chiến lược của họ 
+[IMG media/image9.png 8.4x5.6in]
+Và đây là Option cho Supervisor tùy chọn cho AI hỗ trợ lập Schedule cho từng Individual hay tất cả Individual
+[IMG media/image8.png 9.7x5.6in]
+Nếu chỉ chọn Per Individual thì AI sẽ lookup DSp tối ưu sẳn để Supervisor xem xét quyết định (có Option cho chọn lại DSP tùy thích, sau đó Approve là AI sẽ tự update DSP cho họ 
+[IMG media/image25.png 8.7x5.6in]
+rường hợp Supervisor muốn AI Schedule cho all Individual thì cho phép chọn từ ngày đến ngày, đồng thời có thêm option cho chọn thay đổi luôn những shift đã có DSP từ trước hay không? và cũng cho phép chọn từng Individual nếu muốn. hệ thống cũng tính luôn cost sẽ chi trả cho tổng số shift này để Supervisor cân nhắc việc chọn DSP phù hợp với rate khi payroll. Note: Trong phần Advanced này hết sức cẩn trọng, vì quyết định thay đổi toàn bộ schedule cho toàn Provider, có thể lên đến hàng trăm Individual và có thể generate ra nhiều ngày, do đó RẤT NGUY HIỂM nếu có sai xót. Do vậy, chức năng Advanced này Dưỡng đã tạo thêm 1 &quot;snapshot&quot; cho từng shift, ghi lại status từng shift TRƯỚC khi có thay đổi từ DSP cũ sang DSP mới, gắn theo bachID để cho phép UNDO trong 24h (chức năng UNDO sẽ sống trong 24h kể từ action cuối cùng và luôn hiển thị cho Supervisor truy cập lại hộp thoại Advanced, hệ thống sẽ ghi chú rõ lệnh UNDO này từ đâu?) =&gt; Khi nhấn Approve, hệ thống sẽ làm tất cả các bước: xóa DSP cũ (nếu có), chạy lệnh tìm conflit trên tất cả Individual/DSP ... để tìm có trùng ca hay không? ... ) =&gt; Chờ xử lý Nếu muốn Undo thì hệ thống sẽ trả lại đúng tên DSP trước đây. 
+[IMG media/image18.png 11.7x5.3in]
+[IMG media/image4.png 8.8x5.7in]
+[IMG media/image1.png 6.6x2.4in]
+[IMG media/image27.png 6.2x5.7in]
+[IMG media/image21.png 8.1x5.7in]
+[IMG media/image10.png 7.9x5.7in]
+Như vậy là cả 3 chức năng:
+AI Scheduling Setting
+AI Scheduling - Per Individual
+AI Auto Schedule - All Individual
+Tất cả đều được gắn RBAC cẩn trọng (tức hệ thống yêu cầu mật khẩu người dùng để confirm trước khi thực hiện 3 chức năng này) Lưu ý: Nhằm tránh hỏi nhiều lần, Dưỡng đã set cho 10 phút nếu user đó đang thao tác liên tục, quá 10 phút mà dùng lại nút Save/Approve này hệ thống sẽ xác nhận lại cho an toàn.
+Mobile App
+AI Mobile đã tuân thủ nguyên tắc không được trả lời thông tin của DSP khác, chỉ phục vụ cho chính DSP đó trên Mobile App chính mình. Great!
+Selena AI Income on top right
+[IMG media/image19.png 3.1x6.3in]
+[IMG media/image6.png 3.1x6.4in]
+[IMG media/image20.png 3.0x6.5in]
+[IMG media/image16.png 3.0x6.4in]
+[IMG media/image12.png 3.0x6.3in]
