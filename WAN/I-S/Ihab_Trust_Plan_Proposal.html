@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahawi Trust Plan</title>
+<style>
+:root{--navy:#0d366b;--blue:#2a78d6;--blue2:#5598e7;--teal:#1baf7a;--gold:#eda100;--red:#e34948;--violet:#6250d6;--pink:#d6508f;--orange:#e8702a;--ink:#0b0b0b;--ink2:#4b5563;--muted:#8a8f98;--line:#e5e7eb;--bg:#f6f7f9;--card:#fff;--wash:#eef4fc;--wash2:#fdf0e9;--wash3:#e8f7f1;--washr:#fdeaea;--washv:#efecfb;--washp:#fbeaf2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1400px;margin:0 auto;padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav a{font-size:13px;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:999px}nav a:hover{background:var(--wash);color:var(--navy)}
+nav .brand{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
+.slide{max-width:1400px;margin:0 auto;padding:64px 28px 56px;border-bottom:1px solid var(--line)}
+.hero{background:var(--navy);color:#fff;border:0}.hero .in{max-width:1400px;margin:0 auto;padding:90px 28px 80px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:52px;line-height:1.08;margin:0 0 16px;font-weight:750;letter-spacing:-.01em}.hero .sub{color:#cde2fb;font-size:22px}
+.hero .firms{margin-top:36px;display:flex;gap:28px;flex-wrap:wrap}.hero .firms div{font-size:14px;color:#cde2fb}.hero .firms b{display:block;color:#fff;font-size:16px}
+.k{display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}.k .n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.k .tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h2{font-size:38px;margin:0 0 10px;font-weight:750;letter-spacing:-.01em}h3{font-size:22px;margin:0 0 10px;font-weight:700}h4{font-size:17px;margin:0 0 6px;font-weight:700}
+.lede{color:var(--ink2);font-size:20px;max-width:1000px;margin:0 0 30px}
+.grid{display:grid;gap:22px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g21{grid-template-columns:1.3fr 1fr}.g12{grid-template-columns:1fr 1.3fr}
+@media(max-width:1000px){.g2,.g3,.g4,.g21,.g12,.hero .in{grid-template-columns:1fr}.hero h1{font-size:38px}h2{font-size:30px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+.card.soft{background:var(--wash)}.card.warn{background:var(--washr);border-color:#f3c6c6}.card.good{background:var(--wash3)}.card.v{background:var(--washv)}.card.o{background:var(--wash2)}.card.p{background:var(--washp)}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}.kpi .l{font-size:13px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}.kpi .v{font-size:34px;font-weight:750;margin:4px 0 2px;letter-spacing:-.01em}.kpi .s{font-size:14px;color:var(--muted)}
+.kpi.red .v{color:#c0392b}.kpi.green .v{color:#0f8a5f}.kpi.gold .v{color:#b86a00}.kpi.violet .v{color:#4a3bb0}
+p{margin:8px 0;color:var(--ink2)}ul{margin:8px 0;padding-left:22px}li{margin:6px 0;color:var(--ink2)}li b,p b{color:var(--ink)}
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.now{background:rgba(227,73,72,.12);color:#b42318}.pill.soon{background:rgba(237,161,0,.16);color:#9a5b00}.pill.later{background:rgba(27,175,122,.14);color:#0f6b4b}.pill.info{background:var(--wash);color:var(--navy)}.pill.v{background:rgba(98,80,214,.14);color:#4a3bb0}
+.callout{border-left:6px solid var(--blue);background:var(--wash);padding:16px 22px;border-radius:10px;font-size:18px;color:var(--ink)}
+.callout.o{border-color:var(--gold);background:var(--wash2)}.callout.r{border-color:var(--red);background:var(--washr)}.callout.g{border-color:var(--teal);background:var(--wash3)}.callout.v{border-color:var(--violet);background:var(--washv)}
+table{width:100%;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}th:first-child,td:first-child{text-align:left}th{color:var(--ink2);font-weight:600;font-size:14px}tr.total td{font-weight:700;border-top:2px solid #c3c2b7}
+td.l,th.l{text-align:left}
+.term{display:inline-block;border-bottom:2px dotted var(--blue);cursor:help}
+.def{font-size:15px;color:var(--ink2);background:var(--wash);border-radius:10px;padding:10px 14px;margin:10px 0}
+.def b{color:var(--navy)}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.small{font-size:14px;color:var(--muted)}
+.phase{display:grid;grid-template-columns:repeat(3,1fr);gap:0}.phase>div{padding:18px 20px;border-left:3px solid var(--line);position:relative}
+.phase>div::before{content:attr(data-n);position:absolute;left:-17px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.phase>div:nth-child(2)::before{background:var(--gold)}.phase>div:nth-child(3)::before{background:var(--teal)}
+@media(max-width:1000px){.phase{grid-template-columns:1fr}}
+.foot{max-width:1400px;margin:0 auto;padding:30px 28px 60px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<nav><div class="in"><span class="brand">Shahawi Family · Trust &amp; Estate Plan</span>
+<a href="#assets">Assets</a><a href="#basics">Basics</a><a href="#rlt">Living trust</a><a href="#irrev">Irrevocable</a><a href="#slat">SLAT</a><a href="#ilit">ILIT</a><a href="#crt">CRT</a><a href="#daf">DAF</a><a href="#dynasty">Dynasty</a><a href="#model">Estate model</a><a href="#timeline">Timeline</a><a href="#ucla">UCLA</a><a href="#action">Next steps</a></div></nav>
+
+<header class="hero"><div class="in">
+  <div>
+    <div style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#86b6ef;margin-bottom:14px">Prepared for Ihab Shahawi and Vivian El-Shahawi · October 2026</div>
+    <h1>Protecting Family Wealth Through Trust &amp; Estate Planning</h1>
+    <div class="sub">How the right trusts protect what you have built, cut the estate tax from $55 million to a number insurance can pay, keep the Institute in family control, fund UCLA more efficiently, and leave a pool that lasts beyond your grandchildren.</div>
+    <div class="firms"><div><b>Pinnacle Planning</b>Advanced planning for business owners</div><div><b>Wealth Advisory Now</b>Fee-based fiduciary wealth management</div><div><b>M&amp;M Wealth Associates</b>Insurance solutions and advanced planning</div></div>
+  </div>
+  <div>
+    <svg viewBox="0 0 740 440" width="100%" role="img" aria-label="Two paths for the estate">
+      <text x="20" y="34" font-size="16" fill="#cde2fb" font-weight="600">If nothing changes: the estate in 2053</text>
+      <rect x="20" y="48" width="700" height="38" rx="8" fill="#3987e5"/><rect x="506" y="48" width="179" height="38" rx="8" fill="#e34948"/><rect x="685" y="48" width="35" height="38" rx="8" fill="#eda100"/>
+      <text x="32" y="73" font-size="16" fill="#fff" font-weight="700">To heirs $125M</text><text x="520" y="73" font-size="15" fill="#fff" font-weight="700">Tax $46M</text>
+      <text x="20" y="112" font-size="14" fill="#cde2fb">$180.7M estate · $46.4M federal estate tax · $9.0M probate · 69% reaches the family</text>
+      <text x="20" y="170" font-size="16" fill="#cde2fb" font-weight="600">With the trust plan</text>
+      <rect x="20" y="184" width="700" height="38" rx="8" fill="#1baf7a"/><rect x="676" y="184" width="44" height="38" rx="8" fill="#e34948"/>
+      <text x="32" y="209" font-size="16" fill="#fff" font-weight="700">To heirs and family trusts $170M+</text>
+      <text x="20" y="248" font-size="14" fill="#cde2fb">Growth happens inside trusts · remaining tax paid by insurance owned outside the estate · no probate</text>
+      <line x1="20" y1="286" x2="720" y2="286" stroke="#1c4f8f"/>
+      <g font-size="15" fill="#cde2fb"><text x="20" y="320">Net worth today</text><text x="720" y="320" text-anchor="end" fill="#fff" font-weight="700">$67.1M</text>
+      <text x="20" y="348">Combined estate tax exemption, 2026</text><text x="720" y="348" text-anchor="end" fill="#fff" font-weight="700">$30.0M</text>
+      <text x="20" y="376">Federal estate tax if both passed today</text><text x="720" y="376" text-anchor="end" fill="#fff" font-weight="700">$14.8M</text>
+      <text x="20" y="404">Liquid assets available to pay it</text><text x="720" y="404" text-anchor="end" fill="#eda100" font-weight="700">$100K</text></g>
+    </svg>
+  </div>
+</div></header>
+
+<!-- ===================== ASSETS ===================== -->
+<section class="slide" id="assets">
+  <div class="k"><span class="n">1</span><span class="tag">What the family owns</span></div>
+  <h2>Every asset, where it sits, and what the estate tax sees</h2>
+  <p class="lede">Almost everything the family owns is inside three entities, and almost none of it is liquid. That shapes every recommendation that follows: the plan has to move future growth out of the estate without moving control, and it has to create cash for the day the tax is due.</p>
+  <div class="grid g4" style="margin-bottom:22px">
+    <div class="kpi"><div class="l">Net worth</div><div class="v">$67.1M</div><div class="s">RightCapital, October 2026</div></div>
+    <div class="kpi red"><div class="l">Inside the taxable estate</div><div class="v">100%</div><div class="s">no trusts, no gifts made</div></div>
+    <div class="kpi gold"><div class="l">Liquid</div><div class="v">0.15%</div><div class="s">$100K cash, $50K term life</div></div>
+    <div class="kpi green"><div class="l">Debt</div><div class="v">$0</div><div class="s">all real estate owned free and clear</div></div>
+  </div>
+  <div class="card"><h3>Personal assets</h3>
+    <table><thead><tr><th class="l">Asset</th><th>Value</th><th class="l">Ownership today</th><th class="l">Tax treatment today</th><th class="l">Estate exposure</th><th class="l">Trust strategy</th></tr></thead><tbody>
+      <tr><td class="l"><b>Primary residence</b></td><td>not stated</td><td class="l">Joint</td><td class="l">$500K gain exclusion on sale; no deduction (no mortgage)</td><td class="l">Fully included; passes through probate without a trust</td><td class="l">Revocable living trust now. A QPRT only if the home is worth several million.</td></tr>
+      <tr><td class="l"><b>Cash</b></td><td>$100,000</td><td class="l">Joint</td><td class="l">Interest taxed at 45% combined</td><td class="l">Included; this is the only liquidity</td><td class="l">Living trust. Build reserves to six months of spending ($180K) before any gift.</td></tr>
+      <tr><td class="l"><b>Rental properties, personal</b></td><td>none</td><td class="l">All real estate is held in LLC1 and LLC2</td><td class="l">See business assets</td><td class="l">See business assets</td><td class="l">See business assets</td></tr>
+      <tr><td class="l"><b>Brokerage accounts</b></td><td>none</td><td class="l">The $5M investment account is owned by the Institute, not the family</td><td class="l">Taxed inside the C corporation at 21%, then again as dividends when distributed</td><td class="l">Included through the stock value</td><td class="l">The CRT and DAF examples below use real estate and company stock instead.</td></tr>
+      <tr><td class="l"><b>Retirement accounts</b></td><td>none</td><td class="l">No 401(k), IRA or pension</td><td class="l">No tax-deferred savings at all</td><td class="l">n/a</td><td class="l">Not a trust matter, but the cash balance plan in the main plan changes the income picture below.</td></tr>
+      <tr><td class="l"><b>Life insurance</b></td><td>$50,000</td><td class="l">Term policy owned by Ihab</td><td class="l">Death benefit income-tax free</td><td class="l">Included because Ihab owns it; immaterial</td><td class="l">New second-to-die coverage of $15M to $25M, owned from day one by an ILIT.</td></tr>
+    </tbody></table></div>
+  <div class="card" style="margin-top:22px"><h3>Business assets</h3>
+    <table><thead><tr><th class="l">Asset</th><th>Value</th><th class="l">Ownership today</th><th class="l">Tax treatment today</th><th class="l">Estate exposure</th><th class="l">Trust strategy</th></tr></thead><tbody>
+      <tr><td class="l"><b>Institute of Applied Behavior Analysis</b> (C corporation)<div class="small">$40M operating value, $5M investment account, $2M checking</div></td><td>$47,000,000</td><td class="l">Ihab and Vivian directly, no trust</td><td class="l">Profit of $5.4M a year taxed at about 28% inside the company and retained; salaries of $700K are the family&#39;s only income</td><td class="l">The largest exposure. Projected to grow to $180.7M by 2053 because profits stay inside; every dollar of that growth is taxed at 40% at death</td><td class="l">Recapitalize into voting and non-voting shares. Non-voting shares, appraised at a 25% to 35% discount, go to two SLATs and an IDGT sale. Voting shares stay with Ihab inside the living trust.</td></tr>
+      <tr><td class="l"><b>Real Estate LLC2</b><div class="small">debt-free rental real estate</div></td><td>$17,000,000</td><td class="l">LLC interests held personally</td><td class="l">Rental income taxed to the family; depreciation largely used; low tax basis, so a sale triggers large capital gains</td><td class="l">Included; probate asset without a trust</td><td class="l">LLC interests into the living trust now. Discounted LLC interests are the natural asset for a CRT (section 7) or the DAF (section 8), and for the dynasty trusts.</td></tr>
+      <tr><td class="l"><b>Real Estate LLC1</b></td><td>$3,000,000</td><td class="l">LLC interests held personally</td><td class="l">Same as LLC2</td><td class="l">Included</td><td class="l">Living trust; candidate for a 1031 exchange or a gift to the dynasty trust.</td></tr>
+      <tr><td class="l"><b>Future liquidity event</b><div class="small">a sale of the Institute, if the 90-day review points that way</div></td><td>$40M to $60M</td><td class="l">Not yet decided</td><td class="l">C corporation stock sale: 20% federal, 3.8% net investment income tax, 13.3% California, on nearly the whole price</td><td class="l">Turns an illiquid estate into a liquid one, but at the same 40% rate</td><td class="l">A GRAT and a CRT funded with shares <i>before</i> a sale capture the jump in value and defer the gain. Timing is everything.</td></tr>
+      <tr class="total"><td class="l">Total</td><td>$67,100,000</td><td class="l" colspan="4">Of which $67.0M is business and real estate, and $0.1M is cash.</td></tr>
+    </tbody></table>
+    <p class="small">Family: Ihab, 63, and Vivian, 67; four children aged 21 to 46; two grandchildren aged 14 and 16. Retirement planned for 2029. Annual giving to UCLA of about $175,000 (modeled at $165,000 a year in RightCapital for five years). Legacy goals: $20M to the four children, $5M to the two grandchildren, two college educations.</p></div>
+</section>
+
+<!-- ===================== BASICS ===================== -->
+<section class="slide" id="basics">
+  <div class="k"><span class="n">2</span><span class="tag">The vocabulary, once</span></div>
+  <h2>What a trust is, and the four choices that make them different</h2>
+  <div class="grid g12">
+    <div class="card">
+      <svg viewBox="-40 0 640 330" width="100%">
+        <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <circle cx="280" cy="36" r="16" fill="#0d366b"/><rect x="260" y="54" width="40" height="40" rx="20" fill="#0d366b"/>
+        <text x="330" y="60" font-weight="700">Trustee</text><text x="330" y="78" fill="#4b5563">holds the key, must follow the rules</text>
+        <line x1="280" y1="98" x2="280" y2="136" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <circle cx="60" cy="196" r="16" fill="#2a78d6"/><rect x="40" y="214" width="40" height="40" rx="20" fill="#2a78d6"/>
+        <text x="60" y="278" text-anchor="middle" font-weight="700">Grantor</text><text x="60" y="296" text-anchor="middle" fill="#4b5563">Ihab and Vivian:</text><text x="60" y="312" text-anchor="middle" fill="#4b5563">fund it, write the rules</text>
+        <line x1="90" y1="230" x2="166" y2="230" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/><text x="128" y="220" text-anchor="middle" fill="#4b5563" font-size="12">assets + rules</text>
+        <rect x="170" y="140" width="220" height="150" rx="16" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/>
+        <text x="280" y="170" text-anchor="middle" font-weight="700" font-size="15">The trust</text>
+        <text x="280" y="192" text-anchor="middle" fill="#4b5563" font-size="12">a legal container with its own</text><text x="280" y="208" text-anchor="middle" fill="#4b5563" font-size="12">rules, owner of record and tax ID</text>
+        <rect x="205" y="226" width="40" height="46" rx="4" fill="#fff" stroke="#2a78d6" stroke-width="2"/><rect x="212" y="236" width="26" height="3" fill="#2a78d6"/><rect x="212" y="244" width="26" height="3" fill="#86b6ef"/><rect x="212" y="252" width="18" height="3" fill="#86b6ef"/>
+        <rect x="258" y="238" width="30" height="34" rx="3" fill="#1baf7a"/><rect x="264" y="246" width="6" height="6" fill="#fff"/><rect x="276" y="246" width="6" height="6" fill="#fff"/><rect x="264" y="258" width="6" height="6" fill="#fff"/><rect x="276" y="258" width="6" height="6" fill="#fff"/>
+        <ellipse cx="330" cy="244" rx="20" ry="7" fill="#eda100"/><rect x="310" y="244" width="40" height="20" fill="#eda100"/><ellipse cx="330" cy="264" rx="20" ry="7" fill="#d08a00"/>
+        <line x1="394" y1="230" x2="470" y2="230" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/><text x="432" y="220" text-anchor="middle" fill="#4b5563" font-size="12">distributions</text>
+        <circle cx="500" cy="190" r="13" fill="#6250d6"/><rect x="484" y="205" width="32" height="34" rx="16" fill="#6250d6"/><circle cx="536" cy="190" r="13" fill="#6250d6"/><rect x="520" y="205" width="32" height="34" rx="16" fill="#6250d6"/><circle cx="518" cy="228" r="9" fill="#a99af0"/><rect x="507" y="239" width="22" height="24" rx="11" fill="#a99af0"/>
+        <text x="518" y="285" text-anchor="middle" font-weight="700">Beneficiaries</text><text x="518" y="303" text-anchor="middle" fill="#4b5563">children, grandchildren,</text><text x="518" y="319" text-anchor="middle" fill="#4b5563">each other, UCLA</text>
+        </g>
+      </svg>
+      <p class="small">Every trust in this plan has these same three parties. What changes from one to the next is the rulebook.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h4>Revocable or irrevocable</h4><p><b>Revocable:</b> you can change or cancel it, so nothing has really left you. It fixes probate and incapacity, never estate tax. <b>Irrevocable:</b> you give up the right to take it back, and in exchange the assets and all their future growth leave your estate.</p></div>
+      <div class="card"><h4>Who pays its income tax</h4><p>A <b>grantor trust</b> is ignored for income tax: Ihab keeps paying the tax on what it earns even though the assets are out of his estate. Every tax dollar he pays is a dollar the trust keeps, and it is not a gift. A <b>non-grantor trust</b> files its own return at compressed brackets.</p></div>
+      <div class="card"><h4>Inside or outside the estate</h4><p>Federal estate tax is <b>40%</b> on everything above the exemption, $15 million per person in 2026, so $30 million for the two of you. Assets in a revocable trust count. Assets given to an irrevocable trust, plus everything they earn afterward, do not.</p></div>
+      <div class="card"><h4>Where it lives, how long it lasts</h4><p>A trust can be governed by another state&#39;s law. <b>Nevada</b> and <b>South Dakota</b> allow a trust to run for centuries or forever, charge no state income tax on what it keeps, and shield assets from a beneficiary&#39;s creditors and divorces. California trusts face state tax and a time limit.</p></div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:22px"><b>Three ways value leaves an estate, and the plan uses all three.</b> Gifts within the $30M exemption. <b>Discounts</b>, because a non-voting minority share of a private company is appraised at 25% to 35% less than its pro-rata value, so $15M of exemption can move about $21M of real value. And <b>growth above the IRS rate</b>, which a sale to a grantor trust or a GRAT hands to the heirs without using any exemption at all.</div>
+</section>
+
+<!-- ===================== REVOCABLE LIVING TRUST ===================== -->
+<section class="slide" id="rlt">
+  <div class="k"><span class="n">3</span><span class="tag">Trust strategy 1 of 7</span><span class="pill now">Now</span></div>
+  <h2>Revocable living trust: control now, no court later</h2>
+  <p class="lede">This is the foundation document. It does nothing for estate tax, but without it the Institute, both LLCs and the home go through a California probate that is public, takes a year or more, and would cost about $3.4 million today and $9.0 million in 2053 on RightCapital&#39;s assumptions.</p>
+  <div class="grid g12">
+    <div class="card soft"><h3>Purpose, and what goes into it</h3>
+      <ul><li><b>Purpose.</b> Avoid probate, keep the family&#39;s affairs private, and name who runs things if either of you is incapacitated, without a court-appointed conservator voting the Institute&#39;s shares.</li>
+      <li><b>Assets to retitle.</b> The voting shares of the Institute, the LLC1 and LLC2 membership interests, the residence, and the joint cash account. A trust only controls what it owns; an unfunded trust is the most common estate-planning failure we see.</li>
+      <li><b>Assets that stay out.</b> Non-voting shares headed for the SLATs and the IDGT sale, and the new life insurance, which the ILIT must own from day one.</li>
+      <li><b>During your lifetimes.</b> Nothing changes. You are the trustees and the beneficiaries, you file the same tax returns, and you can amend or revoke it at any time.</li></ul></div>
+    <div class="card"><h3>What the trust does at each death</h3>
+      <svg viewBox="0 0 640 300" width="100%">
+        <g font-size="13">
+        <rect x="20" y="20" width="600" height="56" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/><text x="320" y="44" text-anchor="middle" font-weight="700" font-size="15">Shahawi Family Trust (revocable)</text><text x="320" y="64" text-anchor="middle" fill="#4b5563">Ihab and Vivian, trustees · voting shares, LLC interests, home, cash</text>
+        <line x1="320" y1="78" x2="320" y2="108" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <text x="320" y="128" text-anchor="middle" font-weight="700" fill="#b86a00">At the first death, the trust splits</text>
+        <rect x="20" y="140" width="180" height="70" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="2"/><text x="110" y="164" text-anchor="middle" font-weight="700">Survivor&#39;s trust</text><text x="110" y="182" text-anchor="middle" fill="#4b5563" font-size="12">the survivor&#39;s half; still</text><text x="110" y="198" text-anchor="middle" fill="#4b5563" font-size="12">revocable, still in control</text>
+        <rect x="230" y="140" width="180" height="70" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/><text x="320" y="164" text-anchor="middle" font-weight="700">Bypass trust</text><text x="320" y="182" text-anchor="middle" fill="#4b5563" font-size="12">the first exemption; growth</text><text x="320" y="198" text-anchor="middle" fill="#4b5563" font-size="12">never taxed in the survivor&#39;s estate</text>
+        <rect x="440" y="140" width="180" height="70" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="530" y="164" text-anchor="middle" font-weight="700">QTIP marital trust</text><text x="530" y="182" text-anchor="middle" fill="#4b5563" font-size="12">the rest; no tax now, income</text><text x="530" y="198" text-anchor="middle" fill="#4b5563" font-size="12">to the survivor, heirs fixed</text>
+        <line x1="320" y1="212" x2="320" y2="244" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <rect x="120" y="248" width="400" height="44" rx="12" fill="#fdf0e9" stroke="#eb6834" stroke-width="2"/><text x="320" y="268" text-anchor="middle" font-weight="700">At the second death: to the children&#39;s trusts and UCLA</text><text x="320" y="284" text-anchor="middle" fill="#4b5563" font-size="12">privately, without court, on the schedule you wrote</text>
+        </g>
+      </svg></div>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h4>At the first death</h4><p>The survivor keeps control of the Institute&#39;s voting shares through the survivor&#39;s trust. The first spouse&#39;s $15M exemption is locked into the bypass trust so that its growth is never taxed again, something portability alone does not do. Income from the QTIP must go to the survivor each year; its principal is taxed at the second death.</p></div>
+    <div class="card"><h4>At the second death</h4><p>The successor trustee, whom you name now, distributes to the four children in trust rather than outright, pays any charitable bequest to UCLA, and executes the business succession instructions: who votes the shares, whether the Institute is sold, and on what terms. The $20M and $5M legacy goals are written here.</p></div>
+    <div class="card"><h4>Applied to Ihab and Vivian</h4><p>Retitle the LLC interests and voting shares this quarter, before the recapitalization and appraisal. Name a successor trustee who can run or sell a $47M company, which may mean a corporate trustee alongside a child. Pair it with pour-over wills, powers of attorney and health care directives.</p></div>
+  </div>
+</section>
+
+<!-- ===================== IRREVOCABLE TRUST ===================== -->
+<section class="slide" id="irrev">
+  <div class="k"><span class="n">4</span><span class="tag">Trust strategy 2 of 7</span><span class="pill now">Now</span></div>
+  <h2>Irrevocable trusts: where the growth goes to live</h2>
+  <p class="lede">An irrevocable trust is the only structure that takes future growth out of the estate. For this family the growth is enormous: the Institute&#39;s retained profits are projected to add $113 million by 2053. The plan uses one irrevocable trust for each job, and most of them are drafted as grantor trusts so Ihab keeps paying their income tax, which is itself a tax-free transfer.</p>
+  <div class="grid g2">
+    <div class="card v"><h3>Purpose and protection</h3>
+      <ul><li><b>Estate tax.</b> Whatever is given to the trust, and everything it earns afterward, is outside the 40% tax. A $21M gift of discounted shares today is worth about $56M in 2053 on the plan&#39;s growth rate; all $56M escapes the estate, not just the $21M.</li>
+      <li><b>Asset protection.</b> With a Nevada or South Dakota trustee, the assets are beyond the reach of a beneficiary&#39;s creditors, lawsuits and divorces, and beyond Ihab&#39;s own creditors once the gift is complete and seasoned.</li>
+      <li><b>Appropriate assets.</b> Things expected to grow faster than the IRS rate: non-voting Institute shares first, LLC2 real estate second. Not the home, not the cash reserve, not anything the family needs back.</li></ul></div>
+    <div class="card"><h3>The IDGT sale: moving value without using exemption</h3>
+      <svg viewBox="0 0 600 250" width="100%">
+        <g font-size="13">
+        <rect x="20" y="30" width="190" height="64" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/><text x="115" y="55" text-anchor="middle" font-weight="700">Ihab</text><text x="115" y="74" text-anchor="middle" fill="#4b5563" font-size="12">sells non-voting shares</text>
+        <rect x="390" y="30" width="190" height="64" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="485" y="55" text-anchor="middle" font-weight="700">Grantor trust (IDGT)</text><text x="485" y="74" text-anchor="middle" fill="#4b5563" font-size="12">for the children, GST exempt</text>
+        <line x1="212" y1="52" x2="386" y2="52" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/><text x="300" y="44" text-anchor="middle" fill="#4b5563" font-size="12">$15M of discounted shares</text>
+        <line x1="386" y1="78" x2="214" y2="78" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/><text x="300" y="96" text-anchor="middle" fill="#4b5563" font-size="12">9-year note at about 4%</text>
+        <rect x="20" y="124" width="560" height="110" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/>
+        <text x="300" y="149" text-anchor="middle" font-weight="700">What the trust keeps</text>
+        <text x="300" y="170" text-anchor="middle" fill="#4b5563" font-size="12">Everything the shares earn above 4%. At the plan&#39;s growth rate,</text>
+        <text x="300" y="187" text-anchor="middle" fill="#4b5563" font-size="12">$21.4M becomes about $57M by 2053 while the note was only $15M.</text>
+        <text x="300" y="207" text-anchor="middle" fill="#4b5563" font-size="12">No capital gain on the sale, no gift tax, and Ihab pays the trust&#39;s income tax,</text>
+        <text x="300" y="224" text-anchor="middle" fill="#4b5563" font-size="12">a further transfer the IRS does not count.</text>
+        </g>
+      </svg>
+      <p class="small">The note stays in Ihab&#39;s estate at face value, so the sale freezes $15M and removes the growth. A &#8220;seed&#8221; gift of about 10% of the sale price goes in first so the trust can support the debt.</p></div>
+  </div>
+  <div class="callout v" style="margin-top:22px"><b>Applied to the Shahawis.</b> Two irrevocable trusts carry the plan: a SLAT for each spouse (next section) funded by gift, and one IDGT that buys shares for a note. All three are drafted as dynasty trusts with GST exemption allocated (section 9), sited in Nevada, and with a trust protector who can fix drafting problems later without a court. Combined, about $64M of today&#39;s underlying value moves out of a $67M estate, while Ihab keeps every voting share.</div>
+</section>
+
+<!-- ===================== SLAT ===================== -->
+<section class="slide" id="slat">
+  <div class="k"><span class="n">5</span><span class="tag">Trust strategy 3 of 7</span><span class="pill now">Now</span></div>
+  <h2>SLAT: out of the estate, not out of reach</h2>
+  <p class="lede">The spousal lifetime access trust is the answer to the question every business owner asks about giving: &#8220;what if we need it back?&#8221; Each spouse funds a trust for the <i>other</i> spouse and the descendants. The gift uses exemption and leaves the estate, but the household keeps indirect access through the beneficiary spouse.</p>
+  <div class="grid g12">
+    <div class="card"><h3>How it works</h3>
+      <svg viewBox="0 0 560 320" width="100%">
+        <g font-size="13">
+        <circle cx="90" cy="60" r="16" fill="#2a78d6"/><rect x="70" y="78" width="40" height="40" rx="20" fill="#2a78d6"/><text x="90" y="140" text-anchor="middle" font-weight="700">Ihab</text>
+        <circle cx="470" cy="60" r="16" fill="#d6508f"/><rect x="450" y="78" width="40" height="40" rx="20" fill="#d6508f"/><text x="470" y="140" text-anchor="middle" font-weight="700">Vivian</text>
+        <rect x="150" y="170" width="120" height="110" rx="14" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="210" y="196" text-anchor="middle" font-weight="700">SLAT 1</text><text x="210" y="214" text-anchor="middle" fill="#4b5563" font-size="11">funded by Ihab</text><text x="210" y="232" text-anchor="middle" fill="#4b5563" font-size="11">for Vivian and</text><text x="210" y="248" text-anchor="middle" fill="#4b5563" font-size="11">the descendants</text><text x="210" y="268" text-anchor="middle" fill="#4a3bb0" font-size="11" font-weight="700">$15M shares, 2026</text>
+        <rect x="290" y="170" width="120" height="110" rx="14" fill="#fbeaf2" stroke="#d6508f" stroke-width="2"/><text x="350" y="196" text-anchor="middle" font-weight="700">SLAT 2</text><text x="350" y="214" text-anchor="middle" fill="#4b5563" font-size="11">funded by Vivian</text><text x="350" y="232" text-anchor="middle" fill="#4b5563" font-size="11">for Ihab and</text><text x="350" y="248" text-anchor="middle" fill="#4b5563" font-size="11">the descendants</text><text x="350" y="268" text-anchor="middle" fill="#b0306e" font-size="11" font-weight="700">$15M LLC2, 2027</text>
+        <path d="M110 90 C 160 110, 190 130, 205 166" fill="none" stroke="#6250d6" stroke-width="2.5" marker-end="url(#ar)"/>
+        <path d="M450 90 C 400 110, 370 130, 355 166" fill="none" stroke="#d6508f" stroke-width="2.5" marker-end="url(#ar)"/>
+        <path d="M274 226 C 330 160, 400 120, 452 104" fill="none" stroke="#6250d6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+        <path d="M286 226 C 230 160, 160 120, 108 104" fill="none" stroke="#d6508f" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+        <text x="280" y="300" text-anchor="middle" fill="#4b5563" font-size="12">solid: the gift · dashed: distributions back to the other spouse if ever needed</text>
+        </g>
+      </svg></div>
+    <div class="card soft"><h3>Which assets, and why they differ</h3>
+      <ul><li><b>SLAT 1 (Ihab funds, 2026):</b> non-voting Institute shares appraised at $15M after a 30% discount, about $21.4M of underlying value. The highest-growth asset goes first.</li>
+      <li><b>SLAT 2 (Vivian funds, 2027):</b> LLC2 real estate interests appraised at $15M after discount, about $20M of underlying value. A different asset, a different year, a different trustee and different distribution terms.</li>
+      <li><b>Why they must differ.</b> If the two trusts mirror each other, the IRS &#8220;uncrosses&#8221; them under the reciprocal trust doctrine and puts both back in the estate. Timing, assets, trustees and terms all have to be visibly different.</li>
+      <li><b>Lifetime access.</b> Vivian can receive distributions from SLAT 1 for health, education, maintenance and support, and vice versa. The household&#39;s lifestyle does not depend on it: salaries of $700K now and $660K of distributions later cover the $360K of spending.</li></ul></div>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card warn"><h4>If one spouse dies</h4><p>The SLAT that spouse funded continues for the survivor and the children: access is unchanged. The SLAT the <i>survivor</i> funded loses its beneficiary spouse, so the survivor cannot reach it. That is why neither SLAT should hold more than the family can afford to lose access to, and why the ILIT provides separate liquidity.</p></div>
+    <div class="card warn"><h4>If the marriage ends</h4><p>The former spouse remains a beneficiary unless the trust says otherwise. Both SLATs are drafted with a &#8220;floating spouse&#8221; clause, so the beneficiary is whoever is married to the grantor at the time, and the trustee holds discretion over all distributions. This is a drafting detail that must be in the document from day one.</p></div>
+    <div class="card good"><h4>The estate tax saving</h4><p>Two SLATs move about $41M of underlying value out of the estate using $30M of exemption. At the plan&#39;s growth rate that value is roughly $110M in 2053. At 40%, the SLATs alone remove about <b>$44 million</b> of estate tax, and nothing taxable is left behind except the growth the family chose to keep.</p></div>
+  </div>
+</section>
+
+<!-- ===================== ILIT ===================== -->
+<section class="slide" id="ilit">
+  <div class="k"><span class="n">6</span><span class="tag">Trust strategy 4 of 7</span><span class="pill now">Now</span></div>
+  <h2>ILIT: cash on the day it is needed, outside the estate</h2>
+  <p class="lede">Life insurance you own is part of your taxable estate: a $20M policy in Ihab&#39;s name pays $12M after estate tax. The same policy owned by an irrevocable life insurance trust pays $20M, income-tax free and estate-tax free, and the trust can lend to the estate or buy assets from it so the tax is paid without selling the Institute. The family has $50,000 of coverage today and a $14.8M tax bill if both passed tomorrow.</p>
+  <div class="grid g12">
+    <div class="card"><h3>A numerical example: $20M second-to-die policy</h3>
+      <table><thead><tr><th class="l"></th><th>Owned by Ihab</th><th>Owned by the ILIT</th></tr></thead><tbody>
+        <tr><td class="l">Death benefit paid</td><td>$20,000,000</td><td>$20,000,000</td></tr>
+        <tr><td class="l">Included in the taxable estate</td><td>$20,000,000</td><td>$0</td></tr>
+        <tr><td class="l">Estate tax on the policy at 40%</td><td>($8,000,000)</td><td>$0</td></tr>
+        <tr><td class="l">Net to the family</td><td>$12,000,000</td><td>$20,000,000</td></tr>
+        <tr><td class="l">Premiums (ages 63 and 67, to be quoted)</td><td>about $300K to $400K a year</td><td>same, gifted to the trust</td></tr>
+        <tr><td class="l">Gift tax on the premiums</td><td>n/a</td><td>none: $19K annual exclusion × 2 donors × 6 beneficiaries = $228K a year, remainder from exemption</td></tr>
+        <tr class="total"><td class="l">Advantage of the ILIT</td><td></td><td>$8,000,000</td></tr>
+      </tbody></table>
+      <p class="small">Second-to-die coverage is priced on two lives and is the right design when the tax is due at the second death, which is the case for a married couple using the marital deduction. Premium financing is worth evaluating because the family is wealthy but illiquid, with the loan stress-tested first.</p></div>
+    <div class="card o"><h3>How the money moves</h3>
+      <svg viewBox="0 0 560 260" width="100%">
+        <g font-size="13">
+        <rect x="20" y="20" width="220" height="56" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/><text x="130" y="43" text-anchor="middle" font-weight="700">Ihab &amp; Vivian</text><text x="130" y="62" text-anchor="middle" fill="#4b5563" font-size="12">annual gifts cover the premium</text>
+        <rect x="320" y="20" width="220" height="56" rx="12" fill="#fdf0e9" stroke="#eb6834" stroke-width="2"/><text x="430" y="43" text-anchor="middle" font-weight="700">ILIT</text><text x="430" y="62" text-anchor="middle" fill="#4b5563" font-size="12">owns the policy from day one</text>
+        <line x1="242" y1="48" x2="316" y2="48" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <rect x="320" y="110" width="220" height="56" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/><text x="430" y="133" text-anchor="middle" font-weight="700">$20M death benefit</text><text x="430" y="152" text-anchor="middle" fill="#4b5563" font-size="12">income-tax free, outside the estate</text>
+        <line x1="430" y1="78" x2="430" y2="106" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <rect x="20" y="110" width="220" height="56" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="2"/><text x="130" y="133" text-anchor="middle" font-weight="700">The estate pays its tax</text><text x="130" y="152" text-anchor="middle" fill="#4b5563" font-size="12">ILIT lends to it or buys shares</text>
+        <line x1="316" y1="138" x2="244" y2="138" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        <rect x="170" y="200" width="220" height="50" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="280" y="221" text-anchor="middle" font-weight="700">Children and grandchildren</text><text x="280" y="239" text-anchor="middle" fill="#4b5563" font-size="12">the rest stays in trust for them</text>
+        <line x1="430" y1="168" x2="320" y2="200" stroke="#898781" stroke-width="2.5" marker-end="url(#ar)"/>
+        </g>
+      </svg>
+      <p><b>Legacy use.</b> The ILIT is drafted as a dynasty trust, so whatever is not needed for tax stays protected for the grandchildren. It is also the natural home for the Rockefeller &#8220;waterfall&#8221;: once the first policy has done its job, the trust buys policies on the children and refills itself at each generation, lending to heirs rather than giving. The three-year rule means a policy transferred from Ihab to the trust stays in the estate for three years, so the new policy is applied for by the trust itself.</p></div>
+  </div>
+</section>
+
+<!-- ===================== CRT ===================== -->
+<section class="slide" id="crt">
+  <div class="k"><span class="n">7</span><span class="tag">Trust strategy 5 of 7</span><span class="pill soon">At a sale or a large gift</span></div>
+  <h2>Charitable remainder trust: sell without the gain, keep an income, and UCLA gets what is left</h2>
+  <p class="lede">You give an appreciated asset to the trust. The trust sells it and pays <b>no capital gains tax</b>, pays you and Vivian an income for life, and gives whatever remains to UCLA at the second death. You get an income tax deduction now for the value of that remainder, and the asset is out of the estate. The catch is that UCLA waits, and the deduction is capped at 30% of income each year.</p>
+  <div class="grid g3">
+    <div class="card p"><h4>Example A: LLC2 real estate</h4>
+      <table><tbody>
+        <tr><td class="l">Property contributed, from LLC2</td><td>$3,500,000</td></tr>
+        <tr><td class="l">Tax basis (after depreciation)</td><td>$500,000</td></tr>
+        <tr><td class="l">Capital gain avoided on sale</td><td>$3,000,000</td></tr>
+        <tr><td class="l">Tax saved at 37.1% (fed 20% + 3.8% + CA 13.3%)</td><td><b>$1,113,000</b></td></tr>
+        <tr><td class="l">Income to you: 5% unitrust, both lives</td><td><b>$175,000 a year</b>, growing with the trust</td></tr>
+        <tr><td class="l">Income tax deduction (about 35% remainder)</td><td><b>$1,225,000</b></td></tr>
+        <tr><td class="l">Usable at 30% of AGI ($718K): $215K a year</td><td>about 6 years; some may expire</td></tr>
+        <tr><td class="l">Estate tax saved (asset out of estate)</td><td><b>$1,400,000</b></td></tr>
+        <tr><td class="l">To UCLA at the second death</td><td>$3.5M or more</td></tr>
+      </tbody></table>
+      <p class="small">The $175K income can itself be given to UCLA each year, deductible again. The CRT then funds the current pledge for life and leaves a $3.5M legacy gift.</p></div>
+    <div class="card p"><h4>Example B: Institute shares before a sale</h4>
+      <table><tbody>
+        <tr><td class="l">Non-voting shares contributed, 20% of a $60M sale</td><td>$12,000,000</td></tr>
+        <tr><td class="l">Tax basis</td><td>near $0</td></tr>
+        <tr><td class="l">Capital gain avoided</td><td>$12,000,000</td></tr>
+        <tr><td class="l">Tax saved at 37.1%</td><td><b>$4,452,000</b></td></tr>
+        <tr><td class="l">Income to you: 5% unitrust</td><td><b>$600,000 a year</b></td></tr>
+        <tr><td class="l">Income tax deduction (about 35%)</td><td><b>$4,200,000</b></td></tr>
+        <tr><td class="l">Usable against the sale-year income</td><td>yes: the sale itself creates the AGI</td></tr>
+        <tr><td class="l">Estate tax saved</td><td><b>$4,800,000</b></td></tr>
+        <tr><td class="l">To UCLA at the second death</td><td>$12M or more</td></tr>
+      </tbody></table>
+      <p class="small">Must be done before any binding agreement to sell. A C corporation&#39;s stock can go into a CRT; S corporation stock cannot, which is one more reason not to convert before deciding.</p></div>
+    <div class="card p"><h4>Example C: appreciated securities</h4>
+      <table><tbody>
+        <tr><td class="l">Securities contributed</td><td>$1,000,000</td></tr>
+        <tr><td class="l">Tax basis</td><td>$400,000</td></tr>
+        <tr><td class="l">Capital gain avoided</td><td>$600,000</td></tr>
+        <tr><td class="l">Tax saved at 37.1%</td><td><b>$223,000</b></td></tr>
+        <tr><td class="l">Income to you: 5% unitrust</td><td><b>$50,000 a year</b></td></tr>
+        <tr><td class="l">Income tax deduction (about 35%)</td><td><b>$350,000</b></td></tr>
+        <tr><td class="l">Estate tax saved</td><td><b>$400,000</b></td></tr>
+      </tbody></table>
+      <p class="small">The family holds no securities personally today; the $5M portfolio sits inside the Institute. This example applies once securities are held outside the company, or after a sale.</p></div>
+  </div>
+  <div class="callout g" style="margin-top:22px"><b>When a CRT is the right tool for the Shahawis.</b> At a liquidity event, where it converts a 37% tax into a lifetime income and a legacy gift, and for a single large real estate gift. It is the wrong tool for the current $175,000-a-year pledge, because UCLA receives nothing until the second death and the deduction limits bite at today&#39;s income. The next section covers that.</div>
+</section>
+
+<!-- ===================== DAF ===================== -->
+<section class="slide" id="daf">
+  <div class="k"><span class="n">8</span><span class="tag">Trust strategy 6 of 7</span><span class="pill now">Now</span></div>
+  <h2>Donor-advised fund: the simpler way to give to UCLA every year</h2>
+  <p class="lede">A donor-advised fund is a charitable account you control. You put assets in, take the deduction that year, and recommend grants to UCLA on whatever schedule you like. It is not a trust, has no lawyer, no tax return and no payout rules, and it accepts the same appreciated assets a CRT does. For annual giving it beats the CRT on every count except one: it pays you no income.</p>
+  <div class="grid g12">
+    <div class="card"><h3>CRT versus DAF for the family&#39;s goals</h3>
+      <table><thead><tr><th class="l">Question</th><th class="l" style="color:#b0306e">Charitable remainder trust</th><th class="l" style="color:#0f6b4b">Donor-advised fund</th></tr></thead><tbody>
+        <tr><td class="l"><b>Simplicity</b></td><td class="l">Trust document, trustee, annual Form 5227, valuation each year</td><td class="l">An account at a sponsor; opened in a week; no filings</td></tr>
+        <tr><td class="l"><b>Flexibility</b></td><td class="l">Irrevocable; payout fixed; charity can be changed but money is locked</td><td class="l">Grant any amount, any year, to UCLA or any other charity; successor advisors can be the children</td></tr>
+        <tr><td class="l"><b>When UCLA gets money</b></td><td class="l">At the second death, decades from now</td><td class="l">Now, on the family&#39;s schedule</td></tr>
+        <tr><td class="l"><b>Income back to you</b></td><td class="l">Yes, 5% or more for life</td><td class="l">None</td></tr>
+        <tr><td class="l"><b>Deduction</b></td><td class="l">Remainder value only, about 35% of the gift</td><td class="l">Full fair market value of the gift</td></tr>
+        <tr><td class="l"><b>Capital gains</b></td><td class="l">Avoided inside the trust</td><td class="l">Avoided: the fund sells, not you</td></tr>
+        <tr><td class="l"><b>Accepts</b></td><td class="l">Real estate, C corporation stock, securities</td><td class="l">The same, including discounted non-voting Institute shares and LLC interests</td></tr>
+        <tr><td class="l"><b>Cost</b></td><td class="l">Legal setup and annual administration</td><td class="l">About 0.6% a year, no setup</td></tr>
+      </tbody></table></div>
+    <div class="card good"><h3>Recommendation: a DAF now, a CRT at the sale</h3>
+      <p><b>Fund the DAF with appreciated assets, not cash.</b> Giving $175,000 of discounted non-voting shares or LLC2 interests each year instead of cash produces the same deduction and also avoids the capital gains tax the family would otherwise pay on that value, about $65,000 a year at 37.1% on near-zero basis.</p>
+      <p><b>Pre-fund the pledge.</b> Four years of gifts, $700,000, fit within the 30% of income limit ($215,000 a year, with a five-year carryforward), so the whole UCLA commitment can be inside the DAF by 2029, before retirement lowers the family&#39;s income and the deduction&#39;s value with it.</p>
+      <p><b>Let the Institute redeem the shares.</b> Once the DAF holds non-voting shares, the Institute can buy them back for cash, at a later date and without a prior agreement. UCLA is paid in cash, the family&#39;s ownership is unchanged, and no gain was recognized by anyone.</p>
+      <p><b>Keep the CRT for a liquidity event</b> (section 7, example B), where it does what a DAF cannot: turn a 37% tax into a lifetime income.</p></div>
+  </div>
+</section>
+
+<!-- ===================== DYNASTY ===================== -->
+<section class="slide" id="dynasty">
+  <div class="k"><span class="n">9</span><span class="tag">Trust strategy 7 of 7</span><span class="pill now">Now</span></div>
+  <h2>Dynasty trust: taxed once, then never again</h2>
+  <p class="lede">Estate tax is not a one-time event. Without planning, what the children inherit is taxed again when they die, and again at the grandchildren&#39;s deaths. A dynasty trust is drafted to last for generations and has <b>generation-skipping transfer (GST) exemption</b> allocated to it, $15 million per spouse, so nothing inside it is taxed at the children&#39;s deaths, or the grandchildren&#39;s. Every irrevocable trust in this plan is drafted this way.</p>
+  <div class="grid g12">
+    <div class="card"><h3>A generational example: the $41M the SLATs hold</h3>
+      <svg viewBox="0 0 700 320" width="100%">
+        <g font-size="13">
+        <text x="20" y="26" font-weight="700" fill="#4b5563">Value of the SLAT assets at 5% growth: outright inheritance versus dynasty trust</text>
+        <text x="20" y="62" font-weight="600">2026, funded</text><rect x="210" y="48" width="50" height="22" rx="4" fill="#6250d6"/><text x="268" y="64" fill="#4b5563">$41M, discounted to $30M of exemption</text>
+        <text x="20" y="112" font-weight="600">2053, your deaths</text><rect x="210" y="98" width="134" height="22" rx="4" fill="#6250d6"/><text x="352" y="114" fill="#4b5563">$110M, outside the estate either way</text>
+        <text x="20" y="162" font-weight="600">2080, children&#39;s deaths</text>
+        <rect x="210" y="148" width="300" height="10" rx="3" fill="#1baf7a"/><text x="518" y="157" fill="#0f6b4b" font-size="12">in trust: $410M, no tax</text>
+        <rect x="210" y="160" width="180" height="10" rx="3" fill="#e34948"/><text x="398" y="169" fill="#b42318" font-size="12">outright: $246M after $164M of tax</text>
+        <text x="20" y="212" font-weight="600">2105, grandchildren&#39;s deaths</text>
+        <rect x="210" y="198" width="470" height="10" rx="3" fill="#1baf7a"/>
+        <rect x="210" y="210" width="168" height="10" rx="3" fill="#e34948"/>
+        <text x="20" y="240" fill="#0f6b4b" font-size="12">in trust: about $1.4B, still no tax, still protected from creditors and divorce</text>
+        <text x="20" y="258" fill="#b42318" font-size="12">outright: about $500M after a second 40% tax, exposed to every heir&#39;s creditors along the way</text>
+        <text x="20" y="290" fill="#4b5563" font-size="12">Illustrative, at 5% growth and today&#39;s 40% rate. The point is not the number;</text>
+        <text x="20" y="306" fill="#4b5563" font-size="12">it is that the second and third tax never happen.</text>
+        </g>
+      </svg></div>
+    <div class="card v"><h3>What the dynasty drafting adds</h3>
+      <ul><li><b>Multi-generation transfer.</b> The trust names the children as beneficiaries, then the grandchildren, then their descendants. Each generation can use the assets; none of them owns them, so none of them is taxed on them.</li>
+      <li><b>Asset protection.</b> Sited in Nevada or South Dakota with an independent trustee, the assets are not reachable by a child&#39;s creditors, a lawsuit, or a divorcing spouse. A child who runs the Institute can do so without putting the family&#39;s capital at risk.</li>
+      <li><b>Estate tax minimization.</b> GST exemption is allocated when the trust is funded, at the discounted value. Thirty million of exemption protects $41M of value today and everything it grows into, forever.</li>
+      <li><b>The waterfall option.</b> With permanent life insurance on each generation and a policy of lending rather than distributing, the same trust refills itself at every death. The ILIT starts it; the children&#39;s policies continue it.</li>
+      <li><b>Applied here.</b> SLAT 1, SLAT 2, the IDGT and the ILIT are all drafted as dynasty trusts. The $20M and $5M legacy goals are met through them rather than by outright bequests.</li></ul></div>
+  </div>
+</section>
+
+<!-- ===================== ESTATE MODEL ===================== -->
+<section class="slide" id="model">
+  <div class="k"><span class="n">10</span><span class="tag">Estate tax modeling</span></div>
+  <h2>What happens if both of you pass today, and what changes with the plan</h2>
+  <div class="grid g2">
+    <div class="card warn"><h3>Both spouses pass today, no planning</h3>
+      <svg viewBox="0 0 560 200" width="100%">
+        <g font-size="13">
+        <rect x="20" y="20" width="520" height="40" rx="8" fill="#2a78d6"/><rect x="399" y="20" width="115" height="40" rx="8" fill="#e34948"/><rect x="514" y="20" width="26" height="40" rx="8" fill="#eda100"/>
+        <text x="32" y="45" fill="#fff" font-weight="700">To heirs $48.9M</text><text x="408" y="45" fill="#fff" font-weight="700" font-size="12">Tax $14.8M</text>
+        <text x="20" y="86" fill="#4b5563">Gross estate $67.1M · exemption $30.0M · taxable $37.1M</text>
+        <text x="20" y="104" fill="#4b5563">Federal tax at 40%: $14.8M · probate about $3.4M (gold)</text>
+        <text x="20" y="136" font-weight="700" fill="#b42318">The real problem is not the rate. It is that the tax is due</text>
+        <text x="20" y="154" font-weight="700" fill="#b42318">in nine months and the family has $100,000.</text>
+        <text x="20" y="178" fill="#4b5563">The executor would have to sell or borrow against the Institute or</text>
+        <text x="20" y="194" fill="#4b5563">the real estate under a deadline: how a $47M company becomes a $35M one.</text>
+        </g>
+      </svg>
+      <table><tbody>
+        <tr><td class="l">Estate value</td><td>$67,100,000</td></tr>
+        <tr><td class="l">Less combined exemption</td><td>($30,000,000)</td></tr>
+        <tr><td class="l">Taxable estate</td><td>$37,100,000</td></tr>
+        <tr><td class="l">Federal estate tax, 40%</td><td>($14,840,000)</td></tr>
+        <tr><td class="l">Probate and administration (5%)</td><td>($3,355,000)</td></tr>
+        <tr class="total"><td class="l">Received by heirs</td><td>$48,905,000 · 73%</td></tr>
+      </tbody></table></div>
+    <div class="card good"><h3>After the recommended trust planning, same day</h3>
+      <svg viewBox="0 0 560 200" width="100%">
+        <g font-size="13">
+        <rect x="20" y="20" width="520" height="40" rx="8" fill="#1baf7a"/><rect x="505" y="20" width="35" height="40" rx="8" fill="#e34948"/>
+        <text x="32" y="45" fill="#fff" font-weight="700">To heirs and family trusts $64.6M</text>
+        <text x="20" y="86" fill="#4b5563">Inside trusts: $64M of underlying value (SLATs $41M, IDGT $21M, ILIT)</text>
+        <text x="20" y="104" fill="#4b5563">In the estate: $18M (the $15M note, cash, home) · taxable $18M · no probate</text>
+        <text x="20" y="136" font-weight="700" fill="#0f6b4b">The tax falls by half, and the half that remains is paid by</text>
+        <text x="20" y="154" font-weight="700" fill="#0f6b4b">insurance, not by selling the company.</text>
+        <text x="20" y="178" fill="#4b5563">Net cost of the plan: about $2.5M of premiums and fees over the years,</text>
+        <text x="20" y="194" fill="#4b5563">against $7.6M of tax removed today and far more as the growth compounds.</text>
+        </g>
+      </svg>
+      <table><tbody>
+        <tr><td class="l">Assets inside trust structures (underlying value)</td><td>$64,000,000</td></tr>
+        <tr><td class="l">Assets remaining in the estate</td><td>$18,000,000</td></tr>
+        <tr><td class="l">Reduction in taxable estate</td><td>$19,100,000 · from $37.1M to $18.0M</td></tr>
+        <tr><td class="l">Federal estate tax, 40%</td><td>($7,200,000) paid by the ILIT</td></tr>
+        <tr><td class="l">Probate</td><td>$0</td></tr>
+        <tr class="total"><td class="l">Received by heirs, including trusts</td><td>$64,600,000 · 96%</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="card" style="margin-top:22px"><h3>The same comparison in 2053, when the growth has happened</h3>
+    <svg viewBox="0 0 1200 230" width="100%">
+      <g font-size="14">
+      <text x="20" y="28" fill="#4b5563" font-weight="600">Current path (RightCapital projection)</text>
+      <rect x="20" y="40" width="1160" height="44" rx="8" fill="#2a78d6"/><rect x="824" y="40" width="298" height="44" rx="8" fill="#e34948"/><rect x="1122" y="40" width="58" height="44" rx="8" fill="#eda100"/>
+      <text x="34" y="68" fill="#fff" font-weight="700" font-size="16">To heirs $125.3M (69%)</text><text x="840" y="68" fill="#fff" font-weight="700" font-size="16">Federal estate tax $46.4M</text><text x="1151" y="68" fill="#fff" font-weight="700" font-size="12" text-anchor="middle">$9M</text>
+      <text x="20" y="108" fill="#4b5563">$180.7M estate · $55.4M of taxes and fees · UCLA receives $825K</text>
+      <text x="20" y="148" fill="#4b5563" font-weight="600">Planned path: growth in dynasty trusts, note repaid, insurance in the ILIT, living trust funded</text>
+      <rect x="20" y="160" width="1160" height="44" rx="8" fill="#1baf7a"/><rect x="1110" y="160" width="70" height="44" rx="8" fill="#e34948"/>
+      <text x="34" y="188" fill="#fff" font-weight="700" font-size="16">To heirs and family trusts $170M+ (94%)</text><text x="1145" y="188" fill="#fff" font-weight="700" font-size="12" text-anchor="middle">tax, paid</text>
+      <text x="20" y="226" fill="#4b5563">About $150M of the $180.7M sits in GST-exempt trusts · remaining tax on the estate is covered by the ILIT · $0 probate · UCLA receives $4M or more through the DAF and a CRT remainder</text>
+      </g>
+    </svg>
+    <p class="small">Every $10 million that grows outside the estate saves about $4 million of tax. The Institute&#39;s retained investments alone are projected to grow by $113 million between now and 2053.</p></div>
+</section>
+
+<!-- ===================== TIMELINE ===================== -->
+<section class="slide" id="timeline">
+  <div class="k"><span class="n">11</span><span class="tag">Distribution modeling</span></div>
+  <h2>Who controls what, and who receives what, at each stage</h2>
+  <div class="card" style="margin-bottom:22px">
+    <svg viewBox="0 0 1200 345" width="100%">
+      <g font-size="13">
+      <rect x="20" y="20" width="370" height="40" rx="10" fill="#2a78d6"/><text x="205" y="45" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">1 · Both alive (2026 to the first death)</text>
+      <rect x="415" y="20" width="370" height="40" rx="10" fill="#eda100"/><text x="600" y="45" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">2 · After the first death</text>
+      <rect x="810" y="20" width="370" height="40" rx="10" fill="#1baf7a"/><text x="995" y="45" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">3 · After the second death</text>
+      <!-- column 1 -->
+      <rect x="20" y="80" width="370" height="54" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="205" y="102" text-anchor="middle" font-weight="700">Living trust: Ihab and Vivian, trustees</text><text x="205" y="122" text-anchor="middle" fill="#4b5563" font-size="12">voting shares, LLCs, home, cash · fully revocable</text>
+      <rect x="20" y="146" width="370" height="54" rx="10" fill="#efecfb" stroke="#6250d6"/><text x="205" y="168" text-anchor="middle" font-weight="700">SLAT 1, SLAT 2, IDGT: independent trustee</text><text x="205" y="188" text-anchor="middle" fill="#4b5563" font-size="12">non-voting shares, LLC2 · distributions to the other spouse if needed</text>
+      <rect x="20" y="212" width="370" height="54" rx="10" fill="#fdf0e9" stroke="#eb6834"/><text x="205" y="234" text-anchor="middle" font-weight="700">ILIT: holds the policy</text><text x="205" y="254" text-anchor="middle" fill="#4b5563" font-size="12">premiums gifted each year; nothing paid out yet</text>
+      <rect x="20" y="278" width="370" height="54" rx="10" fill="#fbeaf2" stroke="#d6508f"/><text x="205" y="300" text-anchor="middle" font-weight="700">Income: salaries $700K, then $660K distributions</text><text x="205" y="320" text-anchor="middle" fill="#4b5563" font-size="12">DAF grants $175K a year to UCLA</text>
+      <!-- column 2 -->
+      <rect x="415" y="80" width="370" height="54" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="600" y="102" text-anchor="middle" font-weight="700">Living trust splits: survivor&#39;s, bypass, QTIP</text><text x="600" y="122" text-anchor="middle" fill="#4b5563" font-size="12">survivor still votes the shares; first exemption locked in</text>
+      <rect x="415" y="146" width="370" height="54" rx="10" fill="#efecfb" stroke="#6250d6"/><text x="600" y="168" text-anchor="middle" font-weight="700">Deceased spouse&#39;s SLAT continues for the survivor</text><text x="600" y="188" text-anchor="middle" fill="#4b5563" font-size="12">the survivor&#39;s own SLAT is now children-only</text>
+      <rect x="415" y="212" width="370" height="54" rx="10" fill="#fdf0e9" stroke="#eb6834"/><text x="600" y="234" text-anchor="middle" font-weight="700">ILIT: second-to-die policy, no payout yet</text><text x="600" y="254" text-anchor="middle" fill="#4b5563" font-size="12">premiums continue, now at one spouse&#39;s gifts and trust income</text>
+      <rect x="415" y="278" width="370" height="54" rx="10" fill="#fbeaf2" stroke="#d6508f"/><text x="600" y="300" text-anchor="middle" font-weight="700">Income: QTIP, SLAT distributions, Social Security</text><text x="600" y="320" text-anchor="middle" fill="#4b5563" font-size="12">no estate tax due at the first death</text>
+      <!-- column 3 -->
+      <rect x="810" y="80" width="370" height="54" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="995" y="102" text-anchor="middle" font-weight="700">Living trust distributes: children&#39;s trusts, UCLA</text><text x="995" y="122" text-anchor="middle" fill="#4b5563" font-size="12">successor trustee executes the business succession plan</text>
+      <rect x="810" y="146" width="370" height="54" rx="10" fill="#efecfb" stroke="#6250d6"/><text x="995" y="168" text-anchor="middle" font-weight="700">Dynasty trusts continue, untaxed</text><text x="995" y="188" text-anchor="middle" fill="#4b5563" font-size="12">four children&#39;s shares, then grandchildren; loans or distributions</text>
+      <rect x="810" y="212" width="370" height="54" rx="10" fill="#fdf0e9" stroke="#eb6834"/><text x="995" y="234" text-anchor="middle" font-weight="700">ILIT pays $20M</text><text x="995" y="254" text-anchor="middle" fill="#4b5563" font-size="12">buys shares from the estate or lends to it; estate tax paid in cash</text>
+      <rect x="810" y="278" width="370" height="54" rx="10" fill="#fbeaf2" stroke="#d6508f"/><text x="995" y="300" text-anchor="middle" font-weight="700">Charity: CRT remainder and DAF balance to UCLA</text><text x="995" y="320" text-anchor="middle" fill="#4b5563" font-size="12">the children become the DAF&#39;s advisors</text>
+      </g>
+    </svg>
+  </div>
+  <div class="phase">
+    <div data-n="1"><h4>While both spouses are alive</h4><ul><li><b>Control.</b> You vote every share of the Institute through the living trust. The SLATs and IDGT hold only non-voting shares, and an independent trustee administers them.</li><li><b>Income.</b> Unchanged: salaries, then distributions from 2036 (the main plan brings that forward to 2029). Ihab pays the trusts&#39; income tax, which is the point.</li><li><b>Distributions.</b> The SLATs can distribute to the other spouse; the DAF grants to UCLA; the children receive nothing yet unless you choose to.</li></ul></div>
+    <div data-n="2"><h4>After the first spouse passes</h4><ul><li><b>Administration.</b> The living trust divides into three sub-trusts within nine months; the survivor is trustee of all three with an independent co-trustee for the bypass and QTIP.</li><li><b>Income continuation.</b> All QTIP income goes to the survivor by law; the bypass trust and the deceased spouse&#39;s SLAT distribute at the trustee&#39;s discretion. Social Security survivor benefit replaces the smaller check.</li><li><b>Ownership changes.</b> Nothing is sold. The survivor&#39;s half stays revocable; the first spouse&#39;s half is now irrevocable and outside the survivor&#39;s estate.</li></ul></div>
+    <div data-n="3"><h4>After the second spouse passes</h4><ul><li><b>Children.</b> The $20M legacy is met from the dynasty trusts, in continuing trusts for each child rather than outright, protected from creditors and divorce and untaxed at their deaths.</li><li><b>Charity.</b> UCLA receives the CRT remainder and any charitable bequest; the children take over the DAF as advisors so the family&#39;s giving continues.</li><li><b>The Institute.</b> The succession instructions decide whether a child-manager takes the voting shares or the trustee sells to a buyer or to the employees. Either way the estate tax is paid from the ILIT, so no one is forced to sell under a deadline.</li></ul></div>
+  </div>
+</section>
+
+<!-- ===================== UCLA ===================== -->
+<section class="slide" id="ucla">
+  <div class="k"><span class="n">12</span><span class="tag">UCLA charitable planning</span></div>
+  <h2>Optimizing the UCLA commitment: same gift, about twice the tax benefit</h2>
+  <p class="lede">The family gives about $175,000 a year to UCLA from after-tax salary. The gift is deductible, but it uses the least efficient asset the family has: cash. Giving appreciated interests instead keeps the deduction and adds a second saving, the capital gains tax the family would otherwise pay on that value.</p>
+  <div class="card"><h3>Five ways to make the same $175,000 gift</h3>
+    <table><thead><tr><th class="l">Strategy</th><th class="l">How it works</th><th>Deduction</th><th>Tax saved on the deduction (45%)</th><th>Capital gains avoided (37.1%)</th><th>Total benefit per year</th><th>5-year benefit</th><th class="l">Verdict</th></tr></thead><tbody>
+      <tr><td class="l"><b>Direct cash gift</b> (today)</td><td class="l">Write a check from salary</td><td>$175,000</td><td>$79,000</td><td>$0</td><td>$79,000</td><td>$394,000</td><td class="l">Simple, but leaves the second saving on the table</td></tr>
+      <tr><td class="l"><b>Appreciated interests, direct to UCLA</b></td><td class="l">Give $175K of LLC2 interests or non-voting shares; UCLA sells or the Institute redeems</td><td>$175,000</td><td>$79,000</td><td>$65,000</td><td>$144,000</td><td>$720,000</td><td class="l">Efficient, but UCLA must accept and handle private interests each year</td></tr>
+      <tr><td class="l"><b>Donor-advised fund</b> funded with appreciated interests</td><td class="l">One gift of interests to the DAF each year (or pre-fund four years); DAF grants cash to UCLA</td><td>$175,000</td><td>$79,000</td><td>$65,000</td><td>$144,000</td><td>$720,000</td><td class="l"><b>Recommended.</b> Same benefit as the row above with one valuation, one sponsor, and UCLA paid in cash</td></tr>
+      <tr><td class="l"><b>Charitable remainder trust</b> (example A)</td><td class="l">$3.5M of LLC2 real estate; 5% income of $175K a year is regifted to UCLA</td><td>$1,225,000 once, used over about 6 years, plus $175,000 a year on the regift</td><td>$79,000 a year on the regift, plus about $90,000 a year from the CRT deduction while it lasts</td><td>$1,113,000 once</td><td>$169,000 plus the one-time $1.1M</td><td>$1,958,000</td><td class="l">Largest total, but UCLA&#39;s $3.5M arrives only at the second death and the family gives up the asset now</td></tr>
+      <tr><td class="l"><b>Gift from the Institute</b></td><td class="l">The corporation donates directly, deductible up to 10% of its taxable income ($540K)</td><td>$175,000 to the corporation</td><td>$52,000 at the 30% corporate rate</td><td>$0</td><td>$52,000</td><td>$260,000</td><td class="l">Lower rate than personal giving; useful only for amounts above what the family can deduct personally</td></tr>
+    </tbody></table>
+    <p class="small">Assumes a combined federal and California marginal rate of 45% on ordinary income and 37.1% on capital gains, near-zero basis in the gifted interests, and that gifts of appreciated property stay within the 30% of adjusted gross income limit ($215,000 a year at $718,000 of income). Carrier, sponsor and appraisal fees are not included. Figures are estimates for discussion, not tax advice.</p></div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="kpi green"><div class="l">Annual benefit, recommended strategy</div><div class="v">$144,000</div><div class="s">versus $79,000 giving cash</div></div>
+    <div class="kpi green"><div class="l">Added saving over the 5-year pledge</div><div class="v">$326,000</div><div class="s">on the same $875,000 given</div></div>
+    <div class="kpi violet"><div class="l">If giving continues for life (27 years)</div><div class="v">$1.75M</div><div class="s">of additional tax saved, before growth</div></div>
+  </div>
+  <div class="callout g" style="margin-top:22px"><b>The recommendation in one paragraph.</b> Open a donor-advised fund this year and fund it with non-voting Institute shares or LLC2 interests rather than cash, using the same appraisal the SLATs need. Grant $175,000 a year to UCLA from the fund. Pre-fund up to four years while salaries keep the deduction fully usable. Reserve the charitable remainder trust for a sale of the Institute, where it converts a $4M-plus tax bill into lifetime income and a $12M gift. Name the children as successor advisors so UCLA, or whatever they choose, keeps receiving after you are gone.</div>
+</section>
+
+<!-- ===================== ACTION ===================== -->
+<section class="slide" id="action">
+  <div class="k"><span class="n">13</span><span class="tag">Recommendations</span></div>
+  <h2>What to do, in order</h2>
+  <div class="grid g2">
+    <div class="card"><h3>The next 90 days</h3>
+      <ul><li><span class="pill now">Now</span> <b>Sign the revocable living trust</b> with pour-over wills, powers of attorney and health directives, and retitle the LLC interests, voting shares, home and cash into it.</li>
+      <li><span class="pill now">Now</span> <b>Recapitalize the Institute</b> into voting and non-voting shares, and engage the appraiser for the company, both LLCs and the discounts.</li>
+      <li><span class="pill now">Now</span> <b>Start underwriting</b> for the second-to-die policy at 63 and 67, with the ILIT as applicant and owner. Every year of delay raises the premium.</li>
+      <li><span class="pill now">Now</span> <b>Open the donor-advised fund</b> and make the 2026 UCLA gift from it with appreciated interests.</li>
+      <li><span class="pill now">Now</span> <b>Build the cash reserve</b> to $180,000 before any irrevocable gift is made.</li></ul></div>
+    <div class="card"><h3>2026 to 2027</h3>
+      <ul><li><span class="pill soon">Next</span> <b>Fund SLAT 1</b> (Ihab, Institute shares, 2026) and <b>SLAT 2</b> (Vivian, LLC2 interests, 2027), with different trustees, terms and timing. Allocate GST exemption on the gift tax returns.</li>
+      <li><span class="pill soon">Next</span> <b>Close the IDGT sale</b> for a 9-year note once the appraisal is final; seed the trust first.</li>
+      <li><span class="pill soon">Next</span> <b>Policy in force</b> inside the ILIT before the transfers settle; set the annual Crummey notice calendar.</li>
+      <li><span class="pill later">Then</span> <b>Decide the Institute&#39;s future</b> in the 90-day review. If a sale is likely, fund a GRAT and a CRT with shares <i>before</i> any agreement is signed.</li>
+      <li><span class="pill later">Then</span> <b>Decide on the waterfall</b> once the children&#39;s underwriting and the trusts&#39; first-year income are known.</li></ul></div>
+  </div>
+  <div class="callout o" style="margin-top:22px"><b>What you keep, and what you give up.</b> You keep every voting share, your salaries, the home, the cash, and indirect access to both SLATs. You give up the right to take back the gifted non-voting shares and LLC interests, which is the price of removing their growth from the estate. Nothing irrevocable is signed before the appraisal and the insurance are in hand, and the order is: living trust, appraisal and underwriting, then gifts, then the sale.</div>
+</section>
+
+<div class="foot">Prepared by Pinnacle Planning, Wealth Advisory Now and M&amp;M Wealth Associates for Ihab Shahawi and Vivian El-Shahawi, October 2026. Figures are drawn from the family&#39;s RightCapital plan and the planning outline. Estate values, growth rates, discounts (30%), insurance premiums, CRT remainder factors (35%) and tax rates (40% estate; 45% ordinary and 37.1% capital gains, federal and California combined) are estimates for discussion. The 2026 exemption of $15 million per person and $19,000 annual exclusion are used throughout. This document is educational and is not legal or tax advice; counsel drafts, the appraiser values, the insurers underwrite, and we coordinate the order.</div>
+</body></html>

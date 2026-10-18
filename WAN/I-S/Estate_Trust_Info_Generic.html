@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estate and Trust Information</title>
+<style>
+@page{size:1920px 1080px;margin:0}
+*{box-sizing:border-box}html{background:#d9d9d4}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#0b0b0b}
+.slide{width:1920px;height:1080px;padding:70px 90px 60px;position:relative;overflow:hidden;background:#fcfcfb;margin:24px auto;box-shadow:0 2px 14px rgba(0,0,0,.12);page-break-after:always}
+@media print{html{background:#fff}.slide{margin:0;box-shadow:none}}
+.title{background:#0d366b;color:#fff}
+h1{font-size:58px;margin:0 0 10px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:44px;margin:0 0 22px;font-weight:650;letter-spacing:-.01em}
+h3{font-size:24px;margin:0 0 8px;font-weight:650}
+p,li{font-size:22px;line-height:1.45}
+.sub{color:#52514e;font-size:26px}.title .sub{color:#cde2fb}
+.foot{position:absolute;bottom:28px;left:90px;right:90px;display:flex;justify-content:space-between;font-size:16px;color:#898781}.title .foot{color:#86b6ef}
+.row{display:grid;gap:28px}.c2{grid-template-columns:1fr 1fr}.c5{grid-template-columns:repeat(5,1fr)}.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:26px 30px}
+.pillar{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:26px 22px;text-align:center}
+.pillar .ic{width:110px;height:110px;margin:0 auto 14px}
+.pillar h3{font-size:22px;margin-bottom:6px}.pillar p{font-size:17px;color:#52514e;margin:0;line-height:1.4}
+.pillar.now{border-top:8px solid #e34948}.pillar.soon{border-top:8px solid #eda100}.pillar.later{border-top:8px solid #1baf7a}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.tag.now{background:rgba(208,59,59,.10);color:#d03b3b}.tag.soon{background:rgba(250,178,25,.16);color:#b86a00}.tag.later{background:rgba(12,163,12,.10);color:#006300}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+table{width:100%;border-collapse:collapse;font-size:21px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid #e1e0d9}th:first-child,td:first-child{text-align:left}
+th{color:#52514e;font-weight:600;font-size:19px}td.q{color:#898781;font-style:italic}
+.callout{border-left:8px solid #2a78d6;background:#eef4fc;padding:16px 22px;border-radius:10px;font-size:22px}
+.milestone{display:flex;align-items:center;gap:18px}.milestone .dot{width:22px;height:22px;border-radius:50%;background:#2a78d6;flex:none}
+.big{font-size:84px;font-weight:700;color:#fff;margin:0;line-height:1.05}
+
+/* part two: example layout, navigation, contents */
+.ex{display:grid;grid-template-columns:600px 1fr;gap:24px;align-items:start}
+.ex .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ex .cards .card{padding:14px 18px}
+.ex h4{font-size:19px;margin:0 0 5px;font-weight:700}
+.ex p{font-size:16px;line-height:1.36;margin:0;color:#2b2b28}
+.tight td,.tight th{padding:7px 9px}
+.pros li{font-size:14.5px;line-height:1.3;margin:0 0 3px;color:#2b2b28}
+.tight2 td,.tight2 th{padding:5px 8px}
+.pass{margin-top:16px;border-left:8px solid #1baf7a;background:#e8f7f1;padding:11px 20px;border-radius:10px;font-size:17px;line-height:1.4}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.toc ol{margin:0;padding-left:28px;font-size:21px;line-height:1.55}
+.toc a{color:#0d366b;text-decoration:none}.toc a:hover{text-decoration:underline}
+.toc .sec{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#898781;font-weight:700;margin:0 0 6px}
+.sitenav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(13,54,107,.96);color:#fff;font-size:13px;padding:7px 18px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.sitenav a{color:#cde2fb;text-decoration:none;padding:3px 8px;border-radius:999px}.sitenav a:hover{background:rgba(255,255,255,.14);color:#fff}
+.sitenav b{color:#fff;margin-right:8px}
+@media screen{body{padding-top:44px}}
+@media print{.sitenav{display:none}body{padding-top:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#52514e"/></marker><marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#6250d6"/></marker><marker id="aw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#86b6ef"/></marker></defs></svg>
+<nav class="sitenav"><b>Shahawi Potential Trusts</b>
+<a href="#s-contents">Contents</a><a href="#s-basics">What a trust is</a><a href="#s-six">The six trusts</a><a href="#s-four">Four more</a><a href="#s-waterfall">Waterfall</a><a href="#s-applied">Applied</a>
+<span style="opacity:.5">|</span>
+<a href="Estate_Trust_Info_Live_HomePage.html">Shahawi examples deck ↗</a>
+</nav>
+
+<div class="slide" id="s-contents">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="card">
+      <div class="sec">Part one · How the trusts work</div>
+      <ol start="2">
+        <li><a href="#s-basics">What a TRUST is, and the four choices that shape one</a></li>
+        <li><a href="#s-six">The six trusts in the plan, one by one</a></li>
+        <li><a href="#s-four">Four more vehicles worth knowing</a></li>
+        <li><a href="#s-waterfall">A fifth vehicle: the Rockefeller &#8220;waterfall&#8221;, or family bank</a></li>
+        <li><a href="#s-applied">The trust toolkit, applied</a></li>
+      </ol>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:24px;font-size:20px"><b>How to read this deck.</b> This deck explains each trust and estate planning vehicle in general terms, then shows the toolkit applied to the family. The companion deck, <a href="Estate_Trust_Info_Live_HomePage.html">Estate_Trust_Info_Live_HomePage.html</a>, takes the same trusts and shows exactly how they would hold the Shahawi family&#39;s own assets, with worked examples, the advisory team and the appendices.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Contents · 1 / 6</span></div>
+</div>
+
+<div class="slide" id="s-basics">
+  <h2>What a TRUST is, and the four choices that shape one</h2>
+  <div class="row" style="grid-template-columns:1.08fr 1fr;align-items:start">
+    <div class="card" style="padding:20px 26px 16px">
+      <svg viewBox="0 0 760 500" width="100%">
+        <defs><marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#52514e"/></marker></defs>
+        <!-- trustee -->
+        <circle cx="380" cy="42" r="20" fill="#0d366b"/><rect x="354" y="66" width="52" height="60" rx="26" fill="#0d366b"/>
+        <circle cx="432" cy="92" r="13" fill="none" stroke="#eda100" stroke-width="6"/><rect x="443" y="88" width="30" height="8" rx="3" fill="#eda100"/><rect x="462" y="94" width="6" height="10" fill="#eda100"/>
+        <text x="300" y="60" text-anchor="end" font-size="19" font-weight="700" fill="#0b0b0b">Trustee</text>
+        <text x="300" y="84" text-anchor="end" font-size="16" fill="#52514e">holds the key, must</text><text x="300" y="104" text-anchor="end" font-size="16" fill="#52514e">follow the rules</text>
+        <path d="M380 132 V196" stroke="#52514e" stroke-width="3" marker-end="url(#pa)"/>
+        <!-- grantor -->
+        <circle cx="80" cy="238" r="20" fill="#2a78d6"/><rect x="54" y="262" width="52" height="60" rx="26" fill="#2a78d6"/>
+        <text x="80" y="352" text-anchor="middle" font-size="19" font-weight="700" fill="#0b0b0b">Grantor</text>
+        <text x="80" y="376" text-anchor="middle" font-size="16" fill="#52514e">creates it, funds it,</text><text x="80" y="396" text-anchor="middle" font-size="16" fill="#52514e">writes the rules</text>
+        <path d="M118 290 H226" stroke="#52514e" stroke-width="3" marker-end="url(#pa)"/>
+        <text x="172" y="276" text-anchor="middle" font-size="15" fill="#52514e">assets + rules</text>
+        <!-- trust box -->
+        <rect x="232" y="206" width="296" height="168" rx="20" fill="#2a78d6" opacity=".10"/><rect x="232" y="206" width="296" height="168" rx="20" fill="none" stroke="#2a78d6" stroke-width="3"/>
+        <rect x="258" y="232" width="86" height="112" rx="8" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+        <rect x="272" y="250" width="58" height="6" rx="3" fill="#2a78d6"/><rect x="272" y="266" width="58" height="6" rx="3" fill="#86b6ef"/><rect x="272" y="282" width="44" height="6" rx="3" fill="#86b6ef"/><rect x="272" y="298" width="50" height="6" rx="3" fill="#86b6ef"/><rect x="272" y="314" width="30" height="6" rx="3" fill="#86b6ef"/>
+        <rect x="368" y="296" width="40" height="46" rx="4" fill="#1baf7a"/><rect x="376" y="306" width="8" height="8" fill="#fff"/><rect x="392" y="306" width="8" height="8" fill="#fff"/><rect x="376" y="322" width="8" height="8" fill="#fff"/><rect x="392" y="322" width="8" height="8" fill="#fff"/>
+        <rect x="420" y="312" width="56" height="30" rx="4" fill="#6250d6"/><rect x="420" y="304" width="56" height="8" rx="4" fill="#6250d6"/><circle cx="448" cy="327" r="8" fill="#fff"/>
+        <ellipse cx="448" cy="258" rx="26" ry="9" fill="#eda100"/><rect x="422" y="258" width="52" height="24" fill="#eda100"/><ellipse cx="448" cy="282" rx="26" ry="9" fill="#d08a00"/>
+        <text x="380" y="404" text-anchor="middle" font-size="19" font-weight="700" fill="#0b0b0b">The trust</text>
+        <text x="380" y="428" text-anchor="middle" font-size="16" fill="#52514e">a legal container with its own rules,</text><text x="380" y="448" text-anchor="middle" font-size="16" fill="#52514e">its own owner of record, often its own tax return</text>
+        <!-- beneficiaries -->
+        <path d="M534 290 H640" stroke="#52514e" stroke-width="3" marker-end="url(#pa)"/>
+        <text x="588" y="276" text-anchor="middle" font-size="15" fill="#52514e">distributions</text>
+        <circle cx="672" cy="238" r="17" fill="#6250d6"/><rect x="650" y="259" width="44" height="54" rx="22" fill="#6250d6"/>
+        <circle cx="724" cy="238" r="17" fill="#6250d6"/><rect x="702" y="259" width="44" height="54" rx="22" fill="#6250d6"/>
+        <circle cx="698" cy="286" r="12" fill="#a99af0"/><rect x="683" y="300" width="30" height="34" rx="15" fill="#a99af0"/>
+        <text x="698" y="366" text-anchor="middle" font-size="19" font-weight="700" fill="#0b0b0b">Beneficiaries</text>
+        <text x="698" y="390" text-anchor="middle" font-size="16" fill="#52514e">receive only what</text><text x="698" y="410" text-anchor="middle" font-size="16" fill="#52514e">the rules allow</text>
+        <!-- caption -->
+        <text x="380" y="490" text-anchor="middle" font-size="16" fill="#52514e" font-style="italic">The same three parties sit in every trust on the next pages. The rules are what differ.</text>
+      </svg>
+    </div>
+    <div class="row c2" style="gap:22px">
+      <div class="card" style="padding:18px 22px">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
+          <svg viewBox="0 0 110 110" width="60" height="60"><circle cx="55" cy="55" r="52" fill="#2a78d6" opacity=".12"/><rect x="30" y="50" width="50" height="38" rx="8" fill="#2a78d6"/><path d="M40 50 V38 a15 15 0 0 1 30 0 V50" stroke="#2a78d6" stroke-width="8" fill="none"/><circle cx="55" cy="68" r="5" fill="#fff"/></svg>
+          <h3 style="margin:0">Revocable or irrevocable</h3></div>
+        <p style="font-size:19px;line-height:1.42;color:#52514e;margin:0"><b>Revocable:</b> you can change or cancel it, so nothing has really left you. It helps with probate and incapacity, never with estate tax. <b>Irrevocable:</b> you give up the right to take it back, and in exchange the assets and all their future growth leave your estate.</p>
+      </div>
+      <div class="card" style="padding:18px 22px">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
+          <svg viewBox="0 0 110 110" width="60" height="60"><circle cx="55" cy="55" r="52" fill="#1baf7a" opacity=".12"/><circle cx="38" cy="38" r="10" fill="none" stroke="#1baf7a" stroke-width="6"/><circle cx="72" cy="72" r="10" fill="none" stroke="#1baf7a" stroke-width="6"/><path d="M30 80 L80 30" stroke="#1baf7a" stroke-width="7" stroke-linecap="round"/></svg>
+          <h3 style="margin:0">Who pays its income tax</h3></div>
+        <p style="font-size:19px;line-height:1.42;color:#52514e;margin:0">A <b>grantor trust</b> is ignored for income tax: the person who created it keeps paying tax on its income, even though the assets are out of the estate. Every tax dollar paid is a dollar the trust keeps, with no gift tax. A <b>non-grantor trust</b> files its own return at compressed brackets.</p>
+      </div>
+      <div class="card" style="padding:18px 22px">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
+          <svg viewBox="0 0 110 110" width="60" height="60"><circle cx="55" cy="55" r="52" fill="#e34948" opacity=".12"/><path d="M22 48 V86 M38 48 V86 M54 48 V86" stroke="#e34948" stroke-width="7" stroke-linecap="round"/><path d="M14 60 H62 M14 76 H62" stroke="#e34948" stroke-width="6"/><circle cx="82" cy="40" r="12" fill="#e34948"/><rect x="70" y="56" width="24" height="26" rx="12" fill="#e34948"/></svg>
+          <h3 style="margin:0">Inside or outside the estate</h3></div>
+        <p style="font-size:19px;line-height:1.42;color:#52514e;margin:0">Federal estate tax is <b>40%</b> on everything above the exemption, $15 million per person in 2026. Assets in a revocable trust count. Assets given to an irrevocable trust, plus everything they earn afterward, do not. The goal is to move <i>future growth</i> out while the gift is still small.</p>
+      </div>
+      <div class="card" style="padding:18px 22px">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
+          <svg viewBox="0 0 110 110" width="60" height="60"><circle cx="55" cy="55" r="52" fill="#6250d6" opacity=".12"/><path d="M55 92 C 40 70, 28 58, 28 44 a27 27 0 0 1 54 0 C 82 58, 70 70, 55 92 Z" fill="#6250d6"/><circle cx="55" cy="44" r="10" fill="#fff"/></svg>
+          <h3 style="margin:0">Where it lives, how long it lasts</h3></div>
+        <p style="font-size:19px;line-height:1.42;color:#52514e;margin:0">A trust can be governed by another state&#39;s law. <b>Nevada</b> and <b>South Dakota</b> allow a trust to run for centuries or forever, charge no state income tax on what it keeps, and shield assets from a beneficiary&#39;s creditors and divorces. California trusts face state tax and a time limit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:22px;font-size:20px"><b>Three ways value leaves an estate, and all three appear in the plan.</b> Gifts within the exemption. <b>Discounts</b>, because a non-voting minority share of a private company is appraised at 25% to 35% less than its pro-rata value. And <b>growth above the IRS rate</b>, which a sale to a grantor trust or a GRAT hands to the heirs without using exemption at all.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Estate &amp; trusts · 2 / 6</span></div>
+</div>
+
+<div class="slide" id="s-six">
+  <h2>The six trusts in the plan, one by one</h2>
+  <div class="row c3" style="gap:24px">
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#2a78d6" opacity=".12"/><path d="M18 54 L55 24 L92 54" stroke="#2a78d6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="28" y="52" width="54" height="36" rx="3" fill="#2a78d6"/><rect x="48" y="66" width="14" height="22" rx="2" fill="#fff"/><circle cx="84" cy="30" r="14" fill="#fff" stroke="#2a78d6" stroke-width="4"/><path d="M78 36 L88 26 M80 36 L85 35 L89 31 L84 27 L80 32 Z" stroke="#2a78d6" stroke-width="2.5" fill="#2a78d6"/></svg>
+        <div><h3 style="margin:0 0 2px">Revocable living trust</h3><div style="color:#2a78d6;font-weight:650;font-size:19px">Control now, no court later</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">You are grantor, trustee and beneficiary all at once, and you can rewrite or cancel it any time. At death a successor trustee distributes privately, with no probate; if you become incapacitated, they step in without a conservatorship. It does nothing for estate tax, and it only works for assets actually retitled into it.</p>
+    </div>
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#6250d6" opacity=".12"/><circle cx="30" cy="36" r="11" fill="#6250d6"/><rect x="17" y="50" width="26" height="32" rx="13" fill="#6250d6"/><circle cx="80" cy="36" r="11" fill="#6250d6"/><rect x="67" y="50" width="26" height="32" rx="13" fill="#6250d6"/><rect x="44" y="62" width="22" height="20" rx="4" fill="#fff" stroke="#6250d6" stroke-width="3"/><path d="M55 76 C 49 71, 47 66, 51 64 C 53 63, 55 65, 55 66 C 55 65, 57 63, 59 64 C 63 66, 61 71, 55 76 Z" fill="#e34948"/><path d="M44 46 C 50 36, 60 36, 66 46" stroke="#6250d6" stroke-width="3" fill="none" stroke-dasharray="4 3"/></svg>
+        <div><h3 style="margin:0 0 2px">SLAT, spousal lifetime access trust</h3><div style="color:#6250d6;font-weight:650;font-size:19px">Out of the estate, not out of reach</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">One spouse makes an irrevocable gift to a trust for the <i>other</i> spouse and the descendants. The gift uses exemption; the assets and their growth are out of both estates, yet the beneficiary spouse can still receive distributions, so the household keeps indirect access. Two SLATs must be deliberately different or the IRS treats them as cancelling out.</p>
+    </div>
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#1baf7a" opacity=".12"/><rect x="18" y="22" width="40" height="30" rx="4" fill="#1baf7a"/><rect x="24" y="30" width="28" height="4" rx="2" fill="#fff"/><rect x="24" y="38" width="20" height="4" rx="2" fill="#fff"/><circle cx="50" cy="44" r="5" fill="#eda100"/><rect x="52" y="58" width="40" height="30" rx="4" fill="#fff" stroke="#1baf7a" stroke-width="3"/><rect x="58" y="66" width="28" height="4" rx="2" fill="#1baf7a"/><rect x="58" y="74" width="16" height="4" rx="2" fill="#1baf7a"/><defs><marker id="pa2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1baf7a"/></marker></defs><path d="M62 36 C 80 36, 86 40, 86 54" stroke="#1baf7a" stroke-width="3.5" fill="none" marker-end="url(#pa2)"/><path d="M48 74 C 30 74, 24 70, 24 56" stroke="#1baf7a" stroke-width="3.5" fill="none" marker-end="url(#pa2)"/></svg>
+        <div><h3 style="margin:0 0 2px">IDGT, intentionally defective grantor trust</h3><div style="color:#1baf7a;font-weight:650;font-size:19px">Sell, don&#39;t give, and keep paying the tax</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">An irrevocable trust that is out of your estate but &#8220;defective&#8221; for income tax, so you still pay tax on what it earns, a gift the IRS does not count. Instead of giving assets, you <b>sell</b> them to the trust for a promissory note: no capital gain is triggered, and everything the assets earn above the note&#39;s modest interest rate stays with the heirs.</p>
+    </div>
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#eda100" opacity=".14"/><rect x="22" y="62" width="14" height="26" rx="3" fill="#eda100"/><rect x="42" y="48" width="14" height="40" rx="3" fill="#eda100"/><rect x="62" y="32" width="14" height="56" rx="3" fill="#eda100"/><circle cx="86" cy="34" r="14" fill="#fff" stroke="#eda100" stroke-width="4"/><path d="M86 26 V34 L91 38" stroke="#eda100" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M22 44 L62 22" stroke="#52514e" stroke-width="2.5" stroke-dasharray="4 3"/></svg>
+        <div><h3 style="margin:0 0 2px">GRAT, grantor retained annuity trust</h3><div style="color:#b86a00;font-weight:650;font-size:19px">A short bet on a jump in value</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">You place an asset in trust for a fixed term, often two to five years, and take back annual payments that return the full value plus the IRS&#39;s published rate. Whatever the asset earns above that rate passes to the heirs with almost no gift. If you die during the term the asset comes back into the estate, which is why terms are kept short.</p>
+    </div>
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#2e9e5b" opacity=".12"/><rect x="50" y="62" width="10" height="28" rx="2" fill="#8a5a2b"/><circle cx="55" cy="30" r="14" fill="#2e9e5b"/><circle cx="36" cy="46" r="14" fill="#2e9e5b"/><circle cx="74" cy="46" r="14" fill="#2e9e5b"/><circle cx="26" cy="64" r="12" fill="#5cc48a"/><circle cx="84" cy="64" r="12" fill="#5cc48a"/><circle cx="55" cy="56" r="12" fill="#5cc48a"/><path d="M30 92 H80" stroke="#2e9e5b" stroke-width="4" stroke-linecap="round"/></svg>
+        <div><h3 style="margin:0 0 2px">Dynasty, or GST, trust</h3><div style="color:#2e9e5b;font-weight:650;font-size:19px">Taxed once, then never again</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">Estate tax normally hits again at each generation. A dynasty trust is built to last for generations and has <b>generation-skipping</b> exemption allocated to it, so nothing is taxed at the children&#39;s deaths, or the grandchildren&#39;s. With a Nevada or South Dakota situs it can run indefinitely. Any irrevocable trust in the plan can be drafted this way.</p>
+    </div>
+    <div class="card" style="padding:20px 24px">
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+        <svg viewBox="0 0 110 110" width="112" height="112"><circle cx="55" cy="55" r="52" fill="#e34948" opacity=".12"/><path d="M18 56 A37 37 0 0 1 92 56 Z" fill="#e34948"/><path d="M18 56 Q 27 48 37 56 Q 46 48 55 56 Q 64 48 73 56 Q 82 48 92 56" fill="none" stroke="#fff" stroke-width="3"/><path d="M55 56 V84 a8 8 0 0 1 -16 0" stroke="#e34948" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="62" y="68" width="30" height="22" rx="4" fill="#fff" stroke="#e34948" stroke-width="3"/><rect x="62" y="64" width="30" height="7" rx="3" fill="#e34948"/></svg>
+        <div><h3 style="margin:0 0 2px">ILIT, irrevocable life insurance trust</h3><div style="color:#d03b3b;font-weight:650;font-size:19px">Cash on the day it is needed</div></div></div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0">The trust, not the family, owns the policy, so the death benefit is not counted in the estate. Premiums are gifted each year, and the beneficiaries&#39; brief right to withdraw them makes the gifts qualify for the annual exclusion. At death the trust receives the proceeds tax-free and can lend to, or buy assets from, the estate so the tax is paid without a forced sale.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Estate &amp; trusts · 3 / 6</span></div>
+</div>
+
+<div class="slide" id="s-four">
+  <h2>Four more vehicles worth knowing</h2>
+  <div class="row" style="grid-template-columns:repeat(4,1fr);gap:24px">
+    <div class="card" style="padding:22px 24px;text-align:center">
+      <svg viewBox="0 0 110 110" width="150" height="150" style="margin-bottom:10px"><circle cx="55" cy="55" r="52" fill="#d6508f" opacity=".12"/><circle cx="46" cy="56" r="26" fill="none" stroke="#d6508f" stroke-width="12"/><path d="M46 30 A26 26 0 0 1 72 56" fill="none" stroke="#f3b0cf" stroke-width="12"/><path d="M84 36 C 78 30, 70 34, 72 41 C 74 47, 84 52, 84 52 C 84 52, 94 47, 96 41 C 98 34, 90 30, 84 36 Z" fill="#d6508f"/><ellipse cx="84" cy="74" rx="12" ry="4" fill="#eda100"/><rect x="72" y="74" width="24" height="10" fill="#eda100"/><ellipse cx="84" cy="84" rx="12" ry="4" fill="#d08a00"/></svg>
+      <h3 style="margin:0 0 2px">Charitable remainder trust</h3><div style="color:#d6508f;font-weight:650;font-size:19px;margin-bottom:10px">Income for you, remainder to charity</div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0;text-align:left">You give an appreciated asset to the trust, which sells it with <b>no capital gains tax</b> and pays you, or you and your spouse, an income for life or a term of years. What is left goes to charity, and you get an immediate deduction for the value of that remainder. Best when selling a building or company stock and wanting income rather than a lump sum.</p>
+    </div>
+    <div class="card" style="padding:22px 24px;text-align:center">
+      <svg viewBox="0 0 110 110" width="150" height="150" style="margin-bottom:10px"><circle cx="55" cy="55" r="52" fill="#e8702a" opacity=".12"/><path d="M36 36 C 28 28, 16 34, 19 44 C 22 52, 36 60, 36 60 C 36 60, 50 52, 53 44 C 56 34, 44 28, 36 36 Z" fill="#e8702a"/><defs><marker id="pa3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#e8702a"/></marker></defs><path d="M36 64 V82 H60" stroke="#e8702a" stroke-width="4" fill="none" marker-end="url(#pa3)"/><circle cx="76" cy="60" r="9" fill="#e8702a"/><rect x="65" y="72" width="22" height="24" rx="11" fill="#e8702a"/><circle cx="94" cy="66" r="7" fill="#f3a978"/><rect x="86" y="76" width="16" height="20" rx="8" fill="#f3a978"/></svg>
+      <h3 style="margin:0 0 2px">Charitable lead trust</h3><div style="color:#c85a18;font-weight:650;font-size:19px;margin-bottom:10px">Charity first, family after</div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0;text-align:left">The mirror image. Charity receives payments for a set term, and whatever remains passes to the family. The taxable gift to the family is reduced by the value of the charity&#39;s payments, so an asset that grows faster than the IRS rate can pass with little or no exemption used. A natural way to fund a multi-year pledge and move wealth at the same time. Explained in full in the appendix of the <a href="Estate_Trust_Info_Live_HomePage.html#s-appendix-clat-1">Shahawi examples deck</a>.</p>
+    </div>
+    <div class="card" style="padding:22px 24px;text-align:center">
+      <svg viewBox="0 0 110 110" width="150" height="150" style="margin-bottom:10px"><circle cx="55" cy="55" r="52" fill="#0d366b" opacity=".12"/><circle cx="40" cy="44" r="18" fill="none" stroke="#0d366b" stroke-width="7"/><circle cx="66" cy="44" r="18" fill="none" stroke="#3987e5" stroke-width="7"/><path d="M53 60 L73 68 V82 C73 92 64 98 53 102 C42 98 33 92 33 82 V68 Z" fill="#0d366b"/><path d="M45 82 L51 88 L62 76" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 style="margin:0 0 2px">Bypass (credit shelter) trust</h3><div style="color:#0d366b;font-weight:650;font-size:19px;margin-bottom:10px">First exemption used, growth kept out</div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0;text-align:left">At the first spouse&#39;s death, assets up to that spouse&#39;s exemption go into a trust for the survivor instead of outright. The survivor can draw income and, within limits, principal, but the assets and <b>all their later growth</b> stay outside the survivor&#39;s estate. Portability can carry an unused exemption over instead, but it does not protect growth or carry GST exemption.</p>
+    </div>
+    <div class="card" style="padding:22px 24px;text-align:center">
+      <svg viewBox="0 0 110 110" width="150" height="150" style="margin-bottom:10px"><circle cx="55" cy="55" r="52" fill="#6250d6" opacity=".12"/><circle cx="44" cy="54" r="20" fill="none" stroke="#6250d6" stroke-width="8"/><path d="M36 30 L44 20 L52 30 Z" fill="#6250d6"/><rect x="62" y="58" width="32" height="26" rx="6" fill="#6250d6"/><path d="M69 58 V49 a9 9 0 0 1 18 0 V58" stroke="#6250d6" stroke-width="6" fill="none"/><circle cx="78" cy="71" r="4" fill="#fff"/></svg>
+      <h3 style="margin:0 0 2px">QTIP marital trust</h3><div style="color:#6250d6;font-weight:650;font-size:19px;margin-bottom:10px">Provide for the spouse, decide the heirs</div>
+      <p style="font-size:20px;line-height:1.4;color:#52514e;margin:0;text-align:left">QTIP stands for Qualified Terminable Interest Property. Assets above the bypass amount go to a marital trust that qualifies for the unlimited marital deduction, so no tax is due at the first death. The surviving spouse must receive all the income, but the first spouse&#39;s document fixes who inherits afterward. Common in blended families or wherever the couple wants the plan locked in. These assets are taxed in the survivor&#39;s estate.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:24px;font-size:20px"><b>Where these could enter the Shahawi plan.</b> The bypass and QTIP trusts are not separate documents: they are instructions inside the living trust that take effect at the first death. A charitable remainder trust becomes relevant if the Institute or a building is sold and the family wants income from the proceeds. A charitable lead trust is one way to fund the UCLA commitment while moving growth to the children.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Estate &amp; trusts · 4 / 6</span></div>
+</div>
+
+<div class="slide" id="s-waterfall">
+  <h2>A fifth vehicle: the Rockefeller &#8220;waterfall&#8221;, or family bank</h2>
+  <div class="row" style="grid-template-columns:1.02fr 1fr;align-items:start">
+    <div class="card" style="padding:20px 26px 14px">
+      <p style="font-size:19px;line-height:1.42;color:#52514e;margin:0 0 10px">A dynasty trust can only be filled once by gift. The waterfall gives it a refill: the trust owns <b>permanent life insurance on each generation</b>, every death benefit pours in free of income and estate tax, and the trust <b>lends</b> to heirs rather than handing money out. Loans come back with interest, the trust buys the next generation&#39;s policy, and the pool never runs dry.</p>
+      <svg viewBox="0 0 820 470" width="100%">
+        <defs><marker id="wf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#6250d6"/></marker><marker id="wfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2a78d6"/></marker></defs>
+        <!-- reservoir -->
+        <rect x="300" y="28" width="220" height="404" rx="22" fill="#6250d6" opacity=".10"/>
+        <path d="M300 250 Q 327 238 355 250 T 410 250 T 465 250 T 520 250 V410 a22 22 0 0 1 -22 22 H322 a22 22 0 0 1 -22 -22 Z" fill="#6250d6" opacity=".22"/>
+        <rect x="300" y="28" width="220" height="404" rx="22" fill="none" stroke="#6250d6" stroke-width="3"/>
+        <text x="410" y="62" text-anchor="middle" font-size="20" font-weight="700" fill="#0b0b0b">Rockefeller waterfall</text>
+        <text x="410" y="86" text-anchor="middle" font-size="15" fill="#52514e">the dynasty trust, run as</text><text x="410" y="106" text-anchor="middle" font-size="15" fill="#52514e">the family bank</text>
+        <ellipse cx="380" cy="330" rx="24" ry="8" fill="#eda100"/><rect x="356" y="330" width="48" height="36" fill="#eda100"/><ellipse cx="380" cy="366" rx="24" ry="8" fill="#d08a00"/>
+        <ellipse cx="440" cy="350" rx="24" ry="8" fill="#eda100"/><rect x="416" y="350" width="48" height="22" fill="#eda100"/><ellipse cx="440" cy="372" rx="24" ry="8" fill="#d08a00"/>
+        <!-- left header -->
+        <text x="145" y="40" text-anchor="middle" font-size="15" fill="#52514e">Each death benefit pours in,</text>
+        <text x="145" y="60" text-anchor="middle" font-size="15" fill="#52514e">free of income and estate tax</text>
+        <!-- right header -->
+        <text x="680" y="40" text-anchor="middle" font-size="15" fill="#52514e">The trust lends, heirs repay;</text>
+        <text x="680" y="60" text-anchor="middle" font-size="15" fill="#52514e">the money stays protected inside</text>
+        <!-- tier 1 -->
+        <circle cx="44" cy="140" r="30" fill="#e34948" opacity=".12"/><path d="M26 140 A18 18 0 0 1 62 140 Z" fill="#e34948"/><path d="M44 140 V156 a5 5 0 0 1 -10 0" stroke="#e34948" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <text x="84" y="134" font-size="16" font-weight="700" fill="#0b0b0b">Policy on gen 1</text><text x="84" y="154" font-size="15" fill="#52514e">the parents</text>
+        <path d="M220 140 H294" stroke="#6250d6" stroke-width="3" marker-end="url(#wf)"/>
+        <circle cx="688" cy="124" r="10" fill="#2a78d6"/><rect x="676" y="136" width="24" height="30" rx="12" fill="#2a78d6"/><circle cx="716" cy="124" r="10" fill="#2a78d6"/><rect x="704" y="136" width="24" height="30" rx="12" fill="#2a78d6"/>
+        <text x="702" y="188" text-anchor="middle" font-size="16" font-weight="700" fill="#0b0b0b">Children</text>
+        <path d="M526 130 H664" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="121" text-anchor="middle" font-size="13" fill="#52514e">loans out</text>
+        <path d="M664 152 H532" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="170" text-anchor="middle" font-size="13" fill="#52514e">repaid, with interest</text>
+        <!-- tier 2 -->
+        <circle cx="44" cy="260" r="30" fill="#e34948" opacity=".12"/><path d="M26 260 A18 18 0 0 1 62 260 Z" fill="#e34948"/><path d="M44 260 V276 a5 5 0 0 1 -10 0" stroke="#e34948" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <text x="84" y="254" font-size="16" font-weight="700" fill="#0b0b0b">Policy on gen 2</text><text x="84" y="274" font-size="15" fill="#52514e">the children</text>
+        <path d="M220 260 H294" stroke="#6250d6" stroke-width="3" marker-end="url(#wf)"/>
+        <circle cx="688" cy="244" r="10" fill="#2a78d6"/><rect x="676" y="256" width="24" height="30" rx="12" fill="#2a78d6"/><circle cx="716" cy="244" r="10" fill="#2a78d6"/><rect x="704" y="256" width="24" height="30" rx="12" fill="#2a78d6"/>
+        <text x="702" y="308" text-anchor="middle" font-size="16" font-weight="700" fill="#0b0b0b">Grandchildren</text>
+        <path d="M526 250 H664" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="241" text-anchor="middle" font-size="13" fill="#52514e">loans out</text>
+        <path d="M664 272 H532" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="290" text-anchor="middle" font-size="13" fill="#52514e">repaid, with interest</text>
+        <!-- tier 3 -->
+        <circle cx="44" cy="380" r="30" fill="#e34948" opacity=".12"/><path d="M26 380 A18 18 0 0 1 62 380 Z" fill="#e34948"/><path d="M44 380 V396 a5 5 0 0 1 -10 0" stroke="#e34948" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <text x="84" y="374" font-size="16" font-weight="700" fill="#0b0b0b">Policy on gen 3</text><text x="84" y="394" font-size="15" fill="#52514e">the grandchildren, and on</text>
+        <path d="M220 380 H294" stroke="#6250d6" stroke-width="3" marker-end="url(#wf)"/>
+        <circle cx="688" cy="364" r="10" fill="#2a78d6"/><rect x="676" y="376" width="24" height="30" rx="12" fill="#2a78d6"/><circle cx="716" cy="364" r="10" fill="#2a78d6"/><rect x="704" y="376" width="24" height="30" rx="12" fill="#2a78d6"/>
+        <text x="702" y="428" text-anchor="middle" font-size="16" font-weight="700" fill="#0b0b0b">Great-grandchildren</text>
+        <path d="M526 370 H664" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="361" text-anchor="middle" font-size="13" fill="#52514e">loans out</text>
+        <path d="M664 392 H532" stroke="#2a78d6" stroke-width="3" marker-end="url(#wfb)"/><text x="595" y="410" text-anchor="middle" font-size="13" fill="#52514e">repaid, with interest</text>
+        <!-- caption -->
+        <text x="410" y="462" text-anchor="middle" font-size="15" fill="#52514e" font-style="italic">Refill, lend, repay. The trust buys each new policy. Generation after generation.</text>
+      </svg>
+    </div>
+    <div class="card" style="padding:10px 22px 6px">
+      <table style="font-size:17px;line-height:1.32"><thead><tr><th style="width:140px"></th><th style="text-align:left;color:#2e9e5b">Dynasty trust alone<div style="font-weight:500;font-size:15px;color:#52514e">the container: a legal wall that keeps the IRS and creditors out</div></th><th style="text-align:left;color:#6250d6">With the waterfall<div style="font-weight:500;font-size:15px;color:#52514e">the engine inside it: insurance and loans that keep it from running dry</div></th></tr></thead><tbody>
+        <tr><td><b>What it is</b></td><td style="text-align:left">An irrevocable trust drafted to last for generations, with GST exemption allocated so it is never taxed again.</td><td style="text-align:left">A way of <i>running</i> that trust, or the ILIT: permanent life insurance and loans become its engine.</td></tr>
+        <tr><td><b>Funded by</b></td><td style="text-align:left">One-time gifts or sales of assets, limited by exemption and discounts.</td><td style="text-align:left">Modest annual premiums now, then a tax-free death benefit at every generation.</td></tr>
+        <tr><td><b>Refilled by</b></td><td style="text-align:left">Investment growth only. Every distribution drains it.</td><td style="text-align:left">Growth plus a new death benefit each generation. Loans come back.</td></tr>
+        <tr><td><b>How heirs get money</b></td><td style="text-align:left">Distributions, at the trustee&#39;s discretion.</td><td style="text-align:left">Loans for homes, businesses and education, repaid with interest. Distributions are the exception.</td></tr>
+        <tr><td><b>Protection</b></td><td style="text-align:left">Protected from estate tax, lawsuits and divorce while inside. Once distributed, money is exposed.</td><td style="text-align:left">Money stays inside, and loans are secured, so the homes and businesses it funds stay protected too.</td></tr>
+        <tr><td><b>What it needs</b></td><td style="text-align:left">Assets to give, and exemption to cover them.</td><td style="text-align:left">Insurable lives, premiums paid for decades, and a trustee who enforces the loan terms.</td></tr>
+        <tr><td><b>For the Shahawis</b></td><td style="text-align:left">Already in the plan: the SLATs and the ILIT are drafted as dynasty trusts.</td><td style="text-align:left">A survivorship policy on both spouses, owned by the ILIT, is the first drop. Policies on the four children follow, paid from trust income.</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:22px;font-size:20px;border-left-color:#6250d6;background:#f1effb"><span class="tag now" style="margin:0 12px 0 0;vertical-align:middle">Fit: now</span><b>Not either/or: the waterfall is the dynasty trust with an engine.</b> Underwriting is already on this year&#39;s list, the ILIT that pays the estate tax can be the same trust that starts the waterfall, and the Institute&#39;s distributions can carry the premiums. The one new decision is a loan policy for the trustee: who may borrow, for what, and on what terms.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Estate &amp; trusts · 5 / 6</span></div>
+</div>
+<div class="slide" id="s-applied">
+  <h2>The trust toolkit, applied</h2>
+  <div class="row" style="grid-template-columns:1.75fr 1fr;align-items:start">
+    <div class="card" style="padding:18px 26px 14px">
+      <table style="font-size:21px;line-height:1.4"><thead><tr><th style="width:215px">Trust</th><th style="text-align:left">What it does for the Shahawis</th><th style="width:110px">Fit</th></tr></thead><tbody>
+        <tr><td><b>Revocable living trust</b></td><td style="text-align:left">Avoids $9M of California probate, keeps the estate private, manages incapacity. Must actually own the LLC and Institute interests.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+        <tr><td><b>SLAT</b> (one for each spouse)</td><td style="text-align:left">Each spouse gifts up to $15M of discounted company interests to a trust for the other and the descendants. Growth leaves the estate; the family keeps indirect access. Trusts must differ to avoid the reciprocal-trust rule.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+        <tr><td><b>IDGT sale</b></td><td style="text-align:left">Sell non-voting Institute shares to a grantor trust for a note; discounts of 25% to 35% for lack of control and marketability move more value per dollar of exemption. Ihab pays the trust&#39;s income tax, a further tax-free transfer.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+        <tr><td><b>GRAT</b></td><td style="text-align:left">If a sale of the Institute is likely within a few years, a short GRAT captures the jump in value above the IRS rate with little exemption used.</td><td><span class="tag soon" style="margin:0;white-space:nowrap">Pre-sale</span></td></tr>
+        <tr><td><b>Dynasty / GST trust</b></td><td style="text-align:left">Allocate GST exemption so the trusts skip estate tax at the children&#39;s deaths too. Use a Nevada or South Dakota situs for perpetual duration and asset protection.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+        <tr><td><b>ILIT</b></td><td style="text-align:left">Owns the life insurance so the death benefit is outside the estate and pays the remaining tax without a forced sale.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+        <tr><td><b>Rockefeller waterfall</b> (family bank)</td><td style="text-align:left">The ILIT and dynasty trusts hold permanent insurance on each generation; death benefits refill them tax-free, and they lend to heirs rather than give, so the pool never empties.</td><td><span class="tag now" style="margin:0">Now</span></td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <div class="callout" style="font-size:19px;line-height:1.4;border-left-color:#6250d6;background:#f1effb">
+        <b>Why this list.</b> The estate is headed to $181 million against about $30 million of combined exemption, so the job is to move <i>future growth</i> out, not to shelter what exists. Each tool does one thing: the living trust handles probate and incapacity; the SLATs and IDGT sale spend exemption on discounted Institute stock while the family keeps access; the GRAT matters only if a sale is coming; GST allocation makes the transfer last two generations instead of one; and the ILIT pays the tax that remains so nothing is sold under pressure. None of it gives up control of the Institute, and none of it is irrevocable before the appraisal.
+      </div>
+      <div class="card" style="margin-top:22px;padding:20px 26px">
+        <h3 style="margin-bottom:12px">In what order</h3>
+        <ol style="margin:0;padding:0;list-style:none;display:grid;gap:12px">
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.4"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#e34948;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:2px">1</span><span><b>Living trust</b> signed, and the LLC and Institute interests retitled into it. The Institute recapitalized into voting and non-voting shares.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.4"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#e34948;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:2px">2</span><span><b>Appraisal</b> of the Institute and the real estate, with discounts, and insurance <b>underwriting</b>, both started now.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.4"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#eda100;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:2px">3</span><span><b>SLATs funded</b> and the <b>IDGT sale</b> closed on the appraised values, GST exemption allocated, Nevada or South Dakota situs chosen.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.4"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#eda100;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:2px">4</span><span><b>ILIT</b> buys the survivorship policy. The waterfall begins.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.4"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#1baf7a;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:2px">5</span><span><b>GRAT</b> only if a sale of the Institute becomes likely.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · October 2026 · confidential</span><span>Estate &amp; trusts · 6 / 6</span></div>
+</div>
+
+
+</body></html>

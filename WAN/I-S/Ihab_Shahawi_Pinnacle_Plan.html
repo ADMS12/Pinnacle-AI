@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahawi Family Plan</title>
+<style>
+:root{--navy:#0d366b;--blue:#2a78d6;--blue2:#5598e7;--teal:#1baf7a;--gold:#eda100;--red:#e34948;--violet:#6250d6;--pink:#e87ba4;--ink:#0b0b0b;--ink2:#4b5563;--muted:#8a8f98;--line:#e5e7eb;--bg:#f6f7f9;--card:#fff;--wash:#eef4fc;--wash2:#fdf0e9;--wash3:#e8f7f1;--washr:#fdeaea;--washv:#efecfb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1400px;margin:0 auto;padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav a{font-size:13px;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:999px}nav a:hover{background:var(--wash);color:var(--navy)}
+nav .brand{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
+.slide{max-width:1400px;margin:0 auto;padding:64px 28px 56px;border-bottom:1px solid var(--line)}
+.hero{background:var(--navy);color:#fff;border:0}.hero .in{max-width:1400px;margin:0 auto;padding:90px 28px 80px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:54px;line-height:1.08;margin:0 0 16px;font-weight:750;letter-spacing:-.01em}.hero .sub{color:#cde2fb;font-size:22px}
+.hero .firms{margin-top:36px;display:flex;gap:28px;flex-wrap:wrap}.hero .firms div{font-size:14px;color:#cde2fb}.hero .firms b{display:block;color:#fff;font-size:16px}
+.k{display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}.k .n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.k .tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h2{font-size:38px;margin:0 0 10px;font-weight:750;letter-spacing:-.01em}h3{font-size:22px;margin:0 0 10px;font-weight:700}h4{font-size:17px;margin:0 0 6px;font-weight:700}
+.lede{color:var(--ink2);font-size:20px;max-width:1000px;margin:0 0 30px}
+.grid{display:grid;gap:22px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g21{grid-template-columns:1.3fr 1fr}.g12{grid-template-columns:1fr 1.3fr}
+@media(max-width:1000px){.g2,.g3,.g4,.g21,.g12,.hero .in{grid-template-columns:1fr}.hero h1{font-size:40px}h2{font-size:30px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+.card.soft{background:var(--wash)}.card.warn{background:var(--washr);border-color:#f3c6c6}.card.good{background:var(--wash3)}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}.kpi .l{font-size:13px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}.kpi .v{font-size:34px;font-weight:750;margin:4px 0 2px;letter-spacing:-.01em}.kpi .s{font-size:14px;color:var(--muted)}
+.kpi.red .v{color:#c0392b}.kpi.green .v{color:#0f8a5f}.kpi.gold .v{color:#b86a00}
+p{margin:8px 0;color:var(--ink2)}ul{margin:8px 0;padding-left:22px}li{margin:6px 0;color:var(--ink2)}li b,p b{color:var(--ink)}
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.pill.now{background:rgba(227,73,72,.12);color:#b42318}.pill.soon{background:rgba(237,161,0,.16);color:#9a5b00}.pill.later{background:rgba(27,175,122,.14);color:#0f6b4b}.pill.info{background:var(--wash);color:var(--navy)}
+.callout{border-left:6px solid var(--blue);background:var(--wash);padding:16px 22px;border-radius:10px;font-size:18px;color:var(--ink)}
+.callout.o{border-color:var(--gold);background:var(--wash2)}.callout.r{border-color:var(--red);background:var(--washr)}.callout.g{border-color:var(--teal);background:var(--wash3)}
+table{width:100%;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}th:first-child,td:first-child{text-align:left}th{color:var(--ink2);font-weight:600;font-size:14px}tr.total td{font-weight:700;border-top:2px solid #c3c2b7}
+td.l,th.l{text-align:left}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}.steps .st{position:relative;padding:18px 18px 18px 22px;border-left:3px solid var(--line)}.steps .st::before{content:counter(s);counter-increment:s;position:absolute;left:-17px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}.steps .st h4{margin-top:0}
+@media(max-width:1000px){.steps{grid-template-columns:1fr}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin-top:8px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.foot{max-width:1400px;margin:0 auto;padding:30px 28px 60px;font-size:13px;color:var(--muted)}
+details.adv{max-width:1400px;margin:0 auto 60px;padding:0 28px}details.adv summary{cursor:pointer;font-size:14px;color:var(--muted);padding:10px 0}details.adv .box{background:#fffbea;border:1px dashed #e3c15c;border-radius:14px;padding:22px 26px;font-size:15px}
+.icon{width:72px;height:72px;flex:none}.ir{display:flex;gap:18px;align-items:flex-start}
+.small{font-size:14px;color:var(--muted)}
+.bar{height:14px;border-radius:7px;background:#e5e7eb;overflow:hidden}.bar i{display:block;height:100%}
+</style>
+</head>
+<body>
+<nav><div class="in"><span class="brand">Shahawi Family · Comprehensive Plan</span>
+<a href="#exec">Summary</a><a href="#tax">1 Tax mitigation</a><a href="#transfer">2 Wealth transfer</a><a href="#retire">3 Retirement</a><a href="#accum">4 Accumulation</a><a href="#preserve">5 Preservation</a><a href="#action">Action plan</a><a href="Ihab_Trust_Plan_Proposal.html" style="color:var(--navy);font-weight:600">Trust proposal ↗</a><a href="Ihab_Estate_Legacy_Proposal.html" style="color:var(--navy);font-weight:600">Legacy proposal ↗</a></div></nav>
+
+<header class="hero"><div class="in">
+  <div>
+    <div style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#86b6ef;margin-bottom:14px">Prepared for Ihab Shahawi and Vivian El-Shahawi · October 2026</div>
+    <h1>A $67 million family balance sheet, built almost entirely inside one company.<br>Now the plan has to catch up.</h1>
+    <div class="sub">Tax mitigation, wealth transfer, retirement security, accumulation and capital preservation, in the order they protect the family and the Institute.</div>
+    <div class="firms"><div><b>Pinnacle Planning</b>Advanced planning for business owners</div><div><b>Wealth Advisory Now</b>Fee-based fiduciary wealth management</div><div><b>M&amp;M Wealth Associates</b>Insurance solutions and advanced planning</div></div>
+  </div>
+  <div>
+    <svg viewBox="0 0 740 420" width="100%" role="img" aria-label="Net worth composition">
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#1c4f8f" stroke-width="54"/>
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#3987e5" stroke-width="54" stroke-dasharray="661 942" transform="rotate(-90 200 200)"/>
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#86b6ef" stroke-width="54" stroke-dasharray="239 942" stroke-dashoffset="-661" transform="rotate(-90 200 200)"/>
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#eda100" stroke-width="54" stroke-dasharray="42 942" stroke-dashoffset="-900" transform="rotate(-90 200 200)"/>
+      <text x="200" y="190" text-anchor="middle" font-size="40" font-weight="700" fill="#fff">$67.1M</text><text x="200" y="222" text-anchor="middle" font-size="16" fill="#cde2fb">net worth</text>
+      <text x="200" y="248" text-anchor="middle" font-size="14" fill="#86b6ef">$100K liquid · 0.15%</text>
+      <g font-size="15" fill="#cde2fb"><rect x="395" y="110" width="14" height="14" fill="#3987e5"/><text x="418" y="123">The Institute (C corp) · $47M</text>
+      <rect x="395" y="150" width="14" height="14" fill="#86b6ef"/><text x="418" y="163">Real Estate LLC2 · $17M</text>
+      <rect x="395" y="190" width="14" height="14" fill="#eda100"/><text x="418" y="203">Real Estate LLC1 · $3M</text>
+      <rect x="395" y="230" width="14" height="14" fill="#1c4f8f"/><text x="418" y="243">Cash · $100K</text></g>
+      <text x="395" y="300" font-size="14" fill="#86b6ef">Life insurance in force: $50,000 term</text>
+      <text x="395" y="324" font-size="14" fill="#86b6ef">Retirement accounts: none</text>
+      <text x="395" y="348" font-size="14" fill="#86b6ef">Debt: none</text>
+    </svg>
+  </div>
+</div></header>
+
+<!-- ===================== EXECUTIVE SUMMARY ===================== -->
+<section class="slide" id="exec">
+  <div class="k"><span class="tag">Executive summary</span></div>
+  <h2>Where the family stands</h2>
+  <p class="lede">Ihab (63) and Vivian (67) have built an exceptional enterprise. The planning gap is not wealth, it is structure: almost all of it sits in one C corporation and two real estate entities, with no liquidity, no retirement plan, $50,000 of life insurance, seven foreign properties outside any structure, a living trust last updated twelve years ago, and an estate on course for roughly $46 million of federal estate tax.</p>
+  <div class="grid g4" style="margin-bottom:24px">
+    <div class="kpi"><div class="l">Net worth</div><div class="v">$67.1M</div><div class="s">99.9% in three private companies</div></div>
+    <div class="kpi"><div class="l">Household income</div><div class="v">$718K</div><div class="s">salaries $700K + Social Security; taxes $209K (29%)</div></div>
+    <div class="kpi gold"><div class="l">Institute pre-tax profit</div><div class="v">$5.4M</div><div class="s">C corp; $7M already held in corporate investments and cash</div></div>
+    <div class="kpi red"><div class="l">Projected estate tax</div><div class="v">$46.4M</div><div class="s">plus $9.0M of probate on a $180.7M estate at age 90</div></div>
+  </div>
+  <div class="grid g3">
+    <div class="card good"><h3>Strengths</h3><ul>
+      <li><b>A valuable, profitable operating company</b> ($40M core value, $5.4M a year pre-tax) in a sector that attracts buyers.</li>
+      <li><b>$20M of unleveraged real estate</b> in nine US properties across two LLCs, seven more abroad, and no personal debt.</li>
+      <li><b>Clear goals:</b> 20% of the legacy to each of four children and 20% to the two grandchildren ($20M and $5M), two college educations, $825K to UCLA, retirement at 66 and 70 on $30K a month.</li>
+      <li><b>A mission with a vehicle:</b> the IABA Research &amp; Education Foundation, a 501(c)(3) Ihab founded and leads, plus twelve years of support for autism and tutoring charities.</li>
+      <li><b>Time and cash flow:</b> three working years, $5M+ of corporate earnings a year, and both Social Security benefits still unclaimed.</li></ul></div>
+    <div class="card warn"><h3>Planning gaps</h3><ul>
+      <li><b>Liquidity:</b> $100K of cash against $360K of annual spending; the plan shows income falling to $48K in 2029 when salaries stop.</li>
+      <li><b>Estate exposure:</b> $14.8M of tax if both died today, $46M on the projected path. The living trust is twelve years old and predates the loss of a son, a marriage, a divorce and the 2026 exemption; the UK, Egypt and Colombia properties sit outside it and inside three other inheritance regimes.</li>
+      <li><b>Protection:</b> $50K of term life and a stated view that life insurance is not worth buying; no disability, long-term care, key-person or succession agreement for a company with no family successor.</li>
+      <li><b>Retirement vehicles:</b> no 401(k), IRA or defined benefit plan despite $700K of salary and a profitable sponsor.</li>
+      <li><b>Corporate cash:</b> $7M growing to $120M inside a C corp invites accumulated-earnings tax and double taxation on the way out.</li></ul></div>
+    <div class="card soft"><h3>Recommended priorities</h3><ol>
+      <li><b>Freeze the estate</b> around the Institute before its value grows further: trust structure, discounted transfers, and insurance to pay what remains.</li>
+      <li><b>Create liquidity on purpose:</b> a corporate distribution policy, a retirement plan funded through the Institute, and real estate cash flow brought onto the personal balance sheet.</li>
+      <li><b>Create the cash to pay the tax</b> and decide it on numbers: a second-to-die policy held outside the estate, or a section 303 redemption reserve inside the Institute if the family declines insurance.</li>
+      <li><b>Give through the foundation:</b> route the UCLA commitment and the family&#39;s giving through the IABA Foundation with appreciated shares, cutting income and estate tax at the same time and seating the children.</li>
+      <li><b>Decide the Institute's exit path</b> (sale, ESOP, or a managed hold under trustee ownership; no child works in it) so every other decision lines up behind it.</li></ol></div>
+  </div>
+  <div class="callout" style="margin-top:24px"><b>One sentence for the meeting.</b> The next three years decide whether the family keeps $125 million or $165 million of a $180 million estate, and whether retirement in 2029 is funded by design or by selling the company.</div>
+</section>
+
+<!-- ===================== THE FAMILY ===================== -->
+<section class="slide">
+  <div class="k"><span class="tag">The picture today</span></div>
+  <h2>Family, income and goals</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Family</h3>
+      <svg viewBox="0 0 400 230" width="100%">
+        <g font-size="14" fill="#0b0b0b"><rect x="20" y="20" width="160" height="48" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="100" y="40" text-anchor="middle" font-weight="700">Ihab · 63</text><text x="100" y="58" text-anchor="middle" fill="#4b5563" font-size="12">retire at 66 (2029)</text>
+        <rect x="220" y="20" width="160" height="48" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="300" y="40" text-anchor="middle" font-weight="700">Vivian · 67</text><text x="300" y="58" text-anchor="middle" fill="#4b5563" font-size="12">retire at 70 (2029)</text>
+        <line x1="200" y1="68" x2="200" y2="100" stroke="#c3c2b7" stroke-width="2"/><line x1="60" y1="100" x2="340" y2="100" stroke="#c3c2b7" stroke-width="2"/>
+        <g font-size="12"><rect x="20" y="110" width="80" height="40" rx="8" fill="#fff" stroke="#c3c2b7"/><text x="60" y="127" text-anchor="middle" font-weight="700">Daughter 46</text><text x="60" y="142" text-anchor="middle" fill="#4b5563" font-size="10">divorced · 2 kids</text>
+        <rect x="113" y="110" width="80" height="40" rx="8" fill="#fff" stroke="#c3c2b7"/><text x="153" y="127" text-anchor="middle" font-weight="700">Son 42</text>
+        <rect x="206" y="110" width="80" height="40" rx="8" fill="#fff" stroke="#c3c2b7"/><text x="246" y="127" text-anchor="middle" font-weight="700">Daughter 31</text><text x="246" y="142" text-anchor="middle" fill="#4b5563" font-size="10">married · London</text>
+        <rect x="299" y="110" width="80" height="40" rx="8" fill="#fff" stroke="#c3c2b7"/><text x="339" y="127" text-anchor="middle" font-weight="700">Son 21</text>
+        <line x1="60" y1="150" x2="60" y2="175" stroke="#c3c2b7" stroke-width="2"/><line x1="25" y1="175" x2="95" y2="175" stroke="#c3c2b7" stroke-width="2"/>
+        <rect x="5" y="185" width="52" height="34" rx="8" fill="#e8f7f1" stroke="#1baf7a"/><text x="31" y="200" text-anchor="middle" font-weight="700" font-size="11">Grandson</text><text x="31" y="213" text-anchor="middle" fill="#4b5563" font-size="11">16</text>
+        <rect x="65" y="185" width="52" height="34" rx="8" fill="#e8f7f1" stroke="#1baf7a"/><text x="91" y="200" text-anchor="middle" font-weight="700" font-size="11">Grandson</text><text x="91" y="213" text-anchor="middle" fill="#4b5563" font-size="11">14</text>
+        <text x="300" y="205" text-anchor="middle" fill="#8a8f98" font-size="11" font-style="italic">In memory: a son, lost at 24,</text><text x="300" y="219" text-anchor="middle" fill="#8a8f98" font-size="11" font-style="italic">thirteen years ago</text></g></g>
+      </svg>
+      <p class="small">Four children spanning 25 years, one of them abroad and one newly divorced, and two grandchildren approaching college. Each child&#39;s share needs its own design, which is why the trust plan holds every share in a lifetime trust rather than outright.</p></div>
+    <div class="card"><h3>Income and spending, 2026</h3>
+      <table><tbody>
+        <tr><td>Ihab's salary (Institute)</td><td>$400,000</td></tr><tr><td>Vivian's salary</td><td>$300,000</td></tr><tr><td>Social Security (started)</td><td>$18,435</td></tr>
+        <tr class="total"><td>Household income</td><td>$718,435</td></tr>
+        <tr><td>Federal, state and payroll tax</td><td>$208,972</td></tr><tr><td>Living expenses ($30K a month)</td><td>$360,000</td></tr><tr><td>UCLA giving</td><td>$165,000</td></tr>
+        <tr class="total"><td>Left over</td><td style="color:#c0392b">−$15,537</td></tr>
+      </tbody></table>
+      <p class="small">The household runs at break-even on salaries while the Institute earns $5.4M before tax. Income is being left inside the company by default rather than by plan. Some personal costs are paid through the business today; moving them into salary before the appraisal removes a reasonable-compensation flag and a buyer&#39;s add-back. Social Security estimates in the profile: $3,500 and $4,000 a month.</p></div>
+    <div class="card"><h3>Goals the family has stated</h3>
+      <div class="ir" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#2a78d6" opacity=".12"/><path d="M20 44 L36 24 L52 44 Z" fill="#2a78d6"/><rect x="30" y="44" width="12" height="10" fill="#2a78d6"/></svg><div><b>Retire at 66 and 70</b><div class="small">$30,000 a month, inflation adjusted, plus health care of $5,709 each a year and two years of long-term care each at $80,080</div></div></div>
+      <div class="ir" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#1baf7a" opacity=".12"/><path d="M36 18 L58 28 L36 38 L14 28 Z" fill="#1baf7a"/><path d="M22 32 V44 C22 50 50 50 50 44 V32" fill="none" stroke="#1baf7a" stroke-width="5"/></svg><div><b>Educate two grandchildren</b><div class="small">$100,000 a year each from age 18 to 25; $2.3M projected</div></div></div>
+      <div class="ir" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#eda100" opacity=".14"/><path d="M36 54 C26 46 18 40 18 32 C18 26 23 22 28 22 C32 22 35 24 36 27 C37 24 40 22 44 22 C49 22 54 26 54 32 C54 40 46 46 36 54 Z" fill="#eda100"/></svg><div><b>Give to UCLA, through the family&#39;s foundation</b><div class="small">$165,000 a year, 2026 to 2030: $825,000 (the profile shows $150K to $175K a year), routed through the IABA Research &amp; Education Foundation Ihab leads</div></div></div>
+      <div class="ir"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#6250d6" opacity=".12"/><rect x="18" y="30" width="36" height="26" rx="4" fill="#6250d6"/><path d="M24 30 V24 A12 12 0 0 1 48 24 V30" stroke="#6250d6" stroke-width="5" fill="none"/></svg><div><b>Leave $25 million</b><div class="small">20% to each of the four children and 20% to the two grandchildren, both children of the eldest daughter. The legacy proposal flags that future grandchildren are not covered as written</div></div></div>
+    </div>
+  </div>
+  <div class="callout o" style="margin-top:22px"><b>About the RightCapital projection.</b> It shows a 0% probability of success and a $39M "shortage" because the profile holds no investment accounts and treats all three companies as sold only at the end of life. That is a data-model result, not a verdict on the family. The real message is the same in both directions: $67M of wealth with $100K of liquidity needs a plan for turning enterprise value into income and legacy.</div>
+</section>
+
+<!-- ===================== 1 TAX MITIGATION ===================== -->
+<section class="slide" id="tax">
+  <div class="k"><span class="n">1</span><span class="tag">Tax mitigation</span></div>
+  <h2>Pay what is owed, not what is accidental</h2>
+  <p class="lede">The family pays tax in four places: on salaries, inside the C corporation, on money that leaves the corporation, and eventually on the estate. Each layer has its own levers. The biggest dollars are in the last two.</p>
+
+  <div class="grid g2">
+    <div class="card"><h3>Personal</h3>
+      <table><thead><tr><th class="l">Lever</th><th class="l">Applied to Ihab and Vivian</th><th>Order of magnitude</th></tr></thead><tbody>
+        <tr><td class="l">Retirement plan deferrals</td><td class="l">A 401(k) at the Institute: $24,500 each plus catch-ups ($11,250 for Ihab at 63, $8,000 for Vivian), with a defined benefit layer on top (section 3)</td><td>$25K to $150K+ of tax a year</td></tr>
+        <tr><td class="l">Give appreciated shares, not cash</td><td class="l">Fund the UCLA commitment through the IABA Foundation (public-charity status to confirm; a donor-advised fund as fallback) with discounted non-voting Institute shares in the high-income years 2026 to 2028: the same deduction plus no capital gain on the shares</td><td>$65K a year of gains tax avoided on top of the $79K deduction value</td></tr>
+        <tr><td class="l">Social Security timing</td><td class="l">Both claim at 70: $412K more lifetime income and smaller taxable benefits while salaries continue</td><td>+$412K lifetime</td></tr>
+        <tr><td class="l">Tax-free income</td><td class="l">California municipal bonds for the liquidity reserve (section 5): a 4% tax-free yield equals about 8% taxable at the family's 35% federal plus 9.3% to 11.3% California brackets</td><td>Doubles after-tax yield on reserves</td></tr>
+        <tr><td class="l">Low-income window</td><td class="l">2029 to 2035, between retirement and corporate distributions: the years to realize gains, convert to Roth, and take dividends at lower brackets</td><td>Plan the window, do not stumble into it</td></tr>
+      </tbody></table></div>
+    <div class="card"><h3>Business</h3>
+      <h4 style="color:var(--navy)">The Institute (C corporation)</h4>
+      <ul>
+        <li><b>Current cost:</b> about 28% combined on $5.4M of pre-tax profit, roughly $1.5M a year, then a second tax of 23.8% federal plus up to 13.3% California when earnings come out as dividends.</li>
+        <li><b>Deductible compensation and benefits:</b> salary, bonus, a qualified plan, health and group life are deducted at 28% in the company and either deferred or exempt for the family. This is the first dollar to move.</li>
+        <li><b>Accumulated earnings:</b> $7M of investments and cash today, projected to $120M by 2053. Beyond documented business needs the IRS can impose a 20% accumulated earnings tax. Earnings must be distributed, deployed or justified. A documented section 303 redemption reserve for estate tax is one justification (section 2).</li>
+        <li><b>The $5M earning 13%:</b> $55K a month of &#8220;interest&#8221; on $5M is not a bank yield. If it is private lending or a single position, it is a second business inside the C corporation, with its own risk and its own questions in a sale. Document the holdings before the appraisal.</li>
+        <li><b>Corporate charitable giving:</b> the Institute can give up to 10% of taxable income (about $540K a year) directly, deducted at the corporate level.</li>
+        <li><b>Tax credits are most valuable here</b> (see below): a C corp can use low-income housing, hiring and child-care credits dollar for dollar against its own tax.</li>
+      </ul>
+      <h4 style="color:var(--navy);margin-top:14px">The real estate LLCs</h4>
+      <ul>
+        <li><b>Cost segregation</b> on the $17M property with 100% bonus depreciation restored: accelerates deductions that offset rental income, and the LLC interests can be valued at a discount when transferred.</li>
+        <li><b>1031 exchanges and Opportunity Zones</b> if any property is sold; refinancing to pull out tax-free cash for liquidity. The Pasadena rental runs negative and is the first candidate: exchange it, or gift it to the foundation if it has appreciated.</li>
+        <li><b>Foreign property:</b> rents and gains on the five UK properties and the Egypt and Colombia properties are taxed locally first, with a US credit. UK inheritance tax at 40% applies to UK real estate whoever owns it, so those properties need UK wills and must stay out of the US trusts (section 4).</li>
+      </ul></div>
+  </div>
+
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card soft"><h3>Now vs. later</h3>
+      <svg viewBox="0 0 420 200" width="100%">
+        <g font-size="13" fill="#4b5563"><text x="20" y="28">If both died today</text><rect x="20" y="36" width="380" height="22" rx="5" fill="#e5e7eb"/><rect x="20" y="36" width="84" height="22" rx="5" fill="#e34948"/><text x="112" y="52" fill="#0b0b0b" font-weight="700">$14.8M estate tax</text>
+        <text x="20" y="88">Projected 2053 path</text><rect x="20" y="96" width="380" height="22" rx="5" fill="#e5e7eb"/><rect x="20" y="96" width="262" height="22" rx="5" fill="#e34948"/><text x="30" y="112" fill="#fff" font-weight="700">$46.4M + $9.0M probate</text>
+        <text x="20" y="148">Same path, growth frozen outside the estate</text><rect x="20" y="156" width="380" height="22" rx="5" fill="#e5e7eb"/><rect x="20" y="156" width="60" height="22" rx="5" fill="#1baf7a"/><text x="90" y="172" fill="#0b0b0b" font-weight="700">$0 to $10M, insured</text></g>
+      </svg>
+      <p>The 2026 exemption is $15M per person ($30M per couple), permanent and indexed. The exposure is not the law changing; it is $113M of growth that will land inside the estate unless it is moved out now, while the Institute's value and the exemption are both at their most favorable.</p></div>
+    <div class="card soft"><h3>Estate taxes and gifting</h3>
+      <ul>
+        <li><b>Annual exclusion:</b> $19,000 per donee per donor. Four children, one son-in-law and two grandchildren: <b>$266,000 a year</b> leaves the estate tax-free, more with 529 "superfunding" of five years at once ($190,000 per grandchild per couple).</li>
+        <li><b>Unlimited:</b> tuition and medical bills paid directly to the institution. The $2.3M education goal can be met this way with no gift tax and no exemption used.</li>
+        <li><b>Lifetime exemption:</b> $30M as a couple, best spent on discounted interests in the Institute and the LLCs rather than cash, so that the growth leaves with the gift.</li>
+      </ul></div>
+    <div class="card soft"><h3>Foundation, donor-advised fund, credits</h3>
+      <ul>
+        <li><b>The IABA Research &amp; Education Foundation:</b> the family already has its vehicle. Ihab founded and leads this 501(c)(3), whose mission is the Institute&#39;s. If it is a public charity, as its grant applications suggest, gifts of appreciated non-voting shares are deductible at full value and the foundation can make the UCLA psychology grant as a named research program. Confirm the IRS determination letter first; if it is a private foundation, share gifts are deductible only at basis and go to a DAF instead.</li>
+        <li><b>Donor-advised fund:</b> opened alongside for gifts outside the foundation&#39;s mission (the tutoring charity) and as the fallback for the sale year. Simple, cheap, anonymous if wished.</li>
+        <li><b>Credits the Institute can use:</b> Work Opportunity Tax Credit on a large therapist workforce; the employer child-care credit (now up to 40% of costs, $500K a year); low-income housing credits as a corporate investor, which pair naturally with the real estate expertise; solar on owned buildings while the credit lasts (projects placed in service by 2027).</li>
+      </ul></div>
+  </div>
+  <div class="callout" style="margin-top:22px"><b>Why it matters, what to watch.</b> Benefits: lower lifetime tax in every layer, and the estate problem shrinks before it compounds. Risks: compensation must stay reasonable, accumulated earnings need documented purposes, and valuation discounts need a qualified appraisal. Implementation runs through the Institute's CPA, a valuation firm and estate counsel, coordinated by our team.</div>
+</section>
+
+<!-- ===================== 2 WEALTH TRANSFER ===================== -->
+<section class="slide" id="transfer">
+  <div class="k"><span class="n">2</span><span class="tag">Wealth transfer</span></div>
+  <h2>Move the growth, keep the control, insure the remainder</h2>
+  <p class="lede">The family wants $25M to reach children and grandchildren. On the current path the estate would be $180M and the IRS and probate court would take $55M first. Three tools fix this in combination: trusts that take future growth out of the estate, gifts that use the exemption while discounts are available, and life insurance that pays whatever tax is left without selling the company.</p>
+
+  <div class="grid g12">
+    <div class="card"><h3>Estate tax, the two paths</h3>
+      <svg viewBox="0 0 520 300" width="100%">
+        <g font-size="13">
+        <text x="20" y="24" fill="#4b5563" font-weight="600">Current path, 2053</text>
+        <rect x="20" y="34" width="480" height="30" rx="6" fill="#2a78d6"/><rect x="353" y="34" width="124" height="30" rx="6" fill="#e34948"/><rect x="477" y="34" width="23" height="30" rx="6" fill="#eda100"/>
+        <text x="30" y="54" fill="#fff" font-weight="700">To heirs $125.3M</text><text x="360" y="54" fill="#fff" font-weight="700">Tax $46.4M</text>
+        <text x="20" y="90" fill="#4b5563">$180.7M estate · 69% to heirs · probate $9.0M (gold)</text>
+        <text x="20" y="134" fill="#4b5563" font-weight="600">Planned path: growth in trusts, insurance in an ILIT, living trust funded</text>
+        <rect x="20" y="144" width="480" height="30" rx="6" fill="#1baf7a"/><rect x="470" y="144" width="30" height="30" rx="6" fill="#e34948"/>
+        <text x="30" y="164" fill="#fff" font-weight="700">To heirs and trusts $170M+</text>
+        <text x="20" y="200" fill="#4b5563">Remaining tax covered by second-to-die insurance owned outside the estate</text>
+        <line x1="20" y1="230" x2="500" y2="230" stroke="#e5e7eb"/>
+        <text x="20" y="262" fill="#0b0b0b" font-weight="700" font-size="15">Every $10M that grows outside the estate saves about $4M of tax.</text>
+        <text x="20" y="284" fill="#4b5563">The Institute's investments alone are projected to grow by $113M.</text></g>
+      </svg></div>
+    <div class="card"><h3>The trust toolkit, applied</h3>
+      <table><thead><tr><th class="l">Trust</th><th class="l">What it does for the Shahawis</th><th class="l">Fit</th></tr></thead><tbody>
+        <tr><td class="l"><b>Revocable living trust</b> (restated)</td><td class="l">The existing trust is twelve years old and predates the loss of a son, the London marriage, the divorce and the 2026 exemption. Restate it: avoids $9M of California probate, keeps the estate private, manages incapacity, and carries the succession instructions for the Institute. Must actually own the LLC and Institute interests.</td><td class="l"><span class="pill now">Now</span></td></tr>
+        <tr><td class="l"><b>SLAT (one for each spouse)</b></td><td class="l">Each spouse gifts up to $15M of discounted company interests to a trust for the other and the descendants. Growth leaves the estate; the family keeps indirect access. Trusts must differ to avoid the reciprocal-trust rule.</td><td class="l"><span class="pill now">Now</span></td></tr>
+        <tr><td class="l"><b>IDGT sale</b></td><td class="l">Sell non-voting Institute shares to a grantor trust for a note; discounts of 25% to 35% for lack of control and marketability move more value per dollar of exemption. Ihab pays the trust's income tax, a further tax-free transfer.</td><td class="l"><span class="pill now">Now</span></td></tr>
+        <tr><td class="l"><b>GRAT</b></td><td class="l">If a sale of the Institute is likely within a few years, a short GRAT captures the jump in value above the IRS rate with little exemption used.</td><td class="l"><span class="pill soon">Pre-sale</span></td></tr>
+        <tr><td class="l"><b>Dynasty / GST trust</b></td><td class="l">Allocate GST exemption so the trusts skip estate tax at the children's deaths too. Use a Nevada or South Dakota situs for perpetual duration and asset protection.</td><td class="l"><span class="pill now">Now</span></td></tr>
+        <tr><td class="l"><b>ILIT</b></td><td class="l">Owns the life insurance so the death benefit is outside the estate and pays the remaining tax without a forced sale. Ihab does not believe in life insurance; the comparison below shows what the alternatives cost before he decides.</td><td class="l"><span class="pill now">Underwrite now, decide on quotes</span></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <h3 style="margin-top:34px">Two ways to run the dynasty trust: fill it once, or keep refilling it</h3>
+  <p class="lede" style="font-size:18px;margin-bottom:18px">The SLATs, the IDGT sale and the ILIT are needed on either path. The choice is what the trust does afterward: hold and distribute what it was given, or run as a family bank that uses life insurance on each generation to refill itself and lends rather than gives.</p>
+  <div class="grid g2 paths">
+    <div class="card good"><div style="display:flex;align-items:center;gap:12px;margin-bottom:6px"><span class="pill later" style="white-space:nowrap">Path A</span><h3 style="margin:0">Dynasty trust alone: the container</h3></div>
+      <svg viewBox="0 0 600 300" width="100%">
+        <defs><marker id="arwA" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <rect x="20" y="20" width="230" height="60" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="135" y="44" text-anchor="middle" font-weight="700">Ihab &amp; Vivian</text><text x="135" y="64" text-anchor="middle" fill="#4b5563" font-size="12">SLAT gifts and IDGT sale, once</text>
+        <rect x="350" y="20" width="230" height="60" rx="10" fill="#e8f7f1" stroke="#1baf7a"/><text x="465" y="44" text-anchor="middle" font-weight="700">Dynasty trust</text><text x="465" y="64" text-anchor="middle" fill="#4b5563" font-size="12">GST exempt, Nevada or South Dakota</text>
+        <line x1="252" y1="50" x2="348" y2="50" stroke="#898781" stroke-width="2.5" marker-end="url(#arwA)"/><text x="300" y="42" text-anchor="middle" fill="#4b5563" font-size="12">filled once</text>
+        <rect x="350" y="120" width="230" height="60" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="465" y="144" text-anchor="middle" font-weight="700">Children</text><text x="465" y="164" text-anchor="middle" fill="#4b5563" font-size="12">distributions: homes, businesses, school</text>
+        <line x1="465" y1="82" x2="465" y2="118" stroke="#898781" stroke-width="2.5" marker-end="url(#arwA)"/>
+        <rect x="350" y="220" width="230" height="60" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="465" y="244" text-anchor="middle" font-weight="700">Grandchildren</text><text x="465" y="264" text-anchor="middle" fill="#4b5563" font-size="12">what growth is left, distributed again</text>
+        <line x1="465" y1="182" x2="465" y2="218" stroke="#898781" stroke-width="2.5" marker-end="url(#arwA)"/>
+        <rect x="20" y="120" width="230" height="60" rx="10" fill="#fdf0e9" stroke="#eb6834"/><text x="135" y="144" text-anchor="middle" font-weight="700">ILIT, second-to-die policy</text><text x="135" y="164" text-anchor="middle" fill="#4b5563" font-size="12">pays the estate tax; its job is done</text>
+        <text x="20" y="218" fill="#0f6b4b" font-weight="700" font-size="12">What the pool does over time</text>
+        <rect x="20" y="230" width="130" height="13" rx="4" fill="#1baf7a"/><text x="158" y="241" fill="#4b5563" font-size="11">2029: funded</text>
+        <rect x="20" y="252" width="95" height="13" rx="4" fill="#5cc48a"/><text x="123" y="263" fill="#4b5563" font-size="11">children: growth less payouts</text>
+        <rect x="20" y="274" width="60" height="13" rx="4" fill="#a7e3c3"/><text x="88" y="285" fill="#4b5563" font-size="11">grandchildren: thinner, unless returns win</text></g>
+      </svg>
+      <p><b>How it works.</b> The trust receives discounted Institute interests once, through the SLATs and the IDGT sale, and holds them outside the estate for as long as the law allows. The ILIT&#39;s second-to-die policy pays the estate tax. From then on the trustee invests and distributes at discretion.</p>
+      <p><b>What it does well.</b> The simplest path to the stated goal: $25M reaches the children and grandchildren with no estate tax at their deaths, and nothing more to pay or administer beyond the one policy. Money distributed is theirs outright.</p>
+      <p><b>Where it falls short.</b> Every distribution shrinks the pool, and money once distributed is exposed to a child&#39;s creditors, lawsuits and divorce. Unless returns outpace withdrawals, the trust that was meant to last forever is thin by the third generation.</p></div>
+    <div class="card soft" style="background:var(--washv)"><div style="display:flex;align-items:center;gap:12px;margin-bottom:6px"><span class="pill info" style="background:rgba(98,80,214,.14);color:#4a3bb0;white-space:nowrap">Path B</span><h3 style="margin:0">Rockefeller &#8220;waterfall&#8221;: container plus engine</h3></div>
+      <svg viewBox="0 0 600 300" width="100%">
+        <defs><marker id="arw" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <rect x="20" y="20" width="230" height="60" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="135" y="44" text-anchor="middle" font-weight="700">Ihab &amp; Vivian</text><text x="135" y="64" text-anchor="middle" fill="#4b5563" font-size="12">same gifts and sale, plus premiums</text>
+        <rect x="350" y="20" width="230" height="60" rx="10" fill="#efecfb" stroke="#6250d6"/><text x="465" y="44" text-anchor="middle" font-weight="700">Dynasty trust as family bank</text><text x="465" y="64" text-anchor="middle" fill="#4b5563" font-size="12">owns a policy on each generation</text>
+        <line x1="252" y1="50" x2="348" y2="50" stroke="#898781" stroke-width="2.5" marker-end="url(#arw)"/><text x="300" y="42" text-anchor="middle" fill="#4b5563" font-size="12">premiums</text>
+        <rect x="350" y="120" width="230" height="60" rx="10" fill="#e8f7f1" stroke="#1baf7a"/><text x="465" y="144" text-anchor="middle" font-weight="700">Death benefit, each generation</text><text x="465" y="164" text-anchor="middle" fill="#4b5563" font-size="12">tax-free; refills the pool</text>
+        <line x1="465" y1="82" x2="465" y2="118" stroke="#898781" stroke-width="2.5" marker-end="url(#arw)"/>
+        <rect x="20" y="120" width="230" height="60" rx="10" fill="#fdf0e9" stroke="#eb6834"/><text x="135" y="144" text-anchor="middle" font-weight="700">Estate tax paid</text><text x="135" y="164" text-anchor="middle" fill="#4b5563" font-size="12">first policy; trust lends to the estate</text>
+        <line x1="348" y1="150" x2="252" y2="150" stroke="#898781" stroke-width="2.5" marker-end="url(#arw)"/>
+        <rect x="185" y="230" width="230" height="60" rx="10" fill="#eef4fc" stroke="#2a78d6"/><text x="300" y="254" text-anchor="middle" font-weight="700">Children, then grandchildren</text><text x="300" y="274" text-anchor="middle" fill="#4b5563" font-size="12">loans repaid with interest; new policies</text>
+        <line x1="465" y1="182" x2="330" y2="228" stroke="#898781" stroke-width="2.5" marker-end="url(#arw)"/>
+        <path d="M185 262 C0 262 0 50 20 50" fill="none" stroke="#6250d6" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arw)"/>
+        <text x="40" y="215" fill="#4a3bb0" font-size="12">the trust is refilled at each death</text></g>
+      </svg>
+      <p><b>How it works.</b> Same container, same gifts and sale. The difference is what the trust does next: it buys permanent life insurance on the four children, paid from trust income rather than new gifts, and it <b>lends</b> to heirs for homes, businesses and education instead of distributing. Loans come back with interest; each death benefit refills the pool and buys the next generation&#39;s policy.</p>
+      <p><b>What it does well.</b> The pool never empties, so the trust really can last beyond the grandchildren. Money stays inside, protected from creditors and divorce, and loans teach the next generation to build rather than spend. Each death benefit also gives the trust cash at the moment the family needs it.</p>
+      <p><b>Where it costs more.</b> Premiums on each generation for decades, underwriting the children now while they are young and healthy, and a trustee with the discipline to enforce loan terms with family members. It only works if the policies are kept in force.</p></div>
+  </div>
+
+  <div class="card" style="margin-top:22px"><h3>Side by side, for the Shahawis</h3>
+    <table><thead><tr><th class="l" style="width:19%">Question</th><th class="l" style="width:38%;color:#0f6b4b">Path A: dynasty trust alone</th><th class="l" style="width:43%;color:#4a3bb0">Path B: Rockefeller waterfall</th></tr></thead><tbody>
+      <tr><td class="l"><b>What is in the trust in 2053</b></td><td class="l">The SLAT and IDGT assets and their growth, less whatever has been distributed. The projected $113M of Institute growth lands here either way.</td><td class="l">The same assets and growth, plus a tax-free death benefit at each generation and the interest on loans. Nothing has left permanently.</td></tr>
+      <tr><td class="l"><b>Cash when someone dies</b></td><td class="l">One payout: the second-to-die policy ($15M to $25M) pays the estate tax on Ihab and Vivian. At the children&#39;s deaths there is no new cash; their own estates settle their own affairs.</td><td class="l">The same first payout, then a new one at each child&#39;s death (for example $5M per child) that refills the trust and funds the grandchildren&#39;s policies.</td></tr>
+      <tr><td class="l"><b>How the children get money</b></td><td class="l">Distributions at the trustee&#39;s discretion. Simple, and theirs to keep.</td><td class="l">Loans at a stated rate, secured on what they buy. Distributions remain possible but are the exception, set out in a written loan policy.</td></tr>
+      <tr><td class="l"><b>Protection</b></td><td class="l">Strong while money is inside. Once distributed, it is exposed to a child&#39;s creditors, lawsuits and divorce, and it is inside that child&#39;s estate if GST exemption runs out.</td><td class="l">Money stays inside the trust; the homes and businesses it finances are collateral, so they stay protected too. Nothing is added to a child&#39;s taxable estate.</td></tr>
+      <tr><td class="l"><b>Cost beyond the base plan</b></td><td class="l">None. The ILIT policy, the appraisal and the trust drafting are already in the plan.</td><td class="l">Permanent policies on four children: roughly $40K to $60K a year per $5M of coverage per child at their ages, to be quoted, paid from trust income. Plus trustee time for loans and annual policy reviews.</td></tr>
+      <tr><td class="l"><b>What it depends on</b></td><td class="l">Investment returns outpacing distributions, and a trustee who says no when needed.</td><td class="l">Insurable children, carriers that perform over 40 or more years, premiums paid without fail, and a trustee who enforces loan terms with family.</td></tr>
+      <tr><td class="l"><b>Complexity</b></td><td class="l">Low. One trust, one policy, annual Crummey notices for the ILIT.</td><td class="l">Moderate. Several policies, a loan policy and loan documents, underwriting the children, and the same Crummey notices.</td></tr>
+      <tr><td class="l"><b>Can it be changed later?</b></td><td class="l">Path A is the base. The waterfall can be added later, as long as the children are still insurable; every year of waiting raises the premium.</td><td class="l">The engine can be switched off: let policies run paid-up and stop lending. The container and its tax status are unaffected.</td></tr>
+      <tr><td class="l"><b>Fit with the family&#39;s goals</b></td><td class="l">Meets the stated goal: $20M to four children, $5M to two grandchildren, no tax at their deaths.</td><td class="l">Meets the same goal and adds one the family has not yet put in words: a pool that is still there for great-grandchildren the Shahawis will never meet.</td></tr>
+    </tbody></table>
+    <p class="small">Premium figures are order-of-magnitude for healthy adults in their 30s and 40s and must be replaced by carrier quotes after underwriting. Both paths use the same $15M-per-spouse exemption, the same discounts and the same ILIT.</p></div>
+
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card"><h3>How to decide</h3>
+      <p><b>Path A fits</b> if the family prefers simplicity, expects the children to be financially independent, wants money to reach them outright, or if underwriting on the children comes back poorly.</p>
+      <p><b>Path B fits</b> if the family wants the trust to last beyond the grandchildren, would rather the children build with loans than receive gifts, has insurable children, and the Institute&#39;s distributions can carry the premiums without strain. The $5M a year the company earns suggests they can.</p>
+      <div class="callout" style="border-color:var(--violet);background:var(--washv);margin-top:12px"><b>Our read, updated for the family profile.</b> Build Path A now, because it is needed either way. The waterfall depends on permanent policies on each of the four children, and a family that does not believe in life insurance is unlikely to keep a multi-generation insurance program in force, so it is offered as an option the children can switch on later, not as a recommendation. The one decision that cannot wait is underwriting Ihab and Vivian at 63 and 67, so the first policy, which pays the estate tax, is decided on a quote rather than a belief.</div></div>
+    <div class="card"><h3>Sizing the insurance and the giving</h3>
+      <table><thead><tr><th class="l">Need</th><th>Amount</th><th class="l">Vehicle</th></tr></thead><tbody>
+        <tr><td class="l">Estate tax liquidity today</td><td>$14.8M</td><td class="l">Second-to-die policy in the ILIT; $15M to $25M face depending on how much growth is frozen</td></tr>
+        <tr><td class="l">Key person, the Institute</td><td>$5M to $10M</td><td class="l">Corporate-owned term on Ihab to protect a $40M enterprise through a transition</td></tr>
+        <tr><td class="l">Long-term care, both</td><td>$80K a year × 2 years each</td><td class="l">Hybrid life/LTC policies; premiums can be paid by the Institute as an executive benefit</td></tr>
+        <tr><td class="l">Waterfall, Path B only</td><td>$5M per child</td><td class="l">Permanent policies on the four children owned by the dynasty trust, premiums from trust income</td></tr>
+        <tr><td class="l">UCLA, $825K</td><td>5 years</td><td class="l">Donor-advised fund funded in 2026 to 2028; or the Institute gives directly at the corporate level</td></tr>
+        <tr><td class="l">Legacy giving</td><td>open</td><td class="l">A family foundation or a charitable lead trust that passes assets to heirs at a discount</td></tr>
+      </tbody></table>
+      <p class="small">Premium financing is worth a look only for the estate policy: the family is wealthy but illiquid, which is the textbook case, and also the case where loan rates and collateral calls must be stress-tested before signing. Underwriting at 63 and 67 should start now; every year of delay raises the cost.</p></div>
+  </div>
+  <div class="card warn" style="margin-top:22px"><h3>If the family declines insurance: the other three ways to pay the tax</h3>
+    <table><thead><tr><th class="l">Option</th><th class="l">How it works</th><th class="l">What it costs</th></tr></thead><tbody>
+      <tr><td class="l"><b>Corporate reserve and a section 303 redemption</b></td><td class="l">The Institute keeps building cash; at death it redeems shares from the estate to pay the tax, at stepped-up basis so no income tax</td><td class="l">Every $1 retained is itself taxed at 40%, so a $15M tax needs a $21M reserve, and the company cannot be sold before the second death</td></tr>
+      <tr><td class="l"><b>Section 6166 installments</b></td><td class="l">Tax on the business portion paid over 14 years because the Institute exceeds 35% of the estate</td><td class="l">About $4M of non-deductible interest on $15M, an IRS lien on the company, and acceleration if more than half is sold</td></tr>
+      <tr><td class="l"><b>Graegin loan</b></td><td class="l">The estate borrows the tax on a fixed-term note; interest is deductible on the estate tax return</td><td class="l">Roughly $8M of interest over ten years, 40% recovered as a deduction, and a lender willing to take Institute shares as collateral</td></tr>
+      <tr><td class="l"><b>Second-to-die policy in an ILIT</b></td><td class="l">The trust owns a $20M policy that pays income- and estate-tax free</td><td class="l">$7M to $9M of premiums over 20 to 25 years, to be quoted; the only option where the money that pays the tax is not itself taxed</td></tr>
+    </tbody></table>
+    <p class="small">The full comparison is in the Estate &amp; Legacy Planning Proposal, section 6. If the answer after quotes is still no, the fallback is the corporate reserve, documented as a section 303 reserve so it is a reasonable business need and not an accumulated-earnings problem.</p></div>
+  <div class="callout g" style="margin-top:22px"><b>Risks and implementation.</b> Gifts are irrevocable; the family must be comfortable with what it keeps. The UK, Egypt and Colombia properties stay out of these trusts and get local wills. Valuation discounts need an independent appraisal and consistent reporting (Form 709). SLATs should be funded a year apart with different terms and trustees. Counsel drafts, the appraiser values, the insurers underwrite, and we coordinate the order so the policies are in force before the transfers settle.</div>
+</section>
+
+<!-- ===================== 3 SECURING RETIREMENT ===================== -->
+<section class="slide" id="retire">
+  <div class="k"><span class="n">3</span><span class="tag">Securing retirement</span></div>
+  <h2>Turn the company's profit into the family's pension</h2>
+  <p class="lede">Retirement is 2029. Salaries stop, Social Security is $48K, and the plan shows no other income until corporate distributions begin in 2036. The Institute earns $5.4M a year. A qualified plan moves part of that into the family's hands with a corporate deduction and personal tax deferral, and it builds the liquid base the balance sheet lacks.</p>
+  <div class="grid g2">
+    <div class="card"><h3>The 2029 to 2035 gap</h3>
+      <svg viewBox="0 0 560 256" width="100%">
+        <g font-size="12" fill="#4b5563">
+        <line x1="50" y1="230" x2="540" y2="230" stroke="#c3c2b7"/>
+        <!-- bars: years 2026..2037 ; scale 1px = 3K ; expenses+goals vs income -->
+        <g>
+          <rect x="60" y="33" width="14" height="197" fill="#2a78d6"/><rect x="76" y="55" width="14" height="175" fill="#e5e7eb"/><text x="75" y="248" text-anchor="middle">2026</text>
+          <rect x="100" y="27" width="14" height="203" fill="#2a78d6"/><rect x="116" y="52" width="14" height="178" fill="#e5e7eb"/><text x="115" y="248" text-anchor="middle">27</text>
+          <rect x="140" y="20" width="14" height="210" fill="#2a78d6"/><rect x="156" y="49" width="14" height="181" fill="#e5e7eb"/><text x="155" y="248" text-anchor="middle">28</text>
+          <rect x="180" y="217" width="14" height="13" fill="#2a78d6"/><rect x="196" y="80" width="14" height="150" fill="#e34948"/><text x="195" y="248" text-anchor="middle">29</text>
+          <rect x="220" y="210" width="14" height="20" fill="#2a78d6"/><rect x="236" y="12" width="14" height="218" fill="#e34948"/><text x="235" y="248" text-anchor="middle">30</text>
+          <rect x="260" y="202" width="14" height="28" fill="#2a78d6"/><rect x="276" y="50" width="14" height="180" fill="#e34948"/><text x="275" y="248" text-anchor="middle">31</text>
+          <rect x="300" y="201" width="14" height="29" fill="#2a78d6"/><rect x="316" y="43" width="14" height="187" fill="#e34948"/><text x="315" y="248" text-anchor="middle">32</text>
+          <rect x="340" y="200" width="14" height="30" fill="#2a78d6"/><rect x="356" y="37" width="14" height="193" fill="#e34948"/><text x="355" y="248" text-anchor="middle">33</text>
+          <rect x="380" y="200" width="14" height="30" fill="#2a78d6"/><rect x="396" y="30" width="14" height="200" fill="#e34948"/><text x="395" y="248" text-anchor="middle">34</text>
+          <rect x="420" y="199" width="14" height="31" fill="#2a78d6"/><rect x="436" y="23" width="14" height="207" fill="#e34948"/><text x="435" y="248" text-anchor="middle">35</text>
+          <rect x="460" y="22" width="14" height="208" fill="#1baf7a"/><rect x="476" y="15" width="14" height="215" fill="#e5e7eb"/><text x="475" y="248" text-anchor="middle">36</text>
+          <rect x="500" y="20" width="14" height="210" fill="#1baf7a"/><rect x="516" y="8" width="14" height="222" fill="#e5e7eb"/><text x="515" y="248" text-anchor="middle">37</text>
+        </g>
+        </g>
+      </svg>
+      <div class="legend"><span><i style="background:#2a78d6"></i>Income: salaries, then Social Security</span><span><i style="background:#1baf7a"></i>Income once the $660K distributions start</span><span><i style="background:#e5e7eb"></i>Spending, gifts, tuition and tax, funded</span><span><i style="background:#e34948"></i>Unfunded</span></div>
+      <p><b>Seven years, roughly $4.5M of spending with no planned source.</b> On paper RightCapital sells the companies to fill it. In practice the answer is a corporate distribution policy starting in 2029 rather than 2036, a qualified plan that pays out, and real estate cash flow that is currently not modeled at all.</p></div>
+    <div class="card"><h3>Defined contribution and defined benefit, through the Institute</h3>
+      <table><thead><tr><th class="l">Plan</th><th class="l">What it allows</th><th>Ihab and Vivian, per year</th></tr></thead><tbody>
+        <tr><td class="l"><b>401(k) with profit sharing</b></td><td class="l">Deferrals of $24,500 each plus catch-ups ($11,250 at 60 to 63; $8,000 at 64+), employer contributions up to 25% of pay, $72,000 total per person</td><td>$150K+</td></tr>
+        <tr><td class="l"><b>Cash balance (defined benefit) layer</b></td><td class="l">Age-weighted; at 63 and 67 with three years to retirement, annual contributions of $250K to $350K each are typical, deducted by the corporation</td><td>$500K to $700K</td></tr>
+        <tr><td class="l"><b>Combined</b></td><td class="l">A $650K to $850K annual deduction at the 28% corporate rate, growing tax-deferred, paid out as pension or rolled to IRAs in 2029 and converted to Roth in the low-income window</td><td>$180K to $240K of corporate tax saved a year</td></tr>
+      </tbody></table>
+      <p><b>The condition that decides everything:</b> a $50M-revenue behavioral health company has a large workforce. Qualified plans must cover eligible employees and pass nondiscrimination testing, so the owners' contributions come with a staff cost, typically 5% to 7.5% of eligible payroll for a cash balance design. With the census in hand we can model the owner benefit net of staff cost and compare it with a nonqualified deferred compensation plan, which has no coverage requirement but no corporate deduction until paid.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card soft"><h3>Social Security</h3><p>The optimizer's answer: <b>both claim at 70</b>. $3.55M of lifetime benefits, $412K more than the current strategy, with a break-even at 79. Vivian is 67 and already eligible; delaying three more years adds 24% to her benefit for life.</p></div>
+    <div class="card soft"><h3>Health care and long-term care</h3><p>$551K of projected retirement health costs and $320K of long-term care in the plan. Medicare at 65 for Ihab in 2028 while still employed; IRMAA surcharges will apply at this income. Hybrid life/LTC policies owned by the Institute convert a corporate expense into a personal benefit.</p></div>
+    <div class="card soft"><h3>Income sustainability</h3><p>Target a floor of guaranteed income equal to essential spending (about $20K a month): Social Security at 70 ($117K by 2035) plus a pension or annuity (section 5) covers it. Discretionary spending, gifts and tuition then come from distributions and the portfolio, which can flex with markets.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 4 WEALTH ACCUMULATION ===================== -->
+<section class="slide" id="accum">
+  <div class="k"><span class="n">4</span><span class="tag">Wealth accumulation</span></div>
+  <h2>Real estate: make the $20M work harder and travel further</h2>
+  <p class="lede">Two LLCs hold nine US properties worth $20M with no debt: Kansas, Missouri, and seven in California including Beverly Hills, Bakersfield, Artesia, San Bernardino and a Pasadena rental that loses money. Seven more properties, five in the UK and one each in Egypt and Colombia, are held personally and not yet valued. None of it is modeled in the plan. That is both a gap in the data and an opportunity: real estate is the family's most flexible asset for liquidity, tax and transfer.</p>
+  <div class="grid g4">
+    <div class="card"><div class="ir"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#2a78d6" opacity=".12"/><rect x="20" y="22" width="32" height="30" rx="3" fill="#2a78d6"/><rect x="26" y="28" width="6" height="6" fill="#fff"/><rect x="40" y="28" width="6" height="6" fill="#fff"/><rect x="26" y="38" width="6" height="6" fill="#fff"/><rect x="40" y="38" width="6" height="6" fill="#fff"/></svg><div><h4>Cost segregation</h4><p class="small">Reclassify parts of the $17M property into 5, 7 and 15-year lives. With 100% bonus depreciation restored, a large first-year deduction shelters rental income and, if the family qualifies as real estate professionals, other income.</p></div></div></div>
+    <div class="card"><div class="ir"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#1baf7a" opacity=".12"/><path d="M18 40 H44 L38 34" stroke="#1baf7a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M54 32 H28 L34 38" stroke="#1baf7a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h4>Refinance for liquidity</h4><p class="small">Borrowing against unleveraged property is tax-free cash. A 50% loan on LLC2 produces $8M of liquidity for reserves, premiums and gifts without selling anything or realizing gain.</p></div></div></div>
+    <div class="card"><div class="ir"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#eda100" opacity=".14"/><path d="M36 16 L56 30 V54 H16 V30 Z" fill="#eda100"/><rect x="31" y="40" width="10" height="14" fill="#fff"/></svg><div><h4>1031 and Opportunity Zones</h4><p class="small">If a property is sold, a 1031 exchange defers the gain; a Delaware Statutory Trust turns active management into passive income for retirement. Opportunity Zone funds, now permanent from 2027, defer and partly exclude gains from any source, including a future sale of the Institute.</p></div></div></div>
+    <div class="card"><div class="ir"><svg class="icon" viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="#6250d6" opacity=".12"/><circle cx="36" cy="26" r="8" fill="#6250d6"/><circle cx="22" cy="46" r="8" fill="#6250d6"/><circle cx="50" cy="46" r="8" fill="#6250d6"/><path d="M36 34 L22 38 M36 34 L50 38" stroke="#6250d6" stroke-width="4"/></svg><div><h4>Transfer with discounts</h4><p class="small">LLC interests are ideal gifts: non-managing interests are appraised at 25% to 35% below asset value, so $15M of exemption can move $20M of property, and all future appreciation and rent, to the trusts.</p></div></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card soft"><h3>What to confirm first, and what we already know</h3><ul><li>Value, basis, tenants and rents for each of the nine US properties; which sit in LLC1 ($3M, two properties) and which in LLC2 ($17M); whether the Institute is a tenant (related-party leases are a clean way to move cash out of the C corp as deductible rent).</li><li><b>Pasadena</b> runs negative: exchange it, gift it to the foundation if appreciated, or sell. <b>Beverly Hills</b> likely has the largest built-in gain and should stay in the estate for the basis step-up; the cash-flow properties are the ones to gift.</li><li>Values and basis for the UK, Egypt and Colombia properties, and local counsel in each country: UK inheritance tax applies to UK real estate regardless of owner, and Egypt and Colombia apply forced-heirship rules that do not recognize a US trust.</li><li>Whether either spouse logs enough hours to qualify as a real estate professional.</li></ul></div>
+    <div class="card"><h3>Why it matters, risks</h3><ul><li><b>Benefits:</b> liquidity without taxable sales, deductions that offset high-bracket income, discounted transfers that move growth out of the estate, and a retirement income stream that is not the Institute.</li><li><b>Risks:</b> leverage adds interest cost and refinancing risk; passive-loss rules limit who can use the depreciation; discounts invite scrutiny without a proper appraisal.</li><li><b>Implementation:</b> cost segregation study (8 to 12 weeks), lender term sheets, appraisals timed with the trust funding in section 2.</li></ul></div>
+  </div>
+</section>
+
+<!-- ===================== 5 CAPITAL PRESERVATION ===================== -->
+<section class="slide" id="preserve">
+  <div class="k"><span class="n">5</span><span class="tag">Capital preservation</span></div>
+  <h2>A floor under retirement income, and reserves that are not taxed twice</h2>
+  <p class="lede">Once liquidity exists, part of it should be protected from markets and from tax. Two instruments do this for the Shahawis: annuities that convert a lump sum into guaranteed lifetime income, and California municipal bonds that pay tax-free at the family's highest brackets.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Annuities as a pension substitute</h3>
+      <table><thead><tr><th class="l">Type</th><th class="l">Role</th><th class="l">Illustration</th></tr></thead><tbody>
+        <tr><td class="l"><b>Deferred income annuity</b> (bought 2026, paying from 2029)</td><td class="l">Replaces salary from the day retirement begins; fills the 2029 to 2035 gap with contractual income</td><td class="l">About $3M buys roughly $240K a year for both lives starting at 66/70 (joint, 2% increases); exact quotes at underwriting</td></tr>
+        <tr><td class="l"><b>QLAC inside the new retirement plan</b></td><td class="l">Up to $210,000 of plan assets, income deferred to as late as 85, exempt from RMDs</td><td class="l">Longevity protection for the second-to-die spouse</td></tr>
+        <tr><td class="l"><b>Fixed indexed or MYGA</b></td><td class="l">Principal protection with 5% to 6% guaranteed or index-linked credits for reserves the family may not need for years</td><td class="l">Tax-deferred inside the contract; useful for corporate cash as well, within accumulated-earnings rules</td></tr>
+      </tbody></table>
+      <p class="small">Annuities trade liquidity for certainty. Size them to essential spending only; keep the rest flexible.</p></div>
+    <div class="card"><h3>Tax-free bonds: the arithmetic at the family's brackets</h3>
+      <svg viewBox="0 0 520 160" width="100%">
+        <g font-size="13" fill="#4b5563">
+        <text x="20" y="26" font-weight="600">What a taxable bond must yield to match a California muni</text>
+        <text x="20" y="62">Muni yield 3.5%</text><rect x="170" y="48" width="140" height="22" rx="5" fill="#1baf7a"/><text x="318" y="64" fill="#0b0b0b" font-weight="700">= 6.6% taxable</text>
+        <text x="20" y="102">Muni yield 4.0%</text><rect x="170" y="88" width="160" height="22" rx="5" fill="#1baf7a"/><text x="338" y="104" fill="#0b0b0b" font-weight="700">= 7.5% taxable</text>
+        <text x="20" y="142">Muni yield 4.5%</text><rect x="170" y="128" width="180" height="22" rx="5" fill="#1baf7a"/><text x="358" y="144" fill="#0b0b0b" font-weight="700">= 8.5% taxable</text>
+        </g>
+      </svg>
+      <p class="small">Assumes 35% federal, 3.8% net investment income tax and 9.3% to 11.3% California; in-state munis are exempt from all three.</p>
+      <p>Munis belong in the <b>personal</b> taxable account, not inside the C corp, and they pair with the liquidity reserve: three years of spending ($1.1M) in a laddered California muni portfolio replaces the $100K in the bank with income that is exempt at both levels.</p></div>
+  </div>
+  <div class="callout o" style="margin-top:22px"><b>Order of operations.</b> Preservation tools need cash to preserve. They come after the distribution policy, the retirement plan and the refinancing create it. Sequencing them in 2027 and 2028, while salaries still cover living costs, means the floor is in place the day the salaries stop.</div>
+</section>
+
+<!-- ===================== BUSINESS SUCCESSION (supports all five) ===================== -->
+<section class="slide">
+  <div class="k"><span class="tag">The decision underneath everything</span></div>
+  <h2>What happens to the Institute</h2>
+  <p class="lede">Every section above depends on one answer: is the Institute sold, sold to its employees, or held under trustee ownership with professional management? No child works in the company today, so a family succession is not on the table unless that changes. Each path has a different tax shape, and the trusts, insurance and retirement plan should be built to match it.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Sell to a strategic or private equity buyer</h3><ul><li>ABA providers have drawn consistent buyer interest; a $5.4M profit stream supports a value in the range the plan uses.</li><li>A stock sale is taxed once at 20% plus 3.8% plus California (up to 13.3%); an asset sale of a C corp is taxed twice. Negotiate for a stock sale.</li><li>Pre-sale moves matter most: GRAT or IDGT sale of shares before the letter of intent, charitable gift of shares to a DAF or lead trust, and confirmation of whether any qualified-small-business-stock exclusion is available (health services are generally excluded).</li></ul></div>
+    <div class="card"><h3>Sell to an ESOP</h3><ul><li>A C corporation selling at least 30% to an employee stock ownership plan lets the owner <b>defer the capital gain</b> by reinvesting in qualified replacement securities.</li><li>The company deducts contributions used to repay the ESOP loan, and can later elect S status and pay no federal income tax on the ESOP's share.</li><li>Fits a mission-driven workforce and a founder who wants continuity; requires a trustee, valuation and a long-term financing plan.</li></ul></div>
+    <div class="card"><h3>Hold it, under trustee ownership and professional management</h3><ul><li>Clinical leadership runs it; the dynasty trusts and the living trust own it; the family receives distributions. Lowest proceeds, highest continuity, and the mission stays with the foundation.</li><li>Needs what the other two paths need anyway: a contingency succession agreement naming the interim CEO and board, retention terms for the leaders the value depends on, and a shareholder agreement among Ihab and the trusts.</li><li>Key-person coverage owned by the company is a business decision, not a personal one, and a buyer or lender will expect it whichever path wins.</li></ul></div>
+  </div>
+  <div class="callout" style="margin-top:22px"><b>Our recommendation for the meeting:</b> do not decide today; agree on the question and a 90-day process to answer it, while the steps common to all three paths (living trust, recapitalization, valuation, insurance underwriting, retirement plan census) start now.</div>
+</section>
+
+<!-- ===================== ACTION PLAN ===================== -->
+<section class="slide" id="action">
+  <div class="k"><span class="tag">Action plan</span></div>
+  <h2>What happens next</h2>
+  <div class="grid g3">
+    <div class="card"><h3><span class="pill now">0 to 90 days</span></h3><ul>
+      <li>Collect: Institute financials and employee census; LLC rent rolls, leases and basis; existing estate documents; the $50K policy; Social Security statements.</li>
+      <li>Engage estate counsel and a valuation firm; recapitalize the Institute into voting and non-voting shares.</li>
+      <li>Restate the twelve-year-old living trust with new powers of attorney and health directives: the deceased son, the four children&#39;s lifetime trusts, the grandchildren&#39;s clause, bypass and QTIP formulas, a trust protector, and succession instructions for the Institute. Retitle the LLC and Institute interests into it.</li>
+      <li>Sign a contingency succession agreement for the Institute and retention terms for clinical leadership.</li>
+      <li>Engage UK, Egyptian and Colombian counsel for local wills and valuations of the seven foreign properties.</li>
+      <li>Start underwriting on Ihab and Vivian for a second-to-die estate policy and hybrid LTC, with the decision to follow on quotes; bind key-person term on Ihab through the company.</li>
+      <li>Confirm the IABA Foundation&#39;s public-charity status; make the 2026 UCLA gift through it with appreciated non-voting shares, or through a donor-advised fund if the status requires.</li>
+      <li>Adopt a 401(k) with profit sharing at the Institute for 2026 deferrals.</li></ul></div>
+    <div class="card"><h3><span class="pill soon">3 to 12 months</span></h3><ul>
+      <li>Appraisal complete: fund SLAT one with discounted Institute and LLC interests; IDGT sale for the balance; allocate GST exemption.</li>
+      <li>Cash balance plan design and adoption for 2027 once the census is modeled.</li>
+      <li>Cost segregation study on LLC2; refinance for the liquidity reserve; build the California muni ladder.</li>
+      <li>Adopt a written corporate distribution policy and document business needs for retained earnings, including a section 303 reserve if insurance is declined.</li>
+      <li>Dispose of the Pasadena property; restructure the LLCs under a holding LLC with umbrella coverage.</li>
+      <li>Decide the Institute's exit path; if sale, prepare the GRAT and CRT; if ESOP, begin feasibility; if a managed hold, finalize governance.</li>
+      <li>Set the Social Security plan: both at 70.</li></ul></div>
+    <div class="card"><h3><span class="pill later">1 to 5 years</span></h3><ul>
+      <li>Fund SLAT two in a later year with different terms; continue annual exclusion gifts and 529 superfunding; pay tuition directly.</li>
+      <li>Execute the exit (2027 to 2029); shelter proceeds through the pre-sale trusts and charitable vehicles; consider Opportunity Zone deferral.</li>
+      <li>2029: salaries stop, distributions and pension begin, deferred income annuity starts; Medicare and IRMAA planning.</li>
+      <li>2029 to 2035: Roth conversions and gain harvesting in the low-income window.</li>
+      <li>2027: first family council and charter; two children join the IABA Foundation board on staggered terms; a grant committee for the grandchildren from 16.</li>
+      <li>At the sale: a grantor charitable lead trust to the foundation from the proceeds (about $4.5M of income tax saved, $16M to the foundation over 20 years, remainder to the children gift-free).</li>
+      <li>Annual: review trusts, policies, beneficiaries, valuations and the distribution policy with the family.</li></ul></div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card soft"><h3>How our team works together</h3><p><b>Pinnacle Planning</b> leads the business-owner strategy: entity, exit, retirement plan design and the coordination of counsel, CPA and appraiser. <b>Wealth Advisory Now</b> manages the liquidity, muni and portfolio work as fiduciary. <b>M&amp;M Wealth Associates</b> designs and places the estate, key-person and long-term care coverage and the annuity floor. One plan, one meeting cadence, one point of accountability.</p></div>
+    <div class="card"><h3>Confirmed, and still to confirm</h3><ul style="font-size:15px"><li><b>Confirmed:</b> the Institute is 100% owned by Ihab and Vivian, a C corporation, no children in the business; a living trust exists, twelve years old; the family&#39;s charitable vehicle is the IABA Research &amp; Education Foundation, which Ihab leads; UCLA giving of $150K to $175K a year; no belief in life insurance.</li><li><b>Still open:</b> employee count and any existing retirement plan; value, basis and rents for each of the nine US and seven foreign properties; what the $5M corporate portfolio holds; the foundation&#39;s IRS determination letter; who drafted the existing trust and who is named in it.</li><li>Exit timeline and preference; appetite for premium financing; health for underwriting.</li></ul></div>
+  </div>
+</section>
+
+<div class="foot">Prepared for discussion with Ihab Shahawi and Vivian El-Shahawi. Revised October 16, 2026 for the family profile and the IABA Research &amp; Education Foundation materials; the trust design is detailed in the Trust &amp; Estate Planning proposal and the Estate &amp; Legacy Planning Proposal. Figures are drawn from the RightCapital plan generated 10/16/2026 and from 2026 federal and California tax parameters (estate and GST exemption $15M per person, annual exclusion $19,000, 401(k) deferral $24,500 with age-based catch-ups, 415(c) limit $72,000). Valuation discounts, plan contributions, annuity payouts and insurance costs are illustrative pending appraisal, census, quotes and underwriting. This material is educational and does not constitute tax or legal advice; strategies should be implemented with the family's attorney and CPA. Pinnacle Planning · Wealth Advisory Now · M&amp;M Wealth Associates.</div>
+
+<details class="adv"><summary>Advisor notes (not for display)</summary><div class="box">
+<h3 style="margin-top:0">Meeting notes</h3>
+<div class="grid g2">
+<div><h4>Discussion points</h4><ul>
+<li>Open with the hero number: $67M, 0.15% liquid. Ask how he thinks about turning company value into family income; listen before presenting.</li>
+<li>The 0% Monte Carlo will be on his mind if he has seen the report. Frame it as the data model, then pivot to the real gap: 2029 to 2035.</li>
+<li>Estate tax: $14.8M today, $46M on the path. Ask whether $125M to heirs feels acceptable, or whether $170M does. The difference is the plan.</li>
+<li>Get the exit question on the table early; it decides the trust design. Do not push an answer.</li>
+<li>Insurance: he has $50K of term and says he does not believe in life insurance. Do not argue the belief. Walk the four ways to pay a $15M tax (reserve, 6166, loan, policy) and let the cost of each make the case. Position underwriting as reversible: nothing is bought until the numbers are agreed.</li>
+<li>The foundation: ask what he wants it to be in twenty years and which children he sees on its board. This is the easiest place to bring the family together and the natural home for the son&#39;s memory, if he wants that.</li>
+<li>The grandchildren&#39;s 20%: raise gently that both grandchildren are in one branch and the clause as written leaves future grandchildren out. Offer the three drafting options; do not recommend in the meeting.</li>
+<li>The London daughter: UK residence changes how her share can be distributed. Ask whether the UK properties are meant for her.</li>
+<li>Qualified plan: lead with the corporate deduction and the retirement gap, not with contribution limits. The census is the gate; ask for it.</li>
+<li>UCLA: confirm the commitment is firm and whether it could be larger if it cost less. DAF vs corporate giving vs lead trust.</li>
+</ul></div>
+<div><h4>Likely objections and responses</h4><ul>
+<li><b>"I will just sell the company and then plan."</b> After a sale the growth is already in the estate and the discounts are gone; pre-sale trusts and charitable transfers are where most of the tax saving lives. Planning first does not commit him to a sale.</li>
+<li><b>"I do not want to give up control."</b> Recapitalize into voting and non-voting shares; he keeps the votes and transfers the value. Trustees can be family or a corporate trustee he chooses.</li>
+<li><b>"I don&#39;t believe in life insurance."</b> Agree that as an investment it is not one. Reframe it as pre-paying the estate tax at about 40 cents on the dollar, with the IRS&#39;s own rules keeping the proceeds out of the estate; the alternatives are a $21M corporate reserve, a 14-year IRS lien, or a bank loan at the worst time. If still no, the 303 reserve is the plan and the company cannot be sold before the second death. Underwriting first, decision later.</li>
+<li><b>"A retirement plan means paying for all my employees."</b> True, and the staff cost is the price of a $650K+ corporate deduction. The census model shows the net; a nonqualified plan is the fallback.</li>
+<li><b>"The C corp investments are doing fine."</b> They are taxed twice on the way out and invite accumulated earnings tax; the same dollars in a plan, in trusts or in LIHTC credits do more.</li>
+<li><b>"Why three firms?"</b> One plan, three licenses: fiduciary advice, insurance placement and business-owner planning each require different registrations. The client sees one team and one cadence.</li>
+</ul></div></div>
+<h4>Follow-up questions to ask</h4><ul>
+<li>Who runs the Institute day to day besides Ihab? Any management team members who could be successors or ESOP champions?</li><li>Has the company received acquisition interest? From whom and at what multiple?</li><li>Does the Institute currently sponsor any retirement plan or group benefits? Headcount, average pay, turnover.</li><li>What do the real estate LLCs hold and earn? Is the Institute a tenant?</li><li>Which estate documents exist, who drafted them and when? Who are the named trustees and agents?</li><li>Health history relevant to underwriting; smoker status; recent medical events.</li><li>How involved should the children be, and which ones, in the foundation and the trusts?</li><li>What is the family's California residency plan in retirement?</li></ul>
+<h4>Data gaps in the RightCapital profile</h4><p class="small">No investment accounts, no retirement accounts, no rental income on $20M of property, Social Security "estimated," businesses set to "sell business only" at end of plan, estate checklist blank, risk tolerance not scored, no liabilities. Rebuild the profile after the data request; the probability of success will become meaningful once liquidity and distributions are modeled.</p>
+</div></details>
+</body></html>

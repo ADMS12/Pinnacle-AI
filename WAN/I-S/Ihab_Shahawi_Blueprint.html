@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahawi Family Blueprint</title>
+<style>
+:root{--bg:#f6f7f9;--card:#ffffff;--soft:#eef2f7;--soft2:#e9f0f8;--ink:#111827;--ink2:#4b5563;--muted:#6b7280;--line:#e5e7eb;--blue:#2563eb;--amber:#b45309;--red:#b91c1c;--green:#047857;--pill:#e8edf5;--pill2:#e3e9f4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 48px}
+.tags{display:flex;gap:8px;margin-bottom:10px}.tag{background:var(--pill);color:#334155;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:600}
+h1{font-size:30px;margin:0 0 6px;font-weight:750;letter-spacing:-.01em}.lede{color:var(--ink2);font-size:15px;margin:0 0 18px}
+.grid{display:grid;gap:14px}.g21{grid-template-columns:2fr 1fr}.g12{grid-template-columns:1fr 1.9fr}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g21,.g12,.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.soft{background:var(--soft)}.card.soft2{background:var(--soft2)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.hd h2{font-size:19px;margin:0;font-weight:700;display:flex;align-items:center;gap:8px}.hd .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.ico{display:inline-flex;width:26px;height:26px;border-radius:7px;background:var(--soft2);color:var(--blue);align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.pill{border:1px solid #d6b370;color:var(--amber);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;white-space:nowrap}.pill.b{border-color:#b8c7e6;color:var(--blue);background:#f3f6fc}
+p{margin:6px 0;color:var(--ink2)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.mini .box{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+.box .k{font-size:12px;color:var(--muted)}.box .t{font-weight:700;margin:2px 0 4px;font-size:14px}.box .d{font-size:13px;color:var(--ink2)}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}.stat .k{font-size:12px;color:var(--muted)}.stat .v{font-size:26px;font-weight:750;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}.stat .v small{font-size:13px;color:var(--ink2);font-weight:500}
+.big{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center;margin:8px 0 12px}.big .v{font-size:30px;font-weight:750}.big .k{color:var(--muted);font-size:13px}
+ul.dots{list-style:none;padding:0;margin:8px 0}ul.dots li{padding-left:20px;position:relative;margin:7px 0;color:var(--ink2)}ul.dots li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border:2px solid #9aa7bd;border-radius:50%}
+ul.dots li b{color:var(--ink)}
+.note{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px}.note b{display:block;margin-bottom:3px}
+.alt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 15px}.alt .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.alt .hz{background:var(--pill2);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;color:#334155}
+.alt h3{margin:0 0 4px;font-size:15.5px}.alt p{font-size:13px;margin:0 0 10px}.alt .kv{border-top:1px solid var(--line);padding-top:8px}.alt .kv b{display:block;font-size:13.5px}.alt .kv span{font-size:12.5px;color:var(--ink2)}
+.ctx{display:flex;gap:8px;align-items:flex-start;color:var(--ink2);font-size:13px;margin-top:12px}
+.caution{display:flex;justify-content:space-between;gap:16px;color:var(--ink2);font-size:12.5px;margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+.person{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.person .who{display:flex;align-items:center;gap:8px;font-weight:700}.av{width:24px;height:24px;border-radius:50%;background:#1f2937;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+.task{display:flex;gap:10px;margin:10px 0}.task .g{width:16px;color:#9aa7bd;flex:none;padding-top:2px}.task .due{color:var(--muted);font-size:12.5px;margin-top:3px}
+.pos{color:var(--green)}.neg{color:var(--red)}.amb{color:var(--amber)}
+.small{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}th,td{padding:5px 6px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:600}
+</style>
+</head>
+<body><div class="wrap">
+<div class="tags"><span class="tag">Strategic Advisory Blueprint</span><span class="tag">Enterprise Diagnostics</span><span class="tag">Plan Summary</span></div>
+<h1>Shahawi Family Case: Financial Architecture</h1>
+<p class="lede">Ihab (63) and Vivian (67) hold $67.1 million, of which 99.9% sits inside the Institute of Applied Behavior Analysis (a C corporation) and two real estate LLCs. Salaries stop in 2029. The plan turns enterprise value into retirement income, moves future growth outside a taxable estate, and insures what remains, so that $25 million reaches the children and grandchildren by design rather than by a sale under pressure. Built from the RightCapital profile dated 10/16/2026 under 2026 federal and California rules.</p>
+
+<div class="grid g21">
+  <div class="card soft">
+    <div class="hd"><h2><span class="ico">⚠</span>Core Blocker: $67 Million of Wealth, $100,000 of Liquidity</h2><span class="pill">Fix before anything else</span></div>
+    <p>Everything the family owns is one company and two buildings. There is no investment account, no retirement plan, $50,000 of term life insurance and no trust. The household spends what it earns, so the Institute&#39;s $5.4 million of annual pre-tax profit stays inside a C corporation by default, where it is taxed once at 28% and again on the way out. Left alone, that cash grows to $120 million inside a $181 million estate and the IRS and probate court take $55 million first.</p>
+    <div class="mini">
+      <div class="box"><div class="k">1. The Institute (C corp), 2026</div><div class="t">Profitable, cash-rich, locked up</div><div class="d">Revenue $50.4M, pre-tax profit $5.4M, about $1.5M of corporate tax. $7M already held in corporate investments and cash; core value $40M. No distribution policy, no qualified plan, no buy-sell, no key-person cover.</div></div>
+      <div class="box"><div class="k">2. The household</div><div class="t">Break-even on $718K</div><div class="d">Salaries $700K plus $18K of Social Security. Taxes $209K (29%), living costs $30K a month ($360K), UCLA $165K. Retirement in 2029 drops income to $48K until corporate distributions begin in 2036.</div></div>
+      <div class="box"><div class="k">3. The family&#39;s gaps</div><div class="t">Five open exposures</div><div class="d">Estate tax of $14.8M if both died today, $46.4M on the projected path · $9M of probate with no funded living trust · $50K of life insurance · no long-term care, disability or key-person cover · no retirement vehicle at $700K of salary.</div></div>
+    </div>
+    <div class="ctx"><span>⊘</span><span>Constant across alternatives: 2026 estate and GST exemption $15M per person ($30M per couple, 40% above it); annual exclusion $19,000 per donee; Institute value $40M core plus investments; retirement 2029 for both; goals of $25M to heirs, $2.3M of grandchildren&#39;s tuition and $825K to UCLA.</span></div>
+  </div>
+  <div class="card soft2">
+    <div class="hd"><h2><span class="ico">⚖</span>The Current Path</h2></div>
+    <p>What RightCapital projects if nothing changes and the companies are sold only at the end of life.</p>
+    <div class="stat"><div class="k">Estate at age 90 (2053)</div><div class="v">$180.7M <small>from $67.1M today; $113M of growth inside the estate</small></div></div>
+    <div class="stat"><div class="k">Estate tax and probate</div><div class="v">$55.4M <small>$46.4M federal tax, $9.0M probate and fees</small></div></div>
+    <div class="stat"><div class="k">To heirs / to UCLA</div><div class="v">$125.3M / $825K <small>69% of the estate reaches the family</small></div></div>
+    <div class="note"><b>Why the current path is not a plan</b>The profile shows a 0% probability of success and a $39M shortfall because no liquid assets exist to pay $4.5M of spending between 2029 and 2035. The number is a data-model artifact, but the gap is real: the family either builds liquidity now or sells the Institute to fund retirement.</div>
+  </div>
+</div>
+
+<div class="grid g12" style="margin-top:14px">
+  <div class="card soft">
+    <div class="hd"><div><h2><span class="ico">▭</span>Estate Freeze Prioritization</h2><div class="sub">Move the growth first, then insure what stays</div></div></div>
+    <div class="big"><div class="v">$14.8M</div><div class="k">Estate tax exposure if both died today; grows about $4M for every $10M of growth kept inside the estate</div></div>
+    <ul class="dots">
+      <li><b>Step 1, housekeeping:</b> revocable living trust, powers of attorney and health directives; retitle the Institute and LLC interests into the trust. Removes $9M of probate and manages incapacity.</li>
+      <li><b>Step 2, recapitalize and appraise:</b> split the Institute into voting and non-voting shares; independent appraisal of the company and both LLCs. Ihab keeps the votes; the value becomes transferable at a 25% to 35% discount.</li>
+      <li><b>Step 3, freeze:</b> SLAT for each spouse funded a year apart with discounted non-voting shares and LLC interests, using the $30M exemption; IDGT sale for the balance; GST exemption allocated so the trusts last for generations.</li>
+      <li><b>Step 4, insure the remainder:</b> second-to-die policy of $15M to $25M inside an ILIT, premiums paid with gifts the family would make anyway; underwriting starts now at 63 and 67.</li>
+      <li><b>Step 5, give on purpose:</b> donor-advised fund for the $825K UCLA commitment in the high-income years; direct tuition payments for the grandchildren; annual exclusion gifts of $266K a year.</li>
+    </ul>
+    <div class="note"><b>Sequencing imperative</b>Discounts and growth leave with the gift, so the freeze has to happen before a sale of the Institute or a jump in its value. If a buyer appears first, the pre-sale GRAT and charitable gift of shares are the only tools left, and they move far less.</div>
+  </div>
+  <div class="card">
+    <div class="hd"><div><h2><span class="ico">⚙</span>Planning Alternatives</h2><div class="sub">The three engines of the plan; the freeze above runs under all of them</div></div><span class="pill b">3 evaluative models</span></div>
+    <div class="grid g3">
+      <div class="alt"><div class="h"><span class="hz">Model A · 2026 start</span><span>◎</span></div><h3>Turn the Institute into the family pension</h3><p>Adopt a 401(k) with profit sharing for 2026 and a cash balance plan for 2027. Owners&#39; contributions of $650K to $850K a year deducted at 28% in the corporation, subject to staff coverage cost from the employee census. Written distribution policy starting 2029, not 2036.</p><div class="kv"><b>$180K to $240K of corporate tax saved a year</b><span>Builds $2M to $3M of liquid retirement assets by 2029 · fills the 2029 to 2035 gap · staff cost typically 5% to 7.5% of eligible payroll</span></div></div>
+      <div class="alt"><div class="h"><span class="hz">Model B · protection</span><span>◈</span></div><h3>Insure the people and the company</h3><p>Second-to-die estate policy in the ILIT; $5M to $10M of corporate-owned key-person term on Ihab; hybrid life and long-term care policies for both, premiums paid by the Institute as an executive benefit. Premium financing considered only for the estate policy.</p><div class="kv"><b>Liquidity at death without selling the Institute</b><span>Covers $14.8M of tax today and the residual after the freeze · replaces the $50K term policy · protects a $40M enterprise through a transition</span></div></div>
+      <div class="alt"><div class="h"><span class="hz">Model C · 2027 decision</span><span>▤</span></div><h3>Decide the Institute&#39;s exit</h3><p>Three paths with different tax shapes: a stock sale to a strategic or private-equity buyer (one layer of tax at about 37% federal and California); a sale of 30%+ to an ESOP with the capital gain deferred; or a family succession through discounted gifts and an IDGT sale over several years.</p><div class="kv"><b>Determines the trust design and the insurance face</b><span>Decide inside 90 days after the appraisal · a GRAT before any letter of intent · real estate refinance ($8M at 50% of LLC2) and California muni ladder provide the reserve meanwhile</span></div></div>
+    </div>
+    <table><thead><tr><th>Illustrative, 2053 unless noted</th><th>Current path</th><th>Living trust + gifts</th><th>+ Freeze (SLATs, IDGT)</th><th>+ ILIT insurance</th><th>+ Pension (Model A)</th></tr></thead><tbody>
+      <tr><td>Value kept inside the estate</td><td>$180.7M</td><td>$170M</td><td>$60M to $75M</td><td>$60M to $75M</td><td>$60M to $75M</td></tr>
+      <tr><td>Federal estate tax</td><td class="neg">$46.4M</td><td class="neg">$42M</td><td class="amb">$12M to $18M</td><td class="pos">paid by the ILIT</td><td class="pos">paid by the ILIT</td></tr>
+      <tr><td>Probate and fees</td><td class="neg">$9.0M</td><td class="pos">$0</td><td class="pos">$0</td><td class="pos">$0</td><td class="pos">$0</td></tr>
+      <tr><td>To heirs and trusts</td><td>$125M</td><td>$128M</td><td>$160M+</td><td>$175M+</td><td>$175M+</td></tr>
+      <tr><td>Liquid assets in 2029</td><td class="neg">$100K</td><td class="neg">$100K</td><td class="amb">reserve from refinance</td><td class="amb">reserve from refinance</td><td class="pos">$2M to $3M plus reserve</td></tr>
+      <tr><td>Income 2029 to 2035</td><td class="neg">$48K Social Security</td><td class="neg">$48K</td><td class="amb">distributions by policy</td><td class="amb">distributions by policy</td><td class="pos">pension + distributions + SS at 70</td></tr>
+    </tbody></table>
+    <div class="caution"><span>Caution: figures beyond the current path are order-of-magnitude illustrations pending appraisal, employee census, insurance quotes and counsel&#39;s drafting. Gifts to SLATs and the IDGT are irrevocable; the two SLATs must differ in terms, trustees and timing. Qualified plans must cover eligible staff. QSBS exclusion is generally unavailable to health-services companies. Accumulated earnings inside the Institute need documented business purposes.</span><span>Posture: Diagnostic inquiry</span></div>
+  </div>
+</div>
+
+<div class="card soft" style="margin-top:14px">
+  <div class="hd"><div><h2><span class="ico">☑</span>Immediate Execution Matrix</h2><div class="sub">From the action plan in the full presentation</div></div><span class="pill b">Recommended path: steps 1 to 2 now, Model A for 2026, underwriting now, exit decision in 90 days</span></div>
+  <div class="grid g2">
+    <div class="card"><div class="person"><span class="who"><span class="av">I</span>Ihab and Vivian</span><span class="tag">Decisions and 30-day actions</span></div>
+      <div class="task"><span class="g">▤</span><div>Decide today: proceed with the living trust and recapitalization; authorize appraisal and underwriting; confirm the goals ($25M legacy, UCLA, grandchildren&#39;s tuition, $30K a month); agree on a 90-day process to choose the Institute&#39;s exit path.<div class="due">Due: this meeting</div></div></div>
+      <div class="task"><span class="g">⚇</span><div>Deliver the data: Institute financials and employee census, LLC rent rolls, leases and basis, existing estate documents, the $50K policy, Social Security statements. Open the donor-advised fund and move the 2026 UCLA gift into it.<div class="due">Due: within 30 days</div></div></div>
+      <div class="task"><span class="g">◈</span><div>Complete medical underwriting for the second-to-die and hybrid long-term care policies; bind key-person term on Ihab through the Institute. Adopt the 401(k) with profit sharing so 2026 deferrals are not lost. Set the Social Security plan: both claim at 70.<div class="due">Due: within 30 days</div></div></div>
+    </div>
+    <div class="card"><div class="person"><span class="who"><span class="av">A</span>Advisors, counsel and CPA</span><span class="tag">Next 90 days</span></div>
+      <div class="task"><span class="g">▤</span><div>Estate counsel drafts the living trust, two SLATs, the IDGT and the ILIT; recapitalizes the Institute into voting and non-voting shares; prepares Form 709 reporting. Valuation firm appraises the Institute and both LLCs.<div class="due">Due: within 90 days</div></div></div>
+      <div class="task"><span class="g">⚇</span><div>Actuary models the cash balance plan from the census, owner benefit net of staff cost, with a nonqualified deferred compensation fallback. CPA documents business needs for retained earnings, drafts the distribution policy and reviews corporate charitable giving and the credits (WOTC, child care, LIHTC).<div class="due">Due: within 90 days</div></div></div>
+      <div class="task"><span class="g">◈</span><div>Wealth Advisory Now sizes the liquidity reserve and the California muni ladder; obtains lender term sheets for a refinance of LLC2 and a cost segregation proposal. M&amp;M Wealth Associates delivers insurance and deferred income annuity quotes with and without premium financing.<div class="due">Due: within 90 days</div></div></div>
+    </div>
+  </div>
+</div>
+
+<p class="small" style="margin-top:14px">Summarizes Ihab_Shahawi_Pinnacle_Plan.html. Figures are drawn from the RightCapital plan generated 10/16/2026 and 2026 tax parameters; alternatives are illustrative pending appraisal, census, quotes and underwriting. Not tax, legal or insurance advice. The family&#39;s attorney and CPA should review before anything is signed. Pinnacle Planning · Wealth Advisory Now · M&amp;M Wealth Associates.</p>
+</div></body></html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scenario 1: W-2 and SEP</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.10);
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--neg:#e34948;--good:#006300;--bad:#d03b3b;--warn:#b86a00;--good-bg:rgba(12,163,12,.10);--bad-bg:rgba(208,59,59,.10);--warn-bg:rgba(250,178,25,.14);--wash:#eef4fc;--wash2:#fdf0e9;--wash3:#e8f7f1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f;--wash3:#1f3a2e}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f;--wash3:#1f3a2e}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:24px;margin:0 0 4px;font-weight:650}.sub{color:var(--ink2)}
+h2{font-size:17px;font-weight:650;margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--grid)}
+h3{font-size:14px;font-weight:600;margin:0 0 4px}.desc{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.kpis{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}.card>div:not(.chart){overflow-x:auto}
+.kpi .label{color:var(--ink2);font-size:12px}.kpi .value{font-size:24px;font-weight:600;white-space:nowrap}.kpi .note{color:var(--muted);font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--grid);vertical-align:top}th:first-child,td:first-child{text-align:left}
+th{color:var(--ink2);font-weight:600}tr.total td{font-weight:650;border-top:2px solid var(--axis)}tr.sec td{color:var(--ink2);font-weight:600;padding-top:12px;border-bottom:0}
+td.l,th.l{text-align:left}
+.pos{color:var(--good)}.neg{color:var(--bad)}.warn{color:var(--warn)}
+p{margin:8px 0}.callout{border-left:4px solid var(--s1);background:var(--wash);padding:10px 14px;border-radius:6px;margin:10px 0}.callout.o{border-color:var(--s2);background:var(--wash2)}.callout.g{border-color:var(--s3);background:var(--wash3)}
+ul,ol{margin:6px 0;padding-left:20px}li{margin:4px 0}.small{font-size:12px;color:var(--ink2)}
+.chart{position:relative;width:100%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:0 0 6px}.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px}.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.ok{background:var(--good-bg);color:var(--good)}.tag.mid{background:var(--warn-bg);color:var(--warn)}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.dials td:first-child{width:38%}
+</style>
+
+</head>
+<body><div class="wrap">
+<h1>Scenario 1: W-2 wages to owner and spouse, SEP-IRA, health insurance, personal life insurance</h1>
+<div class="sub">B LLC stays an S corporation. No further shareholder loans; the existing $125,100 loan is documented and repaid from salary. Revenue $600,000 with base-case costs. The owner and his wife are the only two employees; the spouse is paid $12,000. 2026 rules, married filing jointly.</div>
+
+<h2>At a glance</h2>
+<div class="grid kpis" id="kpis"></div>
+<div class="callout" id="headline"></div>
+
+<h2>1. How the structure works</h2>
+<div class="grid g2">
+  <div class="card"><h3>Money flow</h3><p class="desc">Owner $140,000 version</p>
+    <svg viewBox="0 0 600 340" width="100%" role="img" aria-label="Scenario 1 money flow" id="flow1"></svg></div>
+  <div class="card"><h3>The rules that drive the numbers</h3>
+    <ul>
+      <li><b>SEP-IRA.</b> Employer-only contribution, up to 25% of W-2 wages, capped at $72,000 per person for 2026. The same percentage must apply to every eligible employee, so the spouse's SEP is 25% of her $12,000, or $3,000. Deductible by the S corp, not in anyone's W-2, no payroll tax on it. Can be funded as late as the extended return due date.</li>
+      <li><b>Wages.</b> Every dollar of W-2 pays 15.3% in Social Security and Medicare up to the $184,500 wage base, 2.9% above it, half from the company and half from the employee. Wages must be reasonable for the work done; $12,000 for the spouse is easy to support with part-time bookkeeping, scheduling or marketing.</li>
+      <li><b>Health insurance.</b> The S corp pays the family premium, adds it to the owner's W-2 box 1 (not subject to payroll tax), and the owner deducts it above the line. Net effect: fully deductible, no payroll tax. Assumed $18,000 a year.</li>
+      <li><b>Life insurance.</b> An S corp cannot fund a policy for a more-than-2% shareholder on a tax-favored basis, so the owner buys the policy personally with after-tax money. Assumed $24,000 a year for a permanent policy with roughly $1.5M of death benefit on a healthy 31-year-old; an insurance illustration is needed to confirm. Not deductible.</li>
+      <li><b>Personal IRAs.</b> Both spouses are covered by a workplace plan and joint income is above the phase-out, so traditional IRA contributions are not deductible. The $7,500 each can still go in as nondeductible contributions converted to Roth (backdoor Roth), shown as savings.</li>
+      <li><b>The old loan.</b> Documented with a note at the applicable federal rate (about 4%, $5,004 a year on $125,100) and repaid at $25,000 a year from after-tax salary, about five years to clear. The interest is income to B LLC and flows back through the K-1.</li>
+      <li><b>QBI.</b> The K-1 that remains gets the 20% deduction; joint income is under the $403,500 threshold so the wage cap does not apply. Wages never qualify.</li>
+    </ul></div>
+</div>
+
+<h2>2. Three owner wage levels, spouse at $12,000</h2>
+<div class="card"><h3>S corp, personal return and household economics</h3><p class="desc">Columns are alternatives. The married no-change baseline is the comparison, but note it has no health insurance, no life insurance, no retirement savings and leaves the loan unresolved.</p><div id="tMain"></div></div>
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>Where the $401,896 goes</h3><p class="desc">B LLC profit pool before owner pay ($350,201) plus other household income ($51,695), the same in every column</p>
+    <div class="legend"><span style="--c:var(--s2)">Taxes</span><span style="--c:var(--s3)">Retirement savings</span><span style="--c:var(--s4)">Health and life premiums</span><span style="--c:var(--s5)">Loan repayment and interest</span><span style="--c:var(--s1)">Spendable</span></div>
+    <div class="chart"><canvas id="cStack" height="260"></canvas></div></div>
+  <div class="card"><h3>Reading the table</h3><ul id="reading"></ul></div>
+</div>
+
+<h2>3. Protection and the loan</h2>
+<div class="grid g2">
+  <div class="card"><h3>What the family has at the end of year 1</h3><div id="tProt"></div>
+    <p class="small">Death benefit and cash value depend on the policy chosen. A 20-year term policy of $1.5M would cost under $1,000 a year for this age and health, which covers the protection need immediately if the permanent policy is deferred.</p></div>
+  <div class="card"><h3>Why the loan has to move first</h3>
+    <ul>
+      <li>With salary at $140K the owner can carry a $25,000 annual repayment plus interest and still keep about $239K to spend. That turns a $125K exposure (capital gain or disguised wages, $28K to $35K of tax plus penalties) into an ordinary, documented note.</li>
+      <li>The repayments return cash to B LLC, which should go straight to the Fundbox and Headway balances. Those cost the company roughly 20% a year; every $25K repaid saves about $5K of interest annually, which raises next year's K-1.</li>
+      <li>An alternative is to declare part of the loan a distribution in a year where the $59,859 capital-loss carryforward absorbs the gain. That is faster but uses up the carryforward; it is worth comparing in the next round.</li>
+    </ul>
+    <div class="callout o">Not solved by this scenario: the company still carries $171.5K of debt, and permanent life insurance is paid with after-tax dollars. Scenario 2 addresses both.</div></div>
+</div>
+
+<h2>4. Risks and conditions</h2>
+<div class="card"><table><thead><tr><th class="l">Item</th><th class="l">What to watch</th><th class="l">Level</th></tr></thead><tbody>
+  <tr><td class="l">Spouse's wages</td><td class="l">$12,000 must match real part-time work with a job description and hours. Easily defended.</td><td class="l"><span class="tag ok">Low</span></td></tr>
+  <tr><td class="l">Owner's wages</td><td class="l">$100K to $180K for a working owner of a $600K contractor is within the reasonable-compensation range.</td><td class="l"><span class="tag ok">Low</span></td></tr>
+  <tr><td class="l">Payroll cost</td><td class="l">Wages replacing K-1 income pay 15.3% payroll tax and lose the 20% QBI deduction. This is why total taxes rise above the baseline even though the SEP is deducted.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Basis</td><td class="l">Stock basis is $7,505. Distributions beyond basis plus current-year income are capital gain. With wages replacing distributions this stops being a problem.</td><td class="l"><span class="tag ok">Low</span></td></tr>
+  <tr><td class="l">Life insurance cost</td><td class="l">Paid personally with after-tax money. The premium is the single largest reason spendable cash is lower than Scenario 2.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Withholding</td><td class="l">Set federal and California withholding on the two W-2s to cover the projected liability; no separate estimates needed.</td><td class="l"><span class="tag ok">Low</span></td></tr>
+</tbody></table></div>
+
+<h2>Assumptions you can change</h2>
+<div class="card"><table class="dials"><thead><tr><th class="l">Dial</th><th class="l">Set to</th></tr></thead><tbody>
+  <tr><td class="l">Revenue and cost structure</td><td class="l">$600,000; only variable costs grow (base case). Profit pool before owner pay $350,201.</td></tr>
+  <tr><td class="l">Filing status</td><td class="l">Married filing jointly for all of 2026; spouse has no other income.</td></tr>
+  <tr><td class="l">Wages</td><td class="l">Owner $180K, $140K or $100K; spouse $12,000. Other payroll costs (FUTA, CA SUI/ETT, workers' comp) $1,000.</td></tr>
+  <tr><td class="l">Retirement</td><td class="l">SEP-IRA at 25% of wages for both; backdoor Roth IRAs $7,500 each. No 401(k) in this version.</td></tr>
+  <tr><td class="l">Health insurance</td><td class="l">$18,000 a year family premium through the S corp.</td></tr>
+  <tr><td class="l">Life insurance</td><td class="l">$24,000 a year permanent policy paid personally, about $1.5M death benefit (illustration required).</td></tr>
+  <tr><td class="l">Old loan</td><td class="l">Documented at 4% AFR; $25,000 principal a year plus $5,004 interest paid from salary.</td></tr>
+  <tr><td class="l">Other household income</td><td class="l">Held at 2025: V C LLC wages $36,000 and K-1 $76,351, the V, LLC items, interest, dividends, capital loss. Rental loss suspended.</td></tr>
+  <tr><td class="l">Credits and deductions</td><td class="l">Energy credit $10,543 and general business credit $22,385 applied. Itemized: mortgage interest $32,075, charity $3,039, property and other taxes $11,816 plus California tax, SALT capped at $40,400.</td></tr>
+  <tr><td class="l">Rates</td><td class="l">2026 federal MFJ brackets; California 2025 MFJ brackets; CA S-corp 1.5% with $800 minimum.</td></tr>
+</tbody></table></div>
+</div>
+<script id="data" type="application/json">{"baseline": {"corp": {"wages_owner": 13700, "wages_wife": 0, "er_payroll": 1048, "sep": 0, "sep_owner": 0, "sep_wife": 0, "health": 0, "fee": 0, "k1": 335453, "ca_corp": 4676}, "p": {"label": "Baseline, married, no changes", "agi": 400848, "itemized": 70246, "salt": 35132, "qbi": 66120, "ti": 264481, "fed_gross": 48672, "energy": 10543, "gbc": 22385, "fed": 16018, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 23316, "ca_ti": 328361, "emp_fica": 3802}, "name": "Married baseline, no changes", "econ": {"taxes": 48860, "savings": 0, "health": 0, "retained": 0, "premium": 0, "loan_repay": 0, "loan_interest": 0, "spend": 353036, "pool": 401896}}, "s1": [{"corp": {"wages_owner": 180000, "wages_wife": 12000, "er_payroll": 15688, "sep": 48000, "sep_owner": 45000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 76513, "ca_corp": 800}, "p": {"label": "Owner $180K", "agi": 320208, "itemized": 62747, "salt": 27633, "qbi": 30573, "ti": 226888, "fed_gross": 39649, "energy": 10543, "gbc": 22385, "fed": 6996, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 15817, "ca_ti": 247721, "emp_fica": 17442}, "name": "Owner $180K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 56743, "savings": 48000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 225149, "pool": 401896}}, {"corp": {"wages_owner": 140000, "wages_wife": 12000, "er_payroll": 12628, "sep": 38000, "sep_owner": 35000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 129573, "ca_corp": 1588}, "p": {"label": "Owner $140K", "agi": 333268, "itemized": 63961, "salt": 28847, "qbi": 41185, "ti": 228122, "fed_gross": 39945, "energy": 10543, "gbc": 22385, "fed": 7292, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 17031, "ca_ti": 260781, "emp_fica": 14382}, "name": "Owner $140K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 52921, "savings": 38000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 238971, "pool": 401896}}, {"corp": {"wages_owner": 100000, "wages_wife": 12000, "er_payroll": 9568, "sep": 28000, "sep_owner": 25000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 182633, "ca_corp": 2384}, "p": {"label": "Owner $100K", "agi": 346328, "itemized": 65176, "salt": 30062, "qbi": 51797, "ti": 229355, "fed_gross": 40241, "energy": 10543, "gbc": 22385, "fed": 7588, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 18246, "ca_ti": 273841, "emp_fica": 11322}, "name": "Owner $100K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 49108, "savings": 28000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 252784, "pool": 401896}}], "s2": {"fee": 300000, "c_wages": 120000, "c_wages_wife": 12000, "c_er": 11098, "c_sep": 33000, "c_health": 18000, "c_admin": 6000, "c_pre": 99902, "c_ca": 8831, "c_fed": 19125, "c_after": 71946, "corp": {"wages_owner": 0, "wages_wife": 0, "er_payroll": 0, "sep": 0, "sep_owner": 0, "sep_wife": 0, "health": 0, "fee": 300000, "k1": 50201, "ca_corp": 800}, "p": {"label": "Scenario 2", "agi": 233896, "itemized": 54720, "salt": 19606, "qbi": 25310, "ti": 153866, "fed_gross": 23274, "energy": 10543, "gbc": 12731, "fed": 0, "add_med": 0, "niit": 0, "marginal": 0.22, "ca": 7790, "ca_ti": 161409, "emp_fica": 12852}, "name": "Scenario 2: sibling C corp", "premium": 24000, "prem_loan": 24000, "repay_loan": 47946, "years": [{"year": 2026, "retained": 71946, "premium": 24000, "repay": 47946, "b_balance": 77154, "expansion": 0, "owes_c": 71946, "interest": 2878}, {"year": 2027, "retained": 71946, "premium": 24000, "repay": 47946, "b_balance": 29208, "expansion": 0, "owes_c": 143892, "interest": 5756}, {"year": 2028, "retained": 71946, "premium": 24000, "repay": 29208, "b_balance": 0, "expansion": 18737, "owes_c": 197100, "interest": 7884}, {"year": 2029, "retained": 71946, "premium": 24000, "repay": 0, "b_balance": 0, "expansion": 47946, "owes_c": 221100, "interest": 8844}, {"year": 2030, "retained": 71946, "premium": 24000, "repay": 0, "b_balance": 0, "expansion": 47946, "owes_c": 245100, "interest": 9804}], "death_benefit": 1500000, "interest_saved": 26271, "econ": {"taxes": 60496, "savings": 33000, "health": 18000, "retained": 71946, "premium": 0, "loan_repay": 0, "loan_interest": 2878, "spend": 215576, "pool": 401896}}}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $=v=>(v<0?'−':'')+'$'+Math.abs(Math.round(v)).toLocaleString();
+const $k=v=>(v<0?'−':'')+'$'+(Math.abs(v)/1000).toFixed(Math.abs(v)>=100000?0:1)+'K';
+const B=D.baseline, S=D.s1, M=S[1];
+const cols=[B,...S];
+document.getElementById('kpis').innerHTML=[
+ {l:'Married baseline, all taxes',v:$(B.econ.taxes),n:'spendable '+$(B.econ.spend)+', nothing protected'},
+ {l:'Owner $140K: all taxes',v:$(M.econ.taxes),n:'+'+$(M.econ.taxes-B.econ.taxes)+' vs baseline'},
+ {l:'Owner $140K: retirement',v:$(M.econ.savings+15000),n:$(M.econ.savings)+' SEP + $15K Roth'},
+ {l:'Owner $140K: spendable',v:$(M.econ.spend),n:'after taxes, savings, premiums, loan'},
+].map(x=>`<div class="card kpi"><div class="label">${x.l}</div><div class="value">${x.v}</div><div class="note">${x.n}</div></div>`).join('');
+document.getElementById('headline').innerHTML=`<b>Headline.</b> At $140,000 of owner salary and $12,000 for the spouse, the household pays ${$(M.econ.taxes)} in all taxes (${$(M.econ.taxes-B.econ.taxes)} more than doing nothing), puts ${$(M.econ.savings)} into SEP-IRAs plus $15,000 into Roth IRAs, carries family health insurance and a $1.5M life policy, and retires $25,000 of the old loan, with ${$(M.econ.spend)} left to spend. Compared with the baseline's ${$(B.econ.spend)}, about ${$(B.econ.spend-M.econ.spend)} of cash has been redirected into retirement, protection and the loan, and only ${$(M.econ.taxes-B.econ.taxes)} of it is extra tax. Raising the owner's salary to $180K adds ${$(S[0].econ.savings-M.econ.savings)} of SEP for ${$(S[0].econ.taxes-M.econ.taxes)} more tax; lowering it to $100K does the reverse.`;
+const row=(label,f,cls)=>`<tr class="${cls||''}"><td>${label}</td>${cols.map(c=>`<td>${f(c)}</td>`).join('')}</tr>`;
+document.getElementById('tMain').innerHTML=`<table><thead><tr><th></th><th>Married baseline<br><span class="small">no changes</span></th>${S.map(s=>`<th>${s.name}<br><span class="small">spouse $12K</span></th>`).join('')}</tr></thead><tbody>
+<tr class="sec"><td colspan="5">B LLC (S corporation)</td></tr>
+${row('Profit before owner pay',c=>$(350201))}
+${row('Owner W-2 wages',c=>$(-c.corp.wages_owner))}
+${row('Spouse W-2 wages',c=>$(-c.corp.wages_wife))}
+${row('Employer payroll taxes',c=>$(-c.corp.er_payroll))}
+${row('SEP-IRA contributions (25%)',c=>$(-c.corp.sep))}
+${row('Health insurance (family)',c=>$(-c.corp.health))}
+${row('Ordinary income to K-1',c=>$(c.corp.k1),'total')}
+${row('California S-corp tax',c=>$(c.corp.ca_corp))}
+<tr class="sec"><td colspan="5">Personal return (married filing jointly)</td></tr>
+${row('Adjusted gross income',c=>$(c.p.agi))}
+${row('Itemized deductions',c=>$(-c.p.itemized))}
+${row('QBI deduction',c=>$(-c.p.qbi))}
+${row('Taxable income',c=>$(c.p.ti),'total')}
+${row('Federal tax before credits',c=>$(c.p.fed_gross))}
+${row('Credits used (energy, general business)',c=>$(-(c.p.energy+c.p.gbc)))}
+${row('Additional Medicare and NIIT',c=>$(c.p.add_med+c.p.niit))}
+${row('Federal tax',c=>$(c.p.fed),'total')}
+${row('California income tax',c=>$(c.p.ca))}
+${row('Employee payroll taxes (incl. V C LLC wages)',c=>$(c.p.emp_fica))}
+<tr class="sec"><td colspan="5">Household economics</td></tr>
+${row('All taxes (federal, CA, both halves of payroll, CA S-corp)',c=>$(c.econ.taxes),'total')}
+${row('Change vs baseline',c=>`<span class="${c.econ.taxes-B.econ.taxes>0?'neg':'pos'}">${$(c.econ.taxes-B.econ.taxes)}</span>`)}
+${row('Retirement: SEP-IRA',c=>$(c.econ.savings))}
+${row('Retirement: backdoor Roth IRAs (after-tax)',c=>c===B?'$0':'$15,000')}
+${row('Health insurance, pre-tax',c=>$(c.econ.health))}
+${row('Life insurance, after-tax',c=>$(c.econ.premium))}
+${row('Old loan: principal repaid',c=>$(c.econ.loan_repay))}
+${row('Old loan: AFR interest paid to B LLC',c=>$(c.econ.loan_interest))}
+${row('Spendable after all of the above',c=>$(c===B?c.econ.spend:c.econ.spend-15000),'total')}
+${row('Protected: death benefit in force',c=>c===B?'none':'$1.5M')}
+${row('Loan status at year end',c=>c===B?'$125,100 undocumented':'$100,100 on a note')}
+</tbody></table>`;
+document.getElementById('reading').innerHTML=[
+ `<b>Taxes rise modestly, not sharply.</b> The $140K column pays ${$(M.econ.taxes-B.econ.taxes)} more than the baseline. Payroll tax on the wages (about ${$(M.p.emp_fica+M.corp.er_payroll-B.p.emp_fica-B.corp.er_payroll)}) and the smaller QBI deduction are offset by the SEP and health deductions.`,
+ `<b>Spendable falls mainly because money is being put to work.</b> ${$(M.econ.savings+15000)} to retirement, $42,000 to health and life premiums, $30,004 to the loan. Those are choices, not costs of the structure.`,
+ `<b>Higher salary buys more SEP at a price.</b> From $140K to $180K: SEP up ${$(S[0].econ.savings-M.econ.savings)}, taxes up ${$(S[0].econ.taxes-M.econ.taxes)}, spendable down ${$(M.econ.spend-S[0].econ.spend)}.`,
+ `<b>The spouse's $12,000</b> adds $3,000 of SEP, Social Security credits, and documented participation in the business for about $1,836 of payroll tax.`,
+ `<b>The baseline column is not a free alternative.</b> It leaves the family without health coverage, without life insurance, without retirement savings, and with a $125K loan exposure worth $28K to $35K if challenged.`,
+].map(t=>`<li>${t}</li>`).join('');
+document.getElementById('tProt').innerHTML=`<table><thead><tr><th></th><th>Baseline</th><th>Scenario 1 ($140K)</th></tr></thead><tbody>
+<tr><td>Health insurance for the family</td><td class="neg">none</td><td class="pos">family plan, pre-tax</td></tr>
+<tr><td>Life insurance death benefit</td><td class="neg">none</td><td class="pos">about $1.5M, owned personally</td></tr>
+<tr><td>Retirement accounts funded in 2026</td><td class="neg">$0</td><td class="pos">${$(M.econ.savings+15000)}</td></tr>
+<tr><td>Social Security credits</td><td>owner only, on $13.7K</td><td>both spouses</td></tr>
+<tr><td>Old loan</td><td class="neg">$125,100, undocumented, growing</td><td class="warn">$100,100 on a 4% note, cleared in 5 years</td></tr>
+<tr><td>Company debt</td><td class="neg">$171.5K at about 21%</td><td class="warn">reduced by the repayments</td></tr>
+<tr class="total"><td>Spendable</td><td>${$(B.econ.spend)}</td><td>${$(M.econ.spend-15000)}</td></tr>
+</tbody></table>`;
+const th={ink2:css('--ink2'),muted:css('--muted'),grid:css('--grid'),axis:css('--axis'),surface:css('--surface'),ink:css('--ink')};
+const sets=[['Taxes',e=>e.taxes,'--s2'],['Retirement savings',e=>e.savings,'--s3'],['Health and life premiums',e=>e.health+e.premium,'--s4'],['Loan repayment and interest',e=>e.loan_repay+e.loan_interest,'--s5'],['Spendable',e=>e.spend,'--s1']];
+const c=document.getElementById('cStack'); c.parentElement.style.height='260px';
+new Chart(c,{type:'bar',data:{labels:['Married baseline','Owner $180K','Owner $140K','Owner $100K'],datasets:sets.map(s=>({label:s[0],data:cols.map(d=>s[1](d.econ)),backgroundColor:css(s[2]),borderRadius:3,borderSkipped:false,maxBarThickness:44,borderWidth:2,borderColor:th.surface}))},
+ options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,callbacks:{label:x=>`${x.dataset.label} ${$(x.raw)}`}}},
+ scales:{x:{stacked:true,grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2}},y:{stacked:true,grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>$k(v)}}}}});
+(function(){
+ const s=M;
+ const box=(x,y,w,h,t1,t2,fill,stroke)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="${fill}" stroke="${stroke}"/><text x="${x+w/2}" y="${y+22}" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">${t1}</text>${t2.map((t,i)=>`<text x="${x+w/2}" y="${y+40+i*15}" text-anchor="middle" font-size="11" fill="var(--ink2)">${t}</text>`).join('')}`;
+ const arrow=(x1,y1,x2,y2,color)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" marker-end="url(#ah)"/>`;
+ let h=`<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>`;
+ h+=box(10,110,170,100,'B LLC (S corp)',['revenue $600K','profit pool $350.2K','K-1 '+$k(s.corp.k1)+' to owner'],'var(--wash)','var(--s1)');
+ h+=box(230,10,160,55,'Owner W-2 '+$k(s.corp.wages_owner),['+ health '+$k(s.corp.health)+' in box 1'],'var(--wash2)','var(--s2)');
+ h+=box(230,80,160,55,'Spouse W-2 $12K',['part-time, documented'],'var(--wash2)','var(--s2)');
+ h+=box(230,150,160,55,'SEP-IRAs '+$k(s.corp.sep),[$k(s.corp.sep_owner)+' owner, $3K spouse'],'var(--wash3)','var(--s3)');
+ h+=box(230,220,160,55,'Payroll taxes',[$k(s.corp.er_payroll)+' employer side'],'var(--wash2)','var(--s2)');
+ h+=arrow(182,130,228,37,'var(--s2)'); h+=arrow(182,150,228,107,'var(--s2)'); h+=arrow(182,170,228,177,'var(--s3)'); h+=arrow(182,190,228,247,'var(--s2)');
+ h+=box(430,40,160,110,'Household',['AGI '+$k(s.p.agi),'taxes '+$k(s.econ.taxes),'life premium $24K','loan payment $30K','spendable '+$k(s.econ.spend-15000)],'var(--wash)','var(--s1)');
+ h+=box(430,180,160,55,'Retirement',[$k(s.econ.savings)+' SEP + $15K Roth'],'var(--wash3)','var(--s3)');
+ h+=box(430,250,160,55,'Life policy $1.5M',['owned personally'],'var(--wash3)','var(--s3)');
+ h+=arrow(392,37,428,70,'var(--s2)'); h+=arrow(392,107,428,95,'var(--s2)'); h+=arrow(392,177,428,207,'var(--s3)'); h+=arrow(510,152,510,178,'var(--s3)'); h+=arrow(560,152,560,248,'var(--s3)');
+ h+=`<polyline points="430,130 410,130 410,300 95,300 95,212" fill="none" stroke="var(--s5)" stroke-width="2" marker-end="url(#ah)"/><text x="250" y="296" text-anchor="middle" font-size="10.5" fill="var(--ink2)">$25K principal + $5K interest back to B LLC on the old loan</text>`;
+ h+=`<text x="300" y="332" text-anchor="middle" font-size="11" fill="var(--ink2)">All taxes ${$k(s.econ.taxes)} · no new shareholder loans · distributions only within basis</text>`;
+ document.getElementById('flow1').innerHTML=h;
+})();
+</script>
+</div></body></html>

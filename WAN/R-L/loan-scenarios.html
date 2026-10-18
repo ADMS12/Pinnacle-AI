@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shareholder Loan Scenarios</title>
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.10);
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--neg:#e34948;--good:#006300;--bad:#d03b3b;--warn:#b86a00;--good-bg:rgba(12,163,12,.10);--bad-bg:rgba(208,59,59,.10);--warn-bg:rgba(250,178,25,.14);--wash:#eef4fc;--wash2:#fdf0e9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:24px;margin:0 0 4px;font-weight:650}.sub{color:var(--ink2)}
+h2{font-size:17px;font-weight:650;margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--grid)}
+h3{font-size:14px;font-weight:600;margin:0 0 4px}.desc{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}
+.card>div:not(.chart){overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--grid);vertical-align:top}td.n,th.n{text-align:right;white-space:nowrap}
+th{color:var(--ink2);font-weight:600}tr.total td{font-weight:650;border-top:2px solid var(--axis)}
+.pos{color:var(--good)}.neg{color:var(--bad)}.warn{color:var(--warn)}
+p{margin:8px 0}.callout{border-left:4px solid var(--s1);background:var(--wash);padding:10px 14px;border-radius:6px;margin:10px 0}
+.callout.o{border-color:var(--s2);background:var(--wash2)}
+ul{margin:6px 0;padding-left:20px}li{margin:4px 0}.small{font-size:12px;color:var(--ink2)}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:0 0 6px}.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.wn td.n,.wn th.n{white-space:normal}.wn th:first-child,.wn td:first-child{width:36%}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px}
+.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.ok{background:var(--good-bg);color:var(--good)}.tag.mid{background:var(--warn-bg);color:var(--warn)}
+</style>
+</head>
+<body><div class="wrap">
+<h1>Shareholder Loan Scenarios</h1>
+<div class="sub">B LLC and its sole shareholder. What the $125,100 loan is, how it reduced 2025 tax, who paid the $30.9K of interest, what happens if it is challenged, and how it compares with a split-dollar loan from a C corporation.</div>
+
+<h2>1. The loan as it stands</h2>
+<div class="grid g2">
+  <div class="card"><h3>What the 2025 return shows</h3>
+    <table><thead><tr><th>Evidence</th><th>Finding</th></tr></thead><tbody>
+      <tr><td>Balance (Schedule L, line 7)</td><td>$88,230 at the start of 2025, $125,100 at the end. The loan predates 2025; $36,870 was added this year.</td></tr>
+      <tr><td>Interest charged to the owner</td><td>None. Schedule K line 4 (interest income) is blank.</td></tr>
+      <tr><td>Repayments</td><td>None visible. The balance only grew.</td></tr>
+      <tr><td>Collateral</td><td>None shown. No pledged asset, mortgage or note receivable appears on Schedule L or in the statements.</td></tr>
+      <tr><td>Written note and schedule</td><td>Cannot be seen on a return, but with no interest and no payments it is unlikely one is being followed.</td></tr>
+      <tr><td>Loans the other way (owner to company)</td><td>None. K-1 Part II line I and Form 7203 debt basis are blank.</td></tr>
+      <tr><td>Company equity</td><td>$7,505. Without the receivable, liabilities of $186.6K exceed real assets of $61.5K by about $125K.</td></tr>
+    </tbody></table></div>
+  <div class="card"><h3>Who got what in 2025</h3>
+    <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="Cash flow between lenders, the company and the shareholder">
+      <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>
+      <rect x="10" y="105" width="140" height="90" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="80" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Lenders</text>
+      <text x="80" y="155" text-anchor="middle" font-size="11" fill="var(--ink2)">Fundbox, Headway,</text>
+      <text x="80" y="170" text-anchor="middle" font-size="11" fill="var(--ink2)">vehicle loans, cards</text>
+      <rect x="215" y="85" width="140" height="130" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="285" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">B LLC (S corp)</text>
+      <text x="285" y="134" text-anchor="middle" font-size="11" fill="var(--ink2)">profit $69.1K</text>
+      <text x="285" y="150" text-anchor="middle" font-size="11" fill="var(--ink2)">cash $5.1K → $42.7K</text>
+      <text x="285" y="166" text-anchor="middle" font-size="11" fill="var(--ink2)">debt $124.3K → $171.5K</text>
+      <text x="285" y="182" text-anchor="middle" font-size="11" fill="var(--ink2)">equity $7.5K</text>
+      <rect x="450" y="105" width="140" height="90" rx="10" fill="var(--wash2)" stroke="var(--s2)"/>
+      <text x="520" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Shareholder</text>
+      <text x="520" y="155" text-anchor="middle" font-size="11" fill="var(--ink2)">owes company</text>
+      <text x="520" y="170" text-anchor="middle" font-size="11" fill="var(--ink2)">$125.1K, no interest</text>
+      <line x1="152" y1="125" x2="213" y2="125" stroke="var(--muted)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="182" y="117" text-anchor="middle" font-size="10" fill="var(--ink2)">$60.6K borrowed</text>
+      <line x1="213" y1="175" x2="152" y2="175" stroke="var(--muted)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="182" y="192" text-anchor="middle" font-size="10" fill="var(--ink2)">$30.9K interest</text>
+      <line x1="357" y1="112" x2="448" y2="112" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="104" text-anchor="middle" font-size="10" fill="var(--ink2)">$36.9K new loan</text>
+      <line x1="357" y1="150" x2="448" y2="150" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">$52.3K distributions</text>
+      <line x1="357" y1="188" x2="448" y2="188" stroke="var(--s1)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="180" text-anchor="middle" font-size="10" fill="var(--ink2)">$13.7K salary</text>
+      <text x="300" y="250" text-anchor="middle" font-size="11.5" fill="var(--ink)">Owner took $102.9K out of a company that earned $69.1K and borrowed $60.6K.</text>
+      <text x="300" y="268" text-anchor="middle" font-size="11" fill="var(--ink2)">Nothing flowed back: no interest, no principal.</text>
+    </svg></div>
+</div>
+
+<h2>2. How the loan reduced 2025 tax</h2>
+<div class="grid g2">
+  <div class="card"><h3>The $36,870 added in 2025, three ways</h3><p class="desc">What the same cash would have cost had it been taken as pay or as a distribution</p>
+    <table><thead><tr><th>Taken as</th><th>Federal income tax</th><th>California</th><th>Payroll tax</th><th class="n">Cash cost now</th></tr></thead><tbody>
+      <tr><td>Salary</td><td>About $8K of tax, absorbed by the energy credit (uses up that much carryforward)</td><td>≈ $2,900</td><td>$5,641 (both halves, 15.3%)</td><td class="n">≈ $8,500</td></tr>
+      <tr><td>Distribution</td><td>Exceeds the $7,505 stock basis, so capital gain at 15% ≈ $5,500, also absorbed by the credit</td><td>≈ $2,600</td><td>none</td><td class="n">≈ $2,600</td></tr>
+      <tr class="total"><td>Loan (what was done)</td><td>$0</td><td>$0</td><td>$0</td><td class="n">$0</td></tr>
+    </tbody></table>
+    <p class="small">The federal savings look small only because 2025 federal tax was already zero. The real federal effect was preserving credit carryforward: $10,543 of solar credit survived into 2026 instead of being spent, and at 2026 rates that carryforward is worth its face value.</p></div>
+  <div class="card"><h3>Two indirect effects</h3>
+    <ul>
+      <li><b>The interest on borrowed money was fully deducted</b> even though part of the borrowing funded the owner's loan. See section 3; up to about $12K of the $30.9K is exposed.</li>
+      <li><b>No imputed interest was reported.</b> A below-market loan over $10,000 between a corporation and its shareholder is governed by §7872. The company should have reported interest income at the applicable federal rate, about 4% of the average balance, or roughly $4,300 for 2025, which would have passed through to the owner's K-1. It was not.</li>
+    </ul>
+    <div class="callout o">The cumulative picture: $125,100 of cash has reached the owner over several years with no income tax, no payroll tax and no interest, while the company borrowed at merchant-cash-advance rates and deducted the cost. That is the pattern the IRS calls a constructive distribution.</div></div>
+</div>
+
+<h2>3. The $30,941 of interest: who paid it, who received it, and why it was deductible</h2>
+<div class="grid g2">
+  <div class="card"><h3>Debt on the books of B LLC</h3><p class="desc">Schedule L lines 18 and 21 detail. All interest was paid by the company to these lenders.</p>
+    <table><thead><tr><th>Lender / debt</th><th class="n">Start of 2025</th><th class="n">End of 2025</th><th class="n">Change</th><th>Typical cost</th></tr></thead><tbody>
+      <tr><td>2024 Cybertruck loan (current + long term)</td><td class="n">$88,235</td><td class="n">$77,134</td><td class="n">−$11,101</td><td>7% to 9%</td></tr>
+      <tr><td>2021 Land Rover loan (current + long term)</td><td class="n">$28,692</td><td class="n">$16,759</td><td class="n">−$11,933</td><td>7% to 9%</td></tr>
+      <tr><td>Fundbox advance</td><td class="n">$0</td><td class="n">$53,649</td><td class="n">+$53,649</td><td>Factor fees that annualize to 40% or more</td></tr>
+      <tr><td>Headway Capital loan</td><td class="n">$0</td><td class="n">$6,978</td><td class="n">+$6,978</td><td>35% to 60% APR</td></tr>
+      <tr><td>Credit card payable</td><td class="n">$7,364</td><td class="n">$17,029</td><td class="n">+$9,665</td><td>22% to 29%</td></tr>
+      <tr class="total"><td>Interest-bearing debt</td><td class="n">$124,291</td><td class="n">$171,549</td><td class="n">+$47,258</td><td></td></tr>
+      <tr><td>Interest deducted (1120-S line 13)</td><td class="n" colspan="3">$30,941, up from $734 in 2024</td><td>≈ 21% of the average balance</td></tr>
+    </tbody></table>
+    <p class="small">Rough attribution, since the return does not split it: vehicle loans about $8K, credit cards about $3K, Fundbox and Headway about $20K on roughly $60K drawn during the year. The Fundbox product is a merchant cash advance; its fixed fee is booked as interest, which is why the effective rate is so high.</p></div>
+  <div class="card"><h3>Who paid, who received</h3>
+    <table><thead><tr><th>Party</th><th>Paid</th><th>Received</th></tr></thead><tbody>
+      <tr><td>B LLC</td><td>$30,941 to the lenders above</td><td>Nothing from the shareholder</td></tr>
+      <tr><td>Lenders (Fundbox, Headway, vehicle finance, card issuers)</td><td></td><td>$30,941, taxable to them</td></tr>
+      <tr><td>Shareholder</td><td>Nothing on the $125,100 he owes the company</td><td>Nothing; but the deduction flowed to him through the K-1</td></tr>
+    </tbody></table>
+    <h3 style="margin-top:14px">How it became deductible</h3>
+    <ol>
+      <li>B LLC is a cash-basis S corporation. Interest is deductible when paid, as business interest under §163(a), on line 13 of the 1120-S. The small-business exception (receipts under $31M) keeps it outside the §163(j) limit.</li>
+      <li>The deduction reduced ordinary income from what would have been about $100K to $69,133.</li>
+      <li>That lower figure is the K-1, which lands on the owner's Schedule E and 1040. So the owner, not the company, got the tax benefit: at his 2025 position it protected roughly $6,800 of credit carryforward and saved about $2,000 of California tax, and it also lowered the QBI deduction base.</li>
+    </ol>
+    <h3 style="margin-top:14px">Why part of it is at risk</h3>
+    <p>Interest follows the use of the money (Treas. Reg. §1.163-8T). The company borrowed $60.6K from Fundbox and Headway in 2025 while sending the owner $36.9K of new loans and $52.3K of distributions, more than its $69.1K of profit. To the extent the advances funded the owner's loan, the interest on that share is not business interest. For an S corporation it becomes investment interest passed through on the K-1, deductible by the owner only against his investment income ($7,230 in 2025), with the rest carried forward. Depending on how the cash actually moved, up to about $12K of the $30.9K deduction could be reclassified. There is a second mismatch: the company paid roughly 21% on its debt while charging the owner 0% on his.</p></div>
+</div>
+
+<h2>4. If the loan is challenged</h2>
+<div class="card">
+  <p>Courts weigh the same factors the IRS does: a written note, a stated rate, a repayment schedule, repayments actually made, collateral, the borrower's ability to repay, whether the company treated it consistently, and whether the amounts track with profits. A balance that only grows, with no interest and no payments, in a one-owner company paying itself $13,700, fails most of them. Possible outcomes on the full $125,100:</p>
+  <table><thead><tr><th>Outcome</th><th>Mechanics</th><th>Cost</th></tr></thead><tbody>
+    <tr><td>Treated as a distribution</td><td>First $7,505 reduces stock basis to zero; the remaining $117,595 is long-term capital gain under §1368(b)(2)</td><td class="neg">≈ $17.6K federal at 15% plus ≈ $10.9K California, before a 20% accuracy penalty and interest. If assessed in a $400K year, add 3.8% net investment income tax, ≈ $4.5K.</td></tr>
+    <tr><td>Treated as wages</td><td>With salary this low the IRS can argue the cash was disguised compensation</td><td class="neg">≈ $19.1K of Social Security and Medicare (both halves) plus failure-to-deposit penalties, plus ordinary income tax at the marginal federal and state rates</td></tr>
+    <tr><td>Loan respected but below-market (§7872)</td><td>Interest income imputed to the company at the federal rate; the owner is deemed to pay it with no deduction</td><td class="warn">≈ $5K a year of phantom K-1 income for as long as the balance stays out</td></tr>
+    <tr><td>Forgiven, or the company winds down</td><td>Cancelling the receivable is a distribution or wages at that moment</td><td class="neg">Same as the first two rows, at that year's rates</td></tr>
+    <tr><td>Company becomes insolvent</td><td>The receivable is a company asset; creditors or a bankruptcy trustee collect it from the owner personally</td><td class="neg">The owner owes $125K on top of any personal guarantees to Fundbox and Headway</td></tr>
+    <tr><td>Lender review</td><td>Fundbox and Headway underwrite on the company's financials; a receivable from the owner equal to two-thirds of assets is a declined-renewal item</td><td class="warn">Loss of working-capital access at the moment revenue is supposed to double</td></tr>
+  </tbody></table>
+  <p class="small">What protects loan treatment: a signed note, a stated rate at or above the applicable federal rate, a repayment schedule that is followed, collateral, and consistent treatment on the books. None of that is visible in the return.</p>
+</div>
+
+<h2>5. Comparison: today's loan vs a split-dollar loan from a C corporation</h2>
+<p>The alternative you described is a <b>loan-regime split-dollar arrangement</b> (Treas. Reg. §1.7872-15): B becomes a C corporation, pays its own tax on earnings, and lends after-tax retained earnings to the shareholder, who uses them to pay premiums on a permanent life insurance policy he owns. The policy's cash value and death benefit are collaterally assigned to the corporation. The loan carries interest at the applicable federal rate, and is repaid from the cash value or the death benefit. Nothing is taxed to the shareholder when the money goes out, because it is a genuine, secured, interest-bearing loan.</p>
+<div class="grid g2">
+  <div class="card"><h3>Today: S corp, undocumented loan</h3>
+    <svg viewBox="0 0 560 230" width="100%" role="img" aria-label="Current structure">
+      <rect x="20" y="30" width="200" height="70" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="120" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">B LLC (S corp)</text>
+      <text x="120" y="78" text-anchor="middle" font-size="11" fill="var(--ink2)">earnings taxed on owner's 1040</text>
+      <rect x="340" y="30" width="200" height="70" rx="10" fill="var(--wash2)" stroke="var(--s2)"/>
+      <text x="440" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">Shareholder</text>
+      <text x="440" y="78" text-anchor="middle" font-size="11" fill="var(--ink2)">spends the cash</text>
+      <line x1="222" y1="55" x2="338" y2="55" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="280" y="47" text-anchor="middle" font-size="10.5" fill="var(--ink2)">$125.1K "loan"</text>
+      <line x1="338" y1="80" x2="222" y2="80" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+      <text x="280" y="97" text-anchor="middle" font-size="10.5" fill="var(--ink2)">no interest, no repayment</text>
+      <rect x="20" y="130" width="200" height="60" rx="10" fill="none" stroke="var(--axis)" stroke-dasharray="4 4"/>
+      <text x="120" y="155" text-anchor="middle" font-size="11" fill="var(--muted)">Collateral: none</text>
+      <text x="120" y="172" text-anchor="middle" font-size="11" fill="var(--muted)">Funded by Fundbox / Headway debt</text>
+      <text x="280" y="215" text-anchor="middle" font-size="11" fill="var(--bad)">Recharacterization risk: high</text>
+    </svg></div>
+  <div class="card"><h3>Alternative: C corp, loan-regime split-dollar</h3>
+    <svg viewBox="0 0 560 230" width="100%" role="img" aria-label="Split-dollar structure">
+      <rect x="20" y="30" width="200" height="70" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="120" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">B Inc. (C corp)</text>
+      <text x="120" y="78" text-anchor="middle" font-size="11" fill="var(--ink2)">pays 21% + 8.84% CA, keeps the rest</text>
+      <rect x="340" y="30" width="200" height="70" rx="10" fill="var(--wash2)" stroke="var(--s2)"/>
+      <text x="440" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">Shareholder</text>
+      <text x="440" y="78" text-anchor="middle" font-size="11" fill="var(--ink2)">owns the policy</text>
+      <line x1="222" y1="50" x2="338" y2="50" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="280" y="42" text-anchor="middle" font-size="10.5" fill="var(--ink2)">premium loans at AFR</text>
+      <line x1="338" y1="80" x2="222" y2="80" stroke="var(--s3)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="280" y="97" text-anchor="middle" font-size="10.5" fill="var(--ink2)">interest paid; repaid from policy</text>
+      <rect x="340" y="130" width="200" height="60" rx="10" fill="var(--wash)" stroke="var(--s3)"/>
+      <text x="440" y="152" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--ink)">Life insurance policy</text>
+      <text x="440" y="170" text-anchor="middle" font-size="11" fill="var(--ink2)">cash value + death benefit assigned</text>
+      <line x1="440" y1="102" x2="440" y2="128" stroke="var(--muted)" stroke-width="2" marker-end="url(#ah)"/>
+      <line x1="338" y1="160" x2="222" y2="160" stroke="var(--s3)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+      <text x="280" y="152" text-anchor="middle" font-size="10.5" fill="var(--ink2)">collateral assignment</text>
+      <text x="120" y="160" text-anchor="middle" font-size="11" fill="var(--muted)">secured receivable</text>
+      <text x="280" y="215" text-anchor="middle" font-size="11" fill="var(--good)">Recharacterization risk: low if documented</text>
+    </svg></div>
+</div>
+
+<div class="card" style="margin-top:12px"><h3>Side by side</h3>
+<table><thead><tr><th style="width:20%">Dimension</th><th style="width:40%">Today: S corp shareholder loan</th><th style="width:40%">C corp split-dollar loan</th></tr></thead><tbody>
+  <tr><td>Where the money comes from</td><td>Pre-tax cash, largely borrowed (Fundbox, Headway, vehicle loans) while the company has $7.5K of equity</td><td>Retained earnings that have already paid corporate tax: 21% federal plus 8.84% California, about 28% combined</td></tr>
+  <tr><td>Tax when the owner receives it</td><td>None, but only because it is labeled a loan; the label is what is at risk</td><td>None, and the treatment is the one the regulation prescribes for a documented loan</td></tr>
+  <tr><td>Interest</td><td>None charged. §7872 imputes it anyway</td><td>Stated rate at or above the AFR (about 4%). The owner's interest is personal and nondeductible; the corporation's interest income is taxable at 21%</td></tr>
+  <tr><td>Collateral</td><td>None</td><td>Collateral assignment of the policy: cash value and death benefit</td></tr>
+  <tr><td>Repayment</td><td>None made; no schedule</td><td>From policy cash value or, at death, from the death benefit; the corporation recovers premiums plus interest first, the beneficiaries get the rest income-tax free</td></tr>
+  <tr><td>Recharacterization risk</td><td><span class="tag bad">High</span> distribution in excess of basis or disguised wages</td><td><span class="tag ok">Low</span> provided the note, rate, assignment and payments are real. Non-recourse or policy-only recourse loans need a written representation to avoid below-market treatment</td></tr>
+  <tr><td>Deduction for the corporation</td><td>The S corp deducted interest it paid to lenders; part is exposed under tracing</td><td>Premium loans are not deductible. The corporation's cost is the 28% tax it already paid on the earnings</td></tr>
+  <tr><td>Pass-through benefits lost</td><td>Keeps the 20% QBI deduction, single level of tax, losses pass through, $800 CA minimum</td><td>Loses QBI. Earnings paid out as dividends are taxed twice: 28% at the corporation, then 15% to 20% plus 3.8% NIIT plus 9.3% to 10.3% CA to the owner, about 50% combined. California corporate tax rises from $800 to 8.84% of profit</td></tr>
+  <tr><td>Access to cash</td><td>Immediate</td><td>Slow. Early-year cash value is well below premiums paid (surrender charges, cost of insurance, commissions). Meaningful collateral and policy-loan capacity take 5 to 10 years</td></tr>
+  <tr><td>Carrying cost to the owner</td><td>Zero today; the eventual bill is the recharacterization</td><td>AFR interest every year, personal and nondeductible: $4K per $100K borrowed. Plus the insurance costs inside the policy</td></tr>
+  <tr><td>Other exposures</td><td>Creditors can collect the receivable; lender covenants; audit profile</td><td>Accumulated earnings tax (20%) if the corporation retains beyond $250K without a documented business need; insurability underwriting; must stay a C corp (a five-year wait before re-electing S)</td></tr>
+  <tr><td>Upside unique to the structure</td><td>None</td><td>Tax-deferred cash value growth; income-tax-free death benefit; C corp stock may qualify for the QSBS exclusion (§1202) after a holding period, since construction and installation are not excluded fields</td></tr>
+</tbody></table></div>
+
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>Worked numbers: $100,000 of profit the owner wants to use</h3>
+    <table class="wn"><thead><tr><th>Step</th><th class="n">S corp today</th><th class="n">C corp + split-dollar</th></tr></thead><tbody>
+      <tr><td>Profit before tax</td><td class="n">$100,000</td><td class="n">$100,000</td></tr>
+      <tr><td>Entity-level tax</td><td class="n">$0</td><td class="n">−$28,000</td></tr>
+      <tr><td>Owner-level tax on the profit (35% + 9.3%, after QBI)</td><td class="n">−$42,000</td><td class="n">$0 while retained</td></tr>
+      <tr class="total"><td>Cash available to the owner this year</td><td class="n">$58,000 (as salary or distribution, tax paid)</td><td class="n">$72,000 (as a loan, tax not yet paid)</td></tr>
+      <tr><td>Annual cost of holding the cash</td><td class="n">none</td><td class="n">≈ $2,900 AFR interest, nondeductible</td></tr>
+      <tr><td>If the corporation later pays it out as a dividend instead</td><td class="n">–</td><td class="n">≈ $72,000 × 29% ≈ $21,000 more tax, net ≈ $51,000</td></tr>
+      <tr><td>If repaid from the policy at death</td><td class="n">–</td><td class="n">$72,000 plus interest comes back to the corporation; no income tax to the owner</td></tr>
+    </tbody></table>
+    <p class="small">The split-dollar structure wins only if the money stays in the policy and is never paid out as a dividend. For money the owner needs to live on, the S corp with a proper salary is cheaper.</p></div>
+  <div class="card"><h3>How this applies to the existing $125,100</h3>
+    <ul>
+      <li>Converting to a C corporation is prospective. It does not change what the $125,100 already is. The IRS will still classify those past withdrawals as loan, distribution or wages based on how they were handled when made.</li>
+      <li>The existing balance could be <b>novated into a documented note</b> now: written terms, AFR interest, a repayment schedule, and collateral. Collateral is the part that is hardest in practice, because the owner would have to pledge something he owns, such as the rental property's equity or a new policy's cash value as it builds.</li>
+      <li>A split-dollar policy does not retire the old loan. It would be a second, separate loan for premiums. Using corporate cash to fund premiums while the first loan stays unpaid makes the first loan look worse, not better.</li>
+      <li>The clean sequence is: document or resolve the $125K first (repay, convert to salary over time, or declare a distribution in a year where the $59.9K capital-loss carryforward and the credits absorb most of the gain), then decide on entity type and whether a split-dollar plan fits a 31-year-old owner with a 10-year-plus horizon.</li>
+    </ul>
+    <div class="callout">Bottom line of the comparison: the split-dollar structure has every feature the current loan lacks (after-tax source, note, interest, collateral, repayment path), which is exactly why it survives scrutiny. It pays for that with a 28% corporate tax up front, the loss of the QBI deduction, double taxation on anything eventually paid out, and slow access to cash. It is a long-horizon wealth-transfer tool, not a replacement for taking a salary.</div></div>
+</div>
+
+<h2>Sources and assumptions</h2>
+<div class="card small"><ul>
+  <li>Loan and debt figures: 2025 Form 1120-S Schedule L lines 7, 18, 21 and the Schedule L detail statement; Schedule M-2; Schedule K line 16d; Form 1125-E.</li>
+  <li>Stock basis: Form 7203 and the S corporation basis report ($7,933 beginning, $7,505 ending).</li>
+  <li>Tax rates used: 15% long-term capital gain, 3.8% NIIT where MAGI exceeds $200K, California 9.3% to 10.3%, 2026 federal marginal rate of 35% at the projected income, corporate 21% federal and 8.84% California, applicable federal rate assumed at 4%.</li>
+  <li>Lender cost ranges are typical for the products named, not figures from the return. The split of the $30,941 between lenders is an estimate.</li>
+  <li>Split-dollar mechanics follow Treas. Reg. §1.7872-15 (loan regime). Policy performance, insurance costs and underwriting are not modeled.</li>
+  <li>This is analysis for planning, not tax or legal advice. The preparer and an insurance professional should review any structure before it is adopted.</li>
+</ul></div>
+</div></body></html>

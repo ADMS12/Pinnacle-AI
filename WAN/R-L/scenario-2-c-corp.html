@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scenario 2: Sibling C Corp</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.10);
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--neg:#e34948;--good:#006300;--bad:#d03b3b;--warn:#b86a00;--good-bg:rgba(12,163,12,.10);--bad-bg:rgba(208,59,59,.10);--warn-bg:rgba(250,178,25,.14);--wash:#eef4fc;--wash2:#fdf0e9;--wash3:#e8f7f1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f;--wash3:#1f3a2e}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a;--wash2:#3a2a1f;--wash3:#1f3a2e}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:24px;margin:0 0 4px;font-weight:650}.sub{color:var(--ink2)}
+h2{font-size:17px;font-weight:650;margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--grid)}
+h3{font-size:14px;font-weight:600;margin:0 0 4px}.desc{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.kpis{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}.card>div:not(.chart){overflow-x:auto}
+.kpi .label{color:var(--ink2);font-size:12px}.kpi .value{font-size:24px;font-weight:600;white-space:nowrap}.kpi .note{color:var(--muted);font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--grid);vertical-align:top}th:first-child,td:first-child{text-align:left}
+th{color:var(--ink2);font-weight:600}tr.total td{font-weight:650;border-top:2px solid var(--axis)}tr.sec td{color:var(--ink2);font-weight:600;padding-top:12px;border-bottom:0}
+td.l,th.l{text-align:left}
+.pos{color:var(--good)}.neg{color:var(--bad)}.warn{color:var(--warn)}
+p{margin:8px 0}.callout{border-left:4px solid var(--s1);background:var(--wash);padding:10px 14px;border-radius:6px;margin:10px 0}.callout.o{border-color:var(--s2);background:var(--wash2)}.callout.g{border-color:var(--s3);background:var(--wash3)}
+ul,ol{margin:6px 0;padding-left:20px}li{margin:4px 0}.small{font-size:12px;color:var(--ink2)}
+.chart{position:relative;width:100%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:0 0 6px}.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px}.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.ok{background:var(--good-bg);color:var(--good)}.tag.mid{background:var(--warn-bg);color:var(--warn)}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.dials td:first-child{width:38%}
+</style>
+
+</head>
+<body><div class="wrap">
+<h1>Scenario 2: A sibling C corporation billing B LLC $300,000, funding retirement, health, life insurance and the loan payoff from retained earnings</h1>
+<div class="sub">The owner holds two companies side by side: B LLC (still an S corporation) and a new C corporation. B LLC pays the C corp $300,000 a year for management, sales and administrative services. The C corp employs the owner ($120,000) and his wife ($12,000), funds SEP-IRAs and family health insurance, pays its own tax, and lends its after-tax retained earnings to the owner: first to fund a cash-value life insurance policy, then to repay the old $125,100 loan to B LLC, and afterwards to build an expansion reserve. Revenue $600,000 with base-case costs. 2026 rules, married filing jointly.</div>
+<div class="callout o"><b>Why a sibling and not a parent.</b> An S corporation cannot have a corporation as a shareholder. If the C corp owned B LLC, B's S election would end the same day and all of B's profit would be taxed twice. With the owner holding both companies directly, B LLC keeps its single level of tax and the 20% QBI deduction, and the C corp does what it is good at: retaining earnings at 28% and providing tax-free fringe benefits.</div>
+
+<h2>At a glance</h2>
+<div class="grid kpis" id="kpis"></div>
+<div class="callout" id="headline"></div>
+
+<h2>1. How the structure works</h2>
+<div class="grid g2">
+  <div class="card"><h3>Money flow, year 1</h3><div class="chart"><svg viewBox="0 0 600 400" width="100%" role="img" aria-label="Scenario 2 money flow" id="flow2"></svg></div></div>
+  <div class="card"><h3>The rules that drive the numbers</h3>
+    <ul>
+      <li><b>The $300,000 fee</b> is deductible by B LLC and income to the C corp. It needs a services agreement, invoices, and real work performed through the C corp. The IRS can reallocate income between commonly controlled companies (§482) if the fee is not arm's length. B LLC pays the owner nothing directly.</li>
+      <li><b>Corporate tax.</b> 21% federal, 8.84% California (deductible federally), about 28% combined. No QBI deduction on C corp income.</li>
+      <li><b>Wages and SEP.</b> The C corp pays the owner $120,000 and the spouse $12,000, with payroll taxes, and contributes 25% of both to SEP-IRAs: $33,000, deductible by the C corp.</li>
+      <li><b>Health insurance</b> is a tax-free fringe benefit for C corp employees: $18,000 deducted by the corporation, nothing added to the W-2. This is cleaner than the S corp treatment.</li>
+      <li><b>Retained earnings are lent, not distributed.</b> Each loan is documented under a loan-regime split-dollar agreement (Treas. Reg. §1.7872-15) or a plain shareholder note: written terms, interest at the applicable federal rate (assumed 4%), and collateral. Loans are not income to the owner. The interest is taxable to the corporation and nondeductible for the owner.</li>
+      <li><b>Life insurance.</b> The owner owns a permanent policy; the C corp lends the $24,000 premium each year and takes a collateral assignment of cash value and death benefit. At death the corporation recovers its loans plus interest from the death benefit and the family receives the rest income-tax free.</li>
+      <li><b>Dividends.</b> None. Anything paid out as a dividend would be taxed again at 15% to 20% plus 3.8% NIIT plus California.</li>
+    </ul></div>
+</div>
+
+<h2>2. The numbers</h2>
+<div class="grid g2">
+  <div class="card"><h3>C corporation, year 1</h3><div id="tC"></div></div>
+  <div class="card"><h3>B LLC and the personal return</h3><div id="tP"></div></div>
+</div>
+
+<h2>3. Five-year plan for the retained earnings</h2>
+<div class="card"><h3>Premium first, then the old loan, then expansion</h3><p class="desc">Assumes the C corp retains the same amount each year. Loans to the owner accrue 4% interest, payable annually.</p><div id="tYears"></div>
+  <ul>
+    <li><b>The old $125,100 loan is cleared in year 3.</b> The owner borrows from the C corp on a documented note and repays B LLC. B LLC uses the cash to retire the Fundbox and Headway balances and part of the vehicle debt. At roughly 20% average cost, every $48K returned saves about $10K of interest a year, which raises B LLC's K-1 from year 2 on (not modeled in the year-1 figures).</li>
+    <li><b>One exposure is replaced by a documented obligation.</b> The owner ends year 3 owing the C corp about $197K at 4%, secured by the policy assignment and, ideally, a second collateral source such as the rental property's equity. That is a real debt with real interest, but it is not a tax time bomb.</li>
+    <li><b>Accumulated earnings tax.</b> Lending to the shareholder is not a business need. The $250,000 lifetime credit covers the first three and a half years of retention at this pace; from year 4 the expansion reserve has to be documented (board minutes, acquisition plan) to avoid the 20% tax on further accumulations.</li>
+  </ul></div>
+
+<h2>4. Protection, retirement and spendable cash</h2>
+<div class="grid g2">
+  <div class="card"><h3>What the family has at the end of year 1</h3><div id="tProt"></div></div>
+  <div class="card"><h3>Household economics vs the alternatives</h3><p class="desc">Same $401,896 pool in every column</p><div id="tCmp"></div>
+    <div class="legend" style="margin-top:10px"><span style="--c:var(--s2)">Taxes</span><span style="--c:var(--s3)">Retirement savings</span><span style="--c:var(--s4)">Health and life premiums</span><span style="--c:var(--s5)">Loan repayment and retained in C corp</span><span style="--c:var(--s1)">Spendable</span></div>
+    <div class="chart"><canvas id="cStack" height="230"></canvas></div></div>
+</div>
+
+<h2>5. Risks and conditions</h2>
+<div class="card"><table><thead><tr><th class="l">Item</th><th class="l">What to watch</th><th class="l">Level</th></tr></thead><tbody>
+  <tr><td class="l">Arm's-length fee</td><td class="l">The $300K must be earned: real services, a contract, invoices, and no duplicate pay from B LLC for the same work. If the IRS reallocates the fee back to B LLC, the C corp deductions and retention disappear.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Double tax on anything paid out</td><td class="l">Every dollar that leaves the C corp as a dividend has already paid 28% and pays roughly 29% more. The structure only works for money that stays inside or goes out as salary, benefits or documented loans.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Accumulated earnings tax</td><td class="l">20% on accumulations beyond reasonable needs once the $250K credit is used. Only the expansion reserve is a documented need.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Loan discipline</td><td class="l">The whole structure rests on the loans being real: notes, AFR interest actually paid each year, collateral assignments filed with the insurer, consistent books. Skipping an interest payment reopens the recharacterization problem.</td><td class="l"><span class="tag bad">High if ignored</span></td></tr>
+  <tr><td class="l">Policy design</td><td class="l">Early-year cash value is well below premiums paid. The corporation's collateral is thin for 5 to 10 years. Underwriting and an illustration are required before anything is signed.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Reasonable compensation</td><td class="l">$120K is on the low side for someone running a $600K business through a second company. The IRS could call part of the retained earnings disguised wages; keep contemporaneous records of hours and duties.</td><td class="l"><span class="tag mid">Medium</span></td></tr>
+  <tr><td class="l">Cost and complexity</td><td class="l">Second entity: separate books, payroll, returns (1120 and 100), licenses, insurance. $6,000 a year included.</td><td class="l"><span class="tag ok">Low</span></td></tr>
+</tbody></table></div>
+
+<h2>Assumptions you can change</h2>
+<div class="card"><table class="dials"><thead><tr><th class="l">Dial</th><th class="l">Set to</th></tr></thead><tbody>
+  <tr><td class="l">Service fee B LLC pays the C corp</td><td class="l">$300,000</td></tr>
+  <tr><td class="l">Wages from the C corp</td><td class="l">Owner $120,000; spouse $12,000</td></tr>
+  <tr><td class="l">Retirement</td><td class="l">SEP-IRA at 25% of wages, $33,000, paid by the C corp; backdoor Roth IRAs $7,500 each from personal cash</td></tr>
+  <tr><td class="l">Health insurance</td><td class="l">$18,000 family premium, tax-free fringe through the C corp</td></tr>
+  <tr><td class="l">Life insurance</td><td class="l">$24,000 a year permanent policy, about $1.5M death benefit, premiums lent by the C corp under a split-dollar agreement at 4% AFR</td></tr>
+  <tr><td class="l">Old loan</td><td class="l">Repaid to B LLC from C corp loans to the owner; cleared in year 3. B LLC uses the cash to retire high-cost debt.</td></tr>
+  <tr><td class="l">C corp overhead</td><td class="l">$6,000 plus $1,000 other payroll costs</td></tr>
+  <tr><td class="l">Everything else</td><td class="l">As in Scenario 1: other household income $51,695, credits $32,928 applied, itemized deductions, 2026 MFJ brackets</td></tr>
+</tbody></table></div>
+</div>
+<script id="data" type="application/json">{"baseline": {"corp": {"wages_owner": 13700, "wages_wife": 0, "er_payroll": 1048, "sep": 0, "sep_owner": 0, "sep_wife": 0, "health": 0, "fee": 0, "k1": 335453, "ca_corp": 4676}, "p": {"label": "Baseline, married, no changes", "agi": 400848, "itemized": 70246, "salt": 35132, "qbi": 66120, "ti": 264481, "fed_gross": 48672, "energy": 10543, "gbc": 22385, "fed": 16018, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 23316, "ca_ti": 328361, "emp_fica": 3802}, "name": "Married baseline, no changes", "econ": {"taxes": 48860, "savings": 0, "health": 0, "retained": 0, "premium": 0, "loan_repay": 0, "loan_interest": 0, "spend": 353036, "pool": 401896}}, "s1": [{"corp": {"wages_owner": 180000, "wages_wife": 12000, "er_payroll": 15688, "sep": 48000, "sep_owner": 45000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 76513, "ca_corp": 800}, "p": {"label": "Owner $180K", "agi": 320208, "itemized": 62747, "salt": 27633, "qbi": 30573, "ti": 226888, "fed_gross": 39649, "energy": 10543, "gbc": 22385, "fed": 6996, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 15817, "ca_ti": 247721, "emp_fica": 17442}, "name": "Owner $180K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 56743, "savings": 48000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 225149, "pool": 401896}}, {"corp": {"wages_owner": 140000, "wages_wife": 12000, "er_payroll": 12628, "sep": 38000, "sep_owner": 35000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 129573, "ca_corp": 1588}, "p": {"label": "Owner $140K", "agi": 333268, "itemized": 63961, "salt": 28847, "qbi": 41185, "ti": 228122, "fed_gross": 39945, "energy": 10543, "gbc": 22385, "fed": 7292, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 17031, "ca_ti": 260781, "emp_fica": 14382}, "name": "Owner $140K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 52921, "savings": 38000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 238971, "pool": 401896}}, {"corp": {"wages_owner": 100000, "wages_wife": 12000, "er_payroll": 9568, "sep": 28000, "sep_owner": 25000, "sep_wife": 3000, "health": 18000, "fee": 0, "k1": 182633, "ca_corp": 2384}, "p": {"label": "Owner $100K", "agi": 346328, "itemized": 65176, "salt": 30062, "qbi": 51797, "ti": 229355, "fed_gross": 40241, "energy": 10543, "gbc": 22385, "fed": 7588, "add_med": 0, "niit": 275, "marginal": 0.24, "ca": 18246, "ca_ti": 273841, "emp_fica": 11322}, "name": "Owner $100K", "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "econ": {"taxes": 49108, "savings": 28000, "health": 18000, "retained": 0, "premium": 24000, "loan_repay": 25000, "loan_interest": 5004, "spend": 252784, "pool": 401896}}], "s2": {"fee": 300000, "c_wages": 120000, "c_wages_wife": 12000, "c_er": 11098, "c_sep": 33000, "c_health": 18000, "c_admin": 6000, "c_pre": 99902, "c_ca": 8831, "c_fed": 19125, "c_after": 71946, "corp": {"wages_owner": 0, "wages_wife": 0, "er_payroll": 0, "sep": 0, "sep_owner": 0, "sep_wife": 0, "health": 0, "fee": 300000, "k1": 50201, "ca_corp": 800}, "p": {"label": "Scenario 2", "agi": 233896, "itemized": 54720, "salt": 19606, "qbi": 25310, "ti": 153866, "fed_gross": 23274, "energy": 10543, "gbc": 12731, "fed": 0, "add_med": 0, "niit": 0, "marginal": 0.22, "ca": 7790, "ca_ti": 161409, "emp_fica": 12852}, "name": "Scenario 2: sibling C corp", "premium": 24000, "prem_loan": 24000, "repay_loan": 47946, "years": [{"year": 2026, "retained": 71946, "premium": 24000, "repay": 47946, "b_balance": 77154, "expansion": 0, "owes_c": 71946, "interest": 2878}, {"year": 2027, "retained": 71946, "premium": 24000, "repay": 47946, "b_balance": 29208, "expansion": 0, "owes_c": 143892, "interest": 5756}, {"year": 2028, "retained": 71946, "premium": 24000, "repay": 29208, "b_balance": 0, "expansion": 18737, "owes_c": 197100, "interest": 7884}, {"year": 2029, "retained": 71946, "premium": 24000, "repay": 0, "b_balance": 0, "expansion": 47946, "owes_c": 221100, "interest": 8844}, {"year": 2030, "retained": 71946, "premium": 24000, "repay": 0, "b_balance": 0, "expansion": 47946, "owes_c": 245100, "interest": 9804}], "death_benefit": 1500000, "interest_saved": 26271, "econ": {"taxes": 60496, "savings": 33000, "health": 18000, "retained": 71946, "premium": 0, "loan_repay": 0, "loan_interest": 2878, "spend": 215576, "pool": 401896}}}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $=v=>(v<0?'−':'')+'$'+Math.abs(Math.round(v)).toLocaleString();
+const $k=v=>(v<0?'−':'')+'$'+(Math.abs(v)/1000).toFixed(Math.abs(v)>=100000?0:1)+'K';
+const B=D.baseline, S1=D.s1[1], T=D.s2, P=T.p, C=T.corp, Y=T.years;
+const corpTax=T.c_fed+T.c_ca;
+document.getElementById('kpis').innerHTML=[
+ {l:'All taxes, household + C corp',v:$(T.econ.taxes),n:'baseline '+$(B.econ.taxes)+' · Scenario 1 '+$(S1.econ.taxes)},
+ {l:'Retirement funded',v:$(T.econ.savings+15000),n:$(T.econ.savings)+' SEP + $15K Roth'},
+ {l:'Protection in force',v:'$1.5M',n:'premium lent by the C corp, not from take-home'},
+ {l:'Spendable this year',v:$(T.econ.spend-15000),n:'after taxes, savings, Roth, AFR interest'},
+ {l:'Old loan after year 3',v:'$0',n:'replaced by a documented note to the C corp'},
+].map(x=>`<div class="card kpi"><div class="label">${x.l}</div><div class="value">${x.v}</div><div class="note">${x.n}</div></div>`).join('');
+document.getElementById('headline').innerHTML=`<b>Headline.</b> The C corp earns ${$(T.fee)}, pays ${$(T.c_wages+T.c_wages_wife)} of wages, ${$(T.c_sep)} of SEP and ${$(T.c_health)} of health insurance, and keeps ${$(T.c_after)} after ${$(corpTax)} of corporate tax. That retained money funds the $24,000 life insurance premium and ${$(Y[0].repay)} of repayment on the old loan in year 1, both as documented loans to the owner. Personal federal tax falls to ${$(P.fed)} and California to ${$(P.ca)}. Total taxes across the household and the corporation are ${$(T.econ.taxes)}, about ${$(T.econ.taxes-B.econ.taxes)} more than doing nothing and ${$(T.econ.taxes-S1.econ.taxes)} more than Scenario 1, but the family ends the year insured, with ${$(T.econ.savings+15000)} in retirement accounts, the loan exposure on a repayment path, and ${$(T.econ.spend-15000)} to spend. Scenario 1 reaches similar protection with ${$(S1.econ.spend-15000)} to spend because it pays the premium and the loan from after-tax salary.`;
+document.getElementById('tC').innerHTML=`<table><tbody>
+<tr><td>Service fees from B LLC</td><td>${$(T.fee)}</td></tr>
+<tr><td>Owner salary</td><td>${$(-T.c_wages)}</td></tr>
+<tr><td>Spouse salary</td><td>${$(-T.c_wages_wife)}</td></tr>
+<tr><td>Employer payroll taxes</td><td>${$(-T.c_er)}</td></tr>
+<tr><td>SEP-IRA contributions (25%)</td><td>${$(-T.c_sep)}</td></tr>
+<tr><td>Health insurance (tax-free fringe)</td><td>${$(-T.c_health)}</td></tr>
+<tr><td>Overhead of a second entity</td><td>${$(-T.c_admin)}</td></tr>
+<tr class="total"><td>Corporate taxable income</td><td>${$(T.c_pre)}</td></tr>
+<tr><td>California tax, 8.84%</td><td>${$(-T.c_ca)}</td></tr>
+<tr><td>Federal tax, 21% (after CA deduction)</td><td>${$(-T.c_fed)}</td></tr>
+<tr class="total"><td>Retained earnings after tax</td><td>${$(T.c_after)}</td></tr>
+<tr><td>Lent to owner for the life insurance premium</td><td>${$(T.prem_loan)}</td></tr>
+<tr><td>Lent to owner to repay B LLC</td><td>${$(Y[0].repay)}</td></tr>
+<tr><td>AFR interest the owner pays the C corp, year 1</td><td>${$(Y[0].interest)}</td></tr>
+</tbody></table>`;
+document.getElementById('tP').innerHTML=`<table><tbody>
+<tr class="sec"><td colspan="2">B LLC (S corporation)</td></tr>
+<tr><td>Profit before owner pay</td><td>${$(350201)}</td></tr>
+<tr><td>Service fee to the C corp</td><td>${$(-T.fee)}</td></tr>
+<tr class="total"><td>Ordinary income to K-1</td><td>${$(C.k1)}</td></tr>
+<tr><td>California S-corp tax</td><td>${$(C.ca_corp)}</td></tr>
+<tr><td>Cash received on the old loan, year 1</td><td>${$(Y[0].repay)}</td></tr>
+<tr class="sec"><td colspan="2">Personal return (MFJ)</td></tr>
+<tr><td>W-2 wages from the C corp (owner + spouse)</td><td>${$(T.c_wages+T.c_wages_wife)}</td></tr>
+<tr><td>K-1 from B LLC</td><td>${$(C.k1)}</td></tr>
+<tr><td>Other household income</td><td>${$(51695)}</td></tr>
+<tr class="total"><td>Adjusted gross income</td><td>${$(P.agi)}</td></tr>
+<tr><td>Itemized deductions</td><td>${$(-P.itemized)}</td></tr>
+<tr><td>QBI deduction (B LLC and partnership)</td><td>${$(-P.qbi)}</td></tr>
+<tr class="total"><td>Taxable income</td><td>${$(P.ti)}</td></tr>
+<tr><td>Federal tax before credits</td><td>${$(P.fed_gross)}</td></tr>
+<tr><td>Credits used</td><td>${$(-(P.energy+P.gbc))}</td></tr>
+<tr class="total"><td>Federal tax</td><td>${$(P.fed)}</td></tr>
+<tr><td>California income tax</td><td>${$(P.ca)}</td></tr>
+<tr><td>Employee payroll taxes (incl. V C LLC wages)</td><td>${$(P.emp_fica)}</td></tr>
+</tbody></table>`;
+document.getElementById('tYears').innerHTML=`<table><thead><tr><th></th>${Y.map(y=>`<th>${y.year}</th>`).join('')}</tr></thead><tbody>
+<tr><td>Retained after corporate tax</td>${Y.map(y=>`<td>${$(y.retained)}</td>`).join('')}</tr>
+<tr><td>Lent for life insurance premium</td>${Y.map(y=>`<td>${$(y.premium)}</td>`).join('')}</tr>
+<tr><td>Lent to repay B LLC</td>${Y.map(y=>`<td>${$(y.repay)}</td>`).join('')}</tr>
+<tr><td>Kept as expansion reserve</td>${Y.map(y=>`<td>${$(y.expansion)}</td>`).join('')}</tr>
+<tr class="total"><td>Old loan balance at B LLC, year end</td>${Y.map(y=>`<td class="${y.b_balance?'warn':'pos'}">${$(y.b_balance)}</td>`).join('')}</tr>
+<tr><td>Owner owes the C corp, year end</td>${Y.map(y=>`<td>${$(y.owes_c)}</td>`).join('')}</tr>
+<tr><td>AFR interest owed for the year (4%)</td>${Y.map(y=>`<td>${$(y.interest)}</td>`).join('')}</tr>
+<tr><td>Cumulative premiums into the policy</td>${Y.map((y,i)=>`<td>${$(y.premium*(i+1))}</td>`).join('')}</tr>
+</tbody></table>`;
+document.getElementById('tProt').innerHTML=`<table><thead><tr><th></th><th>Baseline</th><th>Scenario 1 ($140K)</th><th>Scenario 2</th></tr></thead><tbody>
+<tr><td>Health insurance</td><td class="neg">none</td><td class="pos">family, via S corp</td><td class="pos">family, tax-free fringe</td></tr>
+<tr><td>Life insurance death benefit</td><td class="neg">none</td><td class="pos">$1.5M, paid after tax</td><td class="pos">$1.5M, premium lent by C corp</td></tr>
+<tr><td>Retirement funded in 2026</td><td class="neg">$0</td><td class="pos">${$(S1.econ.savings+15000)}</td><td class="pos">${$(T.econ.savings+15000)}</td></tr>
+<tr><td>Old loan</td><td class="neg">$125,100 undocumented</td><td class="warn">$100,100 on a note, 5 years</td><td class="warn">${$(Y[0].b_balance)} after year 1, cleared year 3</td></tr>
+<tr><td>Company debt at 20%+</td><td class="neg">$171.5K, growing</td><td class="warn">reduced $25K/yr</td><td class="pos">reduced ${$(Y[0].repay)}/yr</td></tr>
+<tr><td>Money building inside a corporation</td><td>$0</td><td>$0</td><td>${$(T.c_after)}/yr</td></tr>
+<tr class="total"><td>Spendable</td><td>${$(B.econ.spend)}</td><td>${$(S1.econ.spend-15000)}</td><td>${$(T.econ.spend-15000)}</td></tr>
+</tbody></table>`;
+const cols=[['Married baseline',B],['Scenario 1 ($140K)',S1],['Scenario 2 C corp',T]];
+const row=(label,f,cls)=>`<tr class="${cls||''}"><td>${label}</td>${cols.map(c=>`<td>${f(c[1])}</td>`).join('')}</tr>`;
+document.getElementById('tCmp').innerHTML=`<table><thead><tr><th></th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>
+${row('All taxes',c=>$(c.econ.taxes),'total')}
+${row('Change vs baseline',c=>`<span class="${c.econ.taxes-B.econ.taxes>0?'neg':'pos'}">${$(c.econ.taxes-B.econ.taxes)}</span>`)}
+${row('Retirement (SEP + Roth)',c=>$(c.econ.savings+(c===B?0:15000)))}
+${row('Health and life premiums',c=>$(c.econ.health+c.econ.premium+(c===T?T.prem_loan:0)))}
+${row('Old loan repaid',c=>$(c===T?Y[0].repay:c.econ.loan_repay))}
+${row('Interest on documented loans',c=>$(c.econ.loan_interest))}
+${row('Retained for expansion',c=>$(c===T?Y[0].expansion:0))}
+${row('Spendable',c=>$(c.econ.spend-(c===B?0:15000)),'total')}
+</tbody></table>`;
+const th={ink2:css('--ink2'),muted:css('--muted'),grid:css('--grid'),axis:css('--axis'),surface:css('--surface'),ink:css('--ink')};
+const f=c=>({taxes:c.econ.taxes, sav:c.econ.savings+(c===B?0:15000), prem:c.econ.health+c.econ.premium+(c===T?T.prem_loan:0), loan:(c===T?Y[0].repay+Y[0].expansion:c.econ.loan_repay)+c.econ.loan_interest, spend:c.econ.spend-(c===B?0:15000)});
+const sets=[['Taxes','taxes','--s2'],['Retirement savings','sav','--s3'],['Health and life premiums','prem','--s4'],['Loan repayment and retained','loan','--s5'],['Spendable','spend','--s1']];
+const c=document.getElementById('cStack'); c.parentElement.style.height='230px';
+new Chart(c,{type:'bar',data:{labels:cols.map(x=>x[0]),datasets:sets.map(s=>({label:s[0],data:cols.map(x=>f(x[1])[s[1]]),backgroundColor:css(s[2]),borderRadius:3,borderSkipped:false,maxBarThickness:44,borderWidth:2,borderColor:th.surface}))},
+ options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,callbacks:{label:x=>`${x.dataset.label} ${$(x.raw)}`}}},
+ scales:{x:{stacked:true,grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2}},y:{stacked:true,grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>$k(v)}}}}});
+(function(){
+ const box=(x,y,w,h,t1,t2,fill,stroke)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="${fill}" stroke="${stroke}"/><text x="${x+w/2}" y="${y+22}" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--ink)">${t1}</text>${t2.map((t,i)=>`<text x="${x+w/2}" y="${y+40+i*15}" text-anchor="middle" font-size="11" fill="var(--ink2)">${t}</text>`).join('')}`;
+ const arrow=(x1,y1,x2,y2,label,color,dy=-6)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" marker-end="url(#ah)"/>${label?`<text x="${(x1+x2)/2}" y="${Math.min(y1,y2)+dy}" text-anchor="middle" font-size="10.5" fill="var(--ink2)">${label}</text>`:''}`;
+ let h=`<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>`;
+ const Yb=40;
+ h+=box(10,Yb,170,110,'B LLC (S corp)',['revenue $600K','profit pool $350.2K','K-1 '+$k(C.k1)+' to owner','gets '+$k(Y[0].repay)+' loan repaid'],'var(--wash)','var(--s1)');
+ h+=box(215,Yb,170,125,'C corp (sibling)',['fees '+$k(T.fee),'wages $132K, SEP $33K','health $18K, tax '+$k(corpTax),'retained '+$k(T.c_after)],'var(--wash2)','var(--s2)');
+ h+=arrow(182,Yb+35,213,Yb+35,'$300K fee','var(--s2)');
+ h+=box(420,Yb,170,110,'Owner household',['W-2 $132K + K-1 '+$k(C.k1),'AGI '+$k(P.agi)+', taxes '+$k(P.fed+P.ca+P.emp_fica),'spendable '+$k(T.econ.spend-15000)],'var(--wash)','var(--s1)');
+ h+=arrow(387,Yb+25,418,Yb+25,'wages','var(--s2)');
+ h+=`<polyline points="95,${Yb-2} 95,14 505,14 505,${Yb-2}" fill="none" stroke="var(--s1)" stroke-width="2" marker-end="url(#ah)"/><text x="300" y="11" text-anchor="middle" font-size="10.5" fill="var(--ink2)">K-1 distribution ${$k(C.k1)}</text>`;
+ h+=box(215,Yb+185,170,65,'SEP-IRAs $33K',['owner $30K, spouse $3K'],'var(--wash3)','var(--s3)');
+ h+=box(420,Yb+185,170,65,'Life policy $1.5M',['owner-owned, assigned to corp','$24K premium lent at AFR'],'var(--wash3)','var(--s3)');
+ h+=arrow(260,Yb+127,260,Yb+183,'','var(--s3)');
+ h+=arrow(340,Yb+127,470,Yb+183,'$24K premium loan','var(--s3)',-10);
+ h+=`<polyline points="505,${Yb+183} 505,${Yb+160} 95,${Yb+160} 95,${Yb+152}" fill="none" stroke="var(--s5)" stroke-width="2" marker-end="url(#ah)"/><text x="300" y="${Yb+174}" text-anchor="middle" font-size="10.5" fill="var(--ink2)">${$k(Y[0].repay)} lent to owner, paid to B LLC on the old loan</text>`;
+ h+=`<line x1="560" y1="${Yb+183}" x2="560" y2="${Yb+152}" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4"/><text x="578" y="${Yb+170}" text-anchor="middle" font-size="9.5" fill="var(--muted)">collateral</text>`;
+ h+=`<text x="300" y="${Yb+290}" text-anchor="middle" font-size="11" fill="var(--ink2)">Death benefit repays the corporation; the family keeps the rest tax free. No dividends, no undocumented loans.</text>`;
+ h+=`<text x="300" y="${Yb+310}" text-anchor="middle" font-size="11" fill="var(--ink2)">All taxes ${$k(T.econ.taxes)} · retirement ${$k(T.econ.savings+15000)} · retained ${$k(T.c_after)}</text>`;
+ document.getElementById('flow2').innerHTML=h;
+})();
+</script>
+</div></body></html>

@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction</title>
+<style>
+@page{size:1920px 1080px;margin:0}
+*{box-sizing:border-box}html{background:#d9d9d4}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#0b0b0b}
+.slide{width:1920px;height:1080px;padding:70px 90px 60px;position:relative;overflow:hidden;background:#fcfcfb;margin:24px auto;box-shadow:0 2px 14px rgba(0,0,0,.12);page-break-after:always}
+@media print{html{background:#fff}.slide{margin:0;box-shadow:none}}
+.title{background:#0d366b;color:#fff}
+h1{font-size:58px;margin:0 0 10px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:44px;margin:0 0 22px;font-weight:650;letter-spacing:-.01em}
+h3{font-size:24px;margin:0 0 8px;font-weight:650}
+p,li{font-size:22px;line-height:1.45}
+.sub{color:#52514e;font-size:26px}.title .sub{color:#cde2fb}
+.foot{position:absolute;bottom:28px;left:90px;right:90px;display:flex;justify-content:space-between;font-size:16px;color:#898781}.title .foot{color:#86b6ef}
+.row{display:grid;gap:28px}.c2{grid-template-columns:1fr 1fr}.c5{grid-template-columns:repeat(5,1fr)}.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:26px 30px}
+.pillar{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:26px 22px;text-align:center}
+.pillar .ic{width:110px;height:110px;margin:0 auto 14px}
+.pillar h3{font-size:22px;margin-bottom:6px}.pillar p{font-size:17px;color:#52514e;margin:0;line-height:1.4}
+.pillar.now{border-top:8px solid #e34948}.pillar.soon{border-top:8px solid #eda100}.pillar.later{border-top:8px solid #1baf7a}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.tag.now{background:rgba(208,59,59,.10);color:#d03b3b}.tag.soon{background:rgba(250,178,25,.16);color:#b86a00}.tag.later{background:rgba(12,163,12,.10);color:#006300}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+table{width:100%;border-collapse:collapse;font-size:21px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid #e1e0d9}th:first-child,td:first-child{text-align:left}
+th{color:#52514e;font-weight:600;font-size:19px}td.q{color:#898781;font-style:italic}
+.callout{border-left:8px solid #2a78d6;background:#eef4fc;padding:16px 22px;border-radius:10px;font-size:22px}
+.milestone{display:flex;align-items:center;gap:18px}.milestone .dot{width:22px;height:22px;border-radius:50%;background:#2a78d6;flex:none}
+.big{font-size:84px;font-weight:700;color:#fff;margin:0;line-height:1.05}
+</style>
+</head>
+<body>
+
+<div class="slide title">
+  <div style="margin-top:1.3in;max-width:1000px">
+    <div class="sub" style="font-size:22px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px">A two-minute introduction</div>
+    <h1 style="font-size:66px;color:#fff">From one great company<br>to a protected family</h1>
+    <div class="sub" style="margin-top:18px;font-size:28px">Where the Institute, the real estate and the family stand, and what today is about</div>
+  </div>
+  <div style="position:absolute;right:90px;top:120px;width:640px">
+    <svg viewBox="0 0 640 560" width="100%">
+      <text x="320" y="50" text-anchor="middle" font-size="22" fill="#cde2fb">What the family owns today: $67.1 million</text>
+      <rect x="60" y="134" width="90" height="366" rx="8" fill="#3987e5"/><text x="105" y="120" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$47M</text>
+      <rect x="190" y="367" width="90" height="133" rx="8" fill="#86b6ef"/><text x="235" y="353" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$17M</text>
+      <rect x="320" y="477" width="90" height="23" rx="6" fill="#86b6ef"/><text x="365" y="463" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$3M</text>
+      <rect x="450" y="497" width="90" height="3" rx="1" fill="#eda100"/><text x="495" y="487" text-anchor="middle" font-size="20" fill="#eda100" font-weight="700">$100K</text>
+      <line x1="40" y1="500" x2="600" y2="500" stroke="#86b6ef" stroke-width="2"/>
+      <g font-size="17" fill="#cde2fb" text-anchor="middle">
+        <text x="105" y="528">The Institute</text><text x="105" y="550">C corporation</text>
+        <text x="235" y="528">Real Estate</text><text x="235" y="550">LLC2</text>
+        <text x="365" y="528">Real Estate</text><text x="365" y="550">LLC1</text>
+        <text x="495" y="528">Cash, investments,</text><text x="495" y="550">retirement accounts</text>
+      </g>
+    </svg>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Intro · 1 / 12</span></div>
+</div>
+
+<div class="slide">
+  <h2>The company, and what the family has taken home</h2>
+  <div class="row c2">
+    <div class="card">
+      <h3>The Institute of Applied Behavior Analysis, 2026 to 2053</h3>
+      <table><thead><tr><th></th><th>2026</th><th>2029 retire</th><th>2036</th><th>2053</th></tr></thead><tbody>
+        <tr><td>Revenue</td><td>$50.4M</td><td class="q">–</td><td class="q">–</td><td>$112.0M</td></tr>
+        <tr><td>Pre-tax profit</td><td>$5.4M</td><td class="q">–</td><td class="q">–</td><td>$12.0M</td></tr>
+        <tr><td>Corporate tax (about 28%)</td><td>$1.5M</td><td class="q">–</td><td class="q">–</td><td>$3.4M</td></tr>
+        <tr><td>Company value, all profit kept inside</td><td>$47.0M</td><td class="q">–</td><td class="q">–</td><td>$104.4M</td></tr>
+        <tr><td>Paid out to the family</td><td>$0</td><td class="q">to decide today</td><td>$660K</td><td class="q">–</td></tr>
+        <tr><td>Retirement plan contributions</td><td>$0</td><td class="q">to decide today</td><td class="q">–</td><td class="q">–</td></tr>
+      </tbody></table>
+      <p style="color:#52514e;font-size:19px;margin-top:12px">The company earns $5 million a year and keeps all of it. At a conservative 3.0% a year the company is worth $104 million by 2053 and the family&#39;s estate about $149 million, all of it inside a C corporation and inside the estate, taxed once on the way in and again on the way out.</p>
+      <p style="color:#898781;font-size:14px;margin-top:6px">Long-term projections are based on a conservative 3.0% annual growth assumption and are intended for planning illustration purposes only. The RightCapital report&#39;s own projection reaches $180.7 million on its growth assumptions.</p>
+    </div>
+    <div class="card">
+      <h3>The household, 2026 to 2036</h3>
+      <table><thead><tr><th></th><th>2026</th><th>2029 retire</th><th>2030 to 2035</th><th>2036</th></tr></thead><tbody>
+        <tr><td>Salaries</td><td>$700,000</td><td class="q">stop</td><td>$0</td><td>$0</td></tr>
+        <tr><td>Social Security</td><td>$18,435</td><td>$48,000</td><td class="q">$48K to $117K</td><td class="q">–</td></tr>
+        <tr><td>Distributions from the Institute</td><td>$0</td><td class="q">to decide today</td><td class="q">to decide today</td><td>$660,000</td></tr>
+        <tr><td>Taxes (federal, state, payroll)</td><td>$208,972</td><td class="q">–</td><td class="q">–</td><td class="q">–</td></tr>
+        <tr><td>Living costs, UCLA, tuition</td><td>$525,000</td><td>$390,000</td><td class="q">$390K to $590K</td><td class="q">–</td></tr>
+        <tr><td>Liquid assets</td><td>$100,000</td><td class="q">–</td><td class="q">–</td><td class="q">–</td></tr>
+      </tbody></table>
+      <p style="color:#52514e;font-size:19px;margin-top:12px">Today the family runs at break-even on $718K of income with a 29% tax rate. From 2029 to 2035 the plan shows $48K of income against $400K or more of spending, with $100K in the bank.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:26px"><b>Two things are fixed.</b> Retirement in 2029, and what the family wants to leave: $20 million to four children, $5 million to two grandchildren, two college educations and $825,000 to UCLA. Everything in between is open, and that is what the plan is for.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Intro · 2 / 12</span></div>
+</div>
+
+<div class="slide">
+  <h2>What we are building, in the order it has to happen</h2>
+  <div class="row c5">
+    <div class="pillar now"><span class="tag now">First</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#e34948" opacity=".12"/><rect x="30" y="34" width="50" height="46" rx="6" fill="#e34948"/><rect x="38" y="44" width="34" height="5" rx="2" fill="#fff"/><rect x="38" y="55" width="26" height="5" rx="2" fill="#fff"/><rect x="38" y="66" width="18" height="5" rx="2" fill="#fff"/><circle cx="76" cy="36" r="12" fill="#fff" stroke="#e34948" stroke-width="4"/><path d="M71 36 L75 40 L82 32" stroke="#e34948" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+      <h3>Tax Mitigation</h3><p>Salaries, benefits and a retirement plan deducted by the Institute; a distribution policy; charitable giving and credits that a C corporation can use.</p></div>
+    <div class="pillar now"><span class="tag now">First</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#6250d6" opacity=".12"/><circle cx="55" cy="30" r="10" fill="#6250d6"/><circle cx="30" cy="66" r="10" fill="#6250d6"/><circle cx="80" cy="66" r="10" fill="#6250d6"/><path d="M55 40 L30 56 M55 40 L80 56" stroke="#6250d6" stroke-width="5"/><rect x="40" y="78" width="30" height="8" rx="4" fill="#6250d6"/></svg>
+      <h3>Wealth Transfer</h3><p>Living trust, two SLATs and a dynasty trust take future growth out of a $149 million estate; insurance in an ILIT pays whatever tax remains.</p></div>
+    <div class="pillar soon"><span class="tag soon">Next</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#2a78d6" opacity=".12"/><path d="M55 24 L82 34 V55 C82 73 69 84 55 89 C41 84 28 73 28 55 V34 Z" fill="#2a78d6"/><path d="M44 56 L52 64 L68 46" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Securing Retirement</h3><p>A 401(k) and cash balance plan funded by the Institute, Social Security at 70, and income that starts in 2029 rather than 2036.</p></div>
+    <div class="pillar later"><span class="tag later">Then</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#1baf7a" opacity=".12"/><rect x="26" y="46" width="26" height="40" rx="3" fill="#1baf7a"/><rect x="58" y="30" width="26" height="56" rx="3" fill="#1baf7a"/><rect x="32" y="54" width="6" height="6" fill="#fff"/><rect x="42" y="54" width="6" height="6" fill="#fff"/><rect x="64" y="38" width="6" height="6" fill="#fff"/><rect x="74" y="38" width="6" height="6" fill="#fff"/><rect x="64" y="50" width="6" height="6" fill="#fff"/><rect x="74" y="50" width="6" height="6" fill="#fff"/></svg>
+      <h3>Wealth Accumulation</h3><p>$20 million of debt-free real estate put to work: cost segregation, refinancing for liquidity, 1031 exchanges, and discounted transfers to the trusts.</p></div>
+    <div class="pillar later"><span class="tag later">Then</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#eda100" opacity=".14"/><path d="M28 72 H82 L55 30 Z" fill="#eda100"/><rect x="22" y="72" width="66" height="10" rx="4" fill="#eda100"/><circle cx="55" cy="56" r="7" fill="#fff"/></svg>
+      <h3>Capital Preservation</h3><p>A guaranteed floor under retirement income with annuities, and reserves in California municipal bonds that pay tax-free at the family&#39;s brackets.</p></div>
+  </div>
+  <div class="row c3" style="margin-top:28px">
+    <div class="card"><div class="milestone"><span class="dot"></span><div><b style="font-size:22px">Where we are</b><div style="color:#52514e;font-size:19px">A $67 million enterprise, three years to retirement, $100K of liquidity, $50K of life insurance and no trusts.</div></div></div></div>
+    <div class="card"><div class="milestone"><span class="dot" style="background:#eda100"></span><div><b style="font-size:22px">What today decides</b><div style="color:#52514e;font-size:19px">Living trust and recapitalization now, appraisal and underwriting now, a retirement plan for 2026, and a 90-day process to choose the Institute&#39;s future.</div></div></div></div>
+    <div class="card"><div class="milestone"><span class="dot" style="background:#1baf7a"></span><div><b style="font-size:22px">Where it leads</b><div style="color:#52514e;font-size:19px">By 2029: growth outside the estate, tax covered by insurance, a pension paid by the company, and $25 million reaching the family by design.</div></div></div></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Intro · 3 / 12</span></div>
+</div>
+
+
+<div class="slide" id="s-arch">
+  <h2 style="margin-bottom:10px">Shahawi Family Wealth &amp; Legacy Architecture</h2>
+  <div class="archctl">
+    <span>Layers:</span><button data-layer="layer-assets" class="on">Assets</button><button data-layer="layer-trusts" class="on">Trusts</button><button data-layer="layer-family" class="on">Family</button><button data-layer="layer-charity" class="on">Charity</button><button data-layer="layer-flows" class="on">Flows</button>
+    <span style="margin-left:14px">Zoom:</span><button data-zoom="in">+</button><button data-zoom="out">&minus;</button><button data-zoom="reset">Reset</button>
+  </div>
+  <div class="archwrap">
+  <svg id="arch" viewBox="0 0 1740 880" width="100%" style="display:block">
+    <defs>
+      <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2a78d6"/></marker>
+      <marker id="arV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#6250d6"/></marker>
+      <marker id="arP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#d6508f"/></marker>
+      <marker id="arG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1baf7a"/></marker>
+      <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#eda100"/></marker>
+    </defs>
+    <g font-size="12.5">
+    <!-- ================= LEGEND ================= -->
+    <g id="legend">
+      <rect x="10" y="6" width="500" height="104" rx="12" fill="#f3f4f6"/>
+      <text x="24" y="28" font-weight="700" font-size="14">How to read the colors</text>
+      <rect x="24" y="42" width="14" height="14" rx="3" fill="#0d366b"/><text x="46" y="54" font-size="12">Gen 1: grantors, trustees</text>
+      <rect x="200" y="42" width="14" height="14" rx="3" fill="#fff" stroke="#2a78d6" stroke-width="3"/><text x="222" y="54" font-size="12">Future beneficiaries (2053)</text>
+      <rect x="390" y="42" width="14" height="14" rx="3" fill="#fff" stroke="#eda100" stroke-width="3" stroke-dasharray="4 3"/><text x="412" y="54" font-size="12">Conditional</text>
+      <line x1="24" y1="80" x2="66" y2="80" stroke="#2a78d6" stroke-width="3" marker-end="url(#arB)"/><text x="74" y="84" font-size="12">asset into a trust</text>
+      <line x1="200" y1="80" x2="242" y2="80" stroke="#6250d6" stroke-width="3" marker-end="url(#arV)"/><text x="250" y="84" font-size="12">trust to the family</text>
+      <line x1="370" y1="80" x2="412" y2="80" stroke="#d6508f" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arP)"/><text x="420" y="84" font-size="12">charitable flow</text>
+      <text x="24" y="104" font-size="11.5" fill="#52514e">Dashed boxes: only at a sale, a birth or a later decision · hover any box for detail</text>
+    </g>
+    <!-- ================= GENERATION 1 ================= -->
+    <g id="layer-family">
+      <g class="node" data-tip="Ihab and Vivian create and fund every trust (grantors). They are trustees only of the revocable living trust and, for HEMS, co-trustees of each other's SLAT. They are current beneficiaries of each other's SLAT, the CRT's income and the GRAT's annuity. They keep every voting share, the home, the cash and the foreign property.">
+        <rect x="540" y="6" width="660" height="104" rx="14" fill="#0d366b"/>
+        <text x="870" y="34" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Generation 1 · Ihab (63) and Vivian (67)</text>
+        <text x="870" y="58" text-anchor="middle" fill="#cde2fb" font-size="12.5">Grantors of every trust · Trustees of the living trust · HEMS co-trustee of each other&#39;s SLAT</text>
+        <text x="870" y="78" text-anchor="middle" fill="#cde2fb" font-size="12.5">Beneficiaries now: Vivian of SLAT 1, Ihab of SLAT 2, both of the CRT income and the GRAT annuity</text>
+        <text x="870" y="98" text-anchor="middle" fill="#86b6ef" font-size="12.5">Keep: voting control of the Institute, the home, cash, Beverly Hills and the foreign properties</text>
+      </g>
+    </g>
+    <!-- KPI strip -->
+    <g id="kpi">
+      <rect x="1240" y="6" width="490" height="104" rx="12" fill="#f3f4f6"/>
+      <text x="1254" y="28" font-weight="700" font-size="14">What the family owns today</text>
+      <text x="1254" y="52" font-size="12.5">Net worth <tspan font-weight="700">$67.1M</tspan> · liquid <tspan font-weight="700">$300K</tspan> · life insurance <tspan font-weight="700">$50K</tspan></text>
+      <text x="1254" y="72" font-size="12.5">Estate tax if both passed today <tspan font-weight="700" fill="#b42318">$14.8M</tspan> · on the 2053 path at 3% <tspan font-weight="700" fill="#b42318">$36M</tspan></text>
+      <text x="1254" y="92" font-size="12.5">With the plan: about <tspan font-weight="700" fill="#0f6b4b">$64M</tspan> moves out of the estate; the ILIT pays the tax</text>
+    </g>
+    <!-- section labels -->
+    <g font-weight="700" font-size="13" fill="#52514e" text-anchor="middle">
+      <text x="270" y="140">TRUSTS FUNDED IN 2026 AND 2027</text>
+      <text x="850" y="140">FAMILY ASSETS TODAY</text>
+      <text x="1325" y="140">INSURANCE, GRANDCHILDREN, AT-A-SALE TRUSTS</text>
+      <text x="1625" y="140">CHARITABLE LEGACY</text>
+    </g>
+    <!-- ================= ASSETS (center) ================= -->
+    <g id="layer-assets">
+      <g class="node" data-tip="The Institute for Applied Behavior Analysis, a C corporation owned 100% by Ihab and Vivian. $40M operating value plus a $5M investment account earning about 13% and $2M of operating cash. Profit of $5.4M a year is retained. Projected to reach about $149M by 2053 at a conservative 3.0% growth if nothing changes. Recapitalized into voting shares (kept) and non-voting shares (gifted and sold).">
+        <rect x="620" y="150" width="460" height="104" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="178" r="18" fill="#2a78d6"/><rect x="644" y="170" width="16" height="16" fill="#fff" rx="2"/><rect x="648" y="186" width="8" height="6" fill="#fff"/>
+        <text x="682" y="174" font-weight="700" font-size="15">The Institute (C corporation) · $47M</text>
+        <text x="682" y="194" font-size="12" fill="#52514e">$40M operating value · $5M portfolio at 13% · $2M cash</text>
+        <text x="682" y="212" font-size="12" fill="#52514e">Voting shares: kept · non-voting: SLAT 1 and the IDGT</text>
+        <text x="682" y="230" font-size="12" fill="#52514e">At a sale: 20% to a CRT, $10M to a GRAT, $10M cash to a CLAT</text>
+        <text x="682" y="248" font-size="12" fill="#9a5b00">Profit $5.4M a year, retained · no family successor</text>
+      </g>
+      <g class="node" data-tip="Nine US properties in two LLCs: LLC2 ($17M, seven properties including Beverly Hills, Bakersfield, Artesia, San Bernardino, Kansas, Missouri and a Pasadena rental that loses money) and LLC1 ($3M, two properties). The residence is jointly held; its value was not stated. Seven more properties abroad (five UK, one Egypt, one Colombia) are held personally and not yet valued; they get local wills and stay outside the US trusts.">
+        <rect x="620" y="268" width="460" height="122" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="296" r="18" fill="#5598e7"/><path d="M640 298 L652 286 L664 298 V308 H640 Z" fill="#fff"/>
+        <text x="682" y="292" font-weight="700" font-size="15">Real estate · $20M in two LLCs, plus 7 abroad</text>
+        <text x="682" y="312" font-size="12" fill="#52514e">LLC2 $17M: Beverly Hills kept; 5 growth properties to SLAT 2</text>
+        <text x="682" y="330" font-size="12" fill="#52514e">LLC1 $3M: units to the grandchildren&#39;s trust</text>
+        <text x="682" y="348" font-size="12" fill="#52514e">Residence (joint): living trust · Pasadena: sell, exchange or gift</text>
+        <text x="682" y="366" font-size="12" fill="#9a5b00">UK 5, Egypt 1, Colombia 1: held personally, local wills</text>
+        <text x="682" y="384" font-size="12" fill="#9a5b00">Manager units of both LLCs stay with Ihab (control)</text>
+      </g>
+      <g class="node" data-tip="The family holds no brokerage, retirement or stock accounts personally. The only portfolio, $5M, sits inside the Institute. Personal cash is $100K plus a $200K real estate operating account, which meets the plan's reserve target. A 401(k) and cash balance plan funded by the Institute are recommended in the main plan.">
+        <rect x="620" y="404" width="460" height="92" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="432" r="18" fill="#1baf7a"/><ellipse cx="652" cy="426" rx="10" ry="4" fill="#fff"/><rect x="642" y="426" width="20" height="10" fill="#fff"/><ellipse cx="652" cy="436" rx="10" ry="4" fill="#d0f0e0"/>
+        <text x="682" y="428" font-weight="700" font-size="15">Investments and cash · $300K + $7M in the company</text>
+        <text x="682" y="448" font-size="12" fill="#52514e">No brokerage, retirement or stock accounts held personally</text>
+        <text x="682" y="466" font-size="12" fill="#52514e">$100K checking + $200K real estate account: the reserve</text>
+        <text x="682" y="484" font-size="12" fill="#9a5b00">Future: 401(k) and cash balance plan funded by the Institute</text>
+      </g>
+      <g class="node" data-tip="Today: $50,000 of term life through the company. Recommended: a $20M second-to-die policy applied for and owned by the ILIT from day one, so it is never in the estate; $5M to $10M of key-person term owned by the Institute; hybrid life and long-term care policies for each spouse. Ihab has said he does not believe in life insurance; the decision is made on quotes against the three insurance-free alternatives.">
+        <rect x="620" y="510" width="460" height="92" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="538" r="18" fill="#e34948"/><path d="M640 540 A12 12 0 0 1 664 540 Z" fill="#fff"/><path d="M652 540 V550" stroke="#fff" stroke-width="3"/>
+        <text x="682" y="534" font-weight="700" font-size="15">Insurance · $50K today, $20M proposed</text>
+        <text x="682" y="554" font-size="12" fill="#52514e">Existing: $50K term through the company, immaterial</text>
+        <text x="682" y="572" font-size="12" fill="#52514e">Proposed: $20M second-to-die in the ILIT · key-person · LTC</text>
+        <text x="682" y="590" font-size="12" fill="#9a5b00">Decided on quotes at 63 and 67; fallback: a 303 reserve</text>
+      </g>
+    </g>
+    <!-- ================= TRUSTS: left column ================= -->
+    <g id="layer-trusts">
+      <g class="node" data-tip="Revocable living trust, restated (the existing one is twelve years old). Purpose: avoid probate, manage incapacity, carry the Institute's succession instructions, and split at the first death into survivor's, bypass and QTIP trusts. Holds about $18M: voting shares, the home, Beverly Hills, cash and the LLC manager units. Saves no estate tax; this is what remains taxable, and the ILIT pays that tax.">
+        <rect x="20" y="150" width="500" height="104" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="2.5"/>
+        <text x="36" y="174" font-weight="700" font-size="15">Revocable living trust (restated) · $18M in the estate</text>
+        <text x="36" y="194" font-size="12" fill="#52514e">Purpose: no probate, incapacity, succession; splits at the first death</text>
+        <text x="36" y="212" font-size="12" fill="#52514e">Holds: voting shares, home, Beverly Hills, cash, LLC manager units</text>
+        <text x="36" y="230" font-size="12" fill="#52514e">Trustees: Ihab and Vivian · successor: the 42-year-old son + corporate</text>
+        <text x="36" y="248" font-size="12" fill="#4a3bb0" font-weight="700">Beneficiaries: Ihab and Vivian for life, then the children&#39;s trusts</text>
+      </g>
+      <g class="node" data-tip="SLAT 1, funded by Ihab in 2026 with non-voting Institute shares appraised at $15M after a 30% discount (about $21M of underlying value). Uses Ihab's exemption. Vivian can receive HEMS distributions from the family co-trustee; a Nevada trust company decides everything else. Drafted as a GST-exempt dynasty trust. At the second death it divides into the four children's lifetime trusts.">
+        <rect x="20" y="266" width="500" height="104" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="36" y="290" font-weight="700" font-size="15">SLAT 1 · Ihab, 2026 · $15M appraised, $21M underlying</text>
+        <text x="36" y="310" font-size="12" fill="#52514e">Purpose: move the Institute&#39;s growth out while Vivian keeps access</text>
+        <text x="36" y="328" font-size="12" fill="#52514e">Non-voting shares · Nevada trust company + Vivian for HEMS · GST-exempt</text>
+        <text x="36" y="346" font-size="12" fill="#1b8f4a" font-weight="700">Current beneficiary: Vivian, for life</text>
+        <text x="36" y="364" font-size="12" fill="#4a3bb0" font-weight="700">Future: the four children, then grandchildren · about $47M in 2053 at 3%</text>
+      </g>
+      <g class="node" data-tip="IDGT: Ihab sells non-voting shares appraised at $15M (about $21M underlying) to a grantor trust for a nine-year note at about 4%, after a $1.5M seed gift. No gift tax, no capital gain on the sale, no exemption used beyond the seed. Dividends service the note; growth above 4% stays in the trust. Ihab pays the trust's income tax, a further tax-free transfer. Beneficiaries: the four children, then grandchildren; Vivian is deliberately excluded so this trust and SLAT 1 differ.">
+        <rect x="20" y="382" width="500" height="104" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="36" y="406" font-weight="700" font-size="15">IDGT sale · Ihab, 2027 · $15M of shares for a 9-year note</text>
+        <text x="36" y="426" font-size="12" fill="#52514e">Purpose: move a second $21M of Institute value out, no exemption used</text>
+        <text x="36" y="444" font-size="12" fill="#52514e">Non-voting shares; owes Ihab $15M at 4% · Nevada trustee · GST-exempt</text>
+        <text x="36" y="462" font-size="12" fill="#52514e">Note repaid to Ihab&#39;s living trust; growth above 4% stays in the trust</text>
+        <text x="36" y="480" font-size="12" fill="#4a3bb0" font-weight="700">Future: the four children, then grandchildren · about $52M in 2053 at 3%</text>
+      </g>
+      <g class="node" data-tip="SLAT 2, funded by Vivian in 2027 with non-managing LLC2 units appraised at $15M (about $20M of underlying property: Bakersfield, San Bernardino, Artesia, Kansas and Missouri). A different year, asset, trustee and terms from SLAT 1, which is what defeats the reciprocal-trust doctrine. Ihab can receive HEMS distributions. Beverly Hills stays out, in the living trust, for the basis step-up at death.">
+        <rect x="20" y="498" width="500" height="104" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="36" y="522" font-weight="700" font-size="15">SLAT 2 · Vivian, 2027 · $15M appraised, $20M underlying</text>
+        <text x="36" y="542" font-size="12" fill="#52514e">Purpose: move the real estate&#39;s growth out while Ihab keeps access</text>
+        <text x="36" y="560" font-size="12" fill="#52514e">Non-managing LLC2 units (cash-flow properties) · second trust company</text>
+        <text x="36" y="578" font-size="12" fill="#1b8f4a" font-weight="700">Current beneficiary: Ihab, for life</text>
+        <text x="36" y="596" font-size="12" fill="#4a3bb0" font-weight="700">Future: the four children, then grandchildren · about $44M in 2053 at 3%</text>
+      </g>
+      <!-- right column -->
+      <g class="node" data-tip="ILIT: irrevocable life insurance trust. Applies for and owns the $20M second-to-die policy from day one; premiums of about $350K a year are gifted (six beneficiaries' annual exclusions cover $228K). Trustee: the 42-year-old son or a corporate trustee; never Ihab or Vivian. At the second death the $20M pays the estate's tax by lending to or buying from the estate; the balance stays in the children's trusts. Drafted as a dynasty trust.">
+        <rect x="1170" y="150" width="310" height="86" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="2.5"/>
+        <text x="1184" y="172" font-weight="700" font-size="14">ILIT · $20M second-to-die policy</text>
+        <text x="1184" y="190" font-size="12" fill="#52514e">Pays the estate tax, taxed nowhere</text>
+        <text x="1184" y="206" font-size="12" fill="#52514e">Trustee: the 42-year-old son or a trust co.</text>
+        <text x="1184" y="224" font-size="12" fill="#4a3bb0" font-weight="700">Future: children; about $13M after tax</text>
+      </g>
+      <g class="node" data-tip="GRAT: only if a sale of the Institute is likely within two to three years. $10M of non-voting shares for a two-year term; Ihab receives the $10M back plus the IRS rate as two annuity payments; the jump in value at the sale passes to the children's trust with almost no gift. Ihab may be trustee during the term. If he dies during the term the assets return to his estate; nothing else is lost.">
+        <rect x="1170" y="246" width="310" height="86" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 4"/>
+        <text x="1184" y="268" font-weight="700" font-size="14">GRAT, 2 years · only at a sale · $10M</text>
+        <text x="1184" y="286" font-size="12" fill="#52514e">Passes the jump in value at the sale, gift-free</text>
+        <text x="1184" y="302" font-size="12" fill="#52514e">Trustee: Ihab during the term</text>
+        <text x="1184" y="320" font-size="12" fill="#9a5b00" font-weight="700">Now: Ihab · conditional: children, ~$3.5M</text>
+      </g>
+      <g class="node" data-tip="Charitable remainder unitrust: at a sale, 20% of the non-voting shares (about $12M at a $60M price) go in before any binding agreement. The trust sells with no capital gains tax, pays Ihab and Vivian 5% of its value every year for both lives (about $600K to start), and gives the remainder, $12M or more, to the IABA Foundation at the second death. Income tax deduction about $4.2M; estate tax avoided about $4.8M. Ihab may be trustee with an independent special trustee for valuation.">
+        <rect x="1170" y="342" width="310" height="86" rx="12" fill="#fbeaf2" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="7 4"/>
+        <text x="1184" y="364" font-weight="700" font-size="14">CRT 5% · at a sale · $12M of shares</text>
+        <text x="1184" y="382" font-size="12" fill="#52514e">Sells without the gain; income for both lives</text>
+        <text x="1184" y="398" font-size="12" fill="#52514e">Trustee: Ihab + special trustee (valuation)</text>
+        <text x="1184" y="416" font-size="12" fill="#b0306e" font-weight="700">Now: $600K a year · then the foundation</text>
+      </g>
+      <g class="node" data-tip="Charitable lead annuity trust: in the sale year, $10M of cash proceeds; pays the IABA Foundation $800,000 a year for twenty years ($16M); the remainder, about $5.9M at 7% growth, passes to the four children's trusts with no gift tax. Upfront income tax deduction about $10M, saving about $4.5M. Independent trustee, not Ihab and not a foundation officer. Explained in the Estate &amp; Trust deck, appendix slides 27 and 28.">
+        <rect x="1170" y="438" width="310" height="86" rx="12" fill="#fdf0e9" stroke="#e8702a" stroke-width="2.5" stroke-dasharray="7 4"/>
+        <text x="1184" y="460" font-weight="700" font-size="14">CLAT, 20 years · at a sale · $10M cash</text>
+        <text x="1184" y="478" font-size="12" fill="#52514e">Funds the foundation; remainder to heirs</text>
+        <text x="1184" y="494" font-size="12" fill="#52514e">Independent trustee · deduction ~$10M</text>
+        <text x="1184" y="512" font-size="12" fill="#c85a18" font-weight="700">$800K a year · then children, ~$5.9M</text>
+      </g>
+      <g class="node" data-tip="Grandchildren's dynasty / GST trust: seeded in 2027 with non-managing LLC1 units ($3M of property, about $2.1M appraised), GST exemption allocated, topped up with 20% of the estate at the second death. Open to every grandchild, present and future. Tuition paid to the school from 18; HEMS, a match of earned income and loans from 25; co-trustee of own share at 35. Never taxed at any beneficiary's death.">
+        <rect x="1170" y="534" width="310" height="86" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2.5"/>
+        <text x="1184" y="556" font-weight="700" font-size="14">Grandchildren&#39;s dynasty / GST trust</text>
+        <text x="1184" y="574" font-size="12" fill="#52514e">$2.1M of LLC1 units now · 20% at second death</text>
+        <text x="1184" y="590" font-size="12" fill="#52514e">Nevada trustee; the 42-year-old advises</text>
+        <text x="1184" y="608" font-size="12" fill="#0f6b4b" font-weight="700">Future: grandsons 16, 14 · any born later</text>
+      </g>
+    </g>
+    <!-- ================= CHARITY (far right) ================= -->
+    <g id="layer-charity">
+      <g class="node" data-tip="IABA Research &amp; Education Foundation, a 501(c)(3) Ihab founded and leads. The hub of the family's giving and governance: receives the annual gifts (about $175K of appreciated non-voting shares, subject to confirming public-charity status), the CLAT's $800K a year, and the CRT's remainder; makes the UCLA psychology grant as a named autism research program; two children join the board in 2027; a grant committee for the grandchildren from 16; a memorial program for the son lost thirteen years ago. A donor-advised fund plays a supporting role for gifts outside the mission.">
+        <rect x="1520" y="150" width="210" height="350" rx="12" fill="#fbeaf2" stroke="#d6508f" stroke-width="2.5"/>
+        <text x="1625" y="176" text-anchor="middle" font-weight="700" font-size="14.5">IABA Research &amp;</text><text x="1625" y="194" text-anchor="middle" font-weight="700" font-size="14.5">Education Foundation</text>
+        <text x="1625" y="216" text-anchor="middle" font-size="12" fill="#52514e">501(c)(3) · Ihab, founder, CEO</text>
+        <text x="1625" y="248" text-anchor="middle" font-size="12" fill="#b0306e" font-weight="700">Now: $175K a year of shares</text>
+        <text x="1625" y="268" text-anchor="middle" font-size="12" fill="#b0306e" font-weight="700">At a sale: CLAT $800K × 20</text>
+        <text x="1625" y="288" text-anchor="middle" font-size="12" fill="#b0306e" font-weight="700">Second death: CRT $12M+</text>
+        <text x="1625" y="330" text-anchor="middle" font-size="12" fill="#52514e">Board: two children, 2027</text>
+        <text x="1625" y="350" text-anchor="middle" font-size="12" fill="#52514e">Grant committee: grandkids</text>
+        <text x="1625" y="370" text-anchor="middle" font-size="12" fill="#52514e">Memorial: the son lost in 2013</text>
+        <text x="1625" y="400" text-anchor="middle" font-size="12" fill="#52514e">Pink lines in: $175K/yr now,</text>
+        <text x="1625" y="418" text-anchor="middle" font-size="12" fill="#52514e">CRT remainder, CLAT annuity</text>
+        <text x="1625" y="450" text-anchor="middle" font-size="12" fill="#52514e">DAF alongside for gifts</text>
+        <text x="1625" y="468" text-anchor="middle" font-size="12" fill="#52514e">outside the mission</text>
+        <text x="1625" y="490" text-anchor="middle" font-size="11.5" fill="#9a5b00">Confirm public-charity status</text>
+      </g>
+      <g class="node" data-tip="UCLA psychology: about $150K to $175K a year today, given in cash from salary. Recommended: give appreciated non-voting shares to the foundation and have the foundation make a multi-year grant to UCLA for autism research, a named program. Same deduction, plus the capital gains tax on the shares is avoided: about $144K of annual tax benefit instead of $79K.">
+        <rect x="1520" y="520" width="210" height="100" rx="12" fill="#fff" stroke="#d6508f" stroke-width="2.5"/>
+        <text x="1625" y="544" text-anchor="middle" font-weight="700" font-size="14.5">UCLA psychology</text>
+        <text x="1625" y="564" text-anchor="middle" font-size="12" fill="#52514e">today: ~$175K a year, in cash</text>
+        <text x="1625" y="582" text-anchor="middle" font-size="12" fill="#52514e">planned: a named autism grant</text>
+        <text x="1625" y="600" text-anchor="middle" font-size="12" fill="#52514e">made by the foundation</text>
+        <text x="1625" y="616" text-anchor="middle" font-size="11.5" fill="#b0306e" font-weight="700">benefit $144K/yr, from $79K</text>
+      </g>
+    </g>
+    <!-- ================= FLOWS ================= -->
+    <g id="layer-flows" fill="none">
+      <!-- assets to left trusts (blue) -->
+      <path d="M620 190 H600 V200 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M620 206 H586 V318 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M620 222 H572 V434 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M620 304 H558 V214 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M620 334 H544 V550 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M620 452 H606 V228 H522" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <!-- assets to right trusts (blue) -->
+      <path d="M1080 556 H1152 V193 H1168" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M1080 330 H1136 V577 H1168" stroke="#2a78d6" stroke-width="2.5" marker-end="url(#arB)"/>
+      <path d="M1080 226 H1092 V289 H1168" stroke="#2a78d6" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arB)"/>
+      <path d="M1080 238 H1106 V385 H1168" stroke="#2a78d6" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arB)"/>
+      <path d="M1080 250 H1120 V481 H1168" stroke="#2a78d6" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arB)"/>
+      <!-- left trusts to the bus (violet) -->
+      <path d="M20 202 H8 V650 M20 318 H8 M20 434 H8 M20 550 H8" stroke="#6250d6" stroke-width="2.5"/>
+      <!-- right trusts to the bus -->
+      <path d="M1480 193 H1500 V650 M1480 289 H1500 M1480 500 H1500" stroke="#6250d6" stroke-width="2.5"/>
+      <!-- the bus -->
+      <path d="M8 650 H1500" stroke="#6250d6" stroke-width="3"/>
+      <rect x="440" y="636" width="640" height="28" rx="14" fill="#efecfb"/>
+      <text x="760" y="655" text-anchor="middle" font-size="12.5" fill="#4a3bb0" font-weight="700">At the second death, about 2053: each trust divides into four equal lifetime trusts, one per child, GST-exempt</text>
+      <path d="M210 650 V676 M550 650 V676 M890 650 V676 M1230 650 V676" stroke="#6250d6" stroke-width="2.5" marker-end="url(#arV)"/>
+      <!-- grandchildren's trust straight down to the grandsons (green) -->
+      <path d="M1325 620 V792" stroke="#1baf7a" stroke-width="2.5" marker-end="url(#arG)"/>
+      <!-- children to the next generation -->
+      <path d="M210 768 V792" stroke="#6250d6" stroke-width="2.5" marker-end="url(#arV)"/>
+      <path d="M1230 768 V792" stroke="#6250d6" stroke-width="2.5" marker-end="url(#arV)"/>
+      <path d="M550 768 V792 M890 768 V792" stroke="#eda100" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arA)"/>
+      <!-- charitable flows (pink dashed) -->
+      <path d="M1100 112 V124 H1700 V146" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+      <text x="1112" y="120" font-size="11" fill="#b0306e">$175K a year of appreciated shares; Ihab founded and leads the foundation</text>
+      <path d="M1480 385 H1516" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+      <path d="M1480 470 H1516" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+      <path d="M1625 502 V516" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+    </g>
+    <!-- ================= GENERATIONS 2 AND 3 ================= -->
+    <g id="layer-family2">
+      <g class="node" data-tip="Son, 21. His 20% is held in a lifetime trust with incentive terms: education and health only until 25, then HEMS, a match of earned income and loans for a home or business; eligible as co-trustee at 35. Nothing outright, ever.">
+        <rect x="60" y="680" width="300" height="88" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+        <text x="210" y="704" text-anchor="middle" font-weight="700" font-size="14.5">Son, 21 · trust 1 (20%)</text>
+        <text x="210" y="724" text-anchor="middle" font-size="12" fill="#52514e">incentive terms · education and health to 25</text>
+        <text x="210" y="740" text-anchor="middle" font-size="12" fill="#52514e">then HEMS, matched earnings, loans</text>
+        <text x="210" y="758" text-anchor="middle" font-size="12" fill="#1a4f93" font-weight="700">future beneficiary · co-trustee at 35</text>
+      </g>
+      <g class="node" data-tip="Daughter, 31, married, living in London. Her 20% is held in a US dynasty trust and not distributed while she is UK resident; a UK adviser reviews before any distribution; she does not serve as trustee while in the UK. The UK properties are earmarked toward her share through lifetime gifts under UK rules.">
+        <rect x="400" y="680" width="300" height="88" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+        <text x="550" y="704" text-anchor="middle" font-weight="700" font-size="14.5">Daughter, 31 · London · trust 2 (20%)</text>
+        <text x="550" y="724" text-anchor="middle" font-size="12" fill="#52514e">held, not distributed, while UK resident</text>
+        <text x="550" y="740" text-anchor="middle" font-size="12" fill="#52514e">UK properties earmarked to her share</text>
+        <text x="550" y="758" text-anchor="middle" font-size="12" fill="#1a4f93" font-weight="700">future beneficiary · UK adviser reviews</text>
+      </g>
+      <g class="node" data-tip="Son, 42, unmarried. His 20% is held in a lifetime trust with broad access, protected from a future spouse without a prenup. He is the first family co-trustee (2027), ILIT trustee, distribution adviser to the grandchildren's trust, successor co-trustee of the living trust, and one of the first two children on the foundation board.">
+        <rect x="740" y="680" width="300" height="88" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+        <text x="890" y="704" text-anchor="middle" font-weight="700" font-size="14.5">Son, 42 · trust 3 (20%)</text>
+        <text x="890" y="724" text-anchor="middle" font-size="12" fill="#52514e">broad access; protected from a future spouse</text>
+        <text x="890" y="740" text-anchor="middle" font-size="12" fill="#52514e">ILIT trustee · distribution adviser · board</text>
+        <text x="890" y="758" text-anchor="middle" font-size="12" fill="#1a4f93" font-weight="700">future beneficiary · first family co-trustee</text>
+      </g>
+      <g class="node" data-tip="Daughter, 46, recently divorced, mother of the two grandsons. Her 20% is held with an independent trustee only, a spendthrift clause and no withdrawal rights, so it is never hers to be claimed against. Her children's costs can be paid directly to schools and providers.">
+        <rect x="1080" y="680" width="300" height="88" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+        <text x="1230" y="704" text-anchor="middle" font-weight="700" font-size="14.5">Daughter, 46 · divorced · trust 4 (20%)</text>
+        <text x="1230" y="724" text-anchor="middle" font-size="12" fill="#52514e">independent trustee only; spendthrift clause</text>
+        <text x="1230" y="740" text-anchor="middle" font-size="12" fill="#52514e">her children&#39;s costs paid directly</text>
+        <text x="1230" y="758" text-anchor="middle" font-size="12" fill="#1a4f93" font-weight="700">future beneficiary · mother of the grandsons</text>
+      </g>
+      <!-- generation 3 -->
+      <g class="node" data-tip="The two grandsons, 16 and 14, both children of the 46-year-old daughter. Future beneficiaries of the grandchildren's trust (20% of the legacy) and, after her, of their mother's trust 4. College paid directly to the school from 18; a seat on the foundation's grant committee from 16.">
+        <rect x="1000" y="796" width="392" height="80" rx="12" fill="#fff" stroke="#1baf7a" stroke-width="3"/>
+        <text x="1196" y="820" text-anchor="middle" font-weight="700" font-size="14.5">Generation 3 · grandsons, 16 and 14</text>
+        <text x="1196" y="840" text-anchor="middle" font-size="12" fill="#52514e">grandchildren&#39;s trust (20%) + their mother&#39;s trust 4 after her</text>
+        <text x="1196" y="856" text-anchor="middle" font-size="12" fill="#52514e">college paid to the school · grant committee from 16</text>
+        <text x="1196" y="870" text-anchor="middle" font-size="12" fill="#0f6b4b" font-weight="700">future beneficiaries</text>
+      </g>
+      <g class="node" data-tip="Any grandchild born to the other three children before the second death joins the grandchildren's trust automatically, and every grandchild inherits his or her parent's trust in any case. The clause as written in the profile covered only the two named grandsons; the plan recommends the open class.">
+        <rect x="540" y="796" width="420" height="80" rx="12" fill="#fff" stroke="#eda100" stroke-width="3" stroke-dasharray="7 4"/>
+        <text x="750" y="820" text-anchor="middle" font-weight="700" font-size="14.5">Future grandchildren, from trusts 1, 2 and 3</text>
+        <text x="750" y="840" text-anchor="middle" font-size="12" fill="#52514e">join the grandchildren&#39;s trust if born before the second death,</text>
+        <text x="750" y="856" text-anchor="middle" font-size="12" fill="#52514e">and inherit their parent&#39;s trust in any case</text>
+        <text x="750" y="870" text-anchor="middle" font-size="12" fill="#9a5b00" font-weight="700">conditional beneficiaries</text>
+      </g>
+      <g class="node" data-tip="Every trust in the plan is GST-exempt and sited in Nevada, so at each child's and each grandchild's death the share continues to the next generation with no estate tax and protected from creditors and divorce. At a conservative 3.0% growth: about $143M in 2053, about $320M by 2080, about $670M by 2105.">
+        <rect x="60" y="796" width="440" height="80" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="280" y="820" text-anchor="middle" font-weight="700" font-size="14.5">And beyond: the trusts continue down each line</text>
+        <text x="280" y="840" text-anchor="middle" font-size="12" fill="#52514e">no estate tax at any child&#39;s or grandchild&#39;s death · Nevada, 365 years</text>
+        <text x="280" y="856" text-anchor="middle" font-size="12" fill="#52514e">about $143M in 2053 · $320M by 2080 · $670M by 2105 (3.0%)</text>
+        <text x="280" y="870" text-anchor="middle" font-size="12" fill="#4a3bb0" font-weight="700">estate tax paid once, by the ILIT, about $7M</text>
+      </g>
+    </g>
+    </g>
+  </svg>
+  <div id="archtip"></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Architecture · 4 / 12</span></div>
+</div>
+
+<div class="slide" id="s-arch-read">
+  <h2>How to read the architecture diagram</h2>
+  <div class="row" style="grid-template-columns:repeat(4,1fr);gap:22px">
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#eef4fc;color:#1a4f93">1 · Where assets sit today</div><h3 style="font-size:21px">Everything is in the middle, and almost all of it is one company</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">The Institute ($47M), two real estate LLCs ($20M), the home, seven properties abroad, $300K of cash and $50K of term life. No brokerage or retirement accounts; the only portfolio is inside the company. Nothing is in a trust that saves tax, and the living trust is twelve years old.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#efecfb;color:#4a3bb0">2 · Which trusts are recommended</div><h3 style="font-size:21px">Four now, five more only when something happens</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">Now: the restated living trust, SLAT 1 (Ihab, shares), the IDGT sale (Ihab, shares for a note), SLAT 2 (Vivian, LLC2 units), plus the ILIT and the grandchildren&#39;s trust. Only at a sale: the GRAT, the CRT and the CLAT, drawn with dashed borders. All irrevocable trusts are GST-exempt dynasty trusts in Nevada.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#e8f7f1;color:#0f6b4b">3 · Control during life</div><h3 style="font-size:21px">Ihab keeps every voting share; the trusts hold only value</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">Ihab and Vivian are trustees of the living trust and HEMS co-trustees of each other&#39;s SLAT. A Nevada trust company runs the irrevocable trusts; neither spouse is ever trustee of the trust he or she funded. Salaries, the home, the cash and the foreign property stay theirs. Each spouse can reach the other&#39;s SLAT if needed.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#fff8e6;color:#9a5b00">4 · At the first death</div><h3 style="font-size:21px">The living trust splits; nothing is sold, nothing is taxed</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">The deceased spouse&#39;s half becomes a bypass trust (the remaining exemption) and a QTIP trust (the rest, income to the survivor). The survivor keeps the voting shares and the survivor&#39;s trust. The deceased spouse&#39;s SLAT continues for the survivor. The second-to-die policy pays nothing yet; premiums continue.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#fdeaea;color:#b42318">5 · At the second death</div><h3 style="font-size:21px">The ILIT pays the tax; every trust divides four ways</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">The ILIT receives $20M, lends to or buys from the estate, and the executor pays about $7M of tax in cash. The purple line across the diagram is that moment: the living trust, both SLATs, the IDGT and the ILIT each divide into four equal lifetime trusts, one per child, with 20% of the estate going to the grandchildren&#39;s trust.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#eef4fc;color:#1a4f93">6 · How the children inherit</div><h3 style="font-size:21px">In trust for life, each on terms that fit</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">Nothing outright. The 21-year-old&#39;s trust has incentive terms; the London daughter&#39;s is held while she is UK resident; the 42-year-old&#39;s has broad access and he serves as the first family trustee; the divorced daughter&#39;s has an independent trustee and a spendthrift clause. HEMS, matched earnings and loans before gifts; co-trustee at 35.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#e8f7f1;color:#0f6b4b">7 · How the grandchildren benefit</div><h3 style="font-size:21px">A trust of their own, open to those not yet born</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">The grandchildren&#39;s trust is seeded now with LLC1 units and receives 20% at the second death. The two grandsons use it for college and, from 25, for HEMS and loans; any later grandchild joins. Each child&#39;s trust also continues to that child&#39;s descendants. No tax at the children&#39;s deaths or the grandchildren&#39;s.</p></div>
+    <div class="card" style="padding:20px 22px"><div class="tag" style="background:#fbeaf2;color:#b0306e">8 · How the charity is fulfilled</div><h3 style="font-size:21px">The foundation at the center, UCLA through it</h3><p style="font-size:17px;line-height:1.42;color:#52514e;margin:0">The pink dashed lines are the charitable flows: $175K a year of appreciated shares to the IABA Foundation now, the CLAT&#39;s $800K a year for twenty years at a sale, and the CRT&#39;s remainder at the second death. The foundation makes the UCLA autism research grant in the family&#39;s name, and the children and grandchildren govern it.</p></div>
+  </div>
+  <div class="callout" style="margin-top:22px;font-size:20px"><b>On screen, the diagram is interactive.</b> Hover over any box for a fuller description; use the layer buttons to show only the assets, the trusts, the family or the charitable side; zoom and drag to look closely. In print, the full diagram appears as a single page.</div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Architecture · 5 / 12</span></div>
+</div>
+
+<style>
+.archctl{position:absolute;top:66px;right:90px;display:flex;gap:6px;align-items:center;font-size:14px;color:#52514e;z-index:3}
+.archctl button{font:600 13px/1 system-ui,sans-serif;padding:6px 10px;border-radius:999px;border:1px solid #c3c2b7;background:#fff;color:#52514e;cursor:pointer}
+.archctl button.on{background:#0d366b;color:#fff;border-color:#0d366b}
+.archctl button[data-zoom]{background:#fff;color:#0d366b;border-color:#0d366b}
+.archwrap{position:relative;overflow:hidden;border-radius:14px}
+#arch .node{cursor:pointer}#arch .node:hover rect{filter:brightness(.96)}
+#arch g.hidden{display:none}
+#archtip{position:absolute;display:none;max-width:420px;background:#0b0b0b;color:#fff;font-size:14px;line-height:1.4;padding:10px 14px;border-radius:10px;pointer-events:none;z-index:5;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+@media print{.archctl{display:none}#archtip{display:none!important}}
+</style>
+<script>
+(function(){
+  var svg=document.getElementById('arch'); if(!svg) return;
+  var tip=document.getElementById('archtip'), wrap=svg.parentNode;
+  // tooltips
+  svg.querySelectorAll('.node').forEach(function(n){
+    n.addEventListener('mouseenter',function(){tip.textContent=n.getAttribute('data-tip');tip.style.display='block';});
+    n.addEventListener('mousemove',function(e){var r=wrap.getBoundingClientRect();var x=e.clientX-r.left+16,y=e.clientY-r.top+16;if(x+440>r.width)x=e.clientX-r.left-440;if(y+160>r.height)y=e.clientY-r.top-160;tip.style.left=x+'px';tip.style.top=y+'px';});
+    n.addEventListener('mouseleave',function(){tip.style.display='none';});
+  });
+  // layer toggles
+  document.querySelectorAll('.archctl button[data-layer]').forEach(function(b){
+    b.addEventListener('click',function(){var id=b.getAttribute('data-layer');var g=document.getElementById(id);var g2=id==='layer-family'?document.getElementById('layer-family2'):null;b.classList.toggle('on');var off=!b.classList.contains('on');[g,g2].forEach(function(x){if(x)x.classList.toggle('hidden',off);});});
+  });
+  // zoom and pan
+  var base={x:0,y:0,w:1740,h:880}, vb={x:0,y:0,w:1740,h:880};
+  function apply(){svg.setAttribute('viewBox',vb.x+' '+vb.y+' '+vb.w+' '+vb.h);}
+  function zoom(f){var cx=vb.x+vb.w/2,cy=vb.y+vb.h/2;vb.w=Math.max(300,Math.min(base.w,vb.w*f));vb.h=vb.w*base.h/base.w;vb.x=cx-vb.w/2;vb.y=cy-vb.h/2;apply();}
+  document.querySelectorAll('.archctl button[data-zoom]').forEach(function(b){b.addEventListener('click',function(){var z=b.getAttribute('data-zoom');if(z==='in')zoom(0.8);else if(z==='out')zoom(1.25);else{vb={x:0,y:0,w:1740,h:880};apply();}});});
+  svg.addEventListener('wheel',function(e){if(!e.ctrlKey)return;e.preventDefault();zoom(e.deltaY<0?0.9:1.1);},{passive:false});
+  var drag=null;
+  svg.addEventListener('mousedown',function(e){if(vb.w>=base.w)return;drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};});
+  window.addEventListener('mousemove',function(e){if(!drag)return;var s=vb.w/svg.getBoundingClientRect().width;vb.x=drag.vx-(e.clientX-drag.x)*s;vb.y=drag.vy-(e.clientY-drag.y)*s;apply();});
+  window.addEventListener('mouseup',function(){drag=null;});
+})();
+</script>
+
+
+<div class="slide" id="s-ap-1">
+  <h2 style="margin-bottom:6px">Protecting family wealth · What risks are we protecting against?</h2>
+  <p style="font-size:19px;color:#52514e;margin:0 0 16px">Growing wealth is only part of the challenge. These are the events that could take it from the family, and the measure in this plan that answers each one.</p>
+  <div class="row c3" style="gap:22px">
+    <div class="card" style="padding:16px 22px;border-top:8px solid #2a78d6">
+      <h3 style="font-size:21px;margin-bottom:8px">Personal risks</h3>
+      <table class="rk"><tbody>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2a78d6" opacity=".14"/><path d="M12 28 L20 12 L28 28 Z" fill="#2a78d6"/><rect x="18" y="19" width="4" height="5" fill="#fff"/></svg></td><td><b>Lawsuits</b><div>a car accident, a guest injured at home</div></td><td class="ans">umbrella liability; assets in trusts and LLCs</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2a78d6" opacity=".14"/><rect x="11" y="14" width="18" height="14" rx="2" fill="#2a78d6"/><rect x="14" y="18" width="12" height="2" fill="#fff"/></svg></td><td><b>Creditors</b><div>a guarantee, a business failure</div></td><td class="ans">spendthrift trusts, Nevada situs</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2a78d6" opacity=".14"/><path d="M20 30 C14 25 10 21 10 17 a5 5 0 0 1 10 0 a5 5 0 0 1 10 0 c0 4-4 8-10 13z" fill="#2a78d6"/></svg></td><td><b>Long-term care</b><div>$80K a year each in the plan</div></td><td class="ans">hybrid life/LTC policies</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2a78d6" opacity=".14"/><circle cx="20" cy="15" r="5" fill="#2a78d6"/><rect x="13" y="22" width="14" height="10" rx="5" fill="#2a78d6"/></svg></td><td><b>Incapacity</b><div>who votes the Institute&#39;s shares</div></td><td class="ans">restated living trust, successor trustee</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2a78d6" opacity=".14"/><rect x="12" y="11" width="16" height="18" rx="2" fill="#2a78d6"/><rect x="15" y="15" width="10" height="2" fill="#fff"/><rect x="15" y="19" width="10" height="2" fill="#fff"/></svg></td><td><b>Probate</b><div>public, a year or more, $3.4M today</div></td><td class="ans">living trust; local wills abroad</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card" style="padding:16px 22px;border-top:8px solid #e34948">
+      <h3 style="font-size:21px;margin-bottom:8px">Business risks</h3>
+      <table class="rk"><tbody>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e34948" opacity=".14"/><path d="M20 10 L30 15 V22 C30 28 25 32 20 34 C15 32 10 28 10 22 V15 Z" fill="#e34948"/></svg></td><td><b>Business liability</b><div>a client injury in a clinical setting</div></td><td class="ans">C corporation shield; professional and general liability cover</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e34948" opacity=".14"/><circle cx="14" cy="16" r="4" fill="#e34948"/><circle cx="26" cy="16" r="4" fill="#e34948"/><rect x="9" y="22" width="10" height="9" rx="4" fill="#e34948"/><rect x="21" y="22" width="10" height="9" rx="4" fill="#e34948"/></svg></td><td><b>Ownership disputes</b><div>none today; the trusts become co-owners</div></td><td class="ans">shareholder agreement among Ihab and the trusts</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e34948" opacity=".14"/><rect x="10" y="13" width="20" height="14" rx="2" fill="#e34948"/><rect x="16" y="10" width="8" height="4" rx="1" fill="#e34948"/></svg></td><td><b>Employment claims</b><div>a large therapist workforce</div></td><td class="ans">EPLI coverage; HR practices before a sale</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e34948" opacity=".14"/><circle cx="20" cy="20" r="8" fill="none" stroke="#e34948" stroke-width="3"/><path d="M20 15 V21 L24 23" stroke="#e34948" stroke-width="2.5" fill="none"/></svg></td><td><b>Key-person loss</b><div>no successor named today</div></td><td class="ans">succession agreement; key-person term; retention</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e34948" opacity=".14"/><path d="M10 28 L17 20 L22 24 L30 13" stroke="#e34948" stroke-width="3" fill="none"/><path d="M30 13 V19 M30 13 H24" stroke="#e34948" stroke-width="3"/></svg></td><td><b>Economic downturn</b><div>a 13% portfolio inside the company</div></td><td class="ans">document and diversify the $5M; distribution policy</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card" style="padding:16px 22px;border-top:8px solid #1baf7a">
+      <h3 style="font-size:21px;margin-bottom:8px">Real estate risks</h3>
+      <table class="rk"><tbody>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1baf7a" opacity=".14"/><circle cx="20" cy="14" r="4" fill="#1baf7a"/><rect x="14" y="20" width="12" height="12" rx="4" fill="#1baf7a"/></svg></td><td><b>Tenant lawsuits</b><div>one claim reaching all seven LLC2 properties</div></td><td class="ans">one LLC per major property under a holding LLC</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1baf7a" opacity=".14"/><path d="M10 22 L20 12 L30 22 V30 H10 Z" fill="#1baf7a"/><rect x="17" y="23" width="6" height="7" fill="#fff"/></svg></td><td><b>Property liability</b><div>injury on the premises, 16 properties</div></td><td class="ans">umbrella and excess liability, $5M+</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1baf7a" opacity=".14"/><path d="M12 28 C12 20 18 20 20 12 C22 20 28 20 28 28 Z" fill="#1baf7a"/></svg></td><td><b>Environmental claims</b><div>older commercial sites</div></td><td class="ans">Phase I reviews before gifting; pollution coverage</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1baf7a" opacity=".14"/><rect x="11" y="12" width="8" height="16" rx="1" fill="#1baf7a"/><rect x="21" y="12" width="8" height="16" rx="1" fill="#1baf7a"/><path d="M19 20 H21" stroke="#fff" stroke-width="3"/></svg></td><td><b>Ownership disputes</b><div>forced heirship in Egypt and Colombia</div></td><td class="ans">local wills; sell what is not a home</td></tr>
+        <tr><td><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1baf7a" opacity=".14"/><path d="M12 14 H28 M12 20 H28 M12 26 H28" stroke="#1baf7a" stroke-width="3"/></svg></td><td><b>Double taxation abroad</b><div>UK inheritance tax at 40% on UK property</div></td><td class="ans">UK wills; lifetime gifts toward the London daughter</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="row" style="grid-template-columns:1.35fr 1fr;gap:22px;margin-top:18px;align-items:start">
+    <div class="card" style="padding:12px 20px 6px">
+      <svg viewBox="0 0 1000 300" width="100%">
+        <g font-size="13">
+        <rect x="80" y="20" width="900" height="240" fill="#f3f4f6" rx="10"/>
+        <rect x="530" y="20" width="450" height="120" fill="#fdeaea" rx="10"/>
+        <line x1="80" y1="140" x2="980" y2="140" stroke="#c3c2b7" stroke-dasharray="6 4"/><line x1="530" y1="20" x2="530" y2="260" stroke="#c3c2b7" stroke-dasharray="6 4"/>
+        <text x="40" y="60" transform="rotate(-90 40 60)" text-anchor="end" font-weight="700" fill="#52514e" font-size="12">SEVERITY →</text>
+        <text x="530" y="286" text-anchor="middle" font-weight="700" fill="#52514e" font-size="12">LIKELIHOOD →</text>
+        <text x="760" y="44" text-anchor="middle" font-weight="700" fill="#b42318" font-size="12">CERTAIN AND LARGE: PLAN FOR THESE FIRST</text>
+        <text x="305" y="44" text-anchor="middle" font-weight="700" fill="#52514e" font-size="12">RARE BUT LARGE: INSURE AND WALL OFF</text>
+        <text x="760" y="256" text-anchor="middle" font-weight="700" fill="#52514e" font-size="12">LIKELY, MANAGEABLE: GOOD PRACTICES</text>
+        <text x="305" y="256" text-anchor="middle" font-weight="700" fill="#52514e" font-size="12">RARE AND SMALL: MONITOR</text>
+        <g font-size="12.5">
+        <circle cx="900" cy="60" r="9" fill="#2a78d6"/><text x="886" y="64" text-anchor="end">Estate tax and probate: $14.8M + $3.4M today</text>
+        <circle cx="860" cy="84" r="9" fill="#2a78d6"/><text x="846" y="88" text-anchor="end">Incapacity before the trust is restated</text>
+        <circle cx="820" cy="108" r="9" fill="#2a78d6"/><text x="806" y="112" text-anchor="end">Long-term care, two years each</text>
+        <circle cx="545" cy="132" r="9" fill="#e34948"/><text x="559" y="136">Loss of Ihab with no successor</text>
+        <circle cx="300" cy="60" r="9" fill="#e34948"/><text x="314" y="64">Clinical liability claim against the Institute</text>
+        <circle cx="200" cy="96" r="9" fill="#1baf7a"/><text x="214" y="100">Tenant claim reaching the other LLC2 properties</text>
+        <circle cx="150" cy="128" r="9" fill="#6250d6"/><text x="164" y="132">A child&#39;s divorce or creditor reaching an inheritance</text>
+        <circle cx="820" cy="180" r="9" fill="#e34948"/><text x="806" y="184" text-anchor="end">Employment claims, large workforce</text>
+        <circle cx="720" cy="208" r="9" fill="#e34948"/><text x="706" y="212" text-anchor="end">Downturn hits the 13% portfolio</text>
+        <circle cx="640" cy="232" r="9" fill="#1baf7a"/><text x="654" y="236">Foreign succession disputes</text>
+        <circle cx="160" cy="186" r="9" fill="#1baf7a"/><text x="174" y="190">Environmental claim on an older site</text>
+        <circle cx="160" cy="224" r="9" fill="#e34948"/><text x="174" y="228">Partner dispute (none today; 100% owned)</text>
+        </g></g>
+      </svg>
+    </div>
+    <div class="callout" style="font-size:18px;line-height:1.42;border-left-color:#0d366b"><b>Read the matrix from the top right.</b> The largest risks to this family are not lawsuits. They are certainties: an estate tax bill with no cash to pay it, an incapacity with a twelve-year-old document, and care costs late in life. Those are solved by structure and insurance, not by luck. The rare-but-large risks on the left are solved by walls: entities and trusts that keep one claim from reaching everything else.</div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Asset protection · 6 / 12</span></div>
+</div>
+
+<div class="slide" id="s-ap-2">
+  <h2 style="margin-bottom:6px">Protecting family wealth · How the recommended trusts protect assets</h2>
+  <p style="font-size:19px;color:#52514e;margin:0 0 14px">Each trust in the plan was chosen for estate tax. Most of them protect assets and carry wealth forward as well, because all three benefits come from the same fact: the family no longer owns the asset outright.</p>
+  <div class="card" style="padding:12px 24px 8px">
+    <table class="tp"><thead><tr><th style="width:220px">Trust</th><th>Estate tax benefit</th><th>Asset protection benefit</th><th>Wealth transfer benefit</th></tr></thead><tbody>
+      <tr><td><b>Revocable living trust</b><div class="s">restated now</div></td><td><span class="d0">○</span> None. You can revoke it, so everything in it is still yours and still taxed.</td><td><span class="d1">◐</span> None during life for the same reason. Protects against probate and incapacity, which are losses of a different kind.</td><td><span class="d2">●</span> The instructions: who votes the shares, how the estate splits at the first death, and that nothing passes outright.</td></tr>
+      <tr><td><b>SLAT 1 and SLAT 2</b><div class="s">2026 and 2027</div></td><td><span class="d2">●</span> $41M of underlying value and all its growth leave the estate using the two exemptions.</td><td><span class="d2">●</span> A creditor of Ihab cannot reach SLAT 1; a creditor of a child cannot reach any of it. Nevada law, independent trustee, spendthrift clause.</td><td><span class="d2">●</span> Divides into four lifetime trusts; GST-exempt, so untaxed at the children&#39;s and grandchildren&#39;s deaths.</td></tr>
+      <tr><td><b>IDGT sale</b><div class="s">2027</div></td><td><span class="d2">●</span> Another $21M of value moves out with no exemption; growth above 4% stays with the children.</td><td><span class="d2">●</span> Same protection as the SLATs. Only the note Ihab holds is exposed, and it is paid down over nine years.</td><td><span class="d2">●</span> Children, then grandchildren, GST-exempt.</td></tr>
+      <tr><td><b>ILIT</b><div class="s">$20M policy</div></td><td><span class="d2">●</span> $20M of proceeds outside both estates; pays the tax so nothing is sold.</td><td><span class="d2">●</span> Neither the policy nor its proceeds can be reached by the insureds&#39; creditors or a beneficiary&#39;s. Cash arrives in a protected trust, not an estate.</td><td><span class="d2">●</span> The balance after tax stays in the children&#39;s trusts.</td></tr>
+      <tr><td><b>Grandchildren&#39;s dynasty / GST trust</b><div class="s">2027, then 20% at the second death</div></td><td><span class="d2">●</span> Skips the children&#39;s estates entirely; GST exemption allocated at the discounted value.</td><td><span class="d2">●</span> The grandsons never own it, so their creditors, lawsuits and divorces cannot reach it. Their mother is not a trustee, so her divorce cannot either.</td><td><span class="d2">●</span> Open to grandchildren not yet born; continues to great-grandchildren.</td></tr>
+      <tr><td><b>Bypass and QTIP trusts</b><div class="s">inside the living trust at the first death</div></td><td><span class="d1">◐</span> Bypass: the first spouse&#39;s remaining exemption and its growth are never taxed again. QTIP: tax deferred to the second death.</td><td><span class="d1">◐</span> Irrevocable from the first death; a creditor of the survivor cannot reach principal she does not control.</td><td><span class="d2">●</span> The first spouse&#39;s instructions decide who inherits, whatever happens afterward.</td></tr>
+      <tr><td><b>Charitable remainder trust</b><div class="s">at a sale</div></td><td><span class="d2">●</span> $12M of shares out of the estate; no capital gains tax on the sale.</td><td><span class="d1">◐</span> The principal belongs to the trust, then the foundation; only the 5% income stream is the family&#39;s to be claimed against.</td><td><span class="d0">○</span> None to the family; this is the charitable capital.</td></tr>
+      <tr><td><b>Charitable lead annuity trust</b><div class="s">at a sale</div></td><td><span class="d2">●</span> $10M and its growth out of the estate with a $0 taxable gift.</td><td><span class="d1">◐</span> Protected for twenty years; then the remainder lands in the children&#39;s protected trusts.</td><td><span class="d2">●</span> The remainder, about $5.9M at 7%, to the children gift-free.</td></tr>
+      <tr><td><b>GRAT</b><div class="s">at a sale, two years</div></td><td><span class="d1">◐</span> The jump in value passes with almost no gift; principal returns to Ihab.</td><td><span class="d0">○</span> Little; the asset is back in Ihab&#39;s hands within two years.</td><td><span class="d1">◐</span> About $3.5M to the children&#39;s trusts in the example.</td></tr>
+    </tbody></table>
+    <div style="font-size:14px;color:#52514e;margin-top:6px"><span class="d2">●</span> strong &nbsp; <span class="d1">◐</span> partial &nbsp; <span class="d0">○</span> none &nbsp;·&nbsp; Protection assumes a Nevada or South Dakota situs, an independent trustee for the irrevocable trusts, and that the transfers are made now, while no claim exists; a transfer made to defeat a known creditor is void.</div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Asset protection · 7 / 12</span></div>
+</div>
+
+<div class="slide" id="s-ap-3">
+  <h2 style="margin-bottom:6px">Protecting family wealth · Asset by asset: where each one sits, and where it should</h2>
+  <div class="card" style="padding:12px 24px 8px">
+    <table class="ab"><thead><tr><th style="width:230px">Asset</th><th style="width:200px">Owned today by</th><th style="width:250px">Recommended ownership</th><th>Protection strategy</th><th style="width:230px">Trust vehicle</th></tr></thead><tbody>
+      <tr><td><b>Institute, voting shares</b><div class="s">control</div></td><td>Ihab and Vivian</td><td>Restated living trust</td><td>The C corporation already shields the family from the company&#39;s liabilities; the trust adds incapacity and succession instructions. Keep the company&#39;s own coverage current: general, professional, EPLI, cyber.</td><td>Living trust</td></tr>
+      <tr><td><b>Institute, non-voting shares</b><div class="s">$30M appraised, $43M underlying</div></td><td>Ihab and Vivian</td><td>SLAT 1 and the IDGT, after partition</td><td>Out of both estates and beyond any creditor of Ihab or a child. Shareholder agreement with drag-along so the trusts join any sale.</td><td>SLAT 1 · IDGT</td></tr>
+      <tr><td><b>$5M portfolio inside the Institute</b><div class="s">earning 13%</div></td><td>The Institute</td><td>The Institute, documented</td><td>Exposed to every claim against the company. Document what it holds; move surplus to the retirement plan and the 303 reserve; consider a separate investment subsidiary.</td><td>None; corporate</td></tr>
+      <tr><td><b>LLC2 growth properties</b><div class="s">Bakersfield, San Bernardino, Artesia, KS, MO</div></td><td>LLC2, held personally</td><td>One LLC per major property under a holding LLC; non-managing units to SLAT 2</td><td>A tenant claim stops at one property. Manager interest stays with Ihab in the living trust. Umbrella of $5M or more above the property policies.</td><td>SLAT 2</td></tr>
+      <tr><td><b>Beverly Hills</b></td><td>LLC2</td><td>Its own LLC; units in the living trust</td><td>Kept in the estate for the basis step-up; its own LLC walls it off from the rental properties.</td><td>Living trust</td></tr>
+      <tr><td><b>Pasadena rental</b><div class="s">negative cash flow</div></td><td>LLC2</td><td>Dispose in 2026</td><td>A loss-maker with liability exposure. Exchange it, gift it to the foundation if appreciated, or sell.</td><td>Foundation gift or none</td></tr>
+      <tr><td><b>LLC1, two properties</b><div class="s">$3M</div></td><td>LLC1, held personally</td><td>Non-managing units to the grandchildren&#39;s trust</td><td>Out of the estate with GST exemption; beyond the grandsons&#39; future creditors and their mother&#39;s divorce.</td><td>Grandchildren&#39;s trust</td></tr>
+      <tr><td><b>Residence</b></td><td>Joint</td><td>Restated living trust</td><td>California homestead protection; umbrella coverage. A QPRT only if the value justifies it.</td><td>Living trust</td></tr>
+      <tr><td><b>Cash reserve</b><div class="s">$100K + $200K</div></td><td>Joint; the RE operating account</td><td>Living trust</td><td>Exposed by design: this is the liquid reserve. Keep it to six months of spending and no more.</td><td>Living trust</td></tr>
+      <tr><td><b>Retirement accounts</b><div class="s">none today</div></td><td>None</td><td>401(k) and cash balance plan at the Institute</td><td>ERISA plans are protected from creditors without limit, the strongest shield in the plan. One more reason to adopt them in 2026.</td><td>Qualified plan; spouse, then the living trust as beneficiary</td></tr>
+      <tr><td><b>Life insurance</b><div class="s">$50K today; $20M proposed</div></td><td>Ihab (the $50K)</td><td>The ILIT applies for the new policy</td><td>Owned by the trust from day one: never in the estate, never reachable by creditors. California also protects cash value from creditors up to a modest limit.</td><td>ILIT</td></tr>
+      <tr><td><b>UK, Egypt and Colombia properties</b><div class="s">7, unvalued</div></td><td>Held personally</td><td>Personal, with local wills; UK property toward the London daughter&#39;s share</td><td>Outside the US trusts on purpose: a US trust would trigger UK trust charges and is not recognized in Egypt or Colombia. Local counsel on liability cover in each country.</td><td>Local wills</td></tr>
+      <tr><td><b>Foundation assets</b><div class="s">IABA Research &amp; Education Foundation</div></td><td>The foundation</td><td>The foundation, with D&amp;O coverage and a conflict policy</td><td>Charitable assets are not the family&#39;s to lose, but the board is: directors&#39; and officers&#39; insurance and arm&#39;s-length dealings with the Institute protect the children who serve.</td><td>Foundation; CRT and CLAT feed it</td></tr>
+    </tbody></table>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Asset protection · 8 / 12</span></div>
+</div>
+
+<div class="slide" id="s-ap-4">
+  <h2 style="margin-bottom:6px">Protecting family wealth · Additional measures, ranked by impact</h2>
+  <p style="font-size:19px;color:#52514e;margin:0 0 14px">Beyond the trusts already in the plan. Each item carries an impact rating and its place in the order of work.</p>
+  <div class="row" style="grid-template-columns:repeat(4,1fr);gap:20px;align-items:start">
+    <div class="card" style="padding:16px 20px;border-top:8px solid #2a78d6"><h3 style="font-size:20px;margin-bottom:8px">Business entities</h3>
+      <ul class="pm">
+        <li><span class="tag now">High</span><b>Holding LLC over LLC1 and LLC2</b>, with each major property in its own LLC. One claim, one property. Non-managing units are what SLAT 2 receives, and the extra layer raises the discount.</li>
+        <li><span class="tag now">High</span><b>Keep the Institute a C corporation</b> through the transfers; it is the liability shield for a clinical business and the only form that allows the 303 redemption and 1042 ESOP deferral.</li>
+        <li><span class="tag soon">Medium</span><b>Separate the $5M portfolio</b> from operations: a documented investment account or subsidiary, so a clinical claim does not reach it.</li>
+      </ul></div>
+    <div class="card" style="padding:16px 20px;border-top:8px solid #e34948"><h3 style="font-size:20px;margin-bottom:8px">Insurance enhancements</h3>
+      <ul class="pm">
+        <li><span class="tag now">High</span><b>Umbrella and excess liability of $5M to $10M</b> over the home, autos and 16 properties. The cheapest protection in the plan.</li>
+        <li><span class="tag now">High</span><b>Key-person term on Ihab, $5M to $10M</b>, owned by the Institute: funds a successor search and keeps lenders and buyers calm.</li>
+        <li><span class="tag soon">Medium</span><b>Buy-sell funding</b> once the trusts own shares: the shareholder agreement needs a funded way to buy out an estate or a trust.</li>
+        <li><span class="tag soon">Medium</span><b>EPLI, cyber and D&amp;O</b> for the Institute and the foundation; review limits before a sale.</li>
+      </ul></div>
+    <div class="card" style="padding:16px 20px;border-top:8px solid #6250d6"><h3 style="font-size:20px;margin-bottom:8px">Trust enhancements</h3>
+      <ul class="pm">
+        <li><span class="tag now">High</span><b>Nevada situs and an independent trustee</b> for every irrevocable trust: 365-year duration, no state income tax on what it keeps, and creditor protection that California does not offer.</li>
+        <li><span class="tag now">High</span><b>Spendthrift and floating-spouse clauses</b> in every trust; an independent trustee only for the divorced daughter&#39;s share.</li>
+        <li><span class="tag later">Lower</span><b>A Nevada asset protection trust for Ihab himself</b> is possible but weak for a California resident and unnecessary once the SLATs give each spouse indirect access. Not recommended.</li>
+      </ul></div>
+    <div class="card" style="padding:16px 20px;border-top:8px solid #1baf7a"><h3 style="font-size:20px;margin-bottom:8px">Family governance</h3>
+      <ul class="pm">
+        <li><span class="tag now">High</span><b>Trustee succession written down</b>: the 42-year-old with a corporate co-trustee, a trust protector, and who follows them.</li>
+        <li><span class="tag soon">Medium</span><b>Beneficiary education</b>: a financial literacy course by 25 and a foundation committee term by 30, as conditions of co-trusteeship.</li>
+        <li><span class="tag soon">Medium</span><b>A family charter</b> drafted with the children in 2027: the mission, the loan-not-gift principle, how disputes are resolved.</li>
+        <li><span class="tag later">Lower</span><b>Prenuptial agreements</b> encouraged for the children; the trusts protect whether or not they sign.</li>
+      </ul></div>
+  </div>
+  <div class="card" style="margin-top:18px;padding:14px 24px;background:#eef4fc;border-color:#cfe0f7">
+    <div style="display:grid;grid-template-columns:auto repeat(8,1fr);gap:10px;align-items:center;font-size:15px">
+      <div style="font-weight:700;font-size:16px;padding-right:8px">In this order:</div>
+      <div><b>1</b> umbrella and excess liability, this month</div><div><b>2</b> restate the living trust and the succession agreement</div><div><b>3</b> holding LLC and property LLCs</div><div><b>4</b> key-person term and the ILIT application</div><div><b>5</b> partition, then SLAT 1 and the IDGT</div><div><b>6</b> SLAT 2 and the grandchildren&#39;s trust</div><div><b>7</b> shareholder agreement and buy-sell funding</div><div><b>8</b> charter, education, foundation board seats</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Asset protection · 9 / 12</span></div>
+</div>
+
+<div class="slide" id="s-ap-5">
+  <h2 style="margin-bottom:8px">Protecting family wealth · The family wealth protection architecture</h2>
+  <div class="row" style="grid-template-columns:1.1fr 1fr;gap:26px;align-items:start">
+    <div class="card" style="padding:10px 16px 4px;position:relative">
+      <svg viewBox="0 0 900 800" width="100%">
+        <defs><marker id="apa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <!-- rings -->
+        <circle cx="450" cy="400" r="385" fill="#e8f7f1"/>
+        <circle cx="450" cy="400" r="290" fill="#efecfb"/>
+        <circle cx="450" cy="400" r="195" fill="#eef4fc"/>
+        <circle cx="450" cy="400" r="100" fill="#0d366b"/>
+        <circle cx="450" cy="400" r="385" fill="none" stroke="#1baf7a" stroke-width="2.5"/>
+        <circle cx="450" cy="400" r="290" fill="none" stroke="#6250d6" stroke-width="2.5"/>
+        <circle cx="450" cy="400" r="195" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+        <!-- center -->
+        <g class="pnode" data-tip="What is protected: the family&#39;s $67M of assets. Instrument: everything on this page. The center is what every ring exists to protect."><rect x="350" y="292" width="200" height="200" fill="transparent"/><text x="450" y="388" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">Ihab and Vivian&#39;s</text>
+        <text x="450" y="408" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">assets · $67M</text>
+        <text x="450" y="428" text-anchor="middle" fill="#cde2fb" font-size="11">Institute · real estate · cash</text></g>
+        <!-- ring 1: entities (liability shield) -->
+        <text x="450" y="230" text-anchor="middle" font-weight="700" fill="#1a4f93" font-size="12" letter-spacing=".06em">ENTITY LAYER · LIABILITY SHIELD</text>
+        <g font-size="12.5" fill="#0b0b0b" text-anchor="middle">
+          <g class="pnode" data-tip="What is protected: the family&#39;s personal assets from the Institute&#39;s liabilities (a clinical claim, an employment claim). Instrument: the C corporation itself, kept through every transfer, plus general, professional, EPLI and cyber coverage."><rect x="335" y="231" width="230" height="30" fill="transparent"/><text x="450" y="258">The Institute, a C corporation</text></g>
+          <g class="pnode" data-tip="What is protected: the real estate portfolio as a whole, and Ihab&#39;s control of it. Instrument: a holding LLC above LLC1 and LLC2, with Ihab holding the manager interest in the living trust; non-managing units are what the trusts receive."><rect x="258" y="308" width="120" height="40" fill="transparent"/><text x="318" y="330">Holding LLC</text><text x="318" y="346" fill="#52514e" font-size="11">manager: Ihab</text></g>
+          <g class="pnode" data-tip="What is protected: each property from claims arising at another. Instrument: one LLC per major property under the holding LLC, so a tenant lawsuit at Bakersfield cannot reach Beverly Hills."><rect x="522" y="308" width="120" height="40" fill="transparent"/><text x="582" y="330">Property LLCs</text><text x="582" y="346" fill="#52514e" font-size="11">one per property</text></g>
+          <g class="pnode" data-tip="What is protected: the $5M portfolio inside the Institute from a claim against the operating business. Instrument: documented holdings in a separate account or subsidiary, with surplus moved to the retirement plan and the section 303 reserve."><rect x="270" y="460" width="120" height="40" fill="transparent"/><text x="330" y="482">Investments</text><text x="330" y="498" fill="#52514e" font-size="11">documented, separate</text></g>
+          <g class="pnode" data-tip="What is protected: the family&#39;s balance sheet from a large liability judgment, and the company from the loss of Ihab. Instrument: umbrella and excess liability of $5M to $10M, key-person term of $5M to $10M owned by the Institute, D&amp;O for the foundation."><rect x="512" y="460" width="120" height="40" fill="transparent"/><text x="572" y="482">Insurance cover</text><text x="572" y="498" fill="#52514e" font-size="11">umbrella, D&amp;O</text></g>
+          <g class="pnode" data-tip="The principle of the entity layer: a creditor of one entity cannot reach assets held in another. Instrument: separate LLCs, the corporation, and respect for the formalities (separate accounts, leases, minutes)."><rect x="330" y="535" width="240" height="26" fill="transparent"/><text x="450" y="560">A claim stops at the entity it arose in</text></g>
+        </g>
+        <!-- ring 2: trusts (estate tax shield) -->
+        <text x="450" y="136" text-anchor="middle" font-weight="700" fill="#4a3bb0" font-size="12" letter-spacing=".06em">TRUST LAYER · ESTATE TAX AND CREDITOR SHIELD</text>
+        <g font-size="12.5" fill="#0b0b0b" text-anchor="middle">
+          <g class="pnode" data-tip="What is protected: control of the Institute if Ihab is incapacitated, and the estate from probate. Instrument: the restated revocable living trust with a successor trustee, pour-over wills and powers of attorney. It does not protect against creditors or estate tax; that is the job of the irrevocable trusts beside it."><rect x="280" y="137" width="340" height="26" fill="transparent"/><text x="450" y="162">Restated living trust: voting shares, home, cash, instructions</text></g>
+          <g class="pnode" data-tip="What is protected: $21M of Institute shares and all their growth from the 40% estate tax, from Ihab&#39;s creditors, and from any child&#39;s creditors or divorce. Instrument: SLAT 1, an irrevocable Nevada trust funded by Ihab in 2026 with a spendthrift clause and an independent trustee."><rect x="206" y="228" width="100" height="40" fill="transparent"/><text x="256" y="250">SLAT 1</text><text x="256" y="266" fill="#52514e" font-size="11">shares, $21M</text></g>
+          <g class="pnode" data-tip="What is protected: $20M of LLC2 real estate and its growth from estate tax, from Vivian&#39;s creditors, and from the children&#39;s creditors and divorces. Instrument: SLAT 2, funded by Vivian in 2027 with non-managing LLC units, a different trustee and different terms."><rect x="589" y="228" width="110" height="40" fill="transparent"/><text x="644" y="250">SLAT 2</text><text x="644" y="266" fill="#52514e" font-size="11">LLC2 units, $20M</text></g>
+          <g class="pnode" data-tip="What is protected: another $21M of Institute shares and their growth above 4%, out of the estate and beyond any creditor. Instrument: a sale to an intentionally defective grantor trust for a nine-year note; only the note balance remains exposed, and it is paid down."><rect x="157" y="378" width="100" height="40" fill="transparent"/><text x="207" y="400">IDGT</text><text x="207" y="416" fill="#52514e" font-size="11">note sale, $21M</text></g>
+          <g class="pnode" data-tip="What is protected: $20M of life insurance proceeds from estate tax and from any creditor of the insureds or the children; and the Institute from a forced sale to pay the tax. Instrument: an irrevocable life insurance trust that owns the policy from the application."><rect x="643" y="378" width="100" height="40" fill="transparent"/><text x="693" y="400">ILIT</text><text x="693" y="416" fill="#52514e" font-size="11">$20M policy</text></g>
+          <g class="pnode" data-tip="What is protected: the grandsons&#39; 20% from a second and third round of estate tax, from their future creditors, and from their mother&#39;s divorce. Instrument: a GST-exempt dynasty trust seeded with LLC1 units, with a Nevada trustee; their mother is deliberately not a trustee."><rect x="192" y="518" width="140" height="40" fill="transparent"/><text x="262" y="540">Grandchildren&#39;s trust</text><text x="262" y="556" fill="#52514e" font-size="11">LLC1 units; 20% later</text></g>
+          <g class="pnode" data-tip="What is protected: the proceeds of a sale of the Institute from capital gains tax and estate tax. Instrument: a charitable remainder trust (20% of shares), a charitable lead annuity trust ($10M of proceeds) and a two-year GRAT, all funded before any binding sale agreement."><rect x="572" y="518" width="140" height="40" fill="transparent"/><text x="642" y="546">CRT · CLAT · GRAT</text><text x="642" y="562" fill="#52514e" font-size="11">at a sale</text></g>
+          <g class="pnode" data-tip="The four drafting features that make the trust layer work: a Nevada situs for a 365-year term and creditor protection; an independent trustee so no grantor or beneficiary controls the assets; a spendthrift clause so no beneficiary can pledge or be forced to distribute a share; GST exemption so nothing is taxed at the children&#39;s or grandchildren&#39;s deaths."><rect x="260" y="629" width="380" height="26" fill="transparent"/><text x="450" y="654">Nevada situs · independent trustees · spendthrift · GST-exempt</text></g>
+        </g>
+        <!-- ring 3: beneficiaries -->
+        <text x="450" y="42" text-anchor="middle" font-weight="700" fill="#0f6b4b" font-size="12" letter-spacing=".06em">BENEFICIARY LAYER · WHO IT IS ALL FOR</text>
+        <g font-size="12.5" fill="#0b0b0b" text-anchor="middle">
+          <g class="pnode" data-tip="What is protected: each child&#39;s inheritance from that child&#39;s creditors, lawsuits, divorce and estate tax. Instrument: four lifetime trusts carved from the SLATs, IDGT and ILIT at the second death, with HEMS distributions, loans before gifts, and co-trustee eligibility at 35."><rect x="330" y="41" width="240" height="26" fill="transparent"/><text x="450" y="66" font-weight="700">Four children, four lifetime trusts</text></g>
+          <g class="pnode" data-tip="What is protected: the family&#39;s charitable capital and the children who serve on the board. Instrument: the IABA Research &amp; Education Foundation as a separate 501(c)(3), with directors&#39; and officers&#39; insurance, a conflict policy, and arm&#39;s-length dealings with the Institute."><rect x="95" y="214" width="110" height="40" fill="transparent"/><text x="150" y="236" font-weight="700">The foundation</text><text x="150" y="252" fill="#52514e" font-size="11">IABA R&amp;E</text></g>
+          <g class="pnode" data-tip="What is protected: the grandsons&#39; education and their eventual share, which they never own outright. Instrument: the grandchildren&#39;s trust, tuition paid directly to the school, and the open-class clause so later grandchildren are not left out."><rect x="686" y="224" width="120" height="40" fill="transparent"/><text x="746" y="246" font-weight="700">Two grandsons</text><text x="746" y="262" fill="#52514e" font-size="11">and any born later</text></g>
+          <g class="pnode" data-tip="What is protected: the UCLA commitment and the family&#39;s giving, funded for decades rather than year to year. Instrument: $175K a year of appreciated shares to the foundation now, the CLAT&#39;s $800K a year for twenty years at a sale, and the CRT remainder at the second death."><rect x="105" y="564" width="120" height="40" fill="transparent"/><text x="165" y="586" font-weight="700">Charitable goals</text><text x="165" y="602" fill="#52514e" font-size="11">CRT and CLAT flows</text></g>
+          <g class="pnode" data-tip="What is protected: family unity, and the plan itself as the generations change. Instrument: an annual family council, a written charter, a trust protector who can replace trustees, and trustee succession written into every document."><rect x="688" y="534" width="120" height="40" fill="transparent"/><text x="748" y="556" font-weight="700">Family council</text><text x="748" y="572" fill="#52514e" font-size="11">charter, protector</text></g>
+          <g class="pnode" data-tip="What is protected: wealth two and three generations out from estate tax and from each heir&#39;s exposures. Instrument: every trust in the plan is a dynasty trust; each child&#39;s and grandchild&#39;s share continues to the next generation inside the same protected structure."><rect x="260" y="729" width="380" height="26" fill="transparent"/><text x="450" y="754" font-weight="700">Great-grandchildren and beyond: the same trusts, still untaxed</text></g>
+        </g>
+        <!-- flow arrows outward -->
+        <g stroke="#898781" stroke-width="2" fill="none" marker-end="url(#apa)">
+          <path d="M450 300 V268"/><path d="M450 205 V172"/><path d="M450 110 V76"/>
+        </g>
+        <text x="470" y="290" fill="#898781" font-size="10.5">asset flow</text>
+        <text x="470" y="196" fill="#898781" font-size="10.5">gifts, sales, the policy</text>
+        <text x="470" y="100" fill="#898781" font-size="10.5">at the second death</text>
+        </g>
+      </svg>
+      <div id="aptip"></div>
+      <div class="aphint">Hover any label to see what it protects and which instrument does the protecting</div>
+    </div>
+    <div>
+      <div style="background:#0d366b;color:#fff;border-radius:18px;padding:22px 28px">
+        <div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#86b6ef;font-weight:700;margin-bottom:8px">The message</div>
+        <div style="font-size:23px;line-height:1.35;font-weight:600">&#8220;Growing wealth is only part of the challenge. Preserving wealth, protecting it from unnecessary risk, and transferring it efficiently across generations requires coordinated planning.&#8221;</div>
+      </div>
+      <div class="card" style="margin-top:16px;padding:16px 22px">
+        <h3 style="font-size:20px;margin-bottom:8px">What each layer stops</h3>
+        <table class="ly"><tbody>
+          <tr><td><span style="color:#2a78d6">●</span> <b>Entities</b></td><td>A tenant&#39;s claim reaching the other properties; a clinical claim reaching the family&#39;s cash; a car accident reaching the company.</td></tr>
+          <tr><td><span style="color:#6250d6">●</span> <b>Trusts</b></td><td>The 40% estate tax on growth; a child&#39;s divorce or creditor reaching the inheritance; probate; a forced sale of the Institute to pay tax.</td></tr>
+          <tr><td><span style="color:#1baf7a">●</span> <b>Beneficiary terms</b></td><td>Money owned outright by a 21-year-old; distributions to a UK resident that trigger UK tax; a share claimed in a divorce; a second estate tax at each generation.</td></tr>
+        </tbody></table>
+      </div>
+      <div class="callout" style="margin-top:16px;font-size:17px;line-height:1.42;border-left-color:#0d366b"><b>Pinnacle Planning holds the whole picture.</b> The entities are the business attorney&#39;s work, the trusts are estate counsel&#39;s, the coverage is M&amp;M&#39;s, the portfolio is Wealth Advisory Now&#39;s, and the returns are the CPA&#39;s. The quarterback&#39;s job is the order and the fit: that the LLC is restructured before SLAT 2 is funded, that the policy is applied for by a trust that exists, that the shareholder agreement is signed before the first gift, and that the foundation&#39;s status is confirmed before the first share goes to it. Coordinated, the layers protect each other. Separately, each leaves a gap the next one was meant to close.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Asset protection · 10 / 12</span></div>
+</div>
+<style>
+.rk{border-collapse:collapse;width:100%}.rk td{padding:6px 6px;border-bottom:1px solid #eeede8;vertical-align:middle;text-align:left;font-size:15.5px;line-height:1.25}.rk td:first-child{width:44px}.rk svg{width:36px;height:36px;display:block}.rk td div{font-size:13px;color:#52514e;font-weight:400}.rk td.ans{font-size:13px;color:#1a4f93;width:150px}
+.tp{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.3}.tp th{text-align:left;font-size:14px;color:#52514e;padding:6px 10px;border-bottom:1px solid #e1e0d9}.tp td{text-align:left;padding:7px 10px;border-bottom:1px solid #e1e0d9;vertical-align:top}.tp .s{font-size:12.5px;color:#898781;font-weight:400}.d2{color:#0f6b4b;font-weight:700}.d1{color:#9a5b00;font-weight:700}.d0{color:#898781;font-weight:700}
+.ab{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.28}.ab th{text-align:left;font-size:13.5px;color:#52514e;padding:6px 8px;border-bottom:1px solid #e1e0d9}.ab td{text-align:left;padding:6px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}.ab .s{font-size:12px;color:#898781;font-weight:400}
+.pm{margin:0;padding:0;list-style:none}.pm li{font-size:15px;line-height:1.35;margin:0 0 10px;color:#2b2b28}.pm li .tag{margin:0 6px 0 0;vertical-align:middle;font-size:11px;padding:2px 8px}
+.ly{border-collapse:collapse;width:100%;font-size:15px;line-height:1.3}.ly td{text-align:left;padding:6px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}.ly td:first-child{width:150px;white-space:nowrap}
+</style>
+
+<div class="slide" id="s-team">
+  <h2 style="margin-bottom:12px">Shahawi Family Advisory Team &amp; Wealth Coordination Framework</h2>
+  <div class="row" style="grid-template-columns:1.02fr 1fr;gap:26px;align-items:start">
+    <div class="card" style="padding:10px 14px 6px;position:relative">
+      <svg viewBox="0 0 1000 850" width="100%" style="display:block">
+        <defs><marker id="tq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <!-- outer ring: the family -->
+        <circle cx="500" cy="430" r="395" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="500" y="20" text-anchor="middle" font-size="12" fill="#898781" font-weight="700" letter-spacing=".08em">THE FAMILY: EVERY PLAN SERVES THIS RING</text>
+        <!-- spokes from Pinnacle to the six specialists -->
+        <g stroke="#898781" stroke-width="2.5" fill="none" marker-end="url(#tq)">
+          <path d="M500 335 L500 268"/><path d="M590 378 L646 346"/><path d="M590 482 L646 514"/><path d="M500 525 L500 592"/><path d="M410 482 L354 514"/><path d="M410 378 L354 346"/>
+        </g>
+        <!-- links among specialists (coordination) -->
+        <circle cx="500" cy="430" r="250" fill="none" stroke="#e1e0d9" stroke-width="2"/>
+        <!-- center: Pinnacle -->
+        <g class="tnode" data-tip="Pinnacle Planning, the quarterback. Leads all eight planning areas: business succession, estate, trust, tax, retirement, risk management, charitable and family legacy. Deliverables: one comprehensive plan kept current, the sequence of work (living trust, partition, recapitalization, appraisal, underwriting, then gifts, then the sale), the brief to each specialist, the decision meetings with Ihab and Vivian, and the annual family council report. Why one coordinator: the SLAT changes the gift tax return, the policy needs a trust that does not exist yet, and the sale cannot close before the GRAT is funded."><circle cx="500" cy="430" r="96" fill="#0d366b"/>
+        <text x="500" y="412" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Pinnacle Planning</text>
+        <text x="500" y="434" text-anchor="middle" fill="#cde2fb" font-size="12">the quarterback</text>
+        <text x="500" y="454" text-anchor="middle" fill="#cde2fb" font-size="11">coordinates · maintains the plan</text>
+        <text x="500" y="470" text-anchor="middle" fill="#cde2fb" font-size="11">finds opportunities · monitors</text></g>
+        <!-- specialists on the inner ring -->
+        <!-- top: estate attorney -->
+        <g class="tnode" data-tip="Estate planning attorney. Leads estate planning, trust planning and family legacy; participates in business succession, tax, risk management and charitable planning. Deliverables: the restated living trust with bypass and QTIP formulas (first 30 days), SLAT 1 and the IDGT (2026 to 2027), SLAT 2 and the grandchildren&#39;s trust (2027), the ILIT, GST allocations, and the GRAT, CRT and CLAT if a sale comes. Works with Nevada situs counsel and the California marital property attorney for the partition agreements."><rect x="400" y="188" width="200" height="80" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="500" y="211" text-anchor="middle" font-weight="700">Estate planning attorney</text>
+        <text x="500" y="229" text-anchor="middle" font-size="11.5" fill="#52514e">living trust · SLATs · ILIT · IDGT</text>
+        <text x="500" y="244" text-anchor="middle" font-size="11.5" fill="#52514e">dynasty and GST planning</text>
+        <text x="500" y="259" text-anchor="middle" font-size="11.5" fill="#52514e">asset protection, Nevada situs</text></g>
+        <!-- upper right: M&M -->
+        <g class="tnode" data-tip="M&amp;M Wealth Associates, life insurance and annuity specialist. Leads retirement planning and risk management; participates in business succession, estate and trust planning. Deliverables: underwriting at 63 and 67 in the first 60 days; the $20M second-to-die policy placed with the ILIT as applicant and owner; key-person term of $5M to $10M owned by the Institute; hybrid life and long-term care policies; premium finance analysis with the loan stress-tested; the deferred income annuity floor from 2029; Crummey notice administration. Why it sits on four of the eight areas: liquidity is the hinge of this plan."><rect x="650" y="290" width="210" height="96" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="3"/>
+        <text x="755" y="312" text-anchor="middle" font-weight="700">M&amp;M Wealth Associates</text>
+        <text x="755" y="329" text-anchor="middle" font-size="11.5" fill="#b42318" font-weight="700">life insurance and annuity specialist</text>
+        <text x="755" y="346" text-anchor="middle" font-size="11.5" fill="#52514e">$20M ILIT policy · premium finance</text>
+        <text x="755" y="361" text-anchor="middle" font-size="11.5" fill="#52514e">key-person · hybrid LTC · exec benefits</text>
+        <text x="755" y="376" text-anchor="middle" font-size="11.5" fill="#52514e">retirement income · annuity floor</text></g>
+        <!-- lower right: charitable team + foundation -->
+        <g class="tnode" data-tip="Charitable planning team, with the IABA Research &amp; Education Foundation at its center. Leads charitable planning and family legacy; participates in tax planning. Deliverables: confirm the foundation&#39;s public-charity status from its determination letter (first step); route the $175K-a-year UCLA gift through the foundation as appreciated shares, a named autism research grant; open a donor-advised fund for gifts outside the mission; the CRT (20% of shares) and the CLAT ($10M of proceeds, $800K a year for 20 years) at a sale; two children on the board in 2027; a grandchildren&#39;s grant committee from age 16."><rect x="650" y="476" width="210" height="96" rx="12" fill="#fbeaf2" stroke="#d6508f" stroke-width="2.5"/>
+        <text x="755" y="498" text-anchor="middle" font-weight="700">Charitable planning team</text>
+        <text x="755" y="515" text-anchor="middle" font-size="11.5" fill="#b0306e" font-weight="700">with the IABA Foundation</text>
+        <text x="755" y="532" text-anchor="middle" font-size="11.5" fill="#52514e">UCLA strategy · CRT · CLAT · DAF</text>
+        <text x="755" y="547" text-anchor="middle" font-size="11.5" fill="#52514e">foundation governance and board</text></g>
+        <text x="755" y="562" text-anchor="middle" font-size="11.5" fill="#52514e">nonprofit counsel, public-charity status</text>
+        <!-- bottom: business attorney -->
+        <g class="tnode" data-tip="Business attorney. Leads business succession; participates in trust planning, tax planning and risk management. Deliverables: the contingency succession agreement and retention terms for clinical leadership (first 90 days); recapitalization of the Institute into voting and non-voting shares; the holding LLC with one LLC per major property; the shareholder agreement among Ihab and the trusts with drag-along and buy-sell terms, signed before the first gift; the ESOP feasibility study or the sale process after the 90-day review."><rect x="400" y="596" width="200" height="80" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <text x="500" y="619" text-anchor="middle" font-weight="700">Business attorney</text>
+        <text x="500" y="637" text-anchor="middle" font-size="11.5" fill="#52514e">recapitalization · LLC restructuring</text>
+        <text x="500" y="652" text-anchor="middle" font-size="11.5" fill="#52514e">shareholder and buy-sell agreements</text>
+        <text x="500" y="667" text-anchor="middle" font-size="11.5" fill="#52514e">succession: sale, ESOP or hold</text></g>
+        <!-- lower left: investment team -->
+        <g class="tnode" data-tip="Investment advisory team: Wealth Advisory Now, acting as fiduciary. Leads retirement planning with M&amp;M; participates in trust planning, tax planning, risk management and charitable planning. Deliverables: the liquidity reserve and California municipal bond ladder; the portfolios of SLAT 1, SLAT 2, the IDGT and the grandchildren&#39;s trust once funded; the CRT and CLAT investments; direct indexing and tax-efficient management; a review of the $5M portfolio inside the Institute that earns 13%."><rect x="140" y="476" width="210" height="96" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2.5"/>
+        <text x="245" y="498" text-anchor="middle" font-weight="700">Investment advisory team</text>
+        <text x="245" y="515" text-anchor="middle" font-size="11.5" fill="#0f6b4b" font-weight="700">Wealth Advisory Now, fiduciary</text>
+        <text x="245" y="532" text-anchor="middle" font-size="11.5" fill="#52514e">portfolio and risk management</text>
+        <text x="245" y="547" text-anchor="middle" font-size="11.5" fill="#52514e">direct indexing · tax-efficient investing</text>
+        <text x="245" y="562" text-anchor="middle" font-size="11.5" fill="#52514e">reserve, munis, trust and CRT portfolios</text></g>
+        <!-- upper left: CPA -->
+        <g class="tnode" data-tip="CPA and tax advisor, with UK, Egyptian and Colombian counsel alongside. Leads business succession (the tax shape of each exit), trust planning, tax planning and charitable planning; participates in estate and retirement planning. Deliverables: gift tax returns with adequate disclosure and GST allocation for every gift; grantor-trust income tax tracking (Ihab for SLAT 1 and the IDGT, Vivian for SLAT 2); Forms 1041 and 5227; the foundation&#39;s Form 990; the section 303 reserve documented in board minutes; moving personal expenses out of the business before the appraisal; local wills and tax in three countries."><rect x="140" y="290" width="210" height="96" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5"/>
+        <text x="245" y="312" text-anchor="middle" font-weight="700">CPA and tax advisor</text>
+        <text x="245" y="329" text-anchor="middle" font-size="11.5" fill="#9a5b00" font-weight="700">plus UK, Egypt and Colombia counsel</text>
+        <text x="245" y="346" text-anchor="middle" font-size="11.5" fill="#52514e">entity structure · estate tax projections</text>
+        <text x="245" y="361" text-anchor="middle" font-size="11.5" fill="#52514e">gift tax returns, GST allocation</text>
+        <text x="245" y="376" text-anchor="middle" font-size="11.5" fill="#52514e">charitable deductions · retirement tax</text></g>
+        <!-- family nodes on the outer ring -->
+        <g class="tnode" data-tip="Generation 1: Ihab (63) and Vivian (67). Owners of 100% of the Institute, both LLCs, the home and seven foreign properties; grantors of every trust; trustees of the living trust; HEMS co-trustees of each other&#39;s SLAT. The decisions this plan asks of them: the grandchildren&#39;s clause, the insurance decision after quotes, a memorial program in their son&#39;s name, which two children join the foundation board, and the Institute&#39;s exit path. Retirement in 2029."><rect x="395" y="36" width="210" height="60" rx="12" fill="#0d366b"/>
+        <text x="500" y="60" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Generation 1 · Ihab and Vivian</text>
+        <text x="500" y="80" text-anchor="middle" fill="#cde2fb" font-size="11.5">owners, grantors, the decisions</text></g>
+        <g class="tnode" data-tip="Generation 2: the four children (21; 31 in London; 42; 46, divorced). Each receives 20% in a lifetime trust with terms that fit: incentive terms for the 21-year-old, a held share while the London daughter is UK resident, broad access for the 42-year-old who serves as first family co-trustee and ILIT trustee, an independent trustee and spendthrift clause for the divorced daughter. Two join the foundation board in 2027; all join the family council; co-trustee eligibility at 35."><rect x="92" y="700" width="200" height="60" rx="12" fill="#2a78d6"/>
+        <text x="192" y="724" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Generation 2 · four children</text>
+        <text x="192" y="744" text-anchor="middle" fill="#dbe9fb" font-size="11.5">lifetime trusts, board seats, trustees</text></g>
+        <g class="tnode" data-tip="Generation 3: the two grandsons, 16 and 14, and any grandchild born later. Beneficiaries of the grandchildren&#39;s trust (20% of the legacy, GST-exempt) and, after her, of their mother&#39;s trust. College paid directly to the school from 18; HEMS, matched earnings and loans from 25; a seat on the foundation&#39;s grant committee from 16 with $50K a year to direct; co-trustee of their own share at 35."><rect x="708" y="700" width="200" height="60" rx="12" fill="#1baf7a"/>
+        <text x="808" y="724" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">Generation 3 · two grandsons</text>
+        <text x="808" y="744" text-anchor="middle" fill="#e8f7f1" font-size="11.5">education, grant committee, stewards</text></g>
+        <!-- what it all serves: five outcomes on the ring -->
+        <g font-size="12" font-weight="700" fill="#52514e" text-anchor="middle">
+          <g class="tnode" data-tip="Family protection: the estate tax paid without selling the Institute (the ILIT or the 303 reserve), every inheritance held in trust beyond creditors and divorce, umbrella coverage over 16 properties, and a successor who can vote the shares the day Ihab cannot. Advisors: estate counsel, M&amp;M, the business attorney, Pinnacle."><rect x="30" y="200" width="150" height="30" rx="15" fill="#fff" stroke="#c3c2b7"/><text x="105" y="219">Family protection</text></g>
+          <g class="tnode" data-tip="Family governance: an annual family council, a written charter drafted with the children in 2027, a trust protector who can replace trustees, staggered foundation board terms, and trustee succession written into every document. Advisors: estate counsel, the charitable team, Pinnacle."><rect x="820" y="200" width="150" height="30" rx="15" fill="#fff" stroke="#c3c2b7"/><text x="895" y="219">Family governance</text></g>
+          <g class="tnode" data-tip="Stewardship education: a financial literacy course by 25 and a foundation committee term by 30 as conditions of co-trusteeship; the grandchildren&#39;s grant committee from 16; loans before gifts so the next generation builds rather than spends. Advisors: estate counsel (the trust terms), the charitable team, Wealth Advisory Now."><rect x="30" y="610" width="150" height="30" rx="15" fill="#fff" stroke="#c3c2b7"/><text x="105" y="629">Stewardship education</text></g>
+          <g class="tnode" data-tip="Charitable impact: the IABA Foundation funded now ($175K a year of shares), at a sale (the CLAT&#39;s $16M over 20 years) and at the second death (the CRT remainder, $12M or more); a named UCLA autism research program; a memorial program for the son lost in 2013. Advisors: the charitable team, the CPA, estate counsel."><rect x="820" y="610" width="150" height="30" rx="15" fill="#fff" stroke="#c3c2b7"/><text x="895" y="629">Charitable impact</text></g>
+          <g class="tnode" data-tip="Family legacy: about $64M of today&#39;s value moved into GST-exempt dynasty trusts that pass untaxed to children, grandchildren and beyond; the foundation as the institution the family governs together; the Institute&#39;s succession settled by agreement rather than by a deadline. Advisors: all six, coordinated by Pinnacle."><rect x="425" y="790" width="150" height="30" rx="15" fill="#fff" stroke="#c3c2b7"/><text x="500" y="809">Family legacy</text></g>
+        </g>
+        <text x="500" y="842" text-anchor="middle" font-size="12" fill="#898781">Spokes: Pinnacle Planning briefs, sequences and reviews each specialist. The inner ring: specialists work with each other, not in isolation.</text>
+        </g>
+      </svg>
+      <div id="ttip"></div>
+      <div class="aphint">Hover any advisor, generation or outcome for roles, deliverables and timing</div>
+    </div>
+    <div>
+      <div class="card" style="padding:16px 22px">
+        <h3 style="font-size:21px;margin-bottom:8px">Who works on what: eight planning areas</h3>
+        <table style="font-size:14.5px;line-height:1.25;border-collapse:collapse" class="mx">
+          <thead><tr><th style="text-align:left;width:190px"></th><th>Pinnacle</th><th>M&amp;M</th><th>CPA</th><th>Estate atty</th><th>Business atty</th><th>Investments</th><th>Charitable</th></tr></thead>
+          <tbody>
+            <tr><td style="text-align:left"><b>Business succession</b><div class="sub2">sale, ESOP or managed hold; shareholder agreement</div></td><td>●</td><td>◐</td><td>●</td><td>◐</td><td>●</td><td>○</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Estate planning</b><div class="sub2">restated living trust, bypass and QTIP, foreign wills</div></td><td>●</td><td>◐</td><td>◐</td><td>●</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Trust planning</b><div class="sub2">SLATs, IDGT, grandchildren&#39;s trust, GST, Nevada situs</div></td><td>●</td><td>◐</td><td>●</td><td>●</td><td>◐</td><td>◐</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Tax planning</b><div class="sub2">entity, compensation, gift returns, section 303 reserve</div></td><td>●</td><td>○</td><td>●</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td></tr>
+            <tr><td style="text-align:left"><b>Retirement planning</b><div class="sub2">401(k) and cash balance plan, Social Security, annuity floor</div></td><td>●</td><td>●</td><td>◐</td><td>○</td><td>○</td><td>●</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Risk management</b><div class="sub2">$20M ILIT policy, key-person, LTC, umbrella liability</div></td><td>●</td><td>●</td><td>○</td><td>◐</td><td>◐</td><td>◐</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Charitable planning</b><div class="sub2">foundation hub, UCLA grant, CRT and CLAT at a sale</div></td><td>●</td><td>○</td><td>●</td><td>◐</td><td>○</td><td>◐</td><td>●</td></tr>
+            <tr><td style="text-align:left"><b>Family legacy</b><div class="sub2">family council, charter, incentive terms, board succession</div></td><td>●</td><td>○</td><td>○</td><td>●</td><td>○</td><td>○</td><td>●</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:13.5px;color:#52514e;margin-top:8px">● leads &nbsp; ◐ participates &nbsp; ○ informed &nbsp;·&nbsp; Pinnacle Planning leads every area because every area touches the others.</div>
+      </div>
+      <div class="callout" style="margin-top:16px;font-size:17px;line-height:1.4;border-left-color:#e34948;background:#fdeaea"><b>Why M&amp;M Wealth Associates sits on four of the eight.</b> Liquidity is the hinge of this plan. The policy that pays the estate tax, the key-person coverage a buyer will expect, the long-term care policies, and the annuity floor under retirement income each connect insurance to estate, trust, business and retirement planning. None of them is a product decision on its own.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Advisory team · 11 / 12</span></div>
+</div>
+
+<div class="slide title" id="s-coordination">
+  <div style="max-width:1740px;margin-top:0.35in">
+    <div class="sub" style="font-size:20px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;color:#86b6ef">Why coordination matters</div>
+    <div style="font-size:54px;line-height:1.18;font-weight:700;color:#fff;max-width:1500px;letter-spacing:-.01em">&#8220;You don&#39;t hire us to sell a trust or an insurance policy.<br>You hire us to coordinate the entire wealth ecosystem.&#8221;</div>
+    <div class="row c3" style="margin-top:44px;gap:26px">
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#f3a978;font-weight:700;margin-bottom:10px">What most families have</div>
+        <div style="font-size:20px;color:#fff;line-height:1.45">A CPA. An attorney. An investment advisor. An insurance professional. Each one good at the job in front of them.</div>
+        <div style="font-size:18px;color:#cde2fb;line-height:1.45;margin-top:12px">And no one whose job is the whole: no one who knows that the SLAT changes the gift tax return, that the policy must be owned by a trust that does not exist yet, that the sale cannot close before the GRAT is funded, or that the foundation&#39;s status decides where $175,000 a year should go.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#5cc48a;font-weight:700;margin-bottom:10px">What the quarterback does</div>
+        <ul style="margin:0;padding-left:22px;font-size:19px;color:#fff;line-height:1.45">
+          <li>Keeps one plan, and keeps it current as the family and the law change</li>
+          <li>Sequences the work: living trust, partition, recapitalization, appraisal, underwriting, then gifts, then the sale</li>
+          <li>Briefs each specialist so no step is drafted in isolation</li>
+          <li>Finds the opportunities between disciplines, where most of the value in this plan lives</li>
+          <li>Monitors, reports to the family council, and brings the children in</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86b6ef;font-weight:700;margin-bottom:10px">What every recommendation works toward</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:19px;color:#fff;line-height:1.35">
+          <div><b style="color:#5cc48a">Wealth preservation</b><div style="font-size:15px;color:#cde2fb">$64M moved out of a 40% estate</div></div>
+          <div><b style="color:#5cc48a">Tax efficiency</b><div style="font-size:15px;color:#cde2fb">in every layer, every year</div></div>
+          <div><b style="color:#5cc48a">Family legacy</b><div style="font-size:15px;color:#cde2fb">trusts that outlast the grandchildren</div></div>
+          <div><b style="color:#5cc48a">Business continuity</b><div style="font-size:15px;color:#cde2fb">a succession that does not depend on a deadline</div></div>
+          <div style="grid-column:1 / -1"><b style="color:#5cc48a">Philanthropic impact</b><div style="font-size:15px;color:#cde2fb">the foundation funded for decades, governed by the family</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:34px;font-size:20px;color:#cde2fb;max-width:1500px">Pinnacle Planning holds the plan. Wealth Advisory Now manages the money as fiduciary. M&amp;M Wealth Associates designs the liquidity. Counsel drafts, the appraiser values, the CPA files. One plan, one meeting cadence, one point of accountability.</div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Shahawi family · v20261017a · confidential</span><span>Why coordination matters · 12 / 12</span></div>
+</div>
+<style>
+.mx th{font-size:12.5px;color:#52514e;font-weight:600;text-align:center;padding:6px 4px;border-bottom:1px solid #e1e0d9}
+.mx td{text-align:center;padding:6px 4px;border-bottom:1px solid #e1e0d9;font-size:17px;color:#0d366b}
+.mx td:first-child{font-size:14.5px;color:#0b0b0b}
+.mx .sub2{font-size:12px;color:#898781;font-weight:400;line-height:1.2}
+.mx td:nth-child(2){background:#eef4fc;font-weight:700}
+.mx td:nth-child(3){background:#fdeaea}
+</style>
+
+<style>
+#s-ap-5 .pnode{cursor:help}#s-ap-5 .pnode:hover text{fill:#0d366b}
+#aptip{position:absolute;display:none;max-width:400px;background:#0b0b0b;color:#fff;font-size:14px;line-height:1.4;padding:10px 14px;border-radius:10px;pointer-events:none;z-index:5;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.aphint{font-size:12.5px;color:#898781;text-align:center;margin:2px 0 4px}
+@media print{#aptip{display:none!important}.aphint{display:none}}
+</style>
+<script>
+(function(){var svg=document.querySelector('#s-ap-5 svg');if(!svg)return;var tip=document.getElementById('aptip'),wrap=svg.parentNode;
+svg.querySelectorAll('.pnode').forEach(function(n){
+ n.addEventListener('mouseenter',function(){tip.textContent=n.getAttribute('data-tip');tip.style.display='block';});
+ n.addEventListener('mousemove',function(e){var r=wrap.getBoundingClientRect();var x=e.clientX-r.left+16,y=e.clientY-r.top+16;if(x+420>r.width)x=e.clientX-r.left-420;if(y+140>r.height)y=e.clientY-r.top-140;tip.style.left=x+'px';tip.style.top=y+'px';});
+ n.addEventListener('mouseleave',function(){tip.style.display='none';});});})();
+</script>
+<style>
+#s-team .tnode{cursor:help}#s-team .tnode:hover rect,#s-team .tnode:hover circle{filter:brightness(.94)}
+#ttip{position:absolute;display:none;max-width:440px;background:#0b0b0b;color:#fff;font-size:14px;line-height:1.4;padding:10px 14px;border-radius:10px;pointer-events:none;z-index:5;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+@media print{#ttip{display:none!important}}
+</style>
+<script>
+(function(){var svg=document.querySelector('#s-team svg');if(!svg)return;var tip=document.getElementById('ttip'),wrap=svg.parentNode;
+svg.querySelectorAll('.tnode').forEach(function(n){
+ n.addEventListener('mouseenter',function(){tip.textContent=n.getAttribute('data-tip');tip.style.display='block';});
+ n.addEventListener('mousemove',function(e){var r=wrap.getBoundingClientRect();var x=e.clientX-r.left+16,y=e.clientY-r.top+16;if(x+460>r.width)x=e.clientX-r.left-460;if(y+180>r.height)y=e.clientY-r.top-180;tip.style.left=x+'px';tip.style.top=y+'px';});
+ n.addEventListener('mouseleave',function(){tip.style.display='none';});});})();
+</script>
+</body></html>

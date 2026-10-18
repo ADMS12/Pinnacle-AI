@@ -1,0 +1,1326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction · Kollen Glynn</title>
+<style>
+@page{size:1920px 1080px;margin:0}
+*{box-sizing:border-box}html{background:#d9d9d4}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#0b0b0b}
+.slide{width:1920px;height:1080px;padding:70px 90px 60px;position:relative;overflow:hidden;background:#fcfcfb;margin:24px auto;box-shadow:0 2px 14px rgba(0,0,0,.12);page-break-after:always}
+@media print{html{background:#fff}.slide{margin:0;box-shadow:none}}
+.title{background:#0d366b;color:#fff}
+h1{font-size:58px;margin:0 0 10px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:44px;margin:0 0 22px;font-weight:650;letter-spacing:-.01em}
+h3{font-size:24px;margin:0 0 8px;font-weight:650}
+p,li{font-size:22px;line-height:1.45}
+.sub{color:#52514e;font-size:26px}.title .sub{color:#cde2fb}
+.foot{position:absolute;bottom:28px;left:90px;right:90px;display:flex;justify-content:space-between;font-size:16px;color:#898781}.title .foot{color:#86b6ef}
+.row{display:grid;gap:28px}.c2{grid-template-columns:1fr 1fr}.c5{grid-template-columns:repeat(5,1fr)}.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:26px 30px}
+.pillar{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:18px;padding:24px 18px;text-align:center}
+.pillar .ic{width:110px;height:110px;margin:0 auto 14px}
+.pillar h3{font-size:22px;margin-bottom:8px}.pillar p{font-size:18px;color:#52514e;margin:0;line-height:1.42}
+.pillar.now{border-top:8px solid #e34948}.pillar.soon{border-top:8px solid #eda100}.pillar.later{border-top:8px solid #1baf7a}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.tag.now{background:rgba(208,59,59,.10);color:#d03b3b}.tag.soon{background:rgba(250,178,25,.16);color:#b86a00}.tag.later{background:rgba(12,163,12,.10);color:#006300}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+table{width:100%;border-collapse:collapse;font-size:21px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid #e1e0d9}th:first-child,td:first-child{text-align:left}
+th{color:#52514e;font-weight:600;font-size:19px}td.q{color:#898781;font-style:italic}
+.callout{border-left:8px solid #2a78d6;background:#eef4fc;padding:16px 22px;border-radius:10px;font-size:22px}
+.milestone{display:flex;align-items:center;gap:18px}.milestone .dot{width:22px;height:22px;border-radius:50%;background:#2a78d6;flex:none}
+.slide{scroll-margin-top:48px}
+/* additions for this deck */
+.kpi{background:#fff;border:1px solid rgba(11,11,11,.10);border-radius:16px;padding:14px 20px}
+.kpi .l{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#52514e;margin-bottom:4px}
+.kpi .v{font-size:36px;font-weight:700;letter-spacing:-.01em;color:#0d366b;line-height:1.1}
+.kpi .d{font-size:15.5px;color:#52514e;line-height:1.35;margin-top:4px}
+.kpi.neg .v{color:#b42318}.kpi.pos .v{color:#0f6b4b}
+.lede{font-size:19px;color:#52514e;margin:0 0 14px;line-height:1.4}
+.mini{font-size:17px;line-height:1.4;color:#2b2b28}
+.ul{margin:0;padding-left:20px}.ul li{font-size:17px;line-height:1.38;margin:0 0 7px;color:#2b2b28}
+.lt{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+.lt.g{background:#1baf7a}.lt.a{background:#eda100}.lt.r{background:#e34948}
+.own{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:#eef4fc;color:#1a4f93;margin-left:4px;white-space:nowrap}
+.tipwrap{position:relative}
+.tipbox{position:absolute;display:none;max-width:440px;background:#0b0b0b;color:#fff;font-size:14px;line-height:1.4;padding:10px 14px;border-radius:10px;pointer-events:none;z-index:5;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.tipwrap [data-tip]{cursor:help}
+.aphint{font-size:12.5px;color:#898781;text-align:center;margin:2px 0 4px}
+@media print{.tipbox{display:none!important}.aphint{display:none}}
+</style>
+</head>
+<body>
+<script src="portal.js" data-module="overview"></script>
+
+<!-- ============ 1 · TITLE ============ -->
+<div class="slide title">
+  <div style="margin-top:1.25in;max-width:1020px">
+    <div class="sub" style="font-size:22px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px">A two-minute introduction · Kollen Glynn</div>
+    <h1 style="font-size:66px;color:#fff">Leave SAP. Buy a business.<br>Keep everything you have built.</h1>
+    <div class="sub" style="margin-top:18px;font-size:28px;max-width:960px">Where Kollen stands today, what a 2028 exit and an acquisition require, and how to protect $15 million along the way</div>
+  </div>
+  <div style="position:absolute;right:90px;top:120px;width:660px">
+    <svg viewBox="0 0 660 580" width="100%">
+      <text x="330" y="44" text-anchor="middle" font-size="22" fill="#cde2fb">What Kollen owns today: $14.95 million net</text>
+      <rect x="30" y="134" width="84" height="366" rx="8" fill="#3987e5"/><text x="72" y="120" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$6.8M</text>
+      <rect x="134" y="338" width="84" height="162" rx="8" fill="#9b8ef0"/><text x="176" y="324" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$3.0M</text>
+      <rect x="238" y="370" width="84" height="130" rx="8" fill="#5cc48a"/><text x="280" y="356" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$2.4M</text>
+      <rect x="342" y="435" width="84" height="65" rx="8" fill="#f3a978"/><text x="384" y="421" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$1.2M</text>
+      <rect x="446" y="444" width="84" height="56" rx="8" fill="#eda100"/><text x="488" y="430" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$1.0M</text>
+      <rect x="550" y="462" width="84" height="38" rx="6" fill="#86b6ef"/><text x="592" y="448" text-anchor="middle" font-size="20" fill="#fff" font-weight="700">$0.7M</text>
+      <line x1="16" y1="500" x2="648" y2="500" stroke="#86b6ef" stroke-width="2"/>
+      <g font-size="16" fill="#cde2fb" text-anchor="middle">
+        <text x="72" y="526">Portfolio</text><text x="72" y="546">and cash</text>
+        <text x="176" y="526">Germany</text><text x="176" y="546">ESOP</text>
+        <text x="280" y="526">Home</text><text x="280" y="546">and land</text>
+        <text x="384" y="526">C.H. Robinson</text><text x="384" y="546">options</text>
+        <text x="488" y="526">IRAs and</text><text x="488" y="546">401(k)s</text>
+        <text x="592" y="526">Insurance</text><text x="592" y="546">cash value</text>
+      </g>
+      <text x="330" y="576" text-anchor="middle" font-size="15" fill="#86b6ef">Less a $280K mortgage · $6.85M of life insurance death benefit on top</text>
+    </svg>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Intro · 1 / 20</span></div>
+</div>
+
+<!-- ============ 2 · EXECUTIVE SUMMARY ============ -->
+<div class="slide" id="s-summary">
+  <h2 style="margin-bottom:16px">Executive summary · Who Kollen is, what he wants, what the numbers say</h2>
+  <div class="row" style="grid-template-columns:1fr 1fr 1.15fr;gap:24px;align-items:stretch">
+    <div class="card" style="padding:20px 26px;border-top:8px solid #0d366b">
+      <h3 style="font-size:22px">Who Kollen is</h3>
+      <ul class="ul" style="font-size:16.5px">
+        <li><b>52</b>, turning 53 in November · <b>single</b> · Newcastle, Washington</li>
+        <li><b>Technology executive at SAP</b>, about <b>$700K</b> of W-2 income; one employer pays 100% of earned income</li>
+        <li><b>$14.95M net worth</b>: a $6.8M portfolio, a $3.0M German ESOP, $1.24M of vested C.H. Robinson options, a $1.9M home</li>
+        <li><b>Owner of Whistler Ventures Inc.</b>, which sponsors a Solo 401(k) opened in 2026</li>
+        <li><b>A trust already exists</b>: the Whisler Family Trust holds the home and is beneficiary of the life insurance and IRA annuities</li>
+        <li><b>Three IUL policies</b>: $6.85M of death benefit, $390K a year of premiums</li>
+      </ul>
+    </div>
+    <div class="card" style="padding:20px 26px;border-top:8px solid #eda100">
+      <h3 style="font-size:22px">What he wants</h3>
+      <div style="display:grid;gap:12px;margin-top:6px">
+        <div class="milestone"><span class="dot" style="background:#e34948">&nbsp;</span><div><b style="font-size:18px">Leave SAP within two to three years</b><div class="mini light">RightCapital models retirement at 55, in 2028</div></div></div>
+        <div class="milestone"><span class="dot" style="background:#eda100">&nbsp;</span><div><b style="font-size:18px">Buy and run an existing business</b><div class="mini light">the second career, not a hobby: real capital, real debt</div></div></div>
+        <div class="milestone"><span class="dot" style="background:#1baf7a">&nbsp;</span><div><b style="font-size:18px">Live on $20,000 a month</b><div class="mini light">inflation-adjusted, to age 90, in RightCapital</div></div></div>
+        <div class="milestone"><span class="dot" style="background:#6250d6">&nbsp;</span><div><b style="font-size:18px">Protect it, and decide where it goes</b><div class="mini light">no heirs are named in the plan yet</div></div></div>
+      </div>
+    </div>
+    <div class="card" style="padding:20px 26px;border-top:8px solid #1baf7a">
+      <h3 style="font-size:22px">What the numbers say</h3>
+      <table class="rk2"><tbody>
+        <tr><td><span class="lt g"></span><b>Retiring at 55 is realistic</b><div>RightCapital: 100%, and 99% to 100% under every stress test. That result does not even count the $3.0M ESOP.</div></td></tr>
+        <tr><td><span class="lt g"></span><b>A business purchase is affordable</b><div>if the equity is held to $2.5M to $3.5M, roughly the ESOP, so the retirement core is never touched.</div></td></tr>
+        <tr><td><span class="lt a"></span><b>One assumption carries a lot of weight</b><div>$388K a year of policy income from 65. Verify the illustrations before the exit, not after.</div></td></tr>
+        <tr><td><span class="lt r"></span><b>The exposures are structural</b><div>34% of net worth in two stocks, about $5.5M of estate tax today, $6.85M of insurance inside the estate, no umbrella policy on file.</div></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="row" style="grid-template-columns:repeat(5,1fr);gap:18px;margin-top:20px">
+    <div class="kpi"><div class="l">Net worth</div><div class="v">$14.95M</div><div class="d">$15.23M of assets, $280K mortgage</div></div>
+    <div class="kpi pos"><div class="l">Retire at 55</div><div class="v">100%</div><div class="d">RightCapital probability of success</div></div>
+    <div class="kpi"><div class="l">Business equity capacity</div><div class="v">$2.5M to $3.5M</div><div class="d">outside the retirement core</div></div>
+    <div class="kpi neg"><div class="l">Two-stock exposure</div><div class="v">34%</div><div class="d">ESOP and C.H. Robinson, $5.2M</div></div>
+    <div class="kpi neg"><div class="l">Estate tax if he died today</div><div class="v">&#8776; $5.5M</div><div class="d">26%, mostly Washington's estate tax</div></div>
+  </div>
+  <div class="callout" style="margin-top:18px;font-size:20px"><b>Two things are fixed:</b> leaving corporate life within three years, and owning a business after. Everything else is open: when the exit happens, how the purchase is funded, how the wealth is held, and who it is ultimately for. That is what the plan is for.</div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Executive summary · 2 / 20</span></div>
+</div>
+
+<!-- ============ 3 · WHAT WE ARE BUILDING ============ -->
+<div class="slide">
+  <h2>What we are building, in the order it has to happen</h2>
+  <div class="row" style="grid-template-columns:repeat(6,1fr);gap:20px">
+    <div class="pillar now"><span class="tag now">First</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#e34948" opacity=".12"/><rect x="28" y="40" width="54" height="40" rx="6" fill="#e34948"/><rect x="44" y="30" width="22" height="12" rx="3" fill="none" stroke="#e34948" stroke-width="5"/><path d="M28 58 H82" stroke="#fff" stroke-width="4"/><path d="M70 70 L84 70 M78 64 L84 70 L78 76" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+      <h3>Executive Transition</h3><p>The exit date, the C.H. Robinson option calendar, the ESOP, deferred pay and a health-insurance bridge, decided before the resignation letter.</p></div>
+    <div class="pillar now"><span class="tag now">First</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#2a78d6" opacity=".12"/><path d="M55 24 L82 34 V55 C82 73 69 84 55 89 C41 84 28 73 28 55 V34 Z" fill="#2a78d6"/><path d="M44 56 L52 64 L68 46" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Asset Protection</h3><p>An umbrella policy this month, the land in its own LLC, and walls between personal wealth and a business that will carry a personal guarantee.</p></div>
+    <div class="pillar now"><span class="tag now">First</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#6250d6" opacity=".12"/><circle cx="55" cy="30" r="10" fill="#6250d6"/><circle cx="30" cy="66" r="10" fill="#6250d6"/><circle cx="80" cy="66" r="10" fill="#6250d6"/><path d="M55 40 L30 56 M55 40 L80 56" stroke="#6250d6" stroke-width="5"/><rect x="40" y="78" width="30" height="8" rx="4" fill="#6250d6"/></svg>
+      <h3>Estate Planning</h3><p>Restate and fund the trust, move $6.85M of insurance into an ILIT, and name who inherits. Together, about $2.8M less estate tax.</p></div>
+    <div class="pillar soon"><span class="tag soon">Next</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#eda100" opacity=".14"/><rect x="30" y="34" width="50" height="46" rx="6" fill="#eda100"/><rect x="38" y="44" width="34" height="5" rx="2" fill="#fff"/><rect x="38" y="55" width="26" height="5" rx="2" fill="#fff"/><rect x="38" y="66" width="18" height="5" rx="2" fill="#fff"/><circle cx="76" cy="36" r="12" fill="#fff" stroke="#eda100" stroke-width="4"/><path d="M71 36 L75 40 L82 32" stroke="#eda100" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+      <h3>Tax Planning</h3><p>Use the last two 37% years well, then exercise options and sell gains in the low-income years after SAP. Washington rules change the order.</p></div>
+    <div class="pillar soon"><span class="tag soon">Next</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#1a4f93" opacity=".12"/><rect x="26" y="46" width="26" height="40" rx="3" fill="#1a4f93"/><rect x="58" y="30" width="26" height="56" rx="3" fill="#1a4f93"/><rect x="32" y="54" width="6" height="6" fill="#fff"/><rect x="42" y="54" width="6" height="6" fill="#fff"/><rect x="64" y="38" width="6" height="6" fill="#fff"/><rect x="74" y="38" width="6" height="6" fill="#fff"/><rect x="64" y="50" width="6" height="6" fill="#fff"/><rect x="74" y="50" width="6" height="6" fill="#fff"/></svg>
+      <h3>Business Acquisition</h3><p>A $2.5M to $3.5M equity budget, SBA-sized debt, an asset purchase into a holding structure, and a successor named from day one.</p></div>
+    <div class="pillar later"><span class="tag later">Then</span>
+      <svg class="ic" viewBox="0 0 110 110"><circle cx="55" cy="55" r="52" fill="#1baf7a" opacity=".12"/><path d="M28 78 L46 58 L58 68 L82 38" stroke="#1baf7a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M82 38 V54 M82 38 H66" stroke="#1baf7a" stroke-width="8" stroke-linecap="round"/></svg>
+      <h3>Retirement Income</h3><p>A two-year reserve, a bond ladder to 59&#189;, verified policy income, Social Security at 70, and the business as a second income engine.</p></div>
+  </div>
+  <div class="row c3" style="margin-top:28px">
+    <div class="card"><div class="milestone"><span class="dot"></span><div><b style="font-size:22px">Where we are</b><div style="color:#52514e;font-size:19px">$14.95M of wealth, one paycheck, $115K of cash, a third of net worth in two stocks, no umbrella policy, and a trust that holds only the house.</div></div></div></div>
+    <div class="card"><div class="milestone"><span class="dot" style="background:#eda100"></span><div><b style="font-size:22px">What today decides</b><div style="color:#52514e;font-size:19px">The exit year, the option calendar, the ILIT, an umbrella policy, and an acquisition budget the retirement plan can afford to lose.</div></div></div></div>
+    <div class="card"><div class="milestone"><span class="dot" style="background:#1baf7a"></span><div><b style="font-size:22px">Where it leads</b><div style="color:#52514e;font-size:19px">By 2029: retired from SAP at 55, owner of a business bought with capital retirement does not need, every asset behind a wall, and the estate tax cut roughly in half.</div></div></div></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Executive summary · 3 / 20</span></div>
+</div>
+
+<!-- ============ 4 · BALANCE SHEET DASHBOARD ============ -->
+<div class="slide" id="s-position">
+  <h2 style="margin-bottom:16px">Current financial position · The balance sheet at a glance</h2>
+  <div class="row" style="grid-template-columns:1.08fr 1fr;gap:26px;align-items:start">
+    <div class="card" style="padding:18px 24px">
+      <h3 style="font-size:21px;margin-bottom:6px">What Kollen owns: $15.23M of assets</h3>
+      <div style="display:grid;grid-template-columns:400px 1fr;gap:22px;align-items:center">
+        <svg viewBox="0 0 420 420" width="400">
+          <path d="M210.0 20.0 A190 190 0 0 1 274.3 388.8 L249.9 321.0 A118 118 0 0 0 210.0 92.0 Z" fill="#2a78d6"/>
+          <path d="M274.3 388.8 A190 190 0 0 1 62.1 329.3 L118.1 284.1 A118 118 0 0 0 249.9 321.0 Z" fill="#6250d6"/>
+          <path d="M62.1 329.3 A190 190 0 0 1 21.0 190.1 L92.7 197.6 A118 118 0 0 0 118.1 284.1 Z" fill="#1baf7a"/>
+          <path d="M21.0 190.1 A190 190 0 0 1 53.2 102.7 L112.6 143.4 A118 118 0 0 0 92.7 197.6 Z" fill="#e34948"/>
+          <path d="M53.2 102.7 A190 190 0 0 1 111.4 47.6 L148.8 109.1 A118 118 0 0 0 112.6 143.4 Z" fill="#eda100"/>
+          <path d="M111.4 47.6 A190 190 0 0 1 162.3 26.1 L180.4 95.8 A118 118 0 0 0 148.8 109.1 Z" fill="#d6508f"/>
+          <path d="M162.3 26.1 A190 190 0 0 1 201.0 20.2 L204.4 92.1 A118 118 0 0 0 180.4 95.8 Z" fill="#5cc48a"/>
+          <path d="M201.0 20.2 A190 190 0 0 1 210.0 20.0 L210.0 92.0 A118 118 0 0 0 204.4 92.1 Z" fill="#898781"/>
+          <text x="210" y="204" text-anchor="middle" font-size="34" font-weight="700" fill="#0d366b">$15.23M</text>
+          <text x="210" y="230" text-anchor="middle" font-size="15" fill="#52514e">total assets</text>
+          <text x="210" y="252" text-anchor="middle" font-size="15" fill="#52514e">net worth $14.95M</text>
+        </svg>
+        <table class="lg"><tbody>
+          <tr><td><span class="sw" style="background:#2a78d6"></span><b>Fidelity brokerage</b><div>QQQ and C.H. Robinson shares · exposed</div></td><td>$6.78M</td><td>44%</td></tr>
+          <tr><td><span class="sw" style="background:#6250d6"></span><b>Germany ESOP</b><div>one company's stock · outside the projection</div></td><td>$3.00M</td><td>20%</td></tr>
+          <tr><td><span class="sw" style="background:#1baf7a"></span><b>Primary home</b><div>in the Whisler Family Trust · $280K mortgage</div></td><td>$1.90M</td><td>12%</td></tr>
+          <tr><td><span class="sw" style="background:#e34948"></span><b>C.H. Robinson options</b><div>18,246 vested · expire 2028 and 2030</div></td><td>$1.20M</td><td>8%</td></tr>
+          <tr><td><span class="sw" style="background:#eda100"></span><b>IRA annuities and 401(k)s</b><div>NAC IRA and Roth, SAP and Solo 401(k)</div></td><td>$1.03M</td><td>7%</td></tr>
+          <tr><td><span class="sw" style="background:#d6508f"></span><b>Insurance cash value</b><div>three IULs · $6.85M death benefit</div></td><td>$0.71M</td><td>5%</td></tr>
+          <tr><td><span class="sw" style="background:#5cc48a"></span><b>Land</b><div>held in Kollen's own name</div></td><td>$0.50M</td><td>3%</td></tr>
+          <tr><td><span class="sw" style="background:#898781"></span><b>Cash</b><div>below the 3-month target</div></td><td>$0.12M</td><td>1%</td></tr>
+        </tbody></table>
+      </div>
+      <h3 style="font-size:18px;margin:18px 0 8px">How quickly it can be used</h3>
+      <svg viewBox="0 0 860 92" width="100%" style="display:block">
+        <g font-size="15" font-weight="700" fill="#fff">
+        <rect x="0" y="4" width="389" height="34" fill="#2a78d6"/><text x="12" y="27">Liquid now · $6.9M · 45%</text>
+        <rect x="389" y="4" width="237" height="34" fill="#6250d6"/><text x="401" y="27">On sale · $4.2M · 28%</text>
+        <rect x="626" y="4" width="58" height="34" fill="#eda100"/><text x="655" y="27" text-anchor="middle" font-size="12.5">$1.0M</text>
+        <rect x="684" y="4" width="176" height="34" fill="#898781"/><text x="696" y="27">Illiquid · $3.1M</text>
+        </g>
+        <g font-size="13.5" fill="#52514e">
+        <text x="0" y="62">Liquid now: the portfolio and cash. On sale: the ESOP and the options, with tax on the way out.</text>
+        <text x="0" y="82">Gold: retirement accounts, penalty before 59&#189;. Illiquid: the home, the land, insurance cash value.</text>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="row" style="grid-template-columns:1fr 1fr;gap:16px">
+        <div class="kpi"><div class="l">Net worth</div><div class="v">$14.95M</div><div class="d">assets $15.23M · liabilities $280K, a 5% mortgage at $2,684 a month</div></div>
+        <div class="kpi"><div class="l">Income</div><div class="v">&#8776; $700K</div><div class="d">W-2 from SAP · RightCapital models a $650K salary rising 3% a year</div></div>
+        <div class="kpi"><div class="l">Monthly outflow</div><div class="v">$48.8K</div><div class="d">$12.0K living · $4.0K housing · $32.5K insurance premiums · $0.4K other</div></div>
+        <div class="kpi neg"><div class="l">2026 net cash flow</div><div class="v">&#8722;$321K</div><div class="d">spending, premiums, tax and 401(k) exceed the salary; the portfolio covers the gap</div></div>
+        <div class="kpi neg"><div class="l">Cash on hand</div><div class="v">$115K</div><div class="d">target $146.5K (3 months); recommend 24 months before the exit</div></div>
+        <div class="kpi"><div class="l">Liquid within months</div><div class="v">$11.1M</div><div class="d">portfolio, ESOP, options and cash; $5.2M of it is two companies</div></div>
+      </div>
+      <div class="card" style="margin-top:16px;padding:14px 22px">
+        <h3 style="font-size:18px;margin-bottom:8px">How the $8.52M of investments is taxed</h3>
+        <svg viewBox="0 0 800 70" width="100%">
+          <rect x="0" y="6" width="637" height="30" fill="#2a78d6"/><rect x="637" y="6" width="81" height="30" fill="#eda100"/><rect x="718" y="6" width="82" height="30" fill="#1baf7a"/>
+          <text x="12" y="27" font-size="15" fill="#fff" font-weight="700">Taxable $6.78M · 80%</text>
+          <text x="0" y="60" font-size="13.5" fill="#52514e">Brokerage: gains taxed when sold, plus Washington's 7% to 9.9% on large gains</text>
+          <text x="800" y="60" font-size="13.5" fill="#52514e" text-anchor="end">Deferred $0.86M · Tax-free $0.88M</text>
+        </svg>
+        <h3 style="font-size:18px;margin:10px 0 8px">How much rides on two companies</h3>
+        <svg viewBox="0 0 800 70" width="100%">
+          <rect x="0" y="6" width="800" height="30" fill="#e1e0d9"/>
+          <rect x="0" y="6" width="160" height="30" fill="#6250d6"/><rect x="160" y="6" width="49" height="30" fill="#e34948"/><rect x="209" y="6" width="67" height="30" fill="#f3a978"/>
+          <text x="290" y="27" font-size="15" fill="#0b0b0b" font-weight="700">$5.2M of $14.95M · 34%</text>
+          <text x="0" y="60" font-size="13.5" fill="#52514e">ESOP $3.0M · C.H. Robinson shares $0.92M · C.H. Robinson options $1.24M (Fidelity, 31 July 2026)</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:16px;font-size:18.5px;line-height:1.4"><b>Liquid is not the same as available.</b> $11.1M could become cash within months, but almost half of it is the stock of two companies, the options carry an expiry date, and only $115K is cash today. The first planning job is to turn concentrated wealth into usable wealth, in the right tax years.</div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Financial position · 4 / 20</span></div>
+</div>
+<style>
+.lg{border-collapse:collapse;width:100%;font-size:15px}.lg td{padding:5px 6px;border-bottom:1px solid #eeede8;text-align:right;vertical-align:middle}.lg td:first-child{text-align:left;line-height:1.2}.lg td div{font-size:12.5px;color:#52514e;font-weight:400}.lg td:nth-child(3){color:#898781;width:48px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:0}
+.rk2{border-collapse:collapse;width:100%}.rk2 td{text-align:left;padding:9px 2px;border-bottom:1px solid #eeede8;font-size:18px;line-height:1.3}.rk2 td div{font-size:16px;color:#52514e;margin:3px 0 0 20px}
+</style>
+
+<!-- ============ 5 · CASH FLOW AND INSURANCE PROGRAM ============ -->
+<div class="slide">
+  <h2 style="margin-bottom:14px">Current financial position · Cash flow, income and the insurance program</h2>
+  <div class="row c2" style="gap:24px">
+    <div class="card" style="padding:14px 22px 8px">
+      <h3 style="font-size:19px;margin-bottom:2px">2026 in one picture: where $650K of salary goes</h3>
+      <svg viewBox="0 0 820 400" width="100%">
+        <g font-size="13">
+        <line x1="40" y1="248" x2="800" y2="248" stroke="#898781" stroke-width="1.5"/><text x="36" y="252" text-anchor="end" fill="#898781" font-size="12">$0</text>
+        <rect x="60" y="40" width="66" height="208" fill="#1baf7a"/><text x="93" y="32" text-anchor="middle" font-weight="700">$650K</text>
+        <rect x="152" y="40" width="66" height="115.6" fill="#eda100"/><text x="185" y="32" text-anchor="middle" font-weight="700">&#8722;$361K</text>
+        <rect x="244" y="155.6" width="66" height="46.1" fill="#2a78d6"/><text x="277" y="147" text-anchor="middle" font-weight="700">&#8722;$144K</text>
+        <rect x="336" y="201.7" width="66" height="15.3" fill="#5598e7"/><text x="369" y="193" text-anchor="middle" font-weight="700">&#8722;$48K</text>
+        <rect x="428" y="217" width="66" height="124.8" fill="#e34948"/><text x="461" y="209" text-anchor="middle" font-weight="700" fill="#b42318">&#8722;$390K</text>
+        <rect x="520" y="341.8" width="66" height="2" fill="#898781"/><text x="553" y="333" text-anchor="middle" font-weight="700">&#8722;$4K</text>
+        <rect x="612" y="343.1" width="66" height="7.8" fill="#6250d6"/><text x="645" y="335" text-anchor="middle" font-weight="700">&#8722;$25K</text>
+        <rect x="704" y="248" width="66" height="102.9" fill="#b42318"/><text x="737" y="240" text-anchor="middle" font-weight="700" fill="#b42318">&#8722;$321K</text>
+        <g stroke="#c3c2b7" stroke-dasharray="3 3"><path d="M126 40 H152"/><path d="M218 155.6 H244"/><path d="M310 201.7 H336"/><path d="M402 217 H428"/><path d="M494 341.8 H520"/><path d="M586 343.1 H612"/><path d="M678 350.9 H704"/></g>
+        <g font-size="12.5" fill="#52514e" text-anchor="middle">
+          <text x="93" y="374">Salary</text>
+          <text x="185" y="374">Taxes</text><text x="185" y="390">as modeled</text>
+          <text x="277" y="374">Living</text>
+          <text x="369" y="374">Housing</text>
+          <text x="461" y="374" fill="#b42318" font-weight="700">Insurance</text><text x="461" y="390" fill="#b42318" font-weight="700">premiums</text>
+          <text x="553" y="374">Other</text>
+          <text x="645" y="374">401(k)</text>
+          <text x="737" y="374" font-weight="700" fill="#b42318">Net</text><text x="737" y="390" font-weight="700" fill="#b42318">cash flow</text>
+        </g>
+        </g>
+      </svg>
+    </div>
+    <div class="card" style="padding:14px 22px 8px">
+      <h3 style="font-size:19px;margin-bottom:2px">Premiums now, policy income later (RightCapital, $K a year)</h3>
+      <svg viewBox="0 0 860 400" width="100%">
+        <g font-size="12.5">
+        <line x1="50" y1="150" x2="845" y2="150" stroke="#898781" stroke-width="1.5"/>
+        <g stroke="#eeede8"><path d="M50 33.6 H845"/><path d="M50 267 H845"/></g>
+        <text x="44" y="38" text-anchor="end" fill="#898781">+$388K</text><text x="44" y="154" text-anchor="end" fill="#898781">$0</text><text x="44" y="271" text-anchor="end" fill="#898781">&#8722;$390K</text>
+        <rect x="60.0" y="150" width="15" height="117.0" fill="#e34948"/><rect x="80.5" y="150" width="15" height="117.0" fill="#e34948"/><rect x="101.1" y="150" width="15" height="117.0" fill="#e34948"/>
+        <rect x="121.6" y="150" width="15" height="81.0" fill="#e34948"/><rect x="142.1" y="150" width="15" height="81.0" fill="#e34948"/><rect x="162.6" y="150" width="15" height="81.0" fill="#e34948"/><rect x="183.2" y="150" width="15" height="81.0" fill="#e34948"/>
+        <rect x="203.7" y="150" width="15" height="9.0" fill="#e34948"/><rect x="224.2" y="150" width="15" height="9.0" fill="#e34948"/><rect x="244.7" y="150" width="15" height="9.0" fill="#e34948"/><rect x="265.3" y="150" width="15" height="9.0" fill="#e34948"/>
+        <rect x="224.2" y="69.6" width="15" height="80.4" fill="#1baf7a"/><rect x="244.7" y="69.6" width="15" height="80.4" fill="#1baf7a"/><rect x="265.3" y="69.6" width="15" height="80.4" fill="#1baf7a"/><rect x="285.8" y="69.6" width="15" height="80.4" fill="#1baf7a"/>
+        <g fill="#1baf7a"><rect x="306.3" y="33.6" width="15" height="116.4"/><rect x="326.8" y="33.6" width="15" height="116.4"/><rect x="347.4" y="33.6" width="15" height="116.4"/><rect x="367.9" y="33.6" width="15" height="116.4"/><rect x="388.4" y="33.6" width="15" height="116.4"/><rect x="408.9" y="33.6" width="15" height="116.4"/><rect x="429.5" y="33.6" width="15" height="116.4"/><rect x="450.0" y="33.6" width="15" height="116.4"/><rect x="470.5" y="33.6" width="15" height="116.4"/><rect x="491.1" y="33.6" width="15" height="116.4"/><rect x="511.6" y="33.6" width="15" height="116.4"/><rect x="532.1" y="33.6" width="15" height="116.4"/><rect x="552.6" y="33.6" width="15" height="116.4"/><rect x="573.2" y="33.6" width="15" height="116.4"/><rect x="593.7" y="33.6" width="15" height="116.4"/><rect x="614.2" y="33.6" width="15" height="116.4"/><rect x="634.7" y="33.6" width="15" height="116.4"/><rect x="655.3" y="33.6" width="15" height="116.4"/><rect x="675.8" y="33.6" width="15" height="116.4"/><rect x="696.3" y="33.6" width="15" height="116.4"/><rect x="716.8" y="33.6" width="15" height="116.4"/><rect x="737.4" y="33.6" width="15" height="116.4"/><rect x="757.9" y="33.6" width="15" height="116.4"/><rect x="778.4" y="33.6" width="15" height="116.4"/><rect x="798.9" y="33.6" width="15" height="116.4"/><rect x="819.5" y="33.6" width="15" height="116.4"/></g>
+        <g fill="#52514e" text-anchor="middle" font-size="12"><text x="67" y="290">2026</text><text x="108" y="290">2028</text><text x="231" y="290">2034</text><text x="313" y="290">2038</text><text x="519" y="290">2048</text><text x="724" y="290">2058</text><text x="827" y="290">2063</text></g>
+        <g fill="#52514e" text-anchor="middle" font-size="11.5"><text x="67" y="306">age 53</text><text x="108" y="306">55</text><text x="231" y="306">61</text><text x="313" y="306">65</text><text x="519" y="306">75</text><text x="724" y="306">85</text><text x="827" y="306">90</text></g>
+        <rect x="60" y="326" width="14" height="14" fill="#e34948"/><text x="80" y="338">premiums: $390K to 2028, $270K to 2032, $30K to 2036 · about $2.37M still to pay</text>
+        <rect x="60" y="352" width="14" height="14" fill="#1baf7a"/><text x="80" y="364">policy loans: $268K a year from 61, $388K from 65 · about $11.2M in total</text>
+        <text x="60" y="390" fill="#52514e">NAC IUL Cash Growth $2.8M · Kaizen $2.8M · CLU IUL Protection $1.25M of death benefit</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px;padding:14px 24px">
+    <h3 style="font-size:19px;margin-bottom:8px">Reading the RightCapital report: six things it does not say on its face</h3>
+    <div class="row" style="grid-template-columns:repeat(3,1fr);gap:12px 26px">
+      <div class="mini"><b>1 · The ESOP is not in the projection.</b> The $3.0M Germany ESOP is on the balance sheet, but the retirement model starts from $7.9M of invested assets without it. The 100% result does not need it.</div>
+      <div class="mini"><b>2 · The "Logistics RSU" is the C.H. Robinson options.</b> RightCapital sells them over ten years; the grants actually expire in December 2028 and February 2030.</div>
+      <div class="mini"><b>3 · The brokerage figure needs a second statement.</b> RightCapital shows $6.78M; the Fidelity TOD account held $2.11M on 31 July after $3.93M moved to another Fidelity account during 2026.</div>
+      <div class="mini"><b>4 · "Whisler" is not a person.</b> The trust is entered as a co-client with Kollen's birth date. It adds about $1.45M of health and long-term-care cost that does not exist, so the projection is conservative.</div>
+      <div class="mini"><b>5 · 87% of the portfolio is classed as "Other".</b> The allocation, risk-score and "not concentrated" pages therefore say little; the real holdings are two tickers and two employers' stock.</div>
+      <div class="mini"><b>6 · Taxes are overstated.</b> The model taxes the portfolio's whole return every year. With QQQ and C.H. Robinson simply held, 2026 tax is lower and the cash shortfall smaller than &#8722;$321K.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Financial position · 5 / 20</span></div>
+</div>
+
+<!-- ============ 6 · RETIREMENT READINESS ============ -->
+<div class="slide" id="s-retire">
+  <h2 style="margin-bottom:14px">Retirement &amp; career transition · Is leaving SAP at 55 realistic?</h2>
+  <div class="row" style="grid-template-columns:0.82fr 1.18fr;gap:24px;align-items:start">
+    <div class="card" style="padding:16px 22px 10px">
+      <h3 style="font-size:20px;margin-bottom:0">Pinnacle readiness score</h3>
+      <svg viewBox="0 0 400 220" width="100%" style="display:block;max-width:440px;margin:0 auto">
+        <path d="M50 190 A150 150 0 0 1 350 190" fill="none" stroke="#eeede8" stroke-width="28"/>
+        <path d="M50 190 A150 150 0 0 1 250.8 48.9" fill="none" stroke="#eda100" stroke-width="28"/>
+        <line x1="333.6" y1="121.9" x2="360.4" y2="108.2" stroke="#0f6b4b" stroke-width="5"/>
+        <text x="375" y="104" font-size="14" fill="#0f6b4b" font-weight="700">85</text>
+        <text x="200" y="166" text-anchor="middle" font-size="64" font-weight="700" fill="#0d366b">61</text>
+        <text x="200" y="196" text-anchor="middle" font-size="15" fill="#52514e">today, out of 100 · target 85 by the exit</text>
+        <text x="50" y="214" text-anchor="middle" font-size="12" fill="#898781">0</text><text x="350" y="214" text-anchor="middle" font-size="12" fill="#898781">100</text>
+      </svg>
+      <table class="sc"><tbody>
+        <tr><td>Capital sufficiency<div>100% in RightCapital, ESOP not counted</div></td><td><div class="bar"><i style="width:95%"></i><b style="left:95%"></b></div></td><td>95</td></tr>
+        <tr><td>Income durability<div>70% of later income is policy loans</div></td><td><div class="bar"><i style="width:55%"></i><b style="left:75%"></b></div></td><td>55</td></tr>
+        <tr><td>Transition cash and liquidity<div>$115K cash, &#8722;$321K a year now</div></td><td><div class="bar"><i style="width:45%"></i><b style="left:85%"></b></div></td><td>45</td></tr>
+        <tr><td>Diversification<div>34% in two companies' stock</div></td><td><div class="bar"><i style="width:40%"></i><b style="left:80%"></b></div></td><td>40</td></tr>
+        <tr><td>Health-care bridge<div>ten years before Medicare</div></td><td><div class="bar"><i style="width:60%"></i><b style="left:80%"></b></div></td><td>60</td></tr>
+        <tr><td>Protection and estate<div>no umbrella, no ILIT, $4.9M via probate</div></td><td><div class="bar"><i style="width:35%"></i><b style="left:85%"></b></div></td><td>35</td></tr>
+      </tbody></table>
+      <div style="font-size:12.5px;color:#898781;margin-top:4px">Bar: today · green tick: target by the exit date. Weighted 30 / 15 / 15 / 15 / 10 / 15. Pinnacle's scoring, not a RightCapital output.</div>
+    </div>
+    <div>
+      <div class="card" style="padding:12px 20px 4px">
+        <h3 style="font-size:19px;margin-bottom:0">RightCapital "Retire at 55": invested assets, excluding the ESOP</h3>
+        <svg viewBox="0 0 900 312" width="100%" style="display:block">
+          <g font-size="13">
+          <g stroke="#eeede8"><path d="M80 290 H870"/><path d="M80 234.3 H870"/><path d="M80 178.6 H870"/><path d="M80 122.9 H870"/><path d="M80 67.1 H870"/></g>
+          <g fill="#898781" text-anchor="end"><text x="72" y="294">$0</text><text x="72" y="238">$6M</text><text x="72" y="183">$12M</text><text x="72" y="127">$18M</text><text x="72" y="71">$24M</text></g>
+          <rect x="122.2" y="14" width="105.4" height="276" fill="#fdeaea" opacity=".55"/>
+          <text x="175" y="32" text-anchor="middle" fill="#b42318" font-weight="700" font-size="12.5">drawdown years</text>
+          <text x="175" y="48" text-anchor="middle" fill="#b42318" font-size="12">55 to 60</text>
+          <polyline points="80.0,211.9 101.1,205.4 122.2,208.9 143.2,210.9 164.3,212.7 185.4,214.3 206.5,215.7 227.6,214.1 248.6,209.6 269.7,204.7 290.8,199.2 311.9,195.9 333.0,191.3 354.1,186.4 375.1,181.6 396.2,176.7 417.3,171.7 438.4,166.6 459.5,161.3 480.5,155.9 501.6,150.3 522.7,144.6 543.8,139.1 564.9,133.6 585.9,127.9 607.0,122.1 628.1,116.3 649.2,110.4 670.3,104.4 691.4,98.3 712.4,92.1 733.5,85.8 754.6,79.5 775.7,73.2 796.8,66.7 817.8,60.2 838.9,61.6 860.0,51.5" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round"/>
+          <circle cx="101.1" cy="205.4" r="6" fill="#2a78d6"/><text x="101" y="192" text-anchor="middle" font-weight="700">$9.1M</text>
+          <circle cx="206.5" cy="215.7" r="6" fill="#2a78d6"/><text x="214" y="240" text-anchor="middle" font-weight="700">$8.0M at 59</text>
+          <circle cx="860" cy="51.5" r="6" fill="#2a78d6"/><text x="852" y="38" text-anchor="end" font-weight="700">$25.7M at 90</text>
+          <path d="M333 290 V200" stroke="#1baf7a" stroke-width="1.5" stroke-dasharray="4 3"/><text x="340" y="276" fill="#0f6b4b" font-size="12.5">policy income $388K a year from 65</text>
+          <g fill="#52514e" text-anchor="middle" font-size="12.5"><text x="80" y="308">2026</text><text x="140" y="308">2028 · 55</text><text x="333" y="308">2038 · 65</text><text x="438" y="308">2043 · 70</text><text x="649" y="308">2053 · 80</text><text x="850" y="308">2063 · 90</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="card" style="margin-top:14px;padding:12px 20px 6px">
+        <h3 style="font-size:19px;margin-bottom:2px">What 55 requires, against what 55 has</h3>
+        <svg viewBox="0 0 900 192" width="100%" style="display:block">
+          <g font-size="14">
+          <text x="0" y="16" font-weight="700" fill="#52514e" font-size="12.5" letter-spacing=".05em">NEEDED AT 55 TO FUND $20K A MONTH TO 90 (4% RETURN)</text>
+          <text x="0" y="43">if every illustrated policy dollar arrives</text><rect x="300" y="29" width="234" height="19" rx="4" fill="#86b6ef"/><text x="542" y="43" font-weight="700">$5.3M</text>
+          <text x="0" y="69">if half of it arrives</text><rect x="300" y="55" width="349" height="19" rx="4" fill="#3987e5"/><text x="657" y="69" font-weight="700">$7.9M</text>
+          <text x="0" y="95">if none of it arrives</text><rect x="300" y="81" width="464" height="19" rx="4" fill="#0d366b"/><text x="772" y="95" font-weight="700">$10.5M</text>
+          <text x="0" y="128" font-weight="700" fill="#52514e" font-size="12.5" letter-spacing=".05em">AVAILABLE AT 55</text>
+          <text x="0" y="155">portfolio $9.1M plus ESOP $3.0M</text><rect x="300" y="141" width="402" height="19" rx="4" fill="#2a78d6"/><rect x="702" y="141" width="133" height="19" rx="4" fill="#6250d6"/><text x="843" y="155" font-weight="700">$12.1M</text>
+          <text x="0" y="181">after a $3.0M business purchase</text><rect x="300" y="167" width="402" height="19" rx="4" fill="#2a78d6"/><text x="710" y="181" font-weight="700">$9.1M</text><text x="760" y="181" fill="#0f6b4b" font-weight="700">above $7.9M</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="row c3" style="margin-top:16px;gap:20px">
+    <div class="card" style="padding:14px 20px;border-left:8px solid #1baf7a"><b style="font-size:18px">The answer: yes, on capital</b><div class="mini light" style="margin-top:4px">100% in RightCapital and 99% to 100% under all seven stress tests. Invested assets dip from $9.1M to $8.0M by 59, then grow. The $3.0M ESOP is not even counted.</div></div>
+    <div class="card" style="padding:14px 20px;border-left:8px solid #eda100"><b style="font-size:18px">The condition: the policy income</b><div class="mini light" style="margin-top:4px">From 65, $388K a year of the plan's income is loans from the three IULs, about $11.2M in all. The plan needs $5.3M at 55 with all of it and $10.5M with none of it.</div></div>
+    <div class="card" style="padding:14px 20px;border-left:8px solid #e34948"><b style="font-size:18px">What must be true by the exit</b><div class="mini light" style="margin-top:4px">$2.4M of remaining premiums funded; illustrations re-run at today's caps; a two-year reserve so a market drop at 55 is never sold into; health cover priced at $15K to $20K a year, not the $6K in the model.</div></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Retirement &amp; transition · 6 / 20</span></div>
+</div>
+<style>
+.sc{border-collapse:collapse;width:100%}.sc td{padding:6px 4px;border-bottom:1px solid #eeede8;font-size:15px;text-align:left;vertical-align:middle;line-height:1.2}.sc td div{font-size:12.5px;color:#898781}.sc td:nth-child(2){width:190px}.sc td:nth-child(3){width:38px;text-align:right;font-weight:700;color:#0d366b}
+.bar{position:relative;height:14px;background:#eeede8;border-radius:7px}.bar i{position:absolute;left:0;top:0;bottom:0;background:#eda100;border-radius:7px}.bar b{position:absolute;top:-4px;width:4px;height:22px;background:#0f6b4b;border-radius:2px;margin-left:-2px}
+</style>
+
+<!-- ============ 7 · EXECUTIVE TRANSITION ============ -->
+<div class="slide">
+  <h2 style="margin-bottom:8px">Retirement &amp; career transition · What to settle before leaving SAP</h2>
+  <p class="lede">One employer pays 100% of Kollen's earned income, and two employers' stock is a third of his net worth. Each of these is easier to fix while the paycheck is still arriving.</p>
+  <div class="row c3" style="gap:20px">
+    <div class="card" style="padding:16px 22px;border-top:8px solid #e34948"><h3 style="font-size:20px">Equity compensation</h3>
+      <ul class="ul">
+        <li><b>18,246 vested C.H. Robinson options</b>, worth $1.24M at $147.73 on 31 July (they were worth $1.98M on 1 July).</li>
+        <li>7,890 at $88.87 expire <b>5 December 2028</b>; 10,356 at $72.74 expire <b>5 February 2030</b>. The spread is ordinary income whenever exercised.</li>
+        <li><b>Plan:</b> exercise the 2018 grants in 2028 after salary stops; split the 2020 grant across 2029 and January 2030. About $100K to $150K less tax than exercising now.</li>
+        <li>No unvested SAP equity appears in RightCapital: confirm vesting and bonus dates before choosing the exit date.</li>
+      </ul></div>
+    <div class="card" style="padding:16px 22px;border-top:8px solid #6250d6"><h3 style="font-size:20px">Deferred compensation and concentration</h3>
+      <ul class="ul">
+        <li><b>No deferred compensation is on file.</b> If SAP offers a nonqualified plan, the election for 2027 pay is usually due before the end of 2026. Deferring into 2029 to 2033 instalments moves it out of the 37% bracket; the trade-off is an unsecured promise from SAP.</li>
+        <li><b>$5.2M in two companies</b>: the $3.0M ESOP, $0.92M of C.H. Robinson shares and the options. July alone cost $1.07M.</li>
+        <li>Diversify the ESOP on a schedule (it becomes the acquisition equity); hedge or sell C.H. Robinson first.</li>
+      </ul></div>
+    <div class="card" style="padding:16px 22px;border-top:8px solid #eda100"><h3 style="font-size:20px">Retirement plans</h3>
+      <ul class="ul">
+        <li><b>Add the $8,000 age-50 catch-up.</b> RightCapital shows $24,500 only; at this pay the catch-up must go in as Roth.</li>
+        <li><b>Ask about after-tax contributions</b> with in-plan Roth conversion: up to about $33K a year more into Roth.</li>
+        <li><b>Leave in calendar 2028 or later</b> so the Rule of 55 allows penalty-free withdrawals from the SAP 401(k).</li>
+        <li>Whistler Ventures' Solo 401(k) can take employer contributions if the company has income; it must change once an acquired business has employees.</li>
+      </ul></div>
+  </div>
+  <div class="row" style="grid-template-columns:1.25fr 1fr;gap:20px;margin-top:18px">
+    <div class="card" style="padding:14px 22px 8px;border-top:8px solid #1baf7a"><h3 style="font-size:20px;margin-bottom:2px">Health insurance: ten years to bridge</h3>
+      <svg viewBox="0 0 980 186" width="100%">
+        <g font-size="15">
+        <rect x="10" y="20" width="96" height="38" rx="6" fill="#86b6ef"/><text x="58" y="45" text-anchor="middle" fill="#fff" font-weight="700">SAP plan</text>
+        <rect x="106" y="20" width="164" height="38" rx="6" fill="#eda100"/><text x="188" y="45" text-anchor="middle" fill="#fff" font-weight="700">COBRA, 18 months</text>
+        <rect x="270" y="20" width="540" height="38" rx="6" fill="#1baf7a"/><text x="540" y="45" text-anchor="middle" fill="#fff" font-weight="700">The business's group plan, or Washington Healthplanfinder</text>
+        <rect x="810" y="20" width="160" height="38" rx="6" fill="#0d366b"/><text x="890" y="45" text-anchor="middle" fill="#fff" font-weight="700">Medicare</text>
+        <g fill="#52514e" text-anchor="middle" font-size="14"><text x="106" y="80">2028 exit</text><text x="270" y="80">2030</text><text x="810" y="80">Nov 2038 · 65</text></g>
+        <text x="10" y="114" fill="#2b2b28" font-size="16">Budget $15K to $20K a year before 65; RightCapital carries about $6K.</text>
+        <text x="10" y="140" fill="#2b2b28" font-size="16">Owning a business with employees gives the best bridge: a group plan.</text>
+        <text x="10" y="166" fill="#2b2b28" font-size="16">On a high-deductible plan, fund an HSA: $4,400 a year, plus $1,000 from 55.</text>
+        </g>
+      </svg></div>
+    <div class="card" style="padding:16px 22px;border-top:8px solid #2a78d6"><h3 style="font-size:20px">Legal and liability</h3>
+      <ul class="ul">
+        <li>Confirm SAP's officer indemnification and D&amp;O cover continue for decisions made while employed.</li>
+        <li>Review non-compete, non-solicit, IP assignment and any clawback terms. Washington enforces non-competes at this pay level, presumptively up to 18 months: choose a target industry the agreement allows.</li>
+        <li>Negotiate the exit, do not just resign: bonus timing, severance, and COBRA subsidy are all on the table.</li>
+      </ul></div>
+  </div>
+  <div class="card" style="margin-top:18px;padding:12px 22px 4px">
+    <h3 style="font-size:19px;margin-bottom:0">The dates that drive the transition</h3>
+    <svg viewBox="0 0 1740 118" width="100%" style="display:block">
+      <line x1="20" y1="44" x2="1720" y2="44" stroke="#c3c2b7" stroke-width="4"/>
+      <g font-size="15" text-anchor="middle">
+        <circle cx="110" cy="44" r="10" fill="#0d366b"/><text x="110" y="24" font-weight="700">Nov 2026</text><text x="110" y="76" fill="#52514e">turns 53</text>
+        <circle cx="325" cy="44" r="10" fill="#6250d6"/><text x="325" y="24" font-weight="700">Dec 2026</text><text x="325" y="76" fill="#52514e">deferred-pay election,</text><text x="325" y="96" fill="#52514e">if SAP offers one</text>
+        <circle cx="540" cy="44" r="10" fill="#e34948"/><text x="540" y="24" font-weight="700">2027</text><text x="540" y="76" fill="#52514e">last full salary year:</text><text x="540" y="96" fill="#52514e">catch-up, Roth, giving</text>
+        <circle cx="755" cy="44" r="12" fill="#eda100"/><text x="755" y="24" font-weight="700">2028</text><text x="755" y="76" fill="#52514e">exit from SAP at 55</text><text x="755" y="96" fill="#52514e">(Rule of 55 applies)</text>
+        <circle cx="970" cy="44" r="10" fill="#e34948"/><text x="970" y="24" font-weight="700">5 Dec 2028</text><text x="970" y="76" fill="#52514e">7,890 options</text><text x="970" y="96" fill="#52514e">expire</text>
+        <circle cx="1185" cy="44" r="10" fill="#e34948"/><text x="1185" y="24" font-weight="700">5 Feb 2030</text><text x="1185" y="76" fill="#52514e">10,356 options</text><text x="1185" y="96" fill="#52514e">expire</text>
+        <circle cx="1400" cy="44" r="10" fill="#0d366b"/><text x="1400" y="24" font-weight="700">Nov 2038</text><text x="1400" y="76" fill="#52514e">Medicare at 65;</text><text x="1400" y="96" fill="#52514e">policy income $388K</text>
+        <circle cx="1615" cy="44" r="10" fill="#1baf7a"/><text x="1615" y="24" font-weight="700">Nov 2043</text><text x="1615" y="76" fill="#52514e">Social Security at 70:</text><text x="1615" y="96" fill="#52514e">$655K more for life</text>
+      </g>
+    </svg>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Retirement &amp; transition · 7 / 20</span></div>
+</div>
+
+<!-- ============ 8 · TAX CALENDAR ============ -->
+<div class="slide" id="s-tax">
+  <h2 style="margin-bottom:8px">Tax planning · The tax calendar of the transition</h2>
+  <p class="lede">The same dollar of income costs very different amounts in different years. The plan puts each kind of income in its cheapest year, and Washington's rules change the order.</p>
+  <div class="row" style="grid-template-columns:repeat(4,1fr);gap:16px">
+    <div class="card" style="padding:14px 18px;border-top:8px solid #e34948"><div class="tag now">2026 to 2027 · 37% years</div><h3 style="font-size:18px">Defer, deduct, and do not sell</h3>
+      <ul class="ul" style="padding-left:18px"><li>401(k) $24,500 plus the $8,000 Roth catch-up; after-tax Roth if offered; HSA</li><li>Deferred compensation election, if SAP has a plan</li><li>Charitable giving bunched into a donor-advised fund or CRT with appreciated shares, if there is intent</li><li>No option exercises and no voluntary gains: 20% + 3.8% + Washington's 7% to 9.9%</li></ul></div>
+    <div class="card" style="padding:14px 18px;border-top:8px solid #eda100"><div class="tag soon">2028 to 2029 · exit years</div><h3 style="font-size:18px">Fill the low brackets on purpose</h3>
+      <ul class="ul" style="padding-left:18px"><li>C.H. Robinson options in three tranches (2028, 2029, January 2030): ordinary income, never subject to Washington's capital gains tax</li><li>Gain ladder begins: about $278K of gains a year stays under Washington's exemption, taxed near 15%</li><li>About $218K saved on today's Fidelity gains versus selling while employed</li></ul></div>
+    <div class="card" style="padding:14px 18px;border-top:8px solid #2a78d6"><div class="tag" style="background:#eef4fc;color:#1a4f93">2030 to 2037 · business years</div><h3 style="font-size:18px">Let the business carry the deductions</h3>
+      <ul class="ul" style="padding-left:18px"><li>Asset purchase: equipment expensed under 100% bonus depreciation; goodwill over 15 years</li><li>A business retirement plan for Kollen and staff: a large deduction</li><li>Roth conversions from the IRA annuity in the lowest years</li><li>Social Security deferred to 70: $655K more over a lifetime</li></ul></div>
+    <div class="card" style="padding:14px 18px;border-top:8px solid #1baf7a"><div class="tag later">2038 onward · Medicare years</div><h3 style="font-size:18px">Manage the income tests</h3>
+      <ul class="ul" style="padding-left:18px"><li>Medicare premiums rise with income two years earlier: plan conversions and sales around those brackets</li><li>Required distributions start at 75</li><li>Policy loans stay tax-free only if the policies never lapse: monitor yearly</li></ul></div>
+  </div>
+  <div class="row" style="grid-template-columns:1.1fr 0.9fr 1fr;gap:18px;margin-top:16px">
+    <div class="card" style="padding:14px 20px"><h3 style="font-size:19px">Three Washington taxes that shape the plan</h3>
+      <table class="tx"><tbody>
+        <tr><td><b>No income tax</b></td><td>Salary, option exercises, interest and Roth conversions face federal tax only.</td></tr>
+        <tr><td><b>Capital gains excise</b></td><td>7% on long-term gains above about $278K a year, 9.9% above $1M. Retirement accounts and real estate are exempt. Hence the gain ladder.</td></tr>
+        <tr><td><b>Estate tax up to 35%</b></td><td>Above a $3M exclusion, with no gift tax. Lifetime gifts and an ILIT are worth more here than in almost any other state.</td></tr>
+        <tr><td><b>B&amp;O tax</b></td><td>A Washington business pays tax on gross receipts, not profit: price it into the deal.</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:14px 20px;background:#fff8e6;border-color:#f5dfae"><h3 style="font-size:19px">California, if it enters the picture</h3>
+      <ul class="ul"><li>Up to 13.3% on all income, capital gains included</li><li>No QSBS exclusion and no federal bonus depreciation</li><li>Taxes non-residents on California-source business income</li><li>No estate tax</li></ul>
+      <div class="mini" style="margin-top:8px"><b>Buying a California business, or moving there, changes the plan.</b> Buying in Washington keeps it intact. Decide residency and the target's location together.</div></div>
+    <div class="card" style="padding:14px 20px"><h3 style="font-size:19px">Choose the entity before the letter of intent</h3>
+      <table class="tx"><tbody>
+        <tr><td><b>LLC or S corporation</b></td><td>One layer of tax, the 20% qualified business income deduction, losses usable. Best when the business funds Kollen's income.</td></tr>
+        <tr><td><b>C corporation</b></td><td>21% corporate rate; QSBS can exclude up to $15M of federal gain on a sale (50% after 3 years, 100% after 5) for non-service businesses. Best when the plan is to grow and sell.</td></tr>
+      </tbody></table>
+      <div class="mini light" style="margin-top:6px">The CPA models both on the real target's numbers.</div></div>
+  </div>
+  <div class="callout" style="margin-top:16px;font-size:19px;line-height:1.4;border-left-color:#eda100;background:#fff8e6"><b>What the calendar is worth, on today's numbers:</b> about $218K saved on the Fidelity gains by selling after salary stops, about $100K to $150K on the option exercises, $655K more lifetime Social Security by waiting to 70, and about $2.8M less estate tax from the ILIT. None of it requires taking more risk; all of it requires doing things in order.</div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Tax planning · 8 / 20</span></div>
+</div>
+<style>
+.tx{border-collapse:collapse;width:100%}.tx td{text-align:left;vertical-align:top;padding:6px 6px;border-bottom:1px solid #eeede8;font-size:16px;line-height:1.36}.tx td:first-child{width:170px;font-size:16px}
+</style>
+
+<!-- ============ 9 · ACQUISITION CAPITAL ============ -->
+<div class="slide" id="s-acq-1">
+  <h2 style="margin-bottom:8px">Business acquisition · How Kollen's assets fund a purchase</h2>
+  <p class="lede">The rule: buy the business with money the retirement plan does not need. RightCapital already succeeds without the $3.0M ESOP, which makes the ESOP the natural equity.</p>
+  <div class="row" style="grid-template-columns:1.12fr 1fr;gap:24px;align-items:start">
+    <div class="card" style="padding:16px 22px 8px">
+      <h3 style="font-size:20px;margin-bottom:4px">Three buckets for $12.1M of investable capital at 55</h3>
+      <svg viewBox="0 0 920 330" width="100%">
+        <g font-size="13.5">
+        <rect x="0" y="20" width="588" height="70" rx="8" fill="#0d366b"/><text x="20" y="50" fill="#fff" font-weight="700" font-size="17">Retirement core · $7.9M</text><text x="20" y="74" fill="#cde2fb">untouchable · funds $20K a month to 90 even if policy income arrives at half</text>
+        <rect x="592" y="20" width="56" height="70" rx="8" fill="#1baf7a"/><text x="620" y="62" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">$0.75M</text>
+        <rect x="652" y="20" width="186" height="70" rx="8" fill="#eda100"/><rect x="842" y="20" width="76" height="70" rx="8" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="6 4"/><text x="745" y="50" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">Acquisition equity</text><text x="745" y="74" text-anchor="middle" fill="#fff">$2.5M target</text><text x="880" y="52" text-anchor="middle" fill="#9a5b00" font-weight="700" font-size="12.5">up to</text><text x="880" y="70" text-anchor="middle" fill="#9a5b00" font-weight="700" font-size="12.5">$3.5M</text>
+        <path d="M620 96 V122" stroke="#1baf7a" stroke-width="2"/><text x="620" y="140" text-anchor="middle" fill="#0f6b4b" font-weight="700">Transition reserve</text><text x="620" y="158" text-anchor="middle" fill="#52514e" font-size="12.5">24 months of living costs</text><text x="620" y="174" text-anchor="middle" fill="#52514e" font-size="12.5">plus deal costs</text>
+        <text x="0" y="214" font-weight="700" font-size="15">Where the acquisition equity comes from</text>
+        <rect x="0" y="228" width="16" height="16" fill="#6250d6"/><text x="26" y="241"><tspan font-weight="700">Germany ESOP, $3.0M:</tspan> outside the retirement projection; after tax about $2.6M to $3.0M, depending on basis</text>
+        <rect x="0" y="256" width="16" height="16" fill="#2a78d6"/><text x="26" y="269"><tspan font-weight="700">Up to $0.5M of portfolio surplus:</tspan> the gap between $9.1M projected and the $7.9M core, after the reserve</text>
+        <rect x="0" y="284" width="16" height="16" fill="#e34948"/><text x="26" y="297"><tspan font-weight="700">Not the C.H. Robinson options:</tspan> RightCapital already counts their proceeds as retirement income</text>
+        <text x="0" y="324" fill="#898781" font-size="12">Core sized on RightCapital's own cash flows at 4%; the ESOP is assumed diversified by the exit. Figures are planning estimates.</text>
+        </g>
+      </svg>
+    </div>
+    <div class="card" style="padding:16px 22px 8px">
+      <h3 style="font-size:20px;margin-bottom:4px">An illustrative $7.5M purchase</h3>
+      <svg viewBox="0 0 760 330" width="100%">
+        <g font-size="13.5">
+        <rect x="40" y="20" width="150" height="290" rx="6" fill="#e1e0d9"/>
+        <rect x="40" y="20" width="150" height="97" rx="6" fill="#eda100"/><text x="115" y="64" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Equity $2.5M</text><text x="115" y="84" text-anchor="middle" fill="#fff">33%</text>
+        <rect x="40" y="117" width="150" height="164" fill="#2a78d6"/><text x="115" y="196" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">SBA 7(a) $4.25M</text><text x="115" y="216" text-anchor="middle" fill="#fff">57%</text>
+        <rect x="40" y="281" width="150" height="29" rx="6" fill="#6250d6"/><text x="115" y="300" text-anchor="middle" fill="#fff" font-weight="700" font-size="12.5">Seller note $0.75M</text>
+        <text x="220" y="40" font-weight="700" font-size="15">Supports a business earning about</text>
+        <text x="220" y="62" font-size="15">$1.5M to $1.9M a year (4 to 5 times earnings)</text>
+        <text x="220" y="100" font-weight="700" font-size="15">Debt service about $870K a year</text>
+        <text x="220" y="122">SBA: 10 years at about 10% · seller: 5 years at 6%</text>
+        <text x="220" y="144">Coverage about 1.9 times on $1.65M of earnings,</text>
+        <text x="220" y="164">before Kollen's salary, capital spending and tax</text>
+        <text x="220" y="202" font-weight="700" font-size="15">The guarantee is the real cost</text>
+        <text x="220" y="224">SBA lenders require an unlimited personal guarantee</text>
+        <text x="220" y="244">from every 20% owner, and usually life insurance</text>
+        <text x="220" y="264">assigned to the lender. Size the debt so it is never</text>
+        <text x="220" y="284">called, and finish the protection work before signing.</text>
+        <text x="220" y="316" fill="#898781" font-size="12">Illustration only; not a recommendation of a deal or lender.</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="row" style="grid-template-columns:1fr 1.25fr;gap:24px;margin-top:16px;align-items:start">
+    <div class="card" style="padding:14px 22px"><h3 style="font-size:19px">Lending capacity</h3>
+      <table class="tx"><tbody>
+        <tr><td><b>SBA 7(a)</b></td><td>Up to $5M, 10-year term, about 10% equity minimum. The likely senior loan for a $3M to $8M deal.</td></tr>
+        <tr><td><b>Seller note</b></td><td>5% to 20% of the price; keeps the seller invested in the handover.</td></tr>
+        <tr><td><b>Portfolio line of credit</b></td><td>A bridge for timing only. Fidelity shows $1.25M of margin capacity at up to 11.8%: not acquisition debt.</td></tr>
+        <tr><td><b>401(k) rollover (ROBS)</b></td><td>Reviewed, not recommended: small balances, held in annuities, and close IRS scrutiny.</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:14px 22px"><h3 style="font-size:19px">Acquisition readiness today</h3>
+      <table class="rd"><tbody>
+        <tr><td><span class="lt g"></span><b>Equity capital</b></td><td>$2.5M to $3.5M available outside the retirement core</td></tr>
+        <tr><td><span class="lt g"></span><b>Lender profile</b></td><td>Strong personal liquidity and a senior executive record</td></tr>
+        <tr><td><span class="lt a"></span><b>Deal liquidity</b></td><td>$115K of cash; build $0.75M to $1M before an LOI (diligence, legal, deposits)</td></tr>
+        <tr><td><span class="lt a"></span><b>Acquisition thesis</b></td><td>Industry, size, location and any partners still to define</td></tr>
+        <tr><td><span class="lt r"></span><b>Concentration</b></td><td>34% in two stocks: diversify before buying a third concentrated asset</td></tr>
+        <tr><td><span class="lt r"></span><b>Structure and protection</b></td><td>No holding company, no umbrella, guarantee exposure not yet planned</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Business acquisition · 9 / 20</span></div>
+</div>
+<style>
+.rd{border-collapse:collapse;width:100%}.rd td{text-align:left;padding:7px 6px;border-bottom:1px solid #eeede8;font-size:16.5px;line-height:1.3;vertical-align:top}.rd td:first-child{width:260px;white-space:nowrap}
+</style>
+
+<!-- ============ 10 · ACQUISITION STRUCTURE ============ -->
+<div class="slide" id="s-acq-2">
+  <h2 style="margin-bottom:12px">Business acquisition · Ownership structure, protection and succession</h2>
+  <div class="row" style="grid-template-columns:1.25fr 1fr;gap:24px;align-items:start">
+    <div class="card tipwrap" style="padding:8px 12px 4px">
+      <svg viewBox="0 0 960 752" width="100%" style="display:block">
+        <defs><marker id="hk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#898781"/></marker>
+        <marker id="hr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#e34948"/></marker></defs>
+        <g font-size="14.5">
+        <g data-tip="Kollen personally: after the exit he owns nothing operating in his own name. He is trustee of his revocable trust, manager of the Holdco, and the personal guarantor the SBA lender will require. Everything below him is arranged so that a claim against the business stops at the business."><rect x="330" y="10" width="300" height="66" rx="12" fill="#0d366b"/><text x="480" y="40" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Kollen Glynn</text><text x="480" y="63" text-anchor="middle" fill="#cde2fb" font-size="14">trustee · manager · guarantor</text></g>
+        <g data-tip="The restated revocable trust owns 100% of the Holdco from formation. If Kollen is incapacitated, the successor trustee steps in as owner the same day, with no court process; a single owner has no spouse to fill that gap. It gives no creditor protection during life; that is the job of the entities and insurance."><rect x="280" y="108" width="400" height="72" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/><text x="480" y="138" text-anchor="middle" font-weight="700" font-size="17">Revocable living trust (restated)</text><text x="480" y="163" text-anchor="middle" fill="#52514e">owns the Holdco · successor trustee runs it</text></g>
+        <g data-tip="Holdco LLC: the family-office layer. It owns the operating company and any property company, receives distributions, holds swept cash, and can charge a management fee. Cash should not sit in the operating company where a customer or employee claim can reach it. Whistler Ventures Inc. could serve if its tax form suits; the CPA decides."><rect x="280" y="214" width="400" height="92" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5"/><text x="480" y="243" text-anchor="middle" font-weight="700" font-size="17">Holdco LLC</text><text x="480" y="267" text-anchor="middle" fill="#52514e">receives distributions · holds swept cash</text><text x="480" y="291" text-anchor="middle" fill="#9a5b00" font-weight="700">equity in: $2.5M to $3.5M, mostly the ESOP</text></g>
+        <g data-tip="OpCo: the acquired business, bought as an asset purchase into a new LLC so the seller's past liabilities stay with the seller and the purchase price gets a stepped-up basis. It holds its own general liability, professional, cyber, employment practices and auto cover, and it is the SBA borrower."><rect x="50" y="360" width="420" height="112" rx="12" fill="#fff" stroke="#1a4f93" stroke-width="2.5"/><text x="260" y="390" text-anchor="middle" font-weight="700" font-size="17">OpCo LLC · the acquired business</text><text x="260" y="415" text-anchor="middle" fill="#52514e">asset purchase · its own insurance program</text><text x="260" y="438" text-anchor="middle" fill="#52514e">employees, contracts, customers live here</text><text x="260" y="461" text-anchor="middle" fill="#1a4f93" font-weight="700">SBA borrower</text></g>
+        <g data-tip="PropCo: only if the deal includes real estate. The property sits in its own LLC and is leased to OpCo at market rent, so a claim against the business does not reach the building and the rent moves cash up to the Holdco."><rect x="510" y="360" width="420" height="112" rx="12" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/><text x="720" y="390" text-anchor="middle" font-weight="700" font-size="17">PropCo LLC · if the deal has property</text><text x="720" y="415" text-anchor="middle" fill="#52514e">owns the building, leases it to OpCo</text><text x="720" y="438" text-anchor="middle" fill="#52514e">rent moves cash up; claims stay down</text><text x="720" y="461" text-anchor="middle" fill="#9a5b00" font-weight="700">conditional</text></g>
+        <g data-tip="SBA 7(a) lender: up to $5M over 10 years for an acquisition. Requires an unlimited personal guarantee from every 20% owner and usually a life insurance assignment equal to the loan. This is why the ILIT and the lender's insurance requirement must be designed together, and why protection must be in place before the guarantee is signed."><rect x="50" y="526" width="420" height="92" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="2.5"/><text x="260" y="556" text-anchor="middle" font-weight="700" font-size="17">SBA 7(a) lender</text><text x="260" y="581" text-anchor="middle" fill="#52514e">senior loan to OpCo · up to $5M, 10 years</text><text x="260" y="605" text-anchor="middle" fill="#b42318" font-weight="700">personal guarantee from Kollen</text></g>
+        <g data-tip="The ILIT owns Kollen's existing $6.85M of IUL coverage, outside his estate. A separate term policy, owned by OpCo or the Holdco and collaterally assigned to the lender, satisfies the SBA requirement and doubles as key-person cover. Designed together, the two do not conflict."><rect x="510" y="526" width="420" height="92" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/><text x="720" y="556" text-anchor="middle" font-weight="700" font-size="17">ILIT and key-person cover</text><text x="720" y="581" text-anchor="middle" fill="#52514e">ILIT: the $6.85M IULs, out of the estate</text><text x="720" y="605" text-anchor="middle" fill="#52514e">term on Kollen, assigned to the lender</text></g>
+        <g data-tip="Exit options decided at purchase, not at 70: a sale to a strategic or private buyer in 5 to 10 years, a management buyout funded by a seller note, or an ESOP. A C corporation starts the QSBS clock at issue; Washington offers an estate tax deduction for qualifying family-owned businesses."><rect x="180" y="660" width="600" height="80" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2.5"/><text x="480" y="691" text-anchor="middle" font-weight="700" font-size="17">The exit, chosen at purchase</text><text x="480" y="717" text-anchor="middle" fill="#52514e">sale · management buyout · ESOP · or a successor-run hold</text></g>
+        <g stroke="#898781" stroke-width="2.2" fill="none" marker-end="url(#hk)"><path d="M480 76 V106"/><path d="M480 180 V212"/><path d="M420 306 L300 358"/><path d="M540 306 L660 358"/><path d="M260 526 V474"/></g>
+        <path d="M330 43 H22 V572 H46" stroke="#e34948" stroke-width="2.2" stroke-dasharray="7 5" fill="none" marker-end="url(#hr)"/>
+        <text x="12" y="330" transform="rotate(-90 12 330)" text-anchor="middle" fill="#b42318" font-size="13" font-weight="700">personal guarantee</text>
+        <g fill="#898781" font-size="13"><text x="490" y="97">owns</text><text x="490" y="202">owns 100%</text><text x="318" y="328">owns</text><text x="612" y="328">owns</text><text x="270" y="503">loan</text></g>
+        </g>
+      </svg>
+      <div class="tipbox"></div>
+      <div class="aphint">Hover any box for what it does and why it is there</div>
+    </div>
+    <div>
+      <div class="card" style="padding:14px 22px"><h3 style="font-size:19px">How to buy: purchase structures</h3>
+        <table class="tx"><tbody>
+          <tr><td><b>Asset purchase</b></td><td><b>Preferred.</b> New LLC buys the assets; liabilities stay with the seller; stepped-up basis and depreciation.</td></tr>
+          <tr><td><b>Stock purchase</b></td><td>Only if licences or contracts cannot move. Requires indemnities, escrow and representation insurance.</td></tr>
+          <tr><td><b>Seller note, earn-out</b></td><td>Bridge a price gap and keep the seller in the handover; earn-outs need clear metrics.</td></tr>
+          <tr><td><b>Partner equity</b></td><td>Only if the right business costs more than the $3.5M ceiling; then a written operating agreement and buy-sell first.</td></tr>
+        </tbody></table></div>
+      <div class="card" style="padding:14px 22px;margin-top:14px"><h3 style="font-size:19px">Succession, for a single owner</h3>
+        <ul class="ul">
+          <li><b>Incapacity:</b> the trust owns the Holdco; a successor trustee with business authority and a durable power of attorney. There is no spouse to step in.</li>
+          <li><b>Key person:</b> term cover owned by the business, sized to the loan; an interim manager named in writing.</li>
+          <li><b>Depth:</b> buy a business with a capable number two, or hire a general manager within 18 months.</li>
+          <li><b>Partners:</b> if any, a buy-sell agreement funded by insurance.</li>
+          <li><b>Estate:</b> once value grows, non-voting units can move to a dynasty trust or GRAT, if heirs are named.</li>
+        </ul></div>
+      <div class="callout" style="margin-top:14px;font-size:17px;line-height:1.4;border-left-color:#1a4f93"><b>Diligence that protects the plan:</b> a quality-of-earnings review, no customer above about 20% of revenue, key staff retained through the handover, a lease and licences that survive the sale, and a working-capital target written into the contract.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Business acquisition · 10 / 20</span></div>
+</div>
+
+<!-- ============ 11 · ESTATE EXPOSURE AND TRUST FIT ============ -->
+<div class="slide" id="s-estate-1">
+  <h2 style="margin-bottom:12px">Estate planning · What happens today, and which trusts fit Kollen</h2>
+  <div class="row" style="grid-template-columns:0.9fr 1.3fr;gap:24px;align-items:start">
+    <div>
+      <div class="card" style="padding:14px 22px 6px">
+        <h3 style="font-size:19px;margin-bottom:2px">If Kollen died today</h3>
+        <svg viewBox="0 0 620 300" width="100%">
+          <g font-size="13.5">
+          <rect x="20" y="30" width="110" height="230" fill="#0d366b"/><text x="75" y="22" text-anchor="middle" font-weight="700">$21.1M</text>
+          <rect x="170" y="30" width="110" height="56" fill="#e34948"/><text x="225" y="22" text-anchor="middle" font-weight="700" fill="#b42318">&#8722;$5.1M</text>
+          <rect x="320" y="86" width="110" height="4" fill="#e34948"/><text x="375" y="78" text-anchor="middle" font-weight="700" fill="#b42318">&#8722;$0.4M</text>
+          <rect x="470" y="90" width="110" height="170" fill="#1baf7a"/><text x="525" y="82" text-anchor="middle" font-weight="700" fill="#0f6b4b">$15.6M</text>
+          <g stroke="#c3c2b7" stroke-dasharray="3 3"><path d="M130 30 H170"/><path d="M280 86 H320"/><path d="M430 90 H470"/></g>
+          <line x1="10" y1="260" x2="600" y2="260" stroke="#898781"/>
+          <g text-anchor="middle" fill="#52514e" font-size="12.5"><text x="75" y="280">Gross estate</text><text x="75" y="296">incl. $6.85M of insurance</text><text x="225" y="280">Washington</text><text x="225" y="296">estate tax</text><text x="375" y="280">Federal</text><text x="375" y="296">estate tax</text><text x="525" y="280">To heirs</text><text x="525" y="296">not yet named</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="card" style="padding:14px 22px;margin-top:14px">
+        <h3 style="font-size:19px">What is in place, and what is missing</h3>
+        <ul class="ul">
+          <li><b>A trust exists:</b> the Whisler Family Trust holds the home and is named beneficiary of the three policies and both IRA annuities.</li>
+          <li><b>About $4.9M would pass through probate:</b> the ESOP, the C.H. Robinson options, the land, cash, and two 401(k)s with no beneficiary on file.</li>
+          <li><b>The brokerage passes by transfer-on-death</b>, outside the trust's instructions.</li>
+          <li><b>Will, powers of attorney, health directive:</b> not on file in RightCapital.</li>
+          <li><b>Legacy:</b> no heirs are named. The plan cannot be finished until Kollen decides who, and what, it is for.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="padding:14px 22px 8px">
+      <h3 style="font-size:19px;margin-bottom:6px">Which trusts fit Kollen, and which do not</h3>
+      <table class="tf"><thead><tr><th style="width:200px">Trust</th><th style="width:130px">Fit</th><th>Why, for Kollen specifically</th><th style="width:120px">When</th></tr></thead><tbody>
+        <tr><td><b>Revocable living trust</b><div>restate and fund</div></td><td><span class="fit y">Recommended</span></td><td>Incapacity matters more for a single business owner. Holds the Holdco, the land LLC and the accounts; the ESOP and options reach it by beneficiary form. Avoids probate on about $4.9M. Saves no tax.</td><td>0 to 3 months</td></tr>
+        <tr><td><b>ILIT</b><div>irrevocable life insurance trust</div></td><td><span class="fit y">Recommended</span></td><td>Moves $6.85M of death benefit out of the estate: about <b>$2.8M less estate tax</b> today. A sale of the policies to a grantor ILIT avoids the three-year rule on a gift. Coordinate with the SBA insurance requirement.</td><td>2 to 9 months</td></tr>
+        <tr><td><b>Asset protection trust</b><div>Nevada or South Dakota</div></td><td><span class="fit c">Conditional</span></td><td>Washington does not honor self-settled trusts, so protection is partial. Worth it for a slice of the portfolio only if funded now, with an independent trustee, well before any guarantee.</td><td>decide before an LOI</td></tr>
+        <tr><td><b>Dynasty trust</b></td><td><span class="fit c">Conditional</span></td><td>Only once family beneficiaries are named. Washington has no gift tax, so every lifetime gift leaves a 35% estate. Can be combined with the ILIT; later receives business units.</td><td>when heirs are named</td></tr>
+        <tr><td><b>Charitable trust or donor-advised fund</b></td><td><span class="fit c">Conditional</span></td><td>If there is charitable intent: appreciated QQQ or C.H. Robinson shares given in a 37% year avoid the gain; a charitable remainder trust also pays an income through the bridge years.</td><td>2026 or 2027</td></tr>
+        <tr><td><b>SLAT · QPRT · GRAT · family LP</b></td><td><span class="fit n">Not now</span></td><td>A SLAT needs a spouse. A QPRT is weak at 52 with a mortgage. A GRAT needs a fast-growing asset: revisit for the business. A family partnership is weak protection for a single owner.</td><td>revisit</td></tr>
+      </tbody></table>
+      <div style="font-size:12.5px;color:#898781;margin-top:6px">Estimates: 2026 federal exemption $15M at 40%; Washington exclusion $3M with rates of 10% to 35%; the $6.85M death benefit replaces the $0.71M cash value. Estate counsel confirms.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Estate planning · 11 / 20</span></div>
+</div>
+<style>
+.tf{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.34}.tf th{text-align:left;font-size:14px;color:#52514e;padding:6px 8px;border-bottom:1px solid #e1e0d9}.tf td{text-align:left;padding:9px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}.tf td div{font-size:13px;color:#898781;font-weight:400}
+.fit{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}.fit.y{background:#e8f7f1;color:#0f6b4b}.fit.c{background:#fff8e6;color:#9a5b00}.fit.n{background:#f3f4f6;color:#52514e}
+</style>
+
+<!-- ============ 12 · WEALTH AND LEGACY ARCHITECTURE ============ -->
+<div class="slide" id="s-arch">
+  <h2 style="margin-bottom:10px">Kollen Glynn Wealth &amp; Legacy Architecture</h2>
+  <div class="archctl">
+    <span style="margin-left:10px">Layers:</span><button data-layer="layer-assets" class="on">Assets</button><button data-layer="layer-trusts" class="on">Trusts</button><button data-layer="layer-business" class="on">Business</button><button data-layer="layer-people" class="on">People</button><button data-layer="layer-flows" class="on">Flows</button>
+    <span style="margin-left:14px">Zoom:</span><button data-zoom="in">+</button><button data-zoom="out">&minus;</button><button data-zoom="reset">Reset</button>
+  </div>
+  <div class="archwrap">
+  <svg id="arch" viewBox="0 0 1740 860" width="100%" style="display:block">
+    <defs>
+      <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2a78d6"/></marker>
+      <marker id="arV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#6250d6"/></marker>
+      <marker id="arP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#d6508f"/></marker>
+      <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#eda100"/></marker>
+      <marker id="arG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1baf7a"/></marker>
+      <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#e34948"/></marker>
+    </defs>
+    <g font-size="12.5">
+    <!-- legend -->
+    <g id="legend">
+      <rect x="10" y="6" width="520" height="104" rx="12" fill="#f3f4f6"/>
+      <text x="24" y="28" font-weight="700" font-size="14">How to read the colors</text>
+      <rect x="24" y="42" width="14" height="14" rx="3" fill="#0d366b"/><text x="46" y="54" font-size="12">Kollen</text>
+      <rect x="120" y="42" width="14" height="14" rx="3" fill="#fff" stroke="#2a78d6" stroke-width="3"/><text x="142" y="54" font-size="12">In place or recommended now</text>
+      <rect x="340" y="42" width="14" height="14" rx="3" fill="#fff" stroke="#eda100" stroke-width="3" stroke-dasharray="4 3"/><text x="362" y="54" font-size="12">Conditional: a later decision</text>
+      <line x1="24" y1="80" x2="62" y2="80" stroke="#2a78d6" stroke-width="3" marker-end="url(#arB)"/><text x="70" y="84" font-size="12">asset into a trust</text>
+      <line x1="186" y1="80" x2="224" y2="80" stroke="#eda100" stroke-width="3" marker-end="url(#arA)"/><text x="232" y="84" font-size="12">capital into the business</text>
+      <line x1="390" y1="80" x2="428" y2="80" stroke="#d6508f" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arP)"/><text x="436" y="84" font-size="12">charitable</text>
+      <text x="24" y="102" font-size="11.5" fill="#52514e">Hover any box for detail · the red dashed line is the personal guarantee</text>
+    </g>
+    <!-- Kollen -->
+    <g id="layer-people">
+      <g class="node" data-tip="Kollen Glynn, 52, single, Newcastle, Washington. SAP executive with about $700K of W-2 income, planning to leave in 2028 and buy an existing business. Grantor and trustee of his revocable trust; after the purchase, sole owner of the Holdco through the trust. Keeps control of every entity, the home, the retirement accounts and the retirement core. The decisions this plan needs from him: the exit date, the acquisition budget, and who inherits.">
+        <rect x="560" y="6" width="640" height="104" rx="14" fill="#0d366b"/>
+        <text x="880" y="34" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">Kollen Glynn · 52 · single · Newcastle, Washington</text>
+        <text x="880" y="58" text-anchor="middle" fill="#cde2fb" font-size="12.5">Grantor and trustee of the revocable trust · sole owner of the Holdco from 2028</text>
+        <text x="880" y="78" text-anchor="middle" fill="#cde2fb" font-size="12.5">Keeps: control of every entity, the home, the retirement accounts, the retirement core</text>
+        <text x="880" y="98" text-anchor="middle" fill="#86b6ef" font-size="12.5">Decides: the exit date, the acquisition budget, and who inherits</text>
+      </g>
+    </g>
+    <g id="kpi">
+      <rect x="1230" y="6" width="500" height="104" rx="12" fill="#f3f4f6"/>
+      <text x="1244" y="28" font-weight="700" font-size="14">The picture in three lines</text>
+      <text x="1244" y="52" font-size="12.5">Net worth <tspan font-weight="700">$14.95M</tspan> · liquid <tspan font-weight="700">$11.1M</tspan> · cash <tspan font-weight="700">$115K</tspan></text>
+      <text x="1244" y="72" font-size="12.5">Estate tax today <tspan font-weight="700" fill="#b42318">&#8776; $5.5M</tspan> · with the ILIT <tspan font-weight="700" fill="#0f6b4b">&#8776; $2.7M</tspan>, and no probate</text>
+      <text x="1244" y="92" font-size="12.5">Retirement core <tspan font-weight="700">$7.9M</tspan> · business equity <tspan font-weight="700">$2.5M to $3.5M</tspan></text>
+    </g>
+    <g font-weight="700" font-size="13" fill="#52514e" text-anchor="middle">
+      <text x="270" y="140">TRUSTS: RECOMMENDED AND CONDITIONAL</text>
+      <text x="870" y="140">WHAT KOLLEN OWNS TODAY · $15.2M</text>
+      <text x="1470" y="140">THE BUSINESS, FROM 2028</text>
+      <text x="870" y="738">WHO IT IS ALL FOR</text>
+    </g>
+    <!-- trusts -->
+    <g id="layer-trusts">
+      <g class="node" data-tip="Revocable living trust, restated and funded. Today the Whisler Family Trust holds only the home (and is named beneficiary of the policies and the IRA annuities). Restated, it holds the land LLC, the Holdco units and the accounts, and receives the ESOP, the options and the 401(k)s by beneficiary designation. It names a successor trustee with business authority, which matters more for a single owner than for anyone. It avoids probate on about $4.9M; it saves no estate tax and gives no creditor protection during life.">
+        <rect x="20" y="150" width="500" height="104" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="2.5"/>
+        <text x="36" y="174" font-weight="700" font-size="15">Revocable living trust · restated and funded</text>
+        <text x="36" y="194" font-size="12" fill="#52514e">Today: the Whisler Family Trust, holding only the home</text>
+        <text x="36" y="212" font-size="12" fill="#52514e">Will hold: land LLC, Holdco units, accounts; ESOP by beneficiary form</text>
+        <text x="36" y="230" font-size="12" fill="#52514e">Successor trustee with business authority: no spouse to step in</text>
+        <text x="36" y="248" font-size="12" fill="#4a3bb0" font-weight="700">Saves: probate on about $4.9M · covers incapacity · no estate tax</text>
+      </g>
+      <g class="node" data-tip="ILIT: an irrevocable trust that owns the three IULs (NAC IUL Cash Growth $2.8M, Kaizen $2.8M, CLU IUL Protection $1.25M). A gift of an existing policy is pulled back into the estate if Kollen dies within three years; a sale to a grantor-type ILIT avoids that. Premiums are funded by gifts: no Washington gift tax, and the federal exemption is $15M. An independent trustee; the Kaizen financing terms need the lender's consent. Result: about $2.8M less estate tax at today's values.">
+        <rect x="20" y="266" width="500" height="104" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/>
+        <text x="36" y="290" font-weight="700" font-size="15">ILIT · owns the three policies · $6.85M death benefit</text>
+        <text x="36" y="310" font-size="12" fill="#52514e">Transfer or sell the policies to the trust; independent trustee</text>
+        <text x="36" y="328" font-size="12" fill="#52514e">Premiums by gift: no Washington gift tax; federal exemption $15M</text>
+        <text x="36" y="346" font-size="12" fill="#52514e">Designed together with the SBA lender's insurance requirement</text>
+        <text x="36" y="364" font-size="12" fill="#1b8f4a" font-weight="700">Saves about $2.8M of estate tax at today's values</text>
+      </g>
+      <g class="node" data-tip="Asset protection trust in Nevada or South Dakota, for a defined slice of the portfolio, with an independent trustee and Kollen as a discretionary beneficiary. Washington does not honor self-settled trusts, so the protection for a Washington resident is partial and untested; it is strongest when funded while no claim exists and well before an SBA guarantee is signed. A decision for estate counsel before any letter of intent.">
+        <rect x="20" y="382" width="500" height="96" rx="12" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <text x="36" y="406" font-weight="700" font-size="15">Asset protection trust · Nevada or South Dakota</text>
+        <text x="36" y="426" font-size="12" fill="#52514e">A slice of the portfolio, independent trustee, funded while no claim exists</text>
+        <text x="36" y="444" font-size="12" fill="#52514e">Washington does not honor self-settled trusts: partial protection</text>
+        <text x="36" y="462" font-size="12" fill="#9a5b00" font-weight="700">Decide before the letter of intent; fund before any guarantee</text>
+      </g>
+      <g class="node" data-tip="Dynasty trust: only once Kollen names family beneficiaries (siblings, nieces and nephews, a partner, or others). Washington has no gift tax, so assets given during life leave an estate taxed at up to 35% with no state cost. It can be drafted as the ILIT itself, and later receive non-voting units of the business.">
+        <rect x="20" y="490" width="500" height="96" rx="12" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <text x="36" y="514" font-weight="700" font-size="15">Dynasty trust · when family heirs are named</text>
+        <text x="36" y="534" font-size="12" fill="#52514e">Lifetime gifts leave a 35% Washington estate with no gift tax</text>
+        <text x="36" y="552" font-size="12" fill="#52514e">Can be the ILIT itself; later receives non-voting business units</text>
+        <text x="36" y="570" font-size="12" fill="#9a5b00" font-weight="700">The decision: who Kollen wants to provide for</text>
+      </g>
+      <g class="node" data-tip="Charitable vehicle, only if Kollen has charitable intent. A donor-advised fund or a charitable remainder trust funded with appreciated QQQ or C.H. Robinson shares in 2026 or 2027, while he is in the 37% bracket: no capital gains tax on the shares given, a deduction now, and, with a CRT, an income stream through the bridge years. The remainder goes to the causes he chooses.">
+        <rect x="20" y="598" width="500" height="96" rx="12" fill="#fff" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <text x="36" y="622" font-weight="700" font-size="15">Charitable trust or donor-advised fund · if intended</text>
+        <text x="36" y="642" font-size="12" fill="#52514e">Appreciated QQQ or C.H. Robinson shares given in a 37% year</text>
+        <text x="36" y="660" font-size="12" fill="#52514e">No gain on the shares given · a CRT pays income for the bridge years</text>
+        <text x="36" y="678" font-size="12" fill="#b0306e" font-weight="700">Remainder to the causes Kollen chooses</text>
+      </g>
+    </g>
+    <!-- assets -->
+    <g id="layer-assets">
+      <g class="node" data-tip="Fidelity portfolio and cash. RightCapital shows a $6.78M brokerage account and $115K of cash. The Fidelity TOD account itself held $2.11M on 31 July 2026 (QQQ $1.15M, C.H. Robinson $0.92M, cash $36K), with $1.43M of unrealized gain, after $3.93M moved to another Fidelity account during 2026; that second account's statement is needed. Role in the plan: the retirement core and the transition reserve, diversified on Washington's tax calendar.">
+        <rect x="620" y="150" width="500" height="96" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="178" r="18" fill="#2a78d6"/><rect x="643" y="180" width="5" height="8" fill="#fff"/><rect x="650" y="174" width="5" height="14" fill="#fff"/><rect x="657" y="168" width="5" height="20" fill="#fff"/>
+        <text x="682" y="174" font-weight="700" font-size="15">Fidelity portfolio and cash · $6.9M</text>
+        <text x="682" y="194" font-size="12" fill="#52514e">RightCapital $6.78M · Fidelity TOD $2.11M on 31 July + $3.93M moved</text>
+        <text x="682" y="212" font-size="12" fill="#52514e">QQQ and C.H. Robinson shares · $1.43M of unrealized gain at Fidelity</text>
+        <text x="682" y="230" font-size="12" fill="#9a5b00">Becomes the retirement core and the transition reserve</text>
+      </g>
+      <g class="node" data-tip="Germany ESOP, $3.0M. On RightCapital's balance sheet but not in its retirement projection, so the 100% result stands without it. No beneficiary is on file. Plan: diversify it on a schedule and use the proceeds as the acquisition equity. Confirm the plan, the custodian, the cost basis, any holding periods, and whether foreign account reporting (FBAR, Form 8938) applies.">
+        <rect x="620" y="258" width="500" height="76" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="290" r="18" fill="#6250d6"/><text x="652" y="296" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">DE</text>
+        <text x="682" y="282" font-weight="700" font-size="15">Germany ESOP · $3.0M</text>
+        <text x="682" y="302" font-size="12" fill="#52514e">Not in RightCapital's retirement projection · no beneficiary on file</text>
+        <text x="682" y="320" font-size="12" fill="#9a5b00">The acquisition equity: diversify on a schedule</text>
+      </g>
+      <g class="node" data-tip="C.H. Robinson (CHRW) stock options: 18,246 vested non-qualified options worth $1.24M at $147.73 on 31 July 2026, down from $1.98M on 1 July. 7,890 at $88.87 expire 5 December 2028; 10,356 at $72.74 expire 5 February 2030. The spread is ordinary income on exercise, not subject to Washington's capital gains tax. Plan: exercise in three tranches after salary stops.">
+        <rect x="620" y="346" width="500" height="76" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="378" r="18" fill="#e34948"/><path d="M642 384 L650 374 L656 380 L664 370" stroke="#fff" stroke-width="3" fill="none"/>
+        <text x="682" y="370" font-weight="700" font-size="15">C.H. Robinson options · $1.24M · 18,246 vested</text>
+        <text x="682" y="390" font-size="12" fill="#52514e">Expire December 2028 (7,890) and February 2030 (10,356)</text>
+        <text x="682" y="408" font-size="12" fill="#9a5b00">Exercise after salary stops, across three tax years</text>
+      </g>
+      <g class="node" data-tip="Retirement accounts, $1.03M: NAC IRA annuity $790K and NAC Roth IRA annuity $170K (both name a trust as beneficiary), SAP 401(k) $42K and the Whistler Ventures Solo 401(k) $28K (no beneficiary on file). Protected from creditors under federal and Washington law. Roth conversions from the IRA annuity fit the low-income years; check the annuity's surrender terms first.">
+        <rect x="620" y="434" width="500" height="76" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="466" r="18" fill="#eda100"/><ellipse cx="652" cy="460" rx="9" ry="4" fill="#fff"/><rect x="643" y="460" width="18" height="9" fill="#fff"/>
+        <text x="682" y="458" font-weight="700" font-size="15">IRA annuities and 401(k)s · $1.03M</text>
+        <text x="682" y="478" font-size="12" fill="#52514e">NAC IRA $790K · NAC Roth $170K · SAP 401(k) $42K · Solo 401(k) $28K</text>
+        <text x="682" y="496" font-size="12" fill="#52514e">Protected from creditors · Roth conversions in the low years</text>
+      </g>
+      <g class="node" data-tip="Home $1.9M, already titled to the Whisler Family Trust, with a $280K mortgage at 5% ($2,684 a month). Land $500K in Kollen's own name. RightCapital shows no homeowners, auto or umbrella coverage on file: confirm this month. Plan: the land moves into its own LLC owned by the trust; the home stays in the trust with Washington's homestead protection and an umbrella policy above it.">
+        <rect x="620" y="522" width="500" height="76" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="554" r="18" fill="#1baf7a"/><path d="M640 556 L652 544 L664 556 V566 H640 Z" fill="#fff"/>
+        <text x="682" y="546" font-weight="700" font-size="15">Home $1.9M (in trust) · land $0.5M (personal)</text>
+        <text x="682" y="566" font-size="12" fill="#52514e">Mortgage $280K at 5% · no property cover on file in RightCapital</text>
+        <text x="682" y="584" font-size="12" fill="#9a5b00">Land into its own LLC, owned by the trust</text>
+      </g>
+      <g class="node" data-tip="Three indexed universal life policies owned by Kollen, with a trust as beneficiary: NAC IUL Cash Growth ($2.8M death benefit, $468K cash value), Kaizen ($2.8M, $170K; a financed design) and CLU IUL Protection ($1.25M, $70K). Premiums $390K a year through 2028, $270K to 2032, $30K to 2036. RightCapital projects $268K a year of policy loans from 61 and $388K from 65. In the estate today; the ILIT moves them out.">
+        <rect x="620" y="610" width="500" height="86" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/>
+        <circle cx="652" cy="642" r="18" fill="#d6508f"/><path d="M640 644 A12 12 0 0 1 664 644 Z" fill="#fff"/><path d="M652 644 V654" stroke="#fff" stroke-width="3"/>
+        <text x="682" y="634" font-weight="700" font-size="15">Three IULs · $6.85M death benefit · $708K cash value</text>
+        <text x="682" y="654" font-size="12" fill="#52514e">Kollen owns them; a trust is beneficiary; inside his estate today</text>
+        <text x="682" y="672" font-size="12" fill="#52514e">Premiums $390K a year to 2028, then $270K, then $30K</text>
+        <text x="682" y="690" font-size="12" fill="#9a5b00">Projected policy income $388K a year from 65</text>
+      </g>
+    </g>
+    <!-- business -->
+    <g id="layer-business">
+      <g class="node" data-tip="Holdco LLC, formed by the revocable trust before the letter of intent. Owns the operating company and any property company; receives distributions and swept cash; can charge a management fee. Equity in: $2.5M target, $3.5M ceiling, mostly from the diversified ESOP. Whistler Ventures Inc. could serve if its tax form suits.">
+        <rect x="1220" y="150" width="500" height="96" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5"/>
+        <text x="1236" y="174" font-weight="700" font-size="15">Holdco LLC · formed by the revocable trust</text>
+        <text x="1236" y="194" font-size="12" fill="#52514e">Or Whistler Ventures Inc., if its tax form suits</text>
+        <text x="1236" y="212" font-size="12" fill="#52514e">Receives distributions and swept cash · management company</text>
+        <text x="1236" y="230" font-size="12" fill="#9a5b00" font-weight="700">Equity in: $2.5M to $3.5M, mostly the ESOP</text>
+      </g>
+      <g class="node" data-tip="OpCo LLC, the acquired business, bought as an asset purchase: a stepped-up basis, the seller's past liabilities left behind. Its own general liability, professional, cyber, employment practices and auto cover. Taxed as a pass-through for income, or as a C corporation if a QSBS exit is the goal. The SBA borrower.">
+        <rect x="1220" y="258" width="500" height="104" rx="12" fill="#fff" stroke="#1a4f93" stroke-width="2.5"/>
+        <text x="1236" y="282" font-weight="700" font-size="15">OpCo LLC · the acquired business</text>
+        <text x="1236" y="302" font-size="12" fill="#52514e">Asset purchase: stepped-up basis, seller's liabilities left behind</text>
+        <text x="1236" y="320" font-size="12" fill="#52514e">Own policies: general, professional, cyber, employment practices</text>
+        <text x="1236" y="338" font-size="12" fill="#52514e">Pass-through for income, or a C corporation for a QSBS exit</text>
+        <text x="1236" y="356" font-size="12" fill="#1a4f93" font-weight="700">The SBA borrower</text>
+      </g>
+      <g class="node" data-tip="SBA 7(a) lender: up to $5M over 10 years. Requires an unlimited personal guarantee from Kollen and usually a life insurance assignment equal to the loan. The guarantee is why the protection work comes first: transfers made after a claim or a default can be undone.">
+        <rect x="1220" y="374" width="500" height="86" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="2.5"/>
+        <text x="1236" y="398" font-weight="700" font-size="15">SBA 7(a) lender · up to $5M · 10 years</text>
+        <text x="1236" y="418" font-size="12" fill="#52514e">Unlimited personal guarantee from Kollen</text>
+        <text x="1236" y="436" font-size="12" fill="#52514e">Usually requires life insurance assigned to the lender</text>
+        <text x="1236" y="454" font-size="12" fill="#b42318" font-weight="700">Size the debt so the guarantee is never called</text>
+      </g>
+      <g class="node" data-tip="PropCo LLC, only if the deal includes real estate. Owns the building and leases it to OpCo at market rent; a separate lender and a separate risk.">
+        <rect x="1220" y="472" width="500" height="76" rx="12" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <text x="1236" y="496" font-weight="700" font-size="15">PropCo LLC · only if the deal includes property</text>
+        <text x="1236" y="516" font-size="12" fill="#52514e">Leases to OpCo at market rent; separate lender, separate risk</text>
+        <text x="1236" y="534" font-size="12" fill="#9a5b00">conditional</text>
+      </g>
+      <g class="node" data-tip="Key-person and successor plan: term coverage on Kollen owned by the business and assigned to the lender, an interim manager named in writing, and a general manager hired within 18 months, so the business does not depend on one person's health.">
+        <rect x="1220" y="560" width="500" height="76" rx="12" fill="#fff" stroke="#1a4f93" stroke-width="2.5"/>
+        <text x="1236" y="584" font-weight="700" font-size="15">Key-person cover and a successor manager</text>
+        <text x="1236" y="604" font-size="12" fill="#52514e">Term cover owned by the business; an interim manager named in writing</text>
+        <text x="1236" y="622" font-size="12" fill="#52514e">A general manager hired within 18 months</text>
+      </g>
+    </g>
+    <!-- people (bottom) -->
+    <g id="layer-people2">
+      <g class="node" data-tip="Family heirs, not yet named. RightCapital lists no heirs; the policies and IRA annuities name a trust. Once Kollen decides who he wants to provide for, the trust terms, a dynasty trust and the ILIT's terms follow from that decision."><rect x="40" y="746" width="380" height="80" rx="12" fill="#fff" stroke="#6250d6" stroke-width="2.5" stroke-dasharray="7 5"/><text x="230" y="776" text-anchor="middle" font-weight="700" font-size="15">Family heirs · to be named</text><text x="230" y="798" text-anchor="middle" font-size="12" fill="#52514e">through the trust and, if chosen, a dynasty trust</text></g>
+      <g class="node" data-tip="Charity, only if Kollen chooses it: grants from a donor-advised fund, or the remainder of a charitable remainder trust."><rect x="460" y="746" width="380" height="80" rx="12" fill="#fff" stroke="#d6508f" stroke-width="2.5" stroke-dasharray="7 5"/><text x="650" y="776" text-anchor="middle" font-weight="700" font-size="15">Charity · if chosen</text><text x="650" y="798" text-anchor="middle" font-size="12" fill="#52514e">donor-advised fund grants or a CRT remainder</text></g>
+      <g class="node" data-tip="Kollen himself, for life: $20,000 a month inflation-adjusted from the retirement core, policy income from 61 and 65, Social Security at 70, and the business's distributions."><rect x="880" y="746" width="380" height="80" rx="12" fill="#0d366b"/><text x="1070" y="776" text-anchor="middle" font-weight="700" font-size="15" fill="#fff">Kollen, for life</text><text x="1070" y="798" text-anchor="middle" font-size="12" fill="#cde2fb">$20K a month · policy income · Social Security at 70</text></g>
+      <g class="node" data-tip="The business's next owner: a strategic or private buyer in 5 to 10 years, a management buyout, or an ESOP, chosen at purchase so the structure fits the exit."><rect x="1300" y="746" width="420" height="80" rx="12" fill="#fff" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/><text x="1510" y="776" text-anchor="middle" font-weight="700" font-size="15">The business's next owner</text><text x="1510" y="798" text-anchor="middle" font-size="12" fill="#52514e">sale, management buyout or ESOP in 5 to 10 years</text></g>
+    </g>
+    <!-- flows -->
+    <g id="layer-flows" fill="none" stroke-width="2.5">
+      <path d="M620 186 L524 196" stroke="#2a78d6" marker-end="url(#arB)"/>
+      <path d="M620 300 L524 222" stroke="#2a78d6" stroke-dasharray="6 4" marker-end="url(#arB)"/>
+      <path d="M620 560 L524 240" stroke="#2a78d6" marker-end="url(#arB)"/>
+      <path d="M620 650 L524 320" stroke="#2a78d6" marker-end="url(#arB)"/>
+      <path d="M620 214 L524 428" stroke="#eda100" stroke-dasharray="6 4" marker-end="url(#arA)"/>
+      <path d="M620 236 L524 640" stroke="#d6508f" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+      <path d="M1120 296 L1216 206" stroke="#eda100" stroke-width="3.5" marker-end="url(#arA)"/>
+      <path d="M1470 246 V254" stroke="#eda100" marker-end="url(#arA)"/>
+      <path d="M1200 96 C1214 96 1214 120 1240 120 H1734 V416 H1726" stroke="#e34948" stroke-dasharray="7 5" marker-end="url(#arR)"/>
+      <path d="M12 202 V786 H36" stroke="#6250d6" marker-end="url(#arV)"/>
+      <path d="M20 318 H12 M20 538 H12 M20 202 H12" stroke="#6250d6"/>
+      <path d="M400 694 L560 744" stroke="#d6508f" stroke-dasharray="6 4" marker-end="url(#arP)"/>
+      <path d="M940 696 L1010 742" stroke="#1baf7a" marker-end="url(#arG)"/>
+      <path d="M1470 636 V742" stroke="#eda100" stroke-dasharray="6 4" marker-end="url(#arA)"/>
+      <text x="1176" y="290" fill="#9a5b00" font-size="12" font-weight="700" stroke="none">equity</text>
+      <text x="1006" y="714" fill="#0f6b4b" font-size="12" font-weight="700" stroke="none">income</text>
+    </g>
+    </g>
+  </svg>
+  <div id="archtip"></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Architecture · 12 / 20</span></div>
+</div>
+<style>
+.archctl{position:absolute;top:66px;right:90px;display:flex;gap:6px;align-items:center;font-size:14px;color:#52514e;z-index:3}
+.archctl button{font:600 13px/1 system-ui,sans-serif;padding:6px 10px;border-radius:999px;border:1px solid #c3c2b7;background:#fff;color:#52514e;cursor:pointer}
+.archctl button.on{background:#0d366b;color:#fff;border-color:#0d366b}
+.archctl button[data-zoom]{background:#fff;color:#0d366b;border-color:#0d366b}
+.archwrap{position:relative;overflow:hidden;border-radius:14px}
+#arch .node{cursor:pointer}#arch .node:hover rect{filter:brightness(.96)}
+#arch g.hidden{display:none}
+#archtip{position:absolute;display:none;max-width:420px;background:#0b0b0b;color:#fff;font-size:14px;line-height:1.4;padding:10px 14px;border-radius:10px;pointer-events:none;z-index:5;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+@media print{.archctl{display:none}#archtip{display:none!important}}
+</style>
+<script>
+(function(){
+  var svg=document.getElementById('arch'); if(!svg) return;
+  var tip=document.getElementById('archtip'), wrap=svg.parentNode;
+  svg.querySelectorAll('.node').forEach(function(n){
+    n.addEventListener('mouseenter',function(){tip.textContent=n.getAttribute('data-tip');tip.style.display='block';});
+    n.addEventListener('mousemove',function(e){var r=wrap.getBoundingClientRect();var x=e.clientX-r.left+16,y=e.clientY-r.top+16;if(x+440>r.width)x=e.clientX-r.left-440;if(y+170>r.height)y=e.clientY-r.top-170;tip.style.left=x+'px';tip.style.top=y+'px';});
+    n.addEventListener('mouseleave',function(){tip.style.display='none';});
+  });
+  document.querySelectorAll('.archctl button[data-layer]').forEach(function(b){
+    b.addEventListener('click',function(){var id=b.getAttribute('data-layer');var g=document.getElementById(id);var g2=id==='layer-people'?document.getElementById('layer-people2'):null;b.classList.toggle('on');var off=!b.classList.contains('on');[g,g2].forEach(function(x){if(x)x.classList.toggle('hidden',off);});});
+  });
+  var base={x:0,y:0,w:1740,h:860}, vb={x:0,y:0,w:1740,h:860};
+  function apply(){svg.setAttribute('viewBox',vb.x+' '+vb.y+' '+vb.w+' '+vb.h);}
+  function zoom(f){var cx=vb.x+vb.w/2,cy=vb.y+vb.h/2;vb.w=Math.max(300,Math.min(base.w,vb.w*f));vb.h=vb.w*base.h/base.w;vb.x=cx-vb.w/2;vb.y=cy-vb.h/2;apply();}
+  document.querySelectorAll('.archctl button[data-zoom]').forEach(function(b){b.addEventListener('click',function(){var z=b.getAttribute('data-zoom');if(z==='in')zoom(0.8);else if(z==='out')zoom(1.25);else{vb={x:0,y:0,w:1740,h:860};apply();}});});
+  svg.addEventListener('wheel',function(e){if(!e.ctrlKey)return;e.preventDefault();zoom(e.deltaY<0?0.9:1.1);},{passive:false});
+  var drag=null;
+  svg.addEventListener('mousedown',function(e){if(vb.w>=base.w)return;drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};});
+  window.addEventListener('mousemove',function(e){if(!drag)return;var s=vb.w/svg.getBoundingClientRect().width;vb.x=drag.vx-(e.clientX-drag.x)*s;vb.y=drag.vy-(e.clientY-drag.y)*s;apply();});
+  window.addEventListener('mouseup',function(){drag=null;});
+})();
+</script>
+
+<!-- ============ 13 · TRUST ROADMAP ============ -->
+<div class="slide" id="s-estate-2">
+  <h2 style="margin-bottom:8px">Estate planning · The trust roadmap</h2>
+  <p class="lede">Six steps, in the order they protect each other. The first two are certain; the rest wait on decisions only Kollen can make.</p>
+  <svg viewBox="0 0 1740 70" width="100%" style="display:block">
+    <line x1="60" y1="35" x2="1690" y2="35" stroke="#c3c2b7" stroke-width="4"/>
+    <g font-size="15" font-weight="700" text-anchor="middle" fill="#fff">
+      <circle cx="145" cy="35" r="26" fill="#2a78d6"/><text x="145" y="41">1</text>
+      <circle cx="435" cy="35" r="26" fill="#6250d6"/><text x="435" y="41">2</text>
+      <circle cx="725" cy="35" r="26" fill="#eda100"/><text x="725" y="41">3</text>
+      <circle cx="1015" cy="35" r="26" fill="#d6508f"/><text x="1015" y="41">4</text>
+      <circle cx="1305" cy="35" r="26" fill="#1a4f93"/><text x="1305" y="41">5</text>
+      <circle cx="1595" cy="35" r="26" fill="#1baf7a"/><text x="1595" y="41">6</text>
+    </g>
+  </svg>
+  <div class="row" style="grid-template-columns:repeat(6,1fr);gap:16px;margin-top:8px">
+    <div class="card rm" style="border-top:8px solid #2a78d6"><div class="when">Months 0 to 3 · certain</div><h3>Foundation documents</h3><ul class="ul"><li>Restate the revocable trust; pour-over will</li><li>Durable power of attorney with business and digital powers; health-care directive</li><li>Successor trustee and agent named, with a professional back-up</li><li>Beneficiary audit: ESOP, both 401(k)s, the TOD account, the options</li></ul><div class="res">Result: probate on about $4.9M avoided; incapacity covered</div></div>
+    <div class="card rm" style="border-top:8px solid #6250d6"><div class="when">Months 2 to 9 · certain</div><h3>The ILIT</h3><ul class="ul"><li>Draft the trust; an independent trustee</li><li>In-force illustrations at today's caps for all three policies</li><li>Sell or transfer the policies to the trust; Kaizen lender consent</li><li>Premiums by annual gifts; gift tax returns filed</li></ul><div class="res">Result: about $2.8M less estate tax</div></div>
+    <div class="card rm" style="border-top:8px solid #eda100"><div class="when">Months 6 to 12 · before any LOI</div><h3>Asset protection trust decision</h3><ul class="ul"><li>Nevada or South Dakota situs, independent trustee</li><li>A defined slice of the portfolio, never the retirement core</li><li>Solvency documented at funding; no claims pending</li><li>Funded well before an SBA guarantee</li></ul><div class="res">Result: a wall behind the guarantee, if counsel agrees</div></div>
+    <div class="card rm" style="border-top:8px solid #d6508f"><div class="when">2026 or 2027 · if intended</div><h3>Charitable vehicle</h3><ul class="ul"><li>Donor-advised fund for flexible giving, or a charitable remainder trust for income</li><li>Funded with the lowest-basis QQQ or C.H. Robinson shares</li><li>Deduction taken in a 37% year</li></ul><div class="res">Result: gains never taxed; a deduction when it is worth most</div></div>
+    <div class="card rm" style="border-top:8px solid #1a4f93"><div class="when">2028 to 2030 · at the purchase</div><h3>The business into the structure</h3><ul class="ul"><li>Holdco formed by the trust before the LOI</li><li>OpCo acquired by the Holdco, never by Kollen personally</li><li>Key-person and lender cover designed with the ILIT</li><li>Operating agreement names the successor manager</li></ul><div class="res">Result: the business inherits the plan's protection on day one</div></div>
+    <div class="card rm" style="border-top:8px solid #1baf7a"><div class="when">Once heirs are named</div><h3>Dynasty trust and growth transfers</h3><ul class="ul"><li>A dynasty trust for the family Kollen chooses</li><li>Non-voting business units by gift, sale or GRAT as value grows</li><li>No Washington gift tax on any of it</li><li>Generation-skipping exemption allocated</li></ul><div class="res">Result: growth leaves a 35% estate</div></div>
+  </div>
+  <div class="row" style="grid-template-columns:1.1fr 1fr;gap:22px;margin-top:16px;align-items:center">
+    <div class="card" style="padding:12px 22px 6px">
+      <h3 style="font-size:18px;margin-bottom:2px">Estate tax and probate, before and after the first two steps</h3>
+      <svg viewBox="0 0 860 150" width="100%">
+        <g font-size="15">
+        <text x="2" y="37" font-weight="700">Today</text>
+        <rect x="190" y="16" width="440" height="30" rx="4" fill="#e34948"/><text x="202" y="37" fill="#fff" font-weight="700">estate tax &#8776; $5.5M</text><text x="642" y="37" font-weight="700" fill="#b42318">+ $4.9M via probate</text>
+        <text x="2" y="87" font-weight="700">After steps 1 and 2</text>
+        <rect x="190" y="66" width="216" height="30" rx="4" fill="#1baf7a"/><text x="202" y="87" fill="#fff" font-weight="700">estate tax &#8776; $2.7M</text><text x="418" y="87" font-weight="700" fill="#0f6b4b">no probate</text>
+        <text x="2" y="132" fill="#52514e" font-size="13.5">Today's values; the gap widens as the estate grows. Steps 3 to 6 reduce it further, depending on gifts.</text>
+        </g>
+      </svg>
+    </div>
+    <div class="callout" style="font-size:18px;line-height:1.42;border-left-color:#6250d6;background:#efecfb"><b>Why the order matters.</b> The trust must exist before the Holdco is formed in its name; the ILIT must own the policies before the lender asks for an assignment; the asset protection trust must be funded before a guarantee is signed, because a transfer made after a claim can be undone.</div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Estate planning · 13 / 20</span></div>
+</div>
+<style>
+.rm{padding:14px 16px}.rm .when{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#52514e;margin-bottom:6px}.rm h3{font-size:19px;margin-bottom:8px}.rm .ul{padding-left:18px}.rm .ul li{font-size:15.5px}.rm .res{margin-top:10px;font-size:15px;font-weight:700;color:#0d366b;background:#f3f4f6;border-radius:8px;padding:8px 10px;line-height:1.3}
+</style>
+
+<!-- ============ 14 · ASSET PROTECTION RISKS AND ASSETS ============ -->
+<div class="slide" id="s-ap-1">
+  <h2 style="margin-bottom:6px">Asset protection · Where Kollen is exposed, asset by asset</h2>
+  <p class="lede" style="margin-bottom:12px">Today the exposure is modest: an executive with a house. In two years it is not: an owner with employees, customers, a lease and a personal guarantee. Protection has to be built before that switch.</p>
+  <div class="row" style="grid-template-columns:repeat(4,1fr);gap:16px">
+    <div class="card" style="padding:12px 18px;border-top:8px solid #2a78d6"><h3 style="font-size:18px;margin-bottom:6px">Employment risk</h3>
+      <table class="rk3"><tbody>
+        <tr><td><b>Executive liability</b><div>decisions made as an SAP officer</div></td><td class="ans">indemnification and D&amp;O tail confirmed</td></tr>
+        <tr><td><b>Restrictive covenants</b><div>non-compete, IP, clawbacks</div></td><td class="ans">reviewed before the target is chosen</td></tr>
+        <tr><td><b>Entrepreneurship</b><div>the owner is the first defendant</div></td><td class="ans">entities, insurance, no commingling</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:12px 18px;border-top:8px solid #1baf7a"><h3 style="font-size:18px;margin-bottom:6px">Real estate risk</h3>
+      <table class="rk3"><tbody>
+        <tr><td><b>Home, $1.9M</b><div>a revocable trust gives no creditor shield</div></td><td class="ans">homestead, umbrella above it</td></tr>
+        <tr><td><b>Land, $0.5M</b><div>personal name, premises liability</div></td><td class="ans">its own LLC, owned by the trust</td></tr>
+        <tr><td><b>Coverage gaps</b><div>no home, auto or umbrella on file</div></td><td class="ans">verify this month</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:12px 18px;border-top:8px solid #eda100"><h3 style="font-size:18px;margin-bottom:6px">Business risk</h3>
+      <table class="rk3"><tbody>
+        <tr><td><b>Personal guarantee</b><div>unlimited, on the SBA loan</div></td><td class="ans">size the debt; protect first</td></tr>
+        <tr><td><b>Operating claims</b><div>employees, customers, contracts</div></td><td class="ans">OpCo LLC and its own policies</td></tr>
+        <tr><td><b>Key-person loss</b><div>a single owner-operator</div></td><td class="ans">cover and a named successor</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:12px 18px;border-top:8px solid #6250d6"><h3 style="font-size:18px;margin-bottom:6px">Wealth preservation risk</h3>
+      <table class="rk3"><tbody>
+        <tr><td><b>Concentration</b><div>34% in two companies</div></td><td class="ans">diversify on the tax calendar</td></tr>
+        <tr><td><b>Estate tax</b><div>about $5.5M today</div></td><td class="ans">ILIT, funded trust</td></tr>
+        <tr><td><b>Long-term care</b><div>about $951K projected, uninsured</div></td><td class="ans">hybrid cover review</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="card" style="margin-top:14px;padding:10px 22px 6px">
+    <table class="ab"><thead><tr><th style="width:230px">Asset</th><th style="width:120px">Value</th><th style="width:220px">Owned today by</th><th style="width:300px">Exposure</th><th>Recommended protection layer</th></tr></thead><tbody>
+      <tr><td><b>Fidelity portfolio</b></td><td>$6.78M</td><td>Kollen, transfer-on-death</td><td><span class="ex h">High</span> reachable by any judgment</td><td>Umbrella; trust ownership; a Nevada or South Dakota trust for a slice; diversify</td></tr>
+      <tr><td><b>Germany ESOP</b></td><td>$3.00M</td><td>Kollen</td><td><span class="ex h">High</span> plus single-stock risk</td><td>Beneficiary to the trust; becomes the acquisition equity; check foreign reporting</td></tr>
+      <tr><td><b>C.H. Robinson options</b></td><td>$1.24M</td><td>the plan, for Kollen</td><td><span class="ex m">Medium</span> expiry and price risk</td><td>Exercise calendar 2028 to 2030; proceeds into the reserve</td></tr>
+      <tr><td><b>Life insurance</b><div>$6.85M death benefit</div></td><td>$0.71M cash</td><td>Kollen; a trust is beneficiary</td><td><span class="ex l">Low</span> to creditors, but fully in the estate</td><td>ILIT</td></tr>
+      <tr><td><b>IRA annuities and 401(k)s</b></td><td>$1.03M</td><td>Kollen</td><td><span class="ex l">Low</span> federal and Washington exemptions</td><td>Keep; name beneficiaries on both 401(k)s; review the trust's terms</td></tr>
+      <tr><td><b>Home</b><div>$280K mortgage</div></td><td>$1.90M</td><td>Whisler Family Trust (revocable)</td><td><span class="ex m">Medium</span> homestead covers part</td><td>Umbrella of $5M to $10M; stays in the trust</td></tr>
+      <tr><td><b>Land</b></td><td>$0.50M</td><td>Kollen</td><td><span class="ex m">Medium</span> premises liability</td><td>Its own LLC owned by the trust; a liability policy</td></tr>
+      <tr><td><b>The future business</b></td><td>$2.5M to $3.5M</td><td>not yet formed</td><td><span class="ex h">High</span> guarantee and operations</td><td>Holdco and OpCo; business insurance; cash swept up to the Holdco</td></tr>
+    </tbody></table>
+  </div>
+  <div class="callout" style="margin-top:14px;font-size:19px;line-height:1.4;border-left-color:#e34948;background:#fdeaea"><b>The largest exposed asset is also the most liquid:</b> $6.78M in an individual brokerage account, reachable by any judgment against Kollen. That is why the umbrella comes first, and why the decision on an asset protection trust comes before any guarantee is signed, not after.</div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Asset protection · 14 / 20</span></div>
+</div>
+<style>
+.rk3{border-collapse:collapse;width:100%}.rk3 td{padding:7px 4px;border-bottom:1px solid #eeede8;text-align:left;vertical-align:top;font-size:16.5px;line-height:1.25}.rk3 td div{font-size:14px;color:#52514e}.rk3 td.ans{font-size:14px;color:#1a4f93;width:130px}
+.ab{border-collapse:collapse;width:100%;font-size:16px;line-height:1.3}.ab th{text-align:left;font-size:14.5px;color:#52514e;padding:7px 8px;border-bottom:1px solid #e1e0d9}.ab td{text-align:left;padding:8px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}.ab td div{font-size:13px;color:#898781;font-weight:400}
+.ex{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px;margin-right:6px}.ex.h{background:#fdeaea;color:#b42318}.ex.m{background:#fff8e6;color:#9a5b00}.ex.l{background:#e8f7f1;color:#0f6b4b}
+</style>
+
+<!-- ============ 15 · ASSET PROTECTION ARCHITECTURE ============ -->
+<div class="slide" id="s-ap-2">
+  <h2 style="margin-bottom:8px">Asset protection · The protection architecture</h2>
+  <div class="row" style="grid-template-columns:1.1fr 1fr;gap:26px;align-items:start">
+    <div class="card tipwrap" style="padding:10px 16px 4px">
+      <svg viewBox="0 0 900 800" width="100%">
+        <g font-size="14" text-anchor="middle">
+        <circle cx="450" cy="400" r="390" fill="#fdeaea"/>
+        <circle cx="450" cy="400" r="310" fill="#efecfb"/>
+        <circle cx="450" cy="400" r="230" fill="#fff8e6"/>
+        <circle cx="450" cy="400" r="150" fill="#e8f7f1"/>
+        <circle cx="450" cy="400" r="390" fill="none" stroke="#e34948" stroke-width="2.5"/>
+        <circle cx="450" cy="400" r="310" fill="none" stroke="#6250d6" stroke-width="2.5"/>
+        <circle cx="450" cy="400" r="230" fill="none" stroke="#eda100" stroke-width="2.5"/>
+        <circle cx="450" cy="400" r="150" fill="none" stroke="#1baf7a" stroke-width="2.5"/>
+        <g data-tip="What is protected: Kollen's $15.2M, and from 2028 the business equity. Every ring outside it exists to keep a claim from reaching the center, starting with the cheapest and most certain protection on the outside."><circle cx="450" cy="400" r="80" fill="#0d366b"/><text x="450" y="394" fill="#fff" font-weight="700" font-size="16">Kollen's assets</text><text x="450" y="415" fill="#fff" font-weight="700" font-size="16">$15.2M</text><text x="450" y="434" fill="#cde2fb" font-size="11.5">and the business</text></g>
+        <text x="450" y="38" font-weight="700" fill="#b42318" font-size="12.5" letter-spacing=".06em">INSURANCE LAYER</text>
+        <text x="450" y="118" font-weight="700" fill="#4a3bb0" font-size="12.5" letter-spacing=".06em">TRUST LAYER</text>
+        <text x="450" y="198" font-weight="700" fill="#9a5b00" font-size="12.5" letter-spacing=".06em">ENTITY LAYER</text>
+        <text x="450" y="285" font-weight="700" fill="#0f6b4b" font-size="12.5" letter-spacing=".06em">PROTECTED BY LAW</text>
+        <g data-tip="What is protected: the $1.03M of IRA annuities and 401(k)s. Instrument: federal law for the 401(k)s and Washington's exemption for IRAs. These are the strongest walls in the plan and cost nothing; a reason to favor retirement plans in the business years."><rect x="375" y="296" width="150" height="24" fill="transparent"/><text x="450" y="312" font-weight="700">Retirement accounts</text></g>
+        <g data-tip="What is protected: equity in the home up to Washington's homestead amount, which for King County tracks the county's median sale price. Instrument: the homestead exemption, which applies even though the home is titled to a revocable trust. Equity above it relies on the umbrella."><rect x="350" y="484" width="84" height="24" fill="transparent"/><text x="392" y="500" font-weight="700">Homestead</text></g>
+        <g data-tip="What is protected: life insurance cash values and proceeds payable to someone other than Kollen, and part of annuity benefits. Instrument: Washington's insurance exemptions. The policies are well protected from creditors; their problem is estate tax, which the ILIT solves."><rect x="468" y="484" width="80" height="40" fill="transparent"/><text x="508" y="500" font-weight="700">Insurance</text><text x="508" y="517" fill="#52514e" font-size="12.5">values</text></g>
+        <g data-tip="What is protected: everything Kollen owns outside the business. Instrument: the Holdco LLC owned by his trust; it holds the operating company and swept cash, so a claim against the business stops at the business."><rect x="271" y="256" width="90" height="24" fill="transparent"/><text x="316" y="272" font-weight="700">Holdco LLC</text></g>
+        <g data-tip="What is protected: the Holdco and Kollen's personal assets from operating claims by employees, customers and counterparties. Instrument: the acquired business in its own LLC with its own insurance, bought as an asset purchase so the seller's history stays with the seller."><rect x="542" y="256" width="84" height="24" fill="transparent"/><text x="584" y="272" font-weight="700">OpCo LLC</text></g>
+        <g data-tip="What is protected: a building, if the deal includes one, from the business's claims, and the business from the building's. Instrument: a separate property LLC leasing to OpCo at market rent."><rect x="271" y="524" width="90" height="40" fill="transparent"/><text x="316" y="540" font-weight="700">PropCo LLC</text><text x="316" y="557" fill="#9a5b00" font-size="12.5">if property</text></g>
+        <g data-tip="What is protected: Kollen personally from an injury on the land, and the land from Kollen's other liabilities. Instrument: a single-purpose LLC owned by the revocable trust, with its own liability policy."><rect x="539" y="524" width="90" height="40" fill="transparent"/><text x="584" y="540" font-weight="700">Land LLC</text><text x="584" y="557" fill="#52514e" font-size="12.5">via the trust</text></g>
+        <g data-tip="What is protected: continuity. If Kollen is incapacitated, the successor trustee runs the Holdco and pays the bills without a court. Instrument: the restated revocable trust. It does not protect against creditors during life."><rect x="140" y="380" width="80" height="40" fill="transparent"/><text x="180" y="396" font-weight="700">Revocable</text><text x="180" y="413" fill="#52514e" font-size="12.5">trust</text></g>
+        <g data-tip="What is protected: $6.85M of death benefit from estate tax and from any creditor of Kollen or of the heirs. Instrument: the ILIT, owner of the three policies."><rect x="685" y="380" width="70" height="40" fill="transparent"/><text x="720" y="396" font-weight="700">ILIT</text><text x="720" y="413" fill="#52514e" font-size="12.5">$6.85M</text></g>
+        <g data-tip="What is protected: a defined slice of the portfolio from a future business creditor, including a call on the guarantee. Instrument: a Nevada or South Dakota asset protection trust with an independent trustee. Conditional: partial protection for a Washington resident, and only if funded before any claim."><rect x="219" y="197" width="80" height="40" fill="transparent"/><text x="259" y="213" font-weight="700">NV or SD</text><text x="259" y="230" fill="#9a5b00" font-size="12.5">trust</text></g>
+        <g data-tip="What is protected: wealth Kollen gives to family, from his estate tax and from the heirs' creditors and divorces. Instrument: a dynasty trust, once heirs are named."><rect x="601" y="197" width="80" height="40" fill="transparent"/><text x="641" y="213" font-weight="700">Dynasty</text><text x="641" y="230" fill="#9a5b00" font-size="12.5">trust</text></g>
+        <g data-tip="What is protected: appreciated shares from capital gains tax and, in a CRT, an income for Kollen. Instrument: a donor-advised fund or charitable remainder trust, if Kollen has charitable intent."><rect x="407" y="660" width="86" height="40" fill="transparent"/><text x="450" y="676" font-weight="700">Charitable</text><text x="450" y="693" fill="#9a5b00" font-size="12.5">vehicle</text></g>
+        <g data-tip="What is protected: everything, from a car accident or an injury at home or on the land. Instrument: a personal umbrella of $5M to $10M above home, auto and land policies. Typically a few thousand dollars a year. RightCapital shows none on file."><rect x="58" y="380" width="84" height="40" fill="transparent"/><text x="100" y="396" font-weight="700">Umbrella</text><text x="100" y="413" fill="#52514e" font-size="12.5">$5M to $10M</text></g>
+        <g data-tip="What is protected: the business and the Holdco from operating losses. Instrument: OpCo's general liability, professional, cyber, employment practices and commercial auto policies, sized in diligence."><rect x="760" y="380" width="80" height="40" fill="transparent"/><text x="800" y="396" font-weight="700">Business</text><text x="800" y="413" fill="#52514e" font-size="12.5">policies</text></g>
+        <g data-tip="What is protected: Kollen from claims about decisions made as an SAP officer. Instrument: SAP's indemnification and D&amp;O cover, confirmed to continue after he leaves."><rect x="162" y="136" width="80" height="40" fill="transparent"/><text x="202" y="152" font-weight="700">D&amp;O tail</text><text x="202" y="169" fill="#52514e" font-size="12.5">SAP years</text></g>
+        <g data-tip="What is protected: the business, its lender and Kollen's estate if he dies or is disabled while the loan is outstanding. Instrument: term cover owned by the business and assigned to the lender, plus disability cover for the owner."><rect x="656" y="136" width="84" height="40" fill="transparent"/><text x="698" y="152" font-weight="700">Key-person</text><text x="698" y="169" fill="#52514e" font-size="12.5">cover</text></g>
+        <g data-tip="What is protected: the retirement core from about $951K of projected long-term-care cost, which matters more for a single person with no spouse as caregiver. Instrument: a hybrid life and long-term-care policy, or riders on the existing policies; M&amp;M reviews."><rect x="162" y="636" width="80" height="40" fill="transparent"/><text x="202" y="652" font-weight="700">Long-term</text><text x="202" y="669" fill="#52514e" font-size="12.5">care</text></g>
+        <g data-tip="What is protected: the home, the cars and the land against their own losses, and the umbrella's underlying limits. Instrument: homeowners, auto and land liability policies. RightCapital shows none on file; confirm this month."><rect x="658" y="636" width="80" height="40" fill="transparent"/><text x="698" y="652" font-weight="700">Property</text><text x="698" y="669" fill="#52514e" font-size="12.5">and auto</text></g>
+        </g>
+        </svg>
+      <div class="tipbox"></div>
+      <div class="aphint">Hover any label to see what it protects and which instrument does the protecting</div>
+    </div>
+    <div>
+      <div style="background:#0d366b;color:#fff;border-radius:18px;padding:22px 28px">
+        <div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#86b6ef;font-weight:700;margin-bottom:8px">The message</div>
+        <div style="font-size:23px;line-height:1.35;font-weight:600">&#8220;Protection is built in layers, and the order matters. Insurance first, because it is cheapest. Entities and trusts before the guarantee, because a transfer made after a claim is too late.&#8221;</div>
+      </div>
+      <div class="card" style="margin-top:16px;padding:14px 22px">
+        <h3 style="font-size:19px;margin-bottom:6px">What each layer stops</h3>
+        <table class="ly"><tbody>
+          <tr><td><span style="color:#e34948">●</span> <b>Insurance</b></td><td>A judgment from an accident at home, on the land or in the business being paid from Kollen's own assets.</td></tr>
+          <tr><td><span style="color:#6250d6">●</span> <b>Trusts</b></td><td>Estate tax on the policies; probate; a court deciding who runs the business; an heir's creditor or divorce.</td></tr>
+          <tr><td><span style="color:#eda100">●</span> <b>Entities</b></td><td>A customer, employee or tenant claim reaching beyond the entity where it arose.</td></tr>
+          <tr><td><span style="color:#1baf7a">●</span> <b>Law</b></td><td>Creditors reaching retirement accounts, insurance values and part of the home.</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card" style="margin-top:16px;padding:14px 22px;background:#eef4fc;border-color:#cfe0f7">
+        <h3 style="font-size:19px;margin-bottom:6px">In this order</h3>
+        <ol class="ol">
+          <li><b>This month:</b> umbrella of $5M to $10M; confirm home, auto and land policies</li>
+          <li><b>Months 0 to 3:</b> restate and fund the trust; powers of attorney; the land LLC</li>
+          <li><b>Months 2 to 9:</b> the ILIT owns the three policies</li>
+          <li><b>Months 6 to 12:</b> diversify the stock; build the reserve; decide the NV or SD trust</li>
+          <li><b>At the LOI:</b> Holdco formed by the trust; OpCo buys the assets</li>
+          <li><b>At closing:</b> business policies, key-person cover, cash-sweep policy</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Asset protection · 15 / 20</span></div>
+</div>
+<style>
+#s-ap-2 [data-tip]:hover text{text-decoration:underline}
+.ly{border-collapse:collapse;width:100%;font-size:16.5px;line-height:1.32}.ly td{text-align:left;padding:7px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}.ly td:first-child{width:140px;white-space:nowrap}
+.ol{margin:0;padding-left:22px}.ol li{font-size:16.5px;line-height:1.36;margin-bottom:6px}
+</style>
+
+<!-- ============ 16 · PLANNING TEAM ============ -->
+<div class="slide" id="s-team">
+  <h2 style="margin-bottom:12px">Kollen Glynn Advisory Team &amp; Coordination Framework</h2>
+  <div class="row" style="grid-template-columns:1.18fr 1fr;gap:26px;align-items:start">
+    <div class="card tipwrap" style="padding:10px 14px 6px">
+      <svg viewBox="0 0 1000 850" width="100%" style="display:block">
+        <defs><marker id="tq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#898781"/></marker></defs>
+        <g font-size="13">
+        <circle cx="500" cy="430" r="395" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="500" y="20" text-anchor="middle" font-size="12.5" fill="#898781" font-weight="700" letter-spacing=".08em">KOLLEN'S GOALS: EVERY RECOMMENDATION SERVES THIS RING</text>
+        <g stroke="#898781" stroke-width="2.5" fill="none" marker-end="url(#tq)"><path d="M500 334 L500 272"/><path d="M583 382 L626 357"/><path d="M583 478 L626 503"/><path d="M500 526 L500 590"/><path d="M417 478 L374 503"/><path d="M417 382 L374 357"/></g>
+        <circle cx="500" cy="430" r="250" fill="none" stroke="#e1e0d9" stroke-width="2"/>
+        <g data-tip="Pinnacle Planning, the strategic quarterback. Leads all eight planning areas. Deliverables: one plan kept current; the sequence of work (documents, ILIT, protection, diversification, then the exit, then the purchase); the brief to each specialist; the decision meetings with Kollen; the readiness score updated every quarter until the exit. Why one coordinator: the ILIT and the SBA loan's insurance requirement are one design; the option exercises, the gain ladder and Roth conversions compete for the same tax brackets; the asset protection trust must be funded before the guarantee is signed."><circle cx="500" cy="430" r="96" fill="#0d366b"/><text x="500" y="414" text-anchor="middle" fill="#fff" font-weight="700" font-size="19">Pinnacle Planning</text><text x="500" y="438" text-anchor="middle" fill="#cde2fb" font-size="13.5">the strategic quarterback</text><text x="500" y="458" text-anchor="middle" fill="#cde2fb" font-size="12.5">coordinates · sequences</text><text x="500" y="476" text-anchor="middle" fill="#cde2fb" font-size="12.5">monitors · finds the gaps</text></g>
+        <g data-tip="Estate planning attorney. Leads estate and trust planning; participates in asset protection, tax and the acquisition structure. Deliverables: the restated revocable trust, pour-over will, durable power of attorney with business powers and health-care directive (first 90 days); the ILIT and the policy sale or transfer; the Nevada or South Dakota trust opinion; the dynasty trust once heirs are named; gift tax returns with the CPA."><rect x="380" y="182" width="240" height="88" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2.5"/><text x="500" y="208" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">Estate planning attorney</text><text x="500" y="228" text-anchor="middle" font-size="14" fill="#52514e">trust restatement · ILIT · POA</text><text x="500" y="247" text-anchor="middle" font-size="14" fill="#52514e">asset protection trust opinion</text></g>
+        <g data-tip="M&amp;M Wealth Associates, life insurance and annuity specialist. Leads insurance and risk; participates in retirement income, estate planning, asset protection and the acquisition. Deliverables: in-force illustrations for the three IULs at today's caps and the Kaizen financing terms; the transfer of the policies to the ILIT; the lender-required and key-person term cover; owner disability cover; a long-term-care review for a single client (about $951K projected, uninsured); the umbrella placement with a property and casualty partner; an annuity floor if the income plan needs one."><rect x="630" y="286" width="240" height="106" rx="12" fill="#fdeaea" stroke="#e34948" stroke-width="2.5"/><text x="750" y="312" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">M&amp;M Wealth Associates</text><text x="750" y="332" text-anchor="middle" font-size="14" fill="#b42318" font-weight="700">life insurance and annuities</text><text x="750" y="351" text-anchor="middle" font-size="14" fill="#52514e">IUL review · ILIT transfer</text><text x="750" y="370" text-anchor="middle" font-size="14" fill="#52514e">key-person · lender · LTC</text></g>
+        <g data-tip="Investment advisor: Wealth Advisory Now, acting as fiduciary. Leads investments and liquidity; participates in retirement, tax, the acquisition and asset protection. Deliverables: the diversification schedule for the ESOP and C.H. Robinson; the gain ladder on Washington's calendar; the two-year transition reserve; the retirement-core portfolio with a bond ladder to 59 and a half; the acquisition equity held in cash equivalents once a deal is near; RightCapital kept current."><rect x="630" y="470" width="240" height="106" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2.5"/><text x="750" y="496" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">Investment advisor</text><text x="750" y="516" text-anchor="middle" font-size="14" fill="#0f6b4b" font-weight="700">Wealth Advisory Now, fiduciary</text><text x="750" y="535" text-anchor="middle" font-size="14" fill="#52514e">diversification · gain ladder</text><text x="750" y="554" text-anchor="middle" font-size="14" fill="#52514e">reserve · retirement core</text></g>
+        <g data-tip="Business attorney, with mergers-and-acquisitions experience. Leads the acquisition structure; participates in asset protection, succession and the exit. Deliverables: Holdco, OpCo, PropCo and land LLCs; the letter of intent and asset purchase agreement; diligence on contracts, leases and employees; guarantee negotiation with the SBA lender; operating agreement with the successor manager; buy-sell if there are partners; a review of Kollen's SAP restrictive covenants before a target is chosen."><rect x="380" y="592" width="240" height="88" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2.5"/><text x="500" y="618" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">Business attorney</text><text x="500" y="638" text-anchor="middle" font-size="14" fill="#52514e">Holdco and LLCs · LOI and APA</text><text x="500" y="657" text-anchor="middle" font-size="14" fill="#52514e">guarantee terms · covenants</text></g>
+        <g data-tip="The deal bench, brought in by Pinnacle when a target is under letter of intent: a quality-of-earnings accountant to verify the seller's numbers, an SBA lender, a business broker or M&amp;A advisor for sourcing, and a commercial insurance broker to price the business's coverage before closing."><rect x="130" y="470" width="240" height="106" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5" stroke-dasharray="7 5"/><text x="250" y="496" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">The deal bench</text><text x="250" y="516" text-anchor="middle" font-size="14" fill="#9a5b00" font-weight="700">engaged at the letter of intent</text><text x="250" y="535" text-anchor="middle" font-size="14" fill="#52514e">quality of earnings · SBA lender</text><text x="250" y="554" text-anchor="middle" font-size="14" fill="#52514e">broker · commercial insurance</text></g>
+        <g data-tip="CPA and tax advisor. Leads tax planning; participates in the transition, the acquisition, estate and retirement planning. Deliverables: the 2026 to 2030 tax calendar (catch-up, deferred pay, option tranches, gain ladder, Roth conversions); entity choice for the business (pass-through versus C corporation and QSBS); purchase price allocation; Washington capital gains and B&amp;O filings; foreign account reporting for the ESOP if it applies; gift tax returns for the ILIT premiums."><rect x="130" y="286" width="240" height="106" rx="12" fill="#fff8e6" stroke="#eda100" stroke-width="2.5"/><text x="250" y="312" text-anchor="middle" font-weight="700" font-size="16" fill="#0b0b0b">CPA and tax advisor</text><text x="250" y="332" text-anchor="middle" font-size="14" fill="#9a5b00" font-weight="700">Washington and federal</text><text x="250" y="351" text-anchor="middle" font-size="14" fill="#52514e">tax calendar · option tranches</text><text x="250" y="370" text-anchor="middle" font-size="14" fill="#52514e">entity choice · QSBS · gifts</text></g>
+        <g data-tip="Kollen: 52, single, SAP executive, planning to leave in 2028 and buy an existing business. The decisions the plan asks of him: the exit date, the acquisition budget and thesis, his heirs and any charitable intent, and the insurance decisions after the policy review."><rect x="390" y="32" width="220" height="64" rx="12" fill="#0d366b"/><text x="500" y="58" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">Kollen Glynn</text><text x="500" y="80" text-anchor="middle" fill="#cde2fb" font-size="13">the decisions · the owner</text></g>
+        <g data-tip="The business, from 2028: an asset purchase into OpCo under a Holdco owned by Kollen's trust; its own insurance, its own retirement plan, a named successor manager, and an exit chosen at purchase."><rect x="82" y="698" width="220" height="64" rx="12" fill="#1a4f93"/><text x="192" y="724" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">The business</text><text x="192" y="746" text-anchor="middle" fill="#dbe9fb" font-size="13">from 2028 · Holdco and OpCo</text></g>
+        <g data-tip="The legacy: heirs to be named, a charitable purpose if Kollen has one, and an estate plan that moves the insurance and future growth out of a 35% Washington estate."><rect x="698" y="698" width="220" height="64" rx="12" fill="#1baf7a"/><text x="808" y="724" text-anchor="middle" fill="#fff" font-weight="700" font-size="16">The legacy</text><text x="808" y="746" text-anchor="middle" fill="#e8f7f1" font-size="13">heirs and causes, to be named</text></g>
+        <g font-size="13.5" font-weight="700" fill="#52514e" text-anchor="middle">
+        <g data-tip="Retire from SAP at 55: a 100% plan on capital, made durable by verifying the policy income, building the reserve and diversifying the stock before the exit. Advisors: Pinnacle, Wealth Advisory Now, M&amp;M, the CPA."><rect x="24" y="196" width="160" height="32" rx="16" fill="#fff" stroke="#c3c2b7"/><text x="104" y="217">Retire at 55</text></g>
+        <g data-tip="Own the business: bought with $2.5M to $3.5M of equity that retirement does not need, in a structure that keeps a business claim from reaching personal wealth. Advisors: the business attorney, the CPA, the deal bench, Pinnacle."><rect x="816" y="196" width="160" height="32" rx="16" fill="#fff" stroke="#c3c2b7"/><text x="896" y="217">Own the business</text></g>
+        <g data-tip="Protected wealth: umbrella, entities, the ILIT and, if counsel agrees, an asset protection trust, all in place before the guarantee is signed. Advisors: estate counsel, the business attorney, M&amp;M."><rect x="24" y="612" width="160" height="32" rx="16" fill="#fff" stroke="#c3c2b7"/><text x="104" y="633">Protected wealth</text></g>
+        <g data-tip="Tax efficiency: each kind of income in its cheapest year, Washington's gain exemption used every year, the right entity for the business. Advisors: the CPA, Wealth Advisory Now, Pinnacle."><rect x="816" y="612" width="160" height="32" rx="16" fill="#fff" stroke="#c3c2b7"/><text x="896" y="633">Tax efficiency</text></g>
+        <g data-tip="Legacy by design: about $2.8M less estate tax from the ILIT alone, no probate, and heirs and causes Kollen has chosen rather than defaults. Advisors: estate counsel, M&amp;M, Pinnacle."><rect x="420" y="788" width="160" height="32" rx="16" fill="#fff" stroke="#c3c2b7"/><text x="500" y="809">Legacy by design</text></g>
+        </g>
+        <text x="500" y="844" text-anchor="middle" font-size="13" fill="#898781">Spokes: Pinnacle briefs, sequences and reviews each specialist. Inner ring: specialists work with each other.</text>
+        </g>
+        </svg>
+      <div class="tipbox"></div>
+      <div class="aphint">Hover any advisor, goal or outcome for roles, deliverables and timing</div>
+    </div>
+    <div>
+      <div class="card" style="padding:16px 22px">
+        <h3 style="font-size:21px;margin-bottom:8px">Who works on what: eight planning areas</h3>
+        <table style="font-size:14.5px;line-height:1.25;border-collapse:collapse" class="mx">
+          <thead><tr><th style="text-align:left;width:200px"></th><th>Pinnacle</th><th>M&amp;M</th><th>CPA</th><th>Estate atty</th><th>Business atty</th><th>Investments</th></tr></thead>
+          <tbody>
+            <tr><td style="text-align:left"><b>Retirement readiness</b><div class="sub2">core, reserve, Social Security at 70</div></td><td>●</td><td>◐</td><td>◐</td><td>○</td><td>○</td><td>●</td></tr>
+            <tr><td style="text-align:left"><b>Executive transition</b><div class="sub2">exit date, options, deferred pay, health</div></td><td>●</td><td>◐</td><td>●</td><td>○</td><td>◐</td><td>●</td></tr>
+            <tr><td style="text-align:left"><b>Business acquisition</b><div class="sub2">budget, structure, diligence, lender</div></td><td>●</td><td>◐</td><td>●</td><td>○</td><td>●</td><td>◐</td></tr>
+            <tr><td style="text-align:left"><b>Estate and trusts</b><div class="sub2">trust restatement, ILIT, heirs</div></td><td>●</td><td>◐</td><td>◐</td><td>●</td><td>◐</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Asset protection</b><div class="sub2">umbrella, entities, trust situs</div></td><td>●</td><td>●</td><td>○</td><td>●</td><td>●</td><td>◐</td></tr>
+            <tr><td style="text-align:left"><b>Tax planning</b><div class="sub2">calendar, entity choice, Washington</div></td><td>●</td><td>○</td><td>●</td><td>◐</td><td>◐</td><td>◐</td></tr>
+            <tr><td style="text-align:left"><b>Insurance and risk</b><div class="sub2">IULs, key-person, disability, LTC</div></td><td>●</td><td>●</td><td>○</td><td>◐</td><td>◐</td><td>○</td></tr>
+            <tr><td style="text-align:left"><b>Investments and liquidity</b><div class="sub2">diversification, gain ladder, reserve</div></td><td>●</td><td>◐</td><td>◐</td><td>○</td><td>○</td><td>●</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:13.5px;color:#52514e;margin-top:8px">● leads &nbsp; ◐ participates &nbsp; ○ informed &nbsp;·&nbsp; Pinnacle Planning leads every area because every area touches the others.</div>
+      </div>
+      <div class="callout" style="margin-top:16px;font-size:17px;line-height:1.4;border-left-color:#e34948;background:#fdeaea"><b>Why M&amp;M Wealth Associates sits at the center of three decisions.</b> The three IULs carry $390K a year of premiums, $6.85M of death benefit and, in RightCapital, $388K a year of retirement income. Moving them to the ILIT, meeting the SBA lender's insurance requirement and covering long-term care for a single owner are one design, not three product decisions.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Advisory team · 16 / 20</span></div>
+</div>
+<style>
+.mx th{font-size:12.5px;color:#52514e;font-weight:600;text-align:center;padding:6px 4px;border-bottom:1px solid #e1e0d9}
+.mx td{text-align:center;padding:7px 4px;border-bottom:1px solid #e1e0d9;font-size:17px;color:#0d366b}
+.mx td:first-child{font-size:14.5px;color:#0b0b0b}
+.mx .sub2{font-size:12px;color:#898781;font-weight:400;line-height:1.2}
+.mx td:nth-child(2){background:#eef4fc;font-weight:700}
+.mx td:nth-child(3){background:#fdeaea}
+#s-team [data-tip]:hover rect,#s-team [data-tip]:hover circle{filter:brightness(.94)}
+</style>
+
+<!-- ============ 17 · ACTION PLAN ============ -->
+<div class="slide" id="s-actions">
+  <h2 style="margin-bottom:12px">Recommended action plan</h2>
+  <div class="row c3" style="gap:20px;align-items:start">
+    <div class="card ap" style="border-top:8px solid #e34948"><div class="tag now">Immediate · 0 to 12 months</div><h3>Protect, confirm, and use the last high-income years</h3>
+      <ol class="ol">
+        <li>Umbrella of $5M to $10M; confirm home, auto and land cover <span class="own">M&amp;M</span></li>
+        <li>Restate and fund the trust; will, powers of attorney, health directive; beneficiary audit <span class="own">Estate atty</span></li>
+        <li>ILIT: illustrations at today's caps, Kaizen terms, then sell or transfer the three policies <span class="own">M&amp;M</span><span class="own">Estate atty</span></li>
+        <li>401(k) catch-up as Roth, after-tax Roth if offered, HSA; deferred pay election if SAP has a plan <span class="own">CPA</span></li>
+        <li>Diversification schedule for the ESOP and C.H. Robinson shares; hedge what is not yet sold <span class="own">Investments</span></li>
+        <li>Build the transition reserve toward $0.75M to $1M <span class="own">Investments</span></li>
+        <li>Land into its own LLC owned by the trust <span class="own">Business atty</span></li>
+        <li>Decide charitable intent; if yes, a DAF or CRT with appreciated shares in 2026 or 2027 <span class="own">CPA</span></li>
+        <li>Write the acquisition thesis: industry, size, location, partners, budget <span class="own">Pinnacle</span></li>
+      </ol></div>
+    <div class="card ap" style="border-top:8px solid #eda100"><div class="tag soon">Pre-retirement · 1 to 3 years</div><h3>Exit well, then buy carefully</h3>
+      <ol class="ol">
+        <li>Choose the exit date after vesting and bonus dates, in calendar 2028 for the Rule of 55; negotiate the package <span class="own">Pinnacle</span><span class="own">CPA</span></li>
+        <li>Exercise C.H. Robinson options in three tranches: 2028, 2029, January 2030 <span class="own">CPA</span></li>
+        <li>Start the gain ladder at about $278K a year in the first year without salary <span class="own">Investments</span></li>
+        <li>Health bridge chosen: COBRA, then the business's plan or Washington Healthplanfinder <span class="own">M&amp;M</span></li>
+        <li>Asset protection trust decided and, if used, funded before any LOI <span class="own">Estate atty</span></li>
+        <li>Holdco formed by the trust; entity choice made with the CPA <span class="own">Business atty</span><span class="own">CPA</span></li>
+        <li>Search, LOI, quality of earnings, SBA approval, asset purchase <span class="own">Deal bench</span></li>
+        <li>Lender and key-person cover designed with the ILIT; owner disability cover <span class="own">M&amp;M</span></li>
+      </ol></div>
+    <div class="card ap" style="border-top:8px solid #1baf7a"><div class="tag later">Post-acquisition · 3 to 5 years</div><h3>Run it, protect it, plan its exit</h3>
+      <ol class="ol">
+        <li>Governance: a general manager within 18 months, an advisory board, monthly reporting <span class="own">Pinnacle</span></li>
+        <li>Cash-sweep and distribution policy from OpCo to the Holdco <span class="own">CPA</span></li>
+        <li>A business retirement plan for Kollen and staff; the Solo 401(k) folded in <span class="own">CPA</span><span class="own">M&amp;M</span></li>
+        <li>Roth conversions in the lowest-income years; Social Security held to 70 <span class="own">CPA</span></li>
+        <li>Annual valuation; non-voting units to a dynasty trust or GRAT if heirs are named <span class="own">Estate atty</span></li>
+        <li>Exit path set: sale, management buyout or ESOP; QSBS clock if a C corporation <span class="own">Business atty</span></li>
+        <li>Policy income tested yearly against the illustrations <span class="own">M&amp;M</span></li>
+        <li>Plan and readiness score reviewed every year <span class="own">Pinnacle</span></li>
+      </ol></div>
+  </div>
+  <div class="card" style="margin-top:16px;padding:12px 22px;background:#eef4fc;border-color:#cfe0f7">
+    <div style="display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:22px;align-items:center;font-size:16px">
+      <div style="font-weight:700;font-size:17px">Readiness score:</div>
+      <div><b style="font-size:26px;color:#9a5b00">61</b> today: strong capital, little structure</div>
+      <div><b style="font-size:26px;color:#1a4f93">&#8776; 78</b> after the first 12 months</div>
+      <div><b style="font-size:26px;color:#0f6b4b">85+</b> on the exit date, before the purchase</div>
+    </div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Action plan · 17 / 20</span></div>
+</div>
+<style>
+.ap{padding:16px 22px}.ap h3{font-size:21px;margin-bottom:10px}.ap .ol li{font-size:17px;margin-bottom:9px}
+</style>
+
+<!-- ============ 18 · WHY COORDINATION MATTERS ============ -->
+<div class="slide title" id="s-coordination">
+  <div style="max-width:1740px;margin-top:0.35in">
+    <div class="sub" style="font-size:20px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;color:#86b6ef">Why coordination matters</div>
+    <div style="font-size:52px;line-height:1.18;font-weight:700;color:#fff;max-width:1600px;letter-spacing:-.01em">&#8220;You don't hire us to sell a trust, a policy or a portfolio.<br>You hire us to coordinate the move from one paycheck to your own company, without putting retirement at risk.&#8221;</div>
+    <div class="row c3" style="margin-top:44px;gap:26px">
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#f3a978;font-weight:700;margin-bottom:10px">What most executives have</div>
+        <div style="font-size:20px;color:#fff;line-height:1.45">A CPA. An attorney. An investment advisor. An insurance professional. Each one good at the job in front of them.</div>
+        <div style="font-size:18px;color:#cde2fb;line-height:1.45;margin-top:12px">And no one whose job is the whole: no one who knows that the lender's insurance requirement and the ILIT are one design, that the option exercises and the gain ladder compete for the same brackets, or that an asset protection trust funded after the guarantee is too late.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#5cc48a;font-weight:700;margin-bottom:10px">What the quarterback does</div>
+        <ul style="margin:0;padding-left:22px;font-size:19px;color:#fff;line-height:1.45">
+          <li>Keeps one plan, current as SAP, the markets and the law change</li>
+          <li>Sequences the work: documents, ILIT, protection, diversification, the exit, then the purchase</li>
+          <li>Briefs each specialist so nothing is drafted in isolation</li>
+          <li>Finds the value between disciplines, where most of it lives</li>
+          <li>Scores readiness every quarter until the exit, then every year</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:22px 26px">
+        <div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86b6ef;font-weight:700;margin-bottom:10px">What every recommendation works toward</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:19px;color:#fff;line-height:1.35">
+          <div><b style="color:#5cc48a">Retirement at 55</b><div style="font-size:15px;color:#cde2fb">on capital the plan already has</div></div>
+          <div><b style="color:#5cc48a">The right business</b><div style="font-size:15px;color:#cde2fb">bought with money retirement does not need</div></div>
+          <div><b style="color:#5cc48a">Wealth behind walls</b><div style="font-size:15px;color:#cde2fb">before the guarantee is signed</div></div>
+          <div><b style="color:#5cc48a">Tax efficiency</b><div style="font-size:15px;color:#cde2fb">every kind of income in its cheapest year</div></div>
+          <div style="grid-column:1 / -1"><b style="color:#5cc48a">A legacy by decision</b><div style="font-size:15px;color:#cde2fb">heirs and causes chosen, and half the estate tax gone</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:34px;font-size:20px;color:#cde2fb;max-width:1500px">Pinnacle Planning holds the plan. Wealth Advisory Now manages the money as fiduciary. M&amp;M Wealth Associates designs the insurance and income. Counsel drafts and structures, the CPA files and models. One plan, one meeting cadence, one point of accountability.</div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Why coordination matters · 18 / 20</span></div>
+</div>
+
+<!-- ============ 19 · ASSUMPTIONS AND OPEN ITEMS ============ -->
+<div class="slide" id="s-open">
+  <h2 style="margin-bottom:12px">Sources, assumptions and what we need from Kollen</h2>
+  <div class="row" style="grid-template-columns:1fr 1.15fr;gap:24px;align-items:start">
+    <div>
+      <div class="card" style="padding:14px 22px"><h3 style="font-size:19px">Sources</h3>
+        <ul class="ul">
+          <li>RightCapital report prepared by Wealth Advisory Now, generated 18 October 2026 (166 pages)</li>
+          <li>Fidelity statement, individual TOD account, July 2026, including the C.H. Robinson stock plan</li>
+          <li>Fidelity statement, Whistler Ventures Inc. Solo 401(k), April to June 2026</li>
+          <li>K-G Portfolio Review, September 2026 (the gain-ladder and option analysis)</li>
+        </ul></div>
+      <div class="card" style="padding:14px 22px;margin-top:14px"><h3 style="font-size:19px">Planning assumptions</h3>
+        <ul class="ul">
+          <li>Federal estate exemption $15M (2026), 40% rate; Washington estate tax exclusion $3M, rates 10% to 35%, no gift tax</li>
+          <li>Washington capital gains excise 7% above about $278K of gains a year, 9.9% above $1M</li>
+          <li>Retirement core: RightCapital's own cash flows at a 4% return, sized to work with half the illustrated policy income</li>
+          <li>C.H. Robinson at $147.73 (31 July 2026); option values are intrinsic only</li>
+          <li>The $7.5M purchase, its debt terms and the readiness score are illustrations by Pinnacle Planning, not RightCapital outputs</li>
+          <li>Washington creditor exemptions and the asset protection trust's effect are summarized; counsel confirms</li>
+        </ul></div>
+    </div>
+    <div class="card" style="padding:14px 22px"><h3 style="font-size:19px">Open items: what we need to finish the plan</h3>
+      <table class="oi"><tbody>
+        <tr><td>1</td><td><b>Employment and pay.</b> SAP base and bonus, any unvested SAP equity, deferred compensation eligibility, and the relationship to C.H. Robinson (an earlier review treated C.H. Robinson as the employer).</td></tr>
+        <tr><td>2</td><td><b>The second Fidelity account.</b> Where the $3.93M moved in 2026 now sits, so the $6.78M brokerage figure can be confirmed.</td></tr>
+        <tr><td>3</td><td><b>The Germany ESOP.</b> Plan name, custodian, cost basis, any holding periods, and foreign account filings.</td></tr>
+        <tr><td>4</td><td><b>The trust.</b> A copy of the Whisler Family Trust (spelling to confirm against Whistler Ventures), its trustee, beneficiaries and date.</td></tr>
+        <tr><td>5</td><td><b>Legacy.</b> Who Kollen wants to provide for, and whether there is charitable intent.</td></tr>
+        <tr><td>6</td><td><b>Insurance.</b> In-force illustrations for all three IULs, the Kaizen financing terms, and the homeowners, auto and any umbrella policies (none appear in RightCapital).</td></tr>
+        <tr><td>7</td><td><b>Health.</b> Current SAP coverage and whether a high-deductible plan and HSA are available.</td></tr>
+        <tr><td>8</td><td><b>The acquisition thesis.</b> Industry, size, location, timeline, and any partners.</td></tr>
+        <tr><td>9</td><td><b>Residency.</b> Two Newcastle addresses appear on the statements; any plan to relocate, especially to California.</td></tr>
+        <tr><td>10</td><td><b>Client profile.</b> Kollen_Glynn_Profile.docx in the folder is empty; a completed profile replaces several assumptions here.</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Open items · 19 / 20</span></div>
+</div>
+<style>
+.oi{border-collapse:collapse;width:100%}.oi td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid #eeede8;font-size:17px;line-height:1.38}.oi td:first-child{width:30px;font-weight:700;color:#0d366b}
+</style>
+
+<!-- ============ 20 · GLOSSARY ============ -->
+<div class="slide" id="s-gloss">
+  <h2 style="margin-bottom:6px">Glossary · Terms and abbreviations used in this presentation</h2>
+  <p style="font-size:18px;color:#52514e;margin:0 0 12px">General meanings. How each applies to Kollen is covered on the pages where it appears.</p>
+  <div class="row c2" style="gap:22px;align-items:start">
+    <div class="card" style="padding:8px 22px 6px">
+      <table class="gl"><tbody>
+<tr><td class="ga">APA · LOI</td><td class="gs">Asset purchase agreement · letter of intent</td><td>The LOI sets the main deal terms before diligence; the APA is the binding contract to buy a business's assets.</td></tr>
+<tr><td class="ga">COBRA</td><td class="gs">Consolidated Omnibus Budget Reconciliation Act</td><td>Lets a departing employee keep the employer's health plan, usually for 18 months, at full cost plus 2%.</td></tr>
+<tr><td class="ga">CRT</td><td class="gs">Charitable Remainder Trust</td><td>Pays the donor an income for life or a term, then the remainder to charity; appreciated assets can be sold inside it without immediate capital gains tax.</td></tr>
+<tr><td class="ga">DAF</td><td class="gs">Donor-Advised Fund</td><td>A charitable account at a public charity: deduct when funded, recommend grants over time.</td></tr>
+<tr><td class="ga">D&amp;O · E&amp;O · EPLI</td><td class="gs">Directors and officers · errors and omissions · employment practices</td><td>Liability insurance for decisions as an officer, professional mistakes, and employee claims.</td></tr>
+<tr><td class="ga">ESOP</td><td class="gs">Employee Stock Ownership Plan</td><td>A plan through which employees hold their employer's shares; here, Kollen's $3.0M German plan, and a possible exit route for his future business.</td></tr>
+<tr><td class="ga">FBAR · 8938</td><td class="gs">Foreign bank account report · IRS Form 8938</td><td>Annual US reporting of foreign financial accounts and assets above set thresholds.</td></tr>
+<tr><td class="ga">GRAT</td><td class="gs">Grantor Retained Annuity Trust</td><td>Pays the grantor an annuity for a term; growth above the IRS rate passes to heirs with little or no gift tax.</td></tr>
+<tr><td class="ga">HSA</td><td class="gs">Health Savings Account</td><td>A tax-free account for medical costs, available with a high-deductible health plan.</td></tr>
+<tr><td class="ga">ILIT</td><td class="gs">Irrevocable Life Insurance Trust</td><td>Owns life insurance so the death benefit is outside the insured's taxable estate.</td></tr>
+<tr><td class="ga">IUL</td><td class="gs">Indexed Universal Life insurance</td><td>Permanent life insurance whose cash value is credited based on a market index, within caps and floors; can be borrowed against.</td></tr>
+      </tbody></table></div>
+    <div class="card" style="padding:8px 22px 6px">
+      <table class="gl"><tbody>
+<tr><td class="ga">NQDC</td><td class="gs">Nonqualified Deferred Compensation</td><td>An employer plan that defers pay into later years; an unsecured promise of the employer.</td></tr>
+<tr><td class="ga">NSO</td><td class="gs">Non-qualified Stock Option</td><td>An option whose spread at exercise is taxed as ordinary income.</td></tr>
+<tr><td class="ga">NV · SD trust</td><td class="gs">Nevada or South Dakota asset protection trust</td><td>A trust the grantor can benefit from that those states protect from the grantor's later creditors, with an independent trustee.</td></tr>
+<tr><td class="ga">QBI</td><td class="gs">Qualified Business Income deduction</td><td>Up to 20% of pass-through business income deducted from federal taxable income.</td></tr>
+<tr><td class="ga">QoE</td><td class="gs">Quality of Earnings report</td><td>An accountant's independent check of a seller's earnings before a purchase.</td></tr>
+<tr><td class="ga">QSBS</td><td class="gs">Qualified Small Business Stock (section 1202)</td><td>Lets a holder of qualifying C corporation stock exclude much or all of the federal gain on a sale.</td></tr>
+<tr><td class="ga">ROBS</td><td class="gs">Rollovers as Business Start-ups</td><td>Using retirement funds to buy a business's stock through a new 401(k); permitted but closely scrutinized.</td></tr>
+<tr><td class="ga">Rule of 55</td><td class="gs">Separation from service at 55 or later</td><td>Allows penalty-free withdrawals from that employer's 401(k) after leaving in or after the year of turning 55.</td></tr>
+<tr><td class="ga">SBA 7(a)</td><td class="gs">Small Business Administration loan program</td><td>Government-guaranteed bank loans up to $5M, often used to buy businesses; owners of 20% or more guarantee personally.</td></tr>
+<tr><td class="ga">TOD</td><td class="gs">Transfer on Death</td><td>An account designation that passes the account to named people at death without probate.</td></tr>
+<tr><td class="ga">B&amp;O · LTC</td><td class="gs">Business and occupation tax · long-term care</td><td>Washington's tax on a business's gross receipts · help with daily living over an extended period.</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="foot"><span>Comprehensive plan · Kollen Glynn · v20261018 · confidential</span><span>Glossary · 20 / 20</span></div>
+</div>
+<style>
+.gl{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.32}
+.gl td{text-align:left;padding:6px 8px;border-bottom:1px solid #e1e0d9;vertical-align:top}
+.gl td.ga{font-weight:700;color:#0d366b;white-space:nowrap;width:120px}.gl td.gs{font-weight:600;color:#0b0b0b;width:220px}
+</style>
+
+<script>
+(function(){
+  document.querySelectorAll('.tipwrap').forEach(function(wrap){
+    var tip=wrap.querySelector('.tipbox'); if(!tip) return;
+    wrap.querySelectorAll('[data-tip]').forEach(function(n){
+      n.addEventListener('mouseenter',function(){tip.textContent=n.getAttribute('data-tip');tip.style.display='block';});
+      n.addEventListener('mousemove',function(e){var r=wrap.getBoundingClientRect();var x=e.clientX-r.left+16,y=e.clientY-r.top+16;if(x+460>r.width)x=e.clientX-r.left-460;if(y+180>r.height)y=e.clientY-r.top-180;tip.style.left=x+'px';tip.style.top=y+'px';});
+      n.addEventListener('mouseleave',function(){tip.style.display='none';});
+    });
+  });
+})();
+</script>
+</body></html>

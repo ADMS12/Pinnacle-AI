@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Pattern Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --pos:#2a78d6; --neg:#e34948; --mid:#f0efec;
+  --good:#006300; --bad:#d03b3b; --warn:#b86a00;
+  --good-bg:rgba(12,163,12,.10); --bad-bg:rgba(208,59,59,.10); --warn-bg:rgba(250,178,25,.14);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --pos:#3987e5; --neg:#e66767; --mid:#383835;
+    --good:#0ca30c; --bad:#e66767; --warn:#fab219;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --pos:#3987e5; --neg:#e66767; --mid:#383835;
+  --good:#0ca30c; --bad:#e66767; --warn:#fab219;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px}
+h1{font-size:22px;margin:0 0 4px;font-weight:650}
+.sub{color:var(--ink2);font-size:13px}
+h2{font-size:15px;font-weight:650;margin:28px 0 10px}
+h2 small{color:var(--muted);font-weight:400;margin-left:8px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;position:sticky;top:0;z-index:5}
+.filters label{color:var(--ink2);font-size:12px;margin-left:6px}
+.filters select,.filters input,.filters button{font:inherit;font-size:13px;color:var(--ink);background:var(--page);border:1px solid var(--border);border-radius:6px;padding:5px 8px}
+.filters button{cursor:pointer}
+.filters button.active{background:var(--s1);color:#fff;border-color:transparent}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}
+.card h3{font-size:13px;font-weight:600;margin:0 0 2px}
+.card .desc{color:var(--muted);font-size:12px;margin:0 0 10px}
+.kpi .label{color:var(--ink2);font-size:12px}
+.kpi .value{font-size:24px;font-weight:600;margin-top:2px}
+.kpi.hero{grid-column:span 2}
+.kpi .value{white-space:nowrap}
+.kpi.hero .value{font-size:44px;letter-spacing:-.01em}
+.kpi .note{color:var(--muted);font-size:12px;margin-top:2px}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.charts2{grid-template-columns:repeat(auto-fit,minmax(360px,1fr))}
+.charts3{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.card > div:not(.chart){overflow-x:auto}
+.chart{position:relative;width:100%}
+.chart canvas{width:100%!important}
+table{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:4px 7px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--ink2);font-weight:600;cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface)}
+.mini{margin-top:8px}
+.mini th{cursor:default;position:static}
+.tbl-wrap{max-height:520px;overflow:auto;border:1px solid var(--grid);border-radius:8px}
+.insights{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.ins{border-left:4px solid var(--axis);padding:10px 14px;border-radius:8px;background:var(--surface);border:1px solid var(--border)}
+.ins .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px;margin-bottom:6px}
+.ins.works .tag{background:var(--good-bg);color:var(--good)} .ins.hurts .tag{background:var(--bad-bg);color:var(--bad)} .ins.watch .tag{background:var(--warn-bg);color:var(--warn)}
+.ins p{margin:0;color:var(--ink)}
+.focus{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+.focus ol{margin:6px 0 0;padding-left:20px} .focus li{margin:6px 0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:0 0 6px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.toggle{font-size:12px;color:var(--s1);cursor:pointer;background:none;border:0;padding:0;margin-top:6px}
+.method{font-size:12.5px;color:var(--ink2)} .method li{margin:3px 0}
+.sim-controls{display:grid;gap:10px}
+.sim-controls label{display:block;font-size:13px;color:var(--ink2)}
+.sim-controls label b{color:var(--ink);font-weight:600}
+.sim-controls input[type=range]{display:block;width:100%;margin-top:4px;accent-color:var(--s1)}
+#simGrid td.sel{outline:2px solid var(--s1);outline-offset:-2px;font-weight:600}
+.hidden{display:none}
+.empty{color:var(--muted);padding:24px;text-align:center}
+@media (max-width:640px){.kpi.hero .value{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Trading Pattern Dashboard</h1>
+    <div class="sub" id="subtitle"></div>
+  </div>
+  <div class="sub" id="generated"></div>
+</header>
+
+<div class="filters" id="filters">
+  <label>Period</label>
+  <button data-range="all" class="active">All</button>
+  <button data-range="7">Last 7 days</button>
+  <button data-range="30">Last 30 days</button>
+  <button data-range="mtd">This month</button>
+  <input type="date" id="from"> <span class="sub">to</span> <input type="date" id="to">
+  <label>Underlying</label><select id="fUnder"><option value="">All</option></select>
+  <label>Type</label><select id="fCp"><option value="">All</option><option>Call</option><option>Put</option></select>
+  <label>DTE</label><select id="fDte"><option value="">All</option><option value="0">0DTE only</option><option value="1">1+ DTE only</option></select>
+</div>
+
+<h2>Scorecard <small>realized round trips, FIFO matched</small></h2>
+<div class="grid kpis" id="kpis"></div>
+
+<h2>Focus on</h2>
+<div class="focus" id="focus"></div>
+
+<h2>What works and what hurts <small>computed from the filtered trades</small></h2>
+<div class="insights" id="insights"></div>
+
+<h2>Equity and daily results</h2>
+<div class="grid charts2">
+  <div class="card"><h3>Cumulative P&amp;L</h3><p class="desc">Running total by exit time, one point per closed lot</p><div class="chart"><canvas id="cEquity" height="240"></canvas></div></div>
+  <div class="card"><h3>Daily P&amp;L</h3><p class="desc">Net per trading day. Hover for trade count and win rate</p><div class="chart"><canvas id="cDaily" height="240"></canvas></div></div>
+</div>
+
+<h2>Where the money goes <small>net P&amp;L by dimension, with trade count and win rate</small></h2>
+<div class="grid charts3" id="breakdowns"></div>
+
+<h2>Behavior patterns</h2>
+<div class="grid charts3">
+  <div class="card"><h3>Overtrading check</h3><p class="desc">Each dot is a day: trades closed vs net P&amp;L</p><div class="chart"><canvas id="cOver" height="220"></canvas></div><div id="tOver"></div></div>
+  <div class="card"><h3>Trade number within the day</h3><p class="desc">Average P&amp;L of your 1st, 2nd, 3rd... trade each day</p><div class="chart"><canvas id="cSeq" height="220"></canvas></div><div id="tSeq"></div></div>
+  <div class="card"><h3>After a loss</h3><p class="desc">How the next trade goes compared with after a win</p><div id="tAfter"></div></div>
+  <div class="card"><h3>Time of day heat</h3><p class="desc">Net P&amp;L by entry hour and weekday</p><div id="tHeat"></div></div>
+  <div class="card"><h3>Order discipline</h3><p class="desc">Filled vs canceled option orders per week</p><div class="chart"><canvas id="cCancel" height="220"></canvas></div><div id="tCancel"></div></div>
+  <div class="card"><h3>Worst and best days</h3><p class="desc">Top five each way</p><div id="tDays"></div></div>
+</div>
+
+<h2>Trade log <small id="logCount"></small></h2>
+<div class="card">
+  <div class="tbl-wrap"><table id="log"><thead></thead><tbody></tbody></table></div>
+</div>
+
+<h2>SPY vs SPX <small>same period, type and DTE filters; underlying filter ignored here</small></h2>
+<div class="grid charts2">
+  <div class="card"><h3>Head to head</h3><p class="desc">One SPX contract is roughly ten SPY contracts, so compare per-trade dollars and per-contract figures, not contract counts</p><div id="tH2H"></div></div>
+  <div class="card"><h3>Cumulative P&amp;L by underlying</h3><p class="desc">Running total of each, by exit time</p>
+    <div class="legend"><span style="--c:var(--s1)">SPY</span><span style="--c:var(--s2)">SPX</span></div>
+    <div class="chart"><canvas id="cH2H" height="260"></canvas></div></div>
+  <div class="card"><h3>Average P&amp;L per trade by hold time</h3><p class="desc">Where each underlying earns or bleeds</p><div class="legend"><span style="--c:var(--s1)">SPY</span><span style="--c:var(--s2)">SPX</span></div><div class="chart"><canvas id="cH2Hhold" height="220"></canvas></div><div id="tH2Hhold"></div></div>
+  <div class="card"><h3>Average P&amp;L per trade by exit type</h3><p class="desc">How each underlying gets closed</p><div class="legend"><span style="--c:var(--s1)">SPY</span><span style="--c:var(--s2)">SPX</span></div><div class="chart"><canvas id="cH2Hexit" height="220"></canvas></div><div id="tH2Hexit"></div></div>
+</div>
+
+<h2>Bracket simulator <small>what a hard stop and a profit cap would have done to the filtered trades</small></h2>
+<div class="grid charts2">
+  <div class="card">
+    <h3>Set the bracket</h3>
+    <p class="desc">Re-runs every trade with losers cut at the stop and winners capped at the target. Optimistic on the stop side: only entry and exit are known, so a winner that dipped past the stop before paying still counts as a win.</p>
+    <div class="sim-controls">
+      <label>Stop loss <b id="simSlV">25%</b> of premium<input type="range" id="simSl" min="0" max="60" step="5" value="25"></label>
+      <label>Profit cap <b id="simTpV">none</b><input type="range" id="simTp" min="0" max="100" step="5" value="0"></label>
+    </div>
+    <div class="grid kpis" id="simKpis" style="margin-top:12px"></div>
+    <p class="desc" id="simNote" style="margin-top:10px"></p>
+  </div>
+  <div class="card">
+    <h3>Stop × cap grid</h3>
+    <p class="desc">Net P&amp;L for the filtered trades under each combination. Rows are the profit cap, columns the stop. Current selection is outlined.</p>
+    <div id="simGrid"></div>
+    <div class="chart" style="margin-top:12px"><canvas id="cSim" height="200"></canvas></div>
+    <p class="desc">Net P&amp;L as the stop tightens, with no profit cap.</p>
+  </div>
+</div>
+
+<h2>How the numbers are computed</h2>
+<div class="card method">
+  <ul>
+    <li><b>Source:</b> Schwab Order Status export <span id="srcName"></span>. Only option orders marked Filled or Closed partial fill are used for P&amp;L. Stock sells (AAPL, COST, BRK/B and others) are listed in the log but are not matched into trades because their purchases are outside this export.</li>
+    <li><b>Matching:</b> each Buy to open lot is paired with later Sell to close fills on the same contract, first in first out. A buy of 5 that is sold 3 then 2 becomes two trades. P&amp;L = (exit − entry) × 100 × contracts, before commissions and fees.</li>
+    <li><b>Expired:</b> a lot never sold before its expiration date is counted as closed at $0.00 at expiry (exit type "Expired"). That is a full loss of premium, which is the realistic outcome for 0DTE SPY and SPX options held through the close. <span id="expNote"></span></li>
+    <li><b>Unmatched sells:</b> <span id="unmatchedNote"></span> These closed positions opened before the export window and are excluded.</li>
+    <li><b>"Add down / add up":</b> a Buy to open placed while already holding the same contract, at a lower (down) or higher (up) price than the existing lots. "First" means a fresh position.</li>
+    <li><b>Hold time:</b> minutes from the lot's buy fill to the sell fill (or expiry).</li>
+  </ul>
+</div>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const T = DATA.trades.map(t => ({...t, etD: new Date(t.et), xtD: new Date(t.xt), day: t.xt.slice(0,10)}));
+const ORDERS = DATA.orders.map(o => ({...o, tD: new Date(o.t), day: o.t.slice(0,10)}));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt$ = v => (v<0?'−':'') + '$' + Math.abs(v).toLocaleString('en-US',{maximumFractionDigits:0});
+const fmt$c = v => { const a=Math.abs(v); const s = a>=10000 ? '$'+(a/1000).toFixed(1)+'K' : '$'+a.toLocaleString('en-US',{maximumFractionDigits:0}); return (v<0?'−':'')+s; };
+const abs$ = v => '$' + Math.abs(v).toLocaleString('en-US',{maximumFractionDigits:0});
+const pct = v => (v*100).toFixed(0)+'%';
+const cls = v => v>0?'pos':v<0?'neg':'';
+const dayName = d => ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d];
+const fmtDate = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const fmtTime = d => d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+const mins = m => m<60 ? Math.round(m)+'m' : m<1440 ? (m/60).toFixed(1)+'h' : (m/1440).toFixed(1)+'d';
+
+document.getElementById('srcName').textContent = DATA.source;
+document.getElementById('generated').textContent = 'Built ' + DATA.generated.replace('T',' ') + ' · fills through ' + DATA.lastFill.replace('T',' ');
+document.getElementById('unmatchedNote').textContent = DATA.unmatched.length ? DATA.unmatched.map(u=>u.qty+'× '+u.sym).join('; ') + '.' : 'none.';
+{
+  const ex = T.filter(t=>t.expired); const loss = ex.reduce((s,t)=>s+t.pnl,0);
+  document.getElementById('expNote').textContent = ex.length ? `In this export ${ex.length} lots expired, costing ${abs$(loss)}.` : '';
+}
+
+// ---------- filters ----------
+const state = {range:'all', from:null, to:null, under:'', cp:'', dte:''};
+const unders = [...new Set(T.map(t=>t.u))].sort((a,b)=>T.filter(t=>t.u===b).length - T.filter(t=>t.u===a).length);
+const selU = document.getElementById('fUnder');
+unders.forEach(u => { const o=document.createElement('option'); o.value=u; o.textContent=u; selU.appendChild(o); });
+document.querySelectorAll('#filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  state.range=b.dataset.range; state.from=state.to=null; document.getElementById('from').value=''; document.getElementById('to').value=''; render();
+});
+['from','to'].forEach(id => document.getElementById(id).onchange = e => { state[id]=e.target.value||null; state.range='custom'; document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active')); render(); });
+selU.onchange = e => { state.under=e.target.value; render(); };
+document.getElementById('fCp').onchange = e => { state.cp=e.target.value; render(); };
+document.getElementById('fDte').onchange = e => { state.dte=e.target.value; render(); };
+
+function filtered(ignoreUnder=false){
+  const last = new Date(DATA.lastFill);
+  let from=null,to=null;
+  if(state.range==='7'||state.range==='30'){ from=new Date(last); from.setDate(from.getDate()-(+state.range)); from.setHours(0,0,0,0); }
+  if(state.range==='mtd'){ from=new Date(last.getFullYear(),last.getMonth(),1); }
+  if(state.range==='custom'){ if(state.from) from=new Date(state.from+'T00:00'); if(state.to){ to=new Date(state.to+'T23:59:59'); } }
+  return T.filter(t => (!from||t.xtD>=from) && (!to||t.xtD<=to) && (ignoreUnder||!state.under||t.u===state.under) && (!state.cp||t.cp===state.cp)
+    && (state.dte===''|| (state.dte==='0' ? t.dte===0 : t.dte>0)));
+}
+
+// ---------- charts ----------
+const charts = {};
+function theme(){ return {ink:css('--ink'), ink2:css('--ink2'), muted:css('--muted'), grid:css('--grid'), axis:css('--axis'), s1:css('--s1'), s2:css('--s2'), s3:css('--s3'), pos:css('--pos'), neg:css('--neg'), surface:css('--surface')}; }
+function baseOpts(th, extra={}){
+  return {
+    responsive:true, maintainAspectRatio:false, animation:false,
+    interaction:{mode:'nearest', intersect:false},
+    plugins:{legend:{display:false}, tooltip:{backgroundColor:th.surface, titleColor:th.ink, bodyColor:th.ink2, borderColor:th.grid, borderWidth:1, padding:10, displayColors:false}},
+    scales:{x:{grid:{display:false}, border:{color:th.axis}, ticks:{color:th.muted, maxRotation:0, autoSkip:true}},
+            y:{grid:{color:th.grid, drawTicks:false}, border:{display:false}, ticks:{color:th.muted, callback:v=>fmt$c(v)}}},
+    ...extra
+  };
+}
+function mk(id, cfg){ if(charts[id]) charts[id].destroy(); const c=document.getElementById(id); c.parentElement.style.height=c.getAttribute('height')+'px'; charts[id]=new Chart(c,cfg); }
+
+// ---------- aggregation helpers ----------
+function agg(rows, keyFn, order){
+  const m = new Map();
+  rows.forEach(r => { const k=keyFn(r); if(k==null) return; if(!m.has(k)) m.set(k,{k,n:0,w:0,pnl:0,gw:0,gl:0}); const a=m.get(k); a.n++; if(r.pnl>0){a.w++;a.gw+=r.pnl;} if(r.pnl<0) a.gl-=r.pnl; a.pnl+=r.pnl; });
+  let arr=[...m.values()];
+  if(order) arr.sort((a,b)=>order.indexOf(a.k)-order.indexOf(b.k)); else arr.sort((a,b)=>b.pnl-a.pnl);
+  return arr;
+}
+const holdBucket = t => t.holdMin<5?'< 5 min':t.holdMin<15?'5–15 min':t.holdMin<60?'15–60 min':t.holdMin<180?'1–3 h':'> 3 h';
+const HOLD_ORDER=['< 5 min','5–15 min','15–60 min','1–3 h','> 3 h'];
+const premBucket = t => t.entry<1?'< $1':t.entry<2?'$1–2':t.entry<5?'$2–5':t.entry<15?'$5–15':'> $15';
+const PREM_ORDER=['< $1','$1–2','$2–5','$5–15','> $15'];
+const sizeBucket = t => t.orderQty<=2?'1–2':t.orderQty<=5?'3–5':t.orderQty<=10?'6–10':'11+';
+const SIZE_ORDER=['1–2','3–5','6–10','11+'];
+const hourLabel = t => { const h=t.etD.getHours(); const m=t.etD.getMinutes(); if(h<10) return '9:30–10'; if(h>=16) return '4:00+'; return (h>12?h-12:h)+'–'+(h+1>12?h+1-12:h+1); };
+const HOUR_ORDER=['9:30–10','10–11','11–12','12–1','1–2','2–3','3–4','4:00+'];
+const dteBucket = t => t.dte===0?'0DTE':t.dte===1?'1 DTE':t.dte<=4?'2–4 DTE':'5+ DTE';
+const DTE_ORDER=['0DTE','1 DTE','2–4 DTE','5+ DTE'];
+const addLabel = t => t.add==='first'?'Fresh entry':t.add==='add_down'?'Added to loser':'Added to winner';
+const ADD_ORDER=['Fresh entry','Added to winner','Added to loser'];
+const EXIT_ORDER=['Stop market','Trailing stop','Limit','Market','Expired'];
+const WD_ORDER=['Mon','Tue','Wed','Thu','Fri'];
+
+const BREAKDOWNS = [
+  {id:'hold', title:'Hold time', desc:'How long the lot was held before exit', key:holdBucket, order:HOLD_ORDER},
+  {id:'exit', title:'Exit order type', desc:'How the position was closed', key:t=>t.exitType, order:EXIT_ORDER},
+  {id:'hour', title:'Entry time of day (ET)', desc:'When the lot was bought', key:hourLabel, order:HOUR_ORDER},
+  {id:'prem', title:'Entry premium', desc:'Price paid per contract', key:premBucket, order:PREM_ORDER},
+  {id:'dte', title:'Days to expiration at entry', desc:'0DTE = expires the same day', key:dteBucket, order:DTE_ORDER},
+  {id:'cp', title:'Calls vs puts', desc:'Direction of the bet', key:t=>t.cp, order:['Call','Put']},
+  {id:'under', title:'Underlying', desc:'Smaller names grouped as Other', key:t=>['SPY','SPXW','QQQ'].includes(t.u)?t.u:'Other', order:['SPY','SPXW','QQQ','Other']},
+  {id:'add', title:'Fresh entry vs adding', desc:'Buying more while already holding the contract', key:addLabel, order:ADD_ORDER},
+  {id:'size', title:'Order size (contracts)', desc:'Contracts on the opening order', key:sizeBucket, order:SIZE_ORDER},
+  {id:'wd', title:'Weekday', desc:'By exit day', key:t=>dayName(t.xtD.getDay()), order:WD_ORDER},
+  {id:'entry', title:'Entry order type', desc:'How the position was opened', key:t=>t.entryType, order:['Limit','Market','Stop market']},
+];
+
+function miniTable(rows, keyHeader){
+  return `<table class="mini"><thead><tr><th>${keyHeader}</th><th>Trades</th><th>Win %</th><th>Net</th><th>Avg</th></tr></thead><tbody>` +
+    rows.map(r=>`<tr><td>${r.k}</td><td>${r.n}</td><td>${r.n?pct(r.w/r.n):'–'}</td><td class="${cls(r.pnl)}">${fmt$(r.pnl)}</td><td class="${cls(r.pnl)}">${r.n?fmt$(r.pnl/r.n):'–'}</td></tr>`).join('') + '</tbody></table>';
+}
+
+function barChart(id, rows, th, horizontal=true){
+  const labels=rows.map(r=>r.k);
+  mk(id,{type:'bar',data:{labels,datasets:[{data:rows.map(r=>r.pnl),backgroundColor:rows.map(r=>r.pnl>=0?th.pos:th.neg),borderRadius:4,borderSkipped:'start',maxBarThickness:24,
+      meta:rows}]},
+    options:{...baseOpts(th,{indexAxis:horizontal?'y':'x'}),
+      plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,
+        callbacks:{label:c=>{const r=rows[c.dataIndex];return [`Net ${fmt$(r.pnl)}`,`${r.n} trades · win ${pct(r.w/r.n)} · avg ${fmt$(r.pnl/r.n)}`];}}}},
+      scales: horizontal ? {x:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,maxRotation:0,maxTicksLimit:5,callback:v=>fmt$c(v)}}, y:{grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2}}}
+                         : {x:{grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2}}, y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}
+    }});
+}
+
+// ---------- render ----------
+function render(){
+  const th = theme();
+  const R = filtered();
+  const n=R.length;
+  document.getElementById('subtitle').textContent = `${DATA.trades.length} closed option trades · ${new Date(T[0].xt).toLocaleDateString()} to ${new Date(T[T.length-1].xt).toLocaleDateString()} · ${ORDERS.length} orders in export`;
+
+  // KPIs
+  const wins=R.filter(t=>t.pnl>0), losses=R.filter(t=>t.pnl<0);
+  const net=R.reduce((s,t)=>s+t.pnl,0), gw=wins.reduce((s,t)=>s+t.pnl,0), gl=-losses.reduce((s,t)=>s+t.pnl,0);
+  const avgW=wins.length?gw/wins.length:0, avgL=losses.length?gl/losses.length:0;
+  const days=[...new Set(R.map(t=>t.day))].length;
+  let peak=0,cum=0,dd=0; R.forEach(t=>{cum+=t.pnl; peak=Math.max(peak,cum); dd=Math.min(dd,cum-peak);});
+  const bigW=Math.max(0,...R.map(t=>t.pnl)), bigL=Math.min(0,...R.map(t=>t.pnl));
+  const medHold = n? [...R.map(t=>t.holdMin)].sort((a,b)=>a-b)[Math.floor(n/2)] : 0;
+  const kp = [
+    {label:'Net realized P&L', value:fmt$(net), c:cls(net), note:`${n} trades over ${days} days · ${fmt$(days?net/days:0)}/day`, hero:true},
+    {label:'Win rate', value:n?pct(wins.length/n):'–', note:`${wins.length} wins · ${losses.length} losses · ${n-wins.length-losses.length} flat`},
+    {label:'Profit factor', value:gl?(gw/gl).toFixed(2):'–', note:'gross wins ÷ gross losses', c: gl&&gw/gl>=1?'pos':'neg'},
+    {label:'Average win', value:fmt$(avgW), c:'pos', note:`largest ${fmt$(bigW)}`},
+    {label:'Average loss', value:fmt$(-avgL), c:'neg', note:`largest ${fmt$(bigL)}`},
+    {label:'Win / loss ratio', value:avgL?(avgW/avgL).toFixed(2):'–', note:avgL? (avgW/avgL<1?'losers are bigger than winners':'winners are bigger than losers'):''},
+    {label:'Expectancy per trade', value:fmt$(n?net/n:0), c:cls(net), note:'what an average trade returns'},
+    {label:'Max drawdown', value:fmt$(dd), c:'neg', note:'peak to trough of the equity curve'},
+    {label:'Median hold', value:mins(medHold), note:`${R.filter(t=>t.expired).length} lots expired worthless`},
+  ];
+  document.getElementById('kpis').innerHTML = kp.map(k=>`<div class="card kpi ${k.hero?'hero':''}"><div class="label">${k.label}</div><div class="value ${k.c||''}">${k.value}</div><div class="note">${k.note||''}</div></div>`).join('');
+
+  if(!n){ document.getElementById('insights').innerHTML='<div class="empty">No trades match the current filters.</div>'; document.getElementById('focus').innerHTML=''; document.getElementById('breakdowns').innerHTML=''; return; }
+
+  // Equity
+  let c2=0; const eq=R.map(t=>{c2+=t.pnl; return {x:t.xtD, y:Math.round(c2), t};});
+  mk('cEquity',{type:'line',data:{datasets:[{data:eq,borderColor:th.s1,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:0,fill:{target:'origin',above:th.s1+'1a',below:th.neg+'1a'}}]},
+    options:{...baseOpts(th),interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,
+        callbacks:{title:i=>fmtDate(eq[i[0].dataIndex].x)+' '+fmtTime(eq[i[0].dataIndex].x), label:c=>{const e=eq[c.dataIndex];return [`Cumulative ${fmt$(e.y)}`,`${e.t.sym} ${e.t.qty}× ${fmt$(e.t.pnl)}`];}}}},
+      scales:{x:{type:'linear',grid:{display:false},border:{color:th.axis},ticks:{color:th.muted,maxTicksLimit:8,callback:v=>fmtDate(new Date(v))}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+
+  // Daily
+  const dayAgg = agg(R, t=>t.day); dayAgg.sort((a,b)=>a.k<b.k?-1:1);
+  mk('cDaily',{type:'bar',data:{labels:dayAgg.map(d=>d.k),datasets:[{data:dayAgg.map(d=>d.pnl),backgroundColor:dayAgg.map(d=>d.pnl>=0?th.pos:th.neg),borderRadius:4,borderSkipped:'start',maxBarThickness:24}]},
+    options:{...baseOpts(th),plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,
+      callbacks:{title:i=>{const d=new Date(dayAgg[i[0].dataIndex].k+'T12:00');return dayName(d.getDay())+' '+fmtDate(d);},label:c=>{const d=dayAgg[c.dataIndex];return [`Net ${fmt$(d.pnl)}`,`${d.n} trades · win ${pct(d.w/d.n)}`];}}}},
+      scales:{x:{grid:{display:false},border:{color:th.axis},ticks:{color:th.muted,maxTicksLimit:10,callback:(v,i)=>fmtDate(new Date(dayAgg[i].k+'T12:00'))}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+
+  // Breakdowns
+  const bd=document.getElementById('breakdowns');
+  bd.innerHTML = BREAKDOWNS.map(b=>`<div class="card"><h3>${b.title}</h3><p class="desc">${b.desc}</p><div class="chart"><canvas id="c_${b.id}" height="${Math.max(120, 30*b.order.length+40)}"></canvas></div><div id="t_${b.id}"></div></div>`).join('');
+  const BR={};
+  BREAKDOWNS.forEach(b=>{ const rows=agg(R,b.key,b.order).filter(r=>r.n>0); BR[b.id]=rows; barChart('c_'+b.id,rows,th); document.getElementById('t_'+b.id).innerHTML=miniTable(rows,b.title); });
+
+  // Behavior: overtrading scatter
+  mk('cOver',{type:'scatter',data:{datasets:[{data:dayAgg.map(d=>({x:d.n,y:d.pnl,d})),backgroundColor:dayAgg.map(d=>d.pnl>=0?th.pos:th.neg),pointRadius:5,pointHoverRadius:7,pointBorderColor:th.surface,pointBorderWidth:2,pointHitRadius:12}]},
+    options:{...baseOpts(th),plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,
+      callbacks:{title:i=>fmtDate(new Date(i[0].raw.d.k+'T12:00')),label:c=>[`${c.raw.d.n} trades · net ${fmt$(c.raw.d.pnl)}`,`win ${pct(c.raw.d.w/c.raw.d.n)}`]}}},
+      scales:{x:{title:{display:true,text:'Trades closed that day',color:th.muted},grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+  const lowD=dayAgg.filter(d=>d.n<=10), hiD=dayAgg.filter(d=>d.n>20), midD=dayAgg.filter(d=>d.n>10&&d.n<=20);
+  const dayRow=(lab,ds)=>`<tr><td>${lab}</td><td>${ds.length}</td><td>${ds.length?pct(ds.filter(d=>d.pnl>0).length/ds.length):'–'}</td><td class="${cls(ds.reduce((s,d)=>s+d.pnl,0))}">${fmt$(ds.reduce((s,d)=>s+d.pnl,0))}</td><td class="${cls(ds.length?ds.reduce((s,d)=>s+d.pnl,0)/ds.length:0)}">${ds.length?fmt$(ds.reduce((s,d)=>s+d.pnl,0)/ds.length):'–'}</td></tr>`;
+  document.getElementById('tOver').innerHTML=`<table class="mini"><thead><tr><th>Days with</th><th>Days</th><th>Green days</th><th>Net</th><th>Avg/day</th></tr></thead><tbody>${dayRow('≤ 10 trades',lowD)}${dayRow('11–20 trades',midD)}${dayRow('> 20 trades',hiD)}</tbody></table>`;
+
+  // Sequence within day
+  const byDay={}; R.forEach(t=>{(byDay[t.day]=byDay[t.day]||[]).push(t);});
+  const seqRows=agg(Object.values(byDay).flatMap(arr=>arr.map((t,i)=>({...t,seq:i+1}))), t=>t.seq<=9?String(t.seq):'10+', ['1','2','3','4','5','6','7','8','9','10+']);
+  mk('cSeq',{type:'bar',data:{labels:seqRows.map(r=>r.k),datasets:[{data:seqRows.map(r=>r.pnl/r.n),backgroundColor:seqRows.map(r=>r.pnl>=0?th.pos:th.neg),borderRadius:4,borderSkipped:'start',maxBarThickness:24}]},
+    options:{...baseOpts(th),plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,
+      callbacks:{title:i=>'Trade #'+seqRows[i[0].dataIndex].k+' of the day',label:c=>{const r=seqRows[c.dataIndex];return [`Avg ${fmt$(r.pnl/r.n)} · net ${fmt$(r.pnl)}`,`${r.n} trades · win ${pct(r.w/r.n)}`];}}}}}});
+  document.getElementById('tSeq').innerHTML=miniTable(seqRows,'Trade #');
+
+  // After loss / after win
+  const afterL=[],afterW=[];
+  Object.values(byDay).forEach(arr=>arr.forEach((t,i)=>{ if(i===0) return; const p=arr[i-1]; if(p.pnl<0) afterL.push({t,gap:(t.etD-p.xtD)/60000}); else if(p.pnl>0) afterW.push({t,gap:(t.etD-p.xtD)/60000}); }));
+  const sm=(arr)=>{const n=arr.length; if(!n) return {n:0}; const net=arr.reduce((s,x)=>s+x.t.pnl,0); const w=arr.filter(x=>x.t.pnl>0).length; const fast=arr.filter(x=>x.gap<=2).length; const sz=arr.reduce((s,x)=>s+x.t.orderQty,0)/n; return {n,net,w,fast,sz,avg:net/n};};
+  const aL=sm(afterL), aW=sm(afterW);
+  const arow=(lab,a)=>a.n?`<tr><td>${lab}</td><td>${a.n}</td><td>${pct(a.w/a.n)}</td><td class="${cls(a.avg)}">${fmt$(a.avg)}</td><td>${pct(a.fast/a.n)}</td><td>${a.sz.toFixed(1)}</td></tr>`:'';
+  document.getElementById('tAfter').innerHTML=`<table class="mini"><thead><tr><th>Next trade…</th><th>Trades</th><th>Win %</th><th>Avg P&amp;L</th><th>Re-entered ≤ 2 min</th><th>Avg size</th></tr></thead><tbody>${arow('after a loss',aL)}${arow('after a win',aW)}</tbody></table>
+    <p class="desc" style="margin-top:8px">“Re-entered ≤ 2 min” is how often the next buy came within two minutes of the previous exit, a sign of reacting rather than planning.</p>`;
+
+  // Heat table hour x weekday
+  const heat={}; R.forEach(t=>{const k=hourLabel(t)+'|'+dayName(t.xtD.getDay()); heat[k]=(heat[k]||0)+t.pnl;});
+  const maxAbs=Math.max(1,...Object.values(heat).map(Math.abs));
+  const cell=v=>{ if(v==null) return '<td style="color:var(--muted)">·</td>'; const a=Math.min(1,Math.abs(v)/maxAbs); const bg=(v>=0?'42,120,214':'227,73,72'); return `<td style="background:rgba(${bg},${(0.08+a*0.5).toFixed(2)})">${fmt$c(v)}</td>`; };
+  document.getElementById('tHeat').innerHTML=`<table class="mini"><thead><tr><th>Entry hour</th>${WD_ORDER.map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody>${HOUR_ORDER.map(h=>`<tr><td>${h}</td>${WD_ORDER.map(d=>cell(heat[h+'|'+d])).join('')}</tr>`).join('')}</tbody></table>`;
+
+  // Cancel discipline per week (option orders, within filtered date range)
+  const dayset=new Set(R.map(t=>t.day));
+  const minDay=[...dayset].sort()[0], maxDay=[...dayset].sort().slice(-1)[0];
+  const O=ORDERS.filter(o=>o.isOption && o.day>=minDay && o.day<=maxDay && (!state.under||o.u===state.under));
+  const wk=d=>{const x=new Date(d+'T12:00'); x.setDate(x.getDate()-((x.getDay()+6)%7)); return x.toISOString().slice(0,10);};
+  const weeks={}; O.forEach(o=>{const w=wk(o.day); const a=weeks[w]=weeks[w]||{w,f:0,c:0}; if(o.status==='Canceled') a.c++; else if(o.status.startsWith('Filled')||o.status.startsWith('Closed')) a.f++;});
+  const wkRows=Object.values(weeks).sort((a,b)=>a.w<b.w?-1:1);
+  mk('cCancel',{type:'bar',data:{labels:wkRows.map(r=>fmtDate(new Date(r.w+'T12:00'))),datasets:[{label:'Filled',data:wkRows.map(r=>r.f),backgroundColor:th.s1,borderRadius:4,borderSkipped:'start',maxBarThickness:24},{label:'Canceled',data:wkRows.map(r=>r.c),backgroundColor:th.s2,borderRadius:4,borderSkipped:'start',maxBarThickness:24}]},
+    options:{...baseOpts(th),plugins:{legend:{display:true,position:'top',align:'end',labels:{color:th.ink2,boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'rectRounded'}},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10}},
+      scales:{x:{stacked:false,grid:{display:false},border:{color:th.axis},ticks:{color:th.muted}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted}}}}});
+  const totF=wkRows.reduce((s,r)=>s+r.f,0), totC=wkRows.reduce((s,r)=>s+r.c,0);
+  const cancelByType=agg(O.filter(o=>o.status==='Canceled').map(o=>({...o,pnl:0})),o=>o.otype).sort((a,b)=>b.n-a.n);
+  document.getElementById('tCancel').innerHTML=`<p class="desc" style="margin-top:8px">${totC} of ${totF+totC} option orders were canceled (${pct(totC/Math.max(1,totF+totC))}). Canceled by type: ${cancelByType.map(r=>r.k+' '+r.n).join(', ')}.</p>`;
+
+  // Best / worst days
+  const sortedD=[...dayAgg].sort((a,b)=>a.pnl-b.pnl);
+  const drow=d=>{const dt=new Date(d.k+'T12:00'); return `<tr><td>${dayName(dt.getDay())} ${fmtDate(dt)}</td><td>${d.n}</td><td>${pct(d.w/d.n)}</td><td class="${cls(d.pnl)}">${fmt$(d.pnl)}</td></tr>`;};
+  document.getElementById('tDays').innerHTML=`<table class="mini"><thead><tr><th>Worst</th><th>Trades</th><th>Win %</th><th>Net</th></tr></thead><tbody>${sortedD.slice(0,5).map(drow).join('')}</tbody></table>
+    <table class="mini"><thead><tr><th>Best</th><th>Trades</th><th>Win %</th><th>Net</th></tr></thead><tbody>${sortedD.slice(-5).reverse().map(drow).join('')}</tbody></table>`;
+
+  // Insights
+  renderInsights(R, BR, {net, gw, gl, wins, losses, avgW, avgL, dayAgg, aL, aW, seqRows, totF, totC, lowD, hiD, midD});
+
+  // SPY vs SPX
+  renderH2H(filtered(true), th);
+
+  // Bracket simulator
+  renderSim(R, th);
+
+  // Log
+  renderLog(R);
+}
+
+function renderH2H(B, th){
+  const spy=B.filter(t=>t.u==='SPY'), spx=B.filter(t=>t.u==='SPXW'||t.u==='SPX');
+  const stats=(A)=>{ const n=A.length; if(!n) return null; const w=A.filter(t=>t.pnl>0), l=A.filter(t=>t.pnl<0);
+    const net=A.reduce((s,t)=>s+t.pnl,0), gw=w.reduce((s,t)=>s+t.pnl,0), gl=-l.reduce((s,t)=>s+t.pnl,0);
+    const contracts=A.reduce((s,t)=>s+t.qty,0), days=new Set(A.map(t=>t.day)).size;
+    const hold=[...A.map(t=>t.holdMin)].sort((a,b)=>a-b)[Math.floor(n/2)];
+    let peak=0,cum=0,dd=0; A.forEach(t=>{cum+=t.pnl; peak=Math.max(peak,cum); dd=Math.min(dd,cum-peak);});
+    return {n,days,net,win:w.length/n,avgW:w.length?gw/w.length:0,avgL:l.length?gl/l.length:0,pf:gl?gw/gl:null,exp:net/n,perDay:net/days,
+      perCt:net/contracts,contracts,avgQty:contracts/n,prem:A.reduce((s,t)=>s+t.entry*t.qty,0)/contracts,hold,dd,
+      expired:A.filter(t=>t.expired).length,expLoss:A.filter(t=>t.expired).reduce((s,t)=>s+t.pnl,0),
+      calls:A.filter(t=>t.cp==='Call').length/n, mkt:A.filter(t=>t.exitType==='Market').length/n, stop:A.filter(t=>t.exitType==='Stop market').length/n,
+      big:Math.min(...A.map(t=>t.pnl)), bigW:Math.max(...A.map(t=>t.pnl))}; };
+  const a=stats(spy), b=stats(spx);
+  const row=(label,f,c)=>`<tr><td>${label}</td><td class="${c&&a?c(a):''}">${a?f(a):'–'}</td><td class="${c&&b?c(b):''}">${b?f(b):'–'}</td></tr>`;
+  const sgn=x=>v=>cls(x(v));
+  document.getElementById('tH2H').innerHTML = (!a&&!b) ? '<div class="empty">No SPY or SPX trades in this slice.</div>' : `<table class="mini"><thead><tr><th>Metric</th><th>SPY</th><th>SPX</th></tr></thead><tbody>
+    ${row('Net P&L',x=>fmt$(x.net),sgn(x=>x.net))}
+    ${row('Trades (closed lots)',x=>x.n)}
+    ${row('Days traded',x=>x.days)}
+    ${row('P&L per day traded',x=>fmt$(x.perDay),sgn(x=>x.perDay))}
+    ${row('Expectancy per trade',x=>fmt$(x.exp),sgn(x=>x.exp))}
+    ${row('P&L per contract',x=>fmt$(x.perCt),sgn(x=>x.perCt))}
+    ${row('Win rate',x=>pct(x.win))}
+    ${row('Profit factor',x=>x.pf==null?'–':x.pf.toFixed(2),x=>x.pf>=1?'pos':'neg')}
+    ${row('Average win',x=>fmt$(x.avgW),()=>'pos')}
+    ${row('Average loss',x=>fmt$(-x.avgL),()=>'neg')}
+    ${row('Win / loss ratio',x=>x.avgL?(x.avgW/x.avgL).toFixed(2):'–')}
+    ${row('Largest win / loss',x=>fmt$(x.bigW)+' / '+fmt$(x.big))}
+    ${row('Max drawdown',x=>fmt$(x.dd),()=>'neg')}
+    ${row('Median hold',x=>mins(x.hold))}
+    ${row('Avg contracts per trade',x=>x.avgQty.toFixed(1))}
+    ${row('Avg premium paid',x=>'$'+x.prem.toFixed(2))}
+    ${row('Share of calls',x=>pct(x.calls))}
+    ${row('Expired worthless',x=>x.expired+' lots, '+fmt$(x.expLoss),x=>x.expired?'neg':'')}
+    ${row('Closed by market order',x=>pct(x.mkt))}
+    ${row('Closed by stop-market',x=>pct(x.stop))}
+  </tbody></table>`;
+
+  const line=(A)=>{let c=0; return A.map(t=>{c+=t.pnl; return {x:t.xtD, y:Math.round(c), t};});};
+  const ls=line(spy), lx=line(spx);
+  const tip={backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:true,boxWidth:8,boxHeight:8,usePointStyle:true};
+  mk('cH2H',{type:'line',data:{datasets:[
+      {label:'SPY',data:ls,borderColor:th.s1,borderWidth:2,pointRadius:0,pointHitRadius:10,tension:0},
+      {label:'SPX',data:lx,borderColor:th.s2,borderWidth:2,pointRadius:0,pointHitRadius:10,tension:0}]},
+    options:{...baseOpts(th),interaction:{mode:'nearest',intersect:false},
+      plugins:{legend:{display:false},tooltip:{...tip,callbacks:{title:i=>fmtDate(i[0].raw.x)+' '+fmtTime(i[0].raw.x),label:c=>`${c.dataset.label} cumulative ${fmt$(c.raw.y)} · ${c.raw.t.sym} ${fmt$(c.raw.t.pnl)}`}}},
+      scales:{x:{type:'linear',grid:{display:false},border:{color:th.axis},ticks:{color:th.muted,maxTicksLimit:8,callback:v=>fmtDate(new Date(v))}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+
+  const grouped=(id,tid,keyFn,order,header)=>{
+    const ga=agg(spy,keyFn,order), gb=agg(spx,keyFn,order);
+    const labels=order.filter(k=>ga.some(r=>r.k===k)||gb.some(r=>r.k===k));
+    const pick=(g,k)=>g.find(r=>r.k===k);
+    const val=(g,k)=>{const r=pick(g,k); return r?r.pnl/r.n:null;};
+    mk(id,{type:'bar',data:{labels,datasets:[
+        {label:'SPY',data:labels.map(k=>val(ga,k)),backgroundColor:th.s1,borderRadius:4,borderSkipped:'start',maxBarThickness:18},
+        {label:'SPX',data:labels.map(k=>val(gb,k)),backgroundColor:th.s2,borderRadius:4,borderSkipped:'start',maxBarThickness:18}]},
+      options:{...baseOpts(th),plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>{const r=pick(c.datasetIndex?gb:ga,labels[c.dataIndex]); return r?`${c.dataset.label}: avg ${fmt$(r.pnl/r.n)} · ${r.n} trades · win ${pct(r.w/r.n)} · net ${fmt$(r.pnl)}`:'';}}}},
+        scales:{x:{grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2,maxRotation:0,autoSkip:false}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+    const cell=r=>r?`<td>${r.n}</td><td>${pct(r.w/r.n)}</td><td class="${cls(r.pnl)}">${fmt$(r.pnl/r.n)}</td>`:'<td>–</td><td>–</td><td>–</td>';
+    document.getElementById(tid).innerHTML=`<table class="mini"><thead><tr><th>${header}</th><th>SPY n</th><th>Win %</th><th>Avg</th><th>SPX n</th><th>Win %</th><th>Avg</th></tr></thead><tbody>${labels.map(k=>`<tr><td>${k}</td>${cell(pick(ga,k))}${cell(pick(gb,k))}</tr>`).join('')}</tbody></table>`;
+  };
+  grouped('cH2Hhold','tH2Hhold',holdBucket,HOLD_ORDER,'Hold time');
+  grouped('cH2Hexit','tH2Hexit',t=>t.exitType,EXIT_ORDER,'Exit type');
+}
+
+function renderInsights(R, BR, S){
+  const n=R.length, out=[], focus=[];
+  const get=(id,k)=>BR[id].find(r=>r.k===k)||{n:0,w:0,pnl:0};
+  const totalLoss=S.gl||1;
+  const push=(kind,text,focusText,weight)=>{ out.push({kind,text}); if(focusText) focus.push({t:focusText,w:weight||0}); };
+
+  // Hold time
+  const quick=R.filter(t=>t.holdMin<15), slow=R.filter(t=>t.holdMin>=60);
+  const qn=quick.reduce((s,t)=>s+t.pnl,0), sn=slow.reduce((s,t)=>s+t.pnl,0);
+  if(quick.length>10 && slow.length>10){
+    const qw=quick.filter(t=>t.pnl>0).length/quick.length, sw=slow.filter(t=>t.pnl>0).length/slow.length;
+    if(qn>sn) push(sn<0?'hurts':'watch', `Trades held under 15 minutes made ${fmt$(qn)} (${quick.length} trades, ${pct(qw)} win). Trades held an hour or more made ${fmt$(sn)} (${slow.length} trades, ${pct(sw)} win). Your edge is in the first quarter hour; holding and hoping is where the account bleeds.`,
+      `Set a hard time stop: if a trade has not worked within 15 minutes, close it. Your trades held over an hour cost ${abs$(sn)}.`, Math.abs(sn));
+    else push('works', `Longer holds are paying: trades held an hour or more made ${fmt$(sn)} vs ${fmt$(qn)} for trades under 15 minutes.`);
+  }
+  // Expired
+  const ex=R.filter(t=>t.expired);
+  if(ex.length){ const el=ex.reduce((s,t)=>s+t.pnl,0); push('hurts', `${ex.length} lots were never sold and expired worthless, costing ${abs$(el)} (${pct(-el/totalLoss)} of all losses). Every one of these was a decision not to take a smaller loss earlier.`,
+    `Never let a contract expire. Sell any 0DTE position by 3:45 PM no matter what; ${abs$(el)} walked away this way.`, -el); }
+  // Exit type
+  const mkt=get('exit','Market'), stp=get('exit','Stop market'), lim=get('exit','Limit');
+  if(mkt.n>10 && mkt.pnl<0) push('hurts', `Market-order exits are your panic button: ${mkt.n} of them, ${pct(mkt.w/mkt.n)} winners, net ${fmt$(mkt.pnl)}, average ${fmt$(mkt.pnl/mkt.n)}. ${stp.n?`Stop-market exits by contrast closed ${stp.n} trades at ${pct(stp.w/stp.n)} winners for ${fmt$(stp.pnl)}.`:''} The order type is a symptom: market exits happen after the loss has already grown.`,
+    stp.n&&stp.pnl>0?`Place the stop the moment you are filled. Trades that ended on a resting stop-market order made ${fmt$(stp.pnl)}; trades you had to bail from with a market order lost ${abs$(mkt.pnl)}.`:null, Math.abs(mkt.pnl));
+  if(lim.n>10) push(lim.pnl>=0?'works':'watch', `Limit exits (profit targets) closed ${lim.n} trades at ${pct(lim.w/lim.n)} winners, net ${fmt$(lim.pnl)}. ${lim.pnl<0?'High win rate but net negative means the few losers that filled on a limit were large or late.':''}`);
+  // Late entries
+  const late=R.filter(t=>t.etD.getHours()>=15), early=R.filter(t=>t.etD.getHours()<12);
+  const ln=late.reduce((s,t)=>s+t.pnl,0), en=early.reduce((s,t)=>s+t.pnl,0);
+  if(late.length>10 && ln<0 && ln< en) push('hurts', `Entries after 3:00 PM: ${late.length} trades, net ${fmt$(ln)}, average ${fmt$(ln/late.length)}. Morning entries before noon: ${early.length} trades, net ${fmt$(en)}. Late-day 0DTE premium decays fastest and leaves no time to be wrong.`,
+    `Stop opening new positions after 3:00 PM. Those entries cost ${abs$(ln)}.`, Math.abs(ln));
+  else if(early.length>10 && en>0) push('works', `Morning entries before noon are your best window: ${early.length} trades, net ${fmt$(en)}.`);
+  // Cheap premium
+  const cheap=get('prem','< $1');
+  if(cheap.n>10 && cheap.pnl<0) push('hurts', `Sub-$1 contracts are lottery tickets: ${cheap.n} trades, ${pct(cheap.w/cheap.n)} winners, net ${fmt$(cheap.pnl)}. Far out-of-the-money contracts need a big move and most expire.`,
+    `Skip contracts under $1.00. They won ${pct(cheap.w/cheap.n)} of the time and lost ${abs$(cheap.pnl)}.`, Math.abs(cheap.pnl));
+  // Calls vs puts
+  const call=get('cp','Call'), put=get('cp','Put');
+  if(call.n>10 && put.n>10){
+    const better=call.pnl/call.n>put.pnl/put.n?call:put, worse=better===call?put:call, bl=better===call?'Calls':'Puts', wl=better===call?'Puts':'Calls';
+    push(worse.pnl<0&&better.pnl>worse.pnl?'watch':'works', `${bl}: ${better.n} trades, ${pct(better.w/better.n)} win, net ${fmt$(better.pnl)}. ${wl}: ${worse.n} trades, ${pct(worse.w/worse.n)} win, net ${fmt$(worse.pnl)}. ${worse.n>better.n?`You trade ${wl.toLowerCase()} more often but they are the weaker side.`:''}`);
+  }
+  // Adding to losers
+  const down=get('add','Added to loser'), first=get('add','Fresh entry');
+  if(down.n>10) push(down.pnl<0?'hurts':'watch', `Averaging down (buying more while the contract is below your cost): ${down.n} lots, ${pct(down.w/down.n)} winners, net ${fmt$(down.pnl)}. Fresh entries win ${pct(first.w/Math.max(1,first.n))} of the time. Adding to a loser turns one bad decision into a bigger one.`,
+    down.pnl<0?`Do not add to a losing contract. Averaged-down lots cost ${abs$(down.pnl)} and win less often than fresh entries.`:null, Math.abs(down.pnl));
+  // DTE
+  const multi=R.filter(t=>t.dte>0), zero=R.filter(t=>t.dte===0);
+  if(multi.length>10){ const mn=multi.reduce((s,t)=>s+t.pnl,0), zn=zero.reduce((s,t)=>s+t.pnl,0);
+    push(mn<0?'hurts':'works', `Contracts with one or more days to expiry: ${multi.length} trades, net ${fmt$(mn)}, average ${fmt$(mn/multi.length)}. 0DTE: ${zero.length} trades, average ${fmt$(zero.length?zn/zero.length:0)}. ${mn/multi.length<(zero.length?zn/zero.length:0)?'Swing-held options are losing more per trade than your day trades.':'Multi-day holds are doing better per trade than 0DTE.'}`); }
+  // Concentration of losses
+  const worst3=[...S.dayAgg].sort((a,b)=>a.pnl-b.pnl).slice(0,3);
+  const w3=worst3.reduce((s,d)=>s+d.pnl,0);
+  if(worst3.length===3 && w3<0) push('watch', `Your three worst days (${worst3.map(d=>fmtDate(new Date(d.k+'T12:00'))).join(', ')}) lost ${abs$(w3)}, which is ${pct(-w3/totalLoss)} of all losses. ${S.net-w3>0?`Without them the period would be ${fmt$(S.net-w3)}.`:''} The problem is not the average trade, it is the blow-up day.`,
+    `Cap the daily loss. Three days produced ${pct(-w3/totalLoss)} of your losses; a hard stop at a fixed dollar amount per day would have kept most of it.`, Math.abs(w3)*0.6);
+  // Overtrading
+  if(S.lowD.length>2 && S.hiD.length>2){ const la=S.lowD.reduce((s,d)=>s+d.pnl,0)/S.lowD.length, ha=S.hiD.reduce((s,d)=>s+d.pnl,0)/S.hiD.length;
+    if(la>ha) push('hurts', `Days with 10 or fewer trades averaged ${fmt$(la)}; days with more than 20 trades averaged ${fmt$(ha)}. More trades did not mean more money, it meant more damage.`,
+      `Limit yourself to ten trades a day. Your heavy days (20+ trades) averaged ${fmt$(ha)}.`, Math.abs(ha-la)*S.hiD.length*0.5);
+    else push('works', `High-activity days are not hurting you: days with over 20 trades averaged ${fmt$(ha)} vs ${fmt$(la)} on quiet days.`); }
+  // After loss
+  if(S.aL.n>10 && S.aW.n>10){
+    if(S.aL.w/S.aL.n < S.aW.w/S.aW.n - 0.05 || S.aL.avg<S.aW.avg-20) push('watch', `After a losing trade your next trade wins ${pct(S.aL.w/S.aL.n)} of the time and averages ${fmt$(S.aL.avg)}; after a winner it wins ${pct(S.aW.w/S.aW.n)} and averages ${fmt$(S.aW.avg)}. ${pct(S.aL.fast/S.aL.n)} of post-loss entries came within two minutes of the exit. That is revenge trading.`,
+      `After any loss, step away for ten minutes before the next entry. Post-loss trades average ${fmt$(S.aL.avg)}.`, Math.abs(S.aL.avg)*S.aL.n*0.3);
+    else push('works', `You stay disciplined after a loss: the next trade wins ${pct(S.aL.w/S.aL.n)} of the time, about the same as after a win (${pct(S.aW.w/S.aW.n)}).`);
+  }
+  // Win/loss ratio
+  if(S.avgL>0 && S.avgW/S.avgL<0.7) push('hurts', `Average winner ${fmt$(S.avgW)} vs average loser ${fmt$(-S.avgL)}. You need to win ${pct(S.avgL/(S.avgL+S.avgW))} of trades just to break even; you are winning ${pct(S.wins.length/n)}. The win rate is fine. The loser size is the problem.`,
+    `Make the average loser smaller than the average winner. Right now losers are ${(S.avgL/S.avgW).toFixed(1)}× bigger.`, S.avgL*S.losses.length*0.2);
+  else if(S.avgL>0) push('works', `Average winner ${fmt$(S.avgW)} vs average loser ${fmt$(-S.avgL)}: your winners are ${(S.avgW/S.avgL).toFixed(2)}× your losers, a healthy ratio.`);
+  // Cancel rate
+  if(S.totF+S.totC>50) push(S.totC/(S.totF+S.totC)>0.4?'watch':'works', `${pct(S.totC/(S.totF+S.totC))} of option orders were canceled (${S.totC} of ${S.totF+S.totC}). ${S.totC/(S.totF+S.totC)>0.4?'Many of these are stops that were pulled or moved before they could do their job; a stop you cancel is not a stop.':'Order management looks deliberate.'}`);
+  // Size
+  const big=get('size','11+'), mid=get('size','6–10');
+  if(big.n>5 && big.pnl<0 && big.w/big.n<0.4) push('watch', `Orders of 11+ contracts: ${big.n} trades, ${pct(big.w/big.n)} winners, net ${fmt$(big.pnl)}. Your biggest size shows up on your lowest-conviction results.`);
+
+  document.getElementById('insights').innerHTML = out.map(i=>`<div class="ins ${i.kind}"><span class="tag">${i.kind==='works'?'Works':i.kind==='hurts'?'Hurts':'Watch'}</span><p>${i.text}</p></div>`).join('');
+  focus.sort((a,b)=>b.w-a.w);
+  document.getElementById('focus').innerHTML = focus.length ? `<div class="sub">Ranked by how much money each rule would have protected in this period.</div><ol>${focus.slice(0,6).map(f=>`<li>${f.t}</li>`).join('')}</ol>` : '<div class="sub">Not enough trades to rank rules.</div>';
+}
+
+// ---------- bracket simulator ----------
+const sim = {sl:0.25, tp:0};
+document.getElementById('simSl').oninput = e => { sim.sl = (+e.target.value)/100; renderSim(filtered(), theme()); };
+document.getElementById('simTp').oninput = e => { sim.tp = (+e.target.value)/100; renderSim(filtered(), theme()); };
+function simulate(R, sl, tp){
+  let net=0, wins=0, losses=0, gw=0, gl=0, stopped=0, capped=0;
+  R.forEach(t => {
+    let r=(t.exit-t.entry)/t.entry;
+    if(tp>0 && r>tp){ r=tp; capped++; }
+    if(sl>0 && r<-sl){ r=-sl; stopped++; }
+    const p=r*t.entry*100*t.qty; net+=p;
+    if(p>0){wins++; gw+=p;} else if(p<0){losses++; gl-=p;}
+  });
+  return {net,wins,losses,gw,gl,stopped,capped,n:R.length};
+}
+function renderSim(R, th){
+  document.getElementById('simSlV').textContent = sim.sl?Math.round(sim.sl*100)+'%':'none';
+  document.getElementById('simTpV').textContent = sim.tp?'+'+Math.round(sim.tp*100)+'%':'none';
+  const base=simulate(R,0,0), s=simulate(R,sim.sl,sim.tp);
+  const k=[
+    {label:'Simulated net P&L', value:fmt$(s.net), c:cls(s.net), note:`actual ${fmt$(base.net)} · change ${fmt$(s.net-base.net)}`},
+    {label:'Win rate', value:s.n?pct(s.wins/s.n):'–', note:`actual ${base.n?pct(base.wins/base.n):'–'}`},
+    {label:'Average win', value:fmt$(s.wins?s.gw/s.wins:0), c:'pos', note:`actual ${fmt$(base.wins?base.gw/base.wins:0)}`},
+    {label:'Average loss', value:fmt$(-(s.losses?s.gl/s.losses:0)), c:'neg', note:`actual ${fmt$(-(base.losses?base.gl/base.losses:0))}`},
+    {label:'Profit factor', value:s.gl?(s.gw/s.gl).toFixed(2):'–', c:s.gl&&s.gw/s.gl>=1?'pos':'neg', note:`actual ${base.gl?(base.gw/base.gl).toFixed(2):'–'}`},
+    {label:'Trades touched', value:`${s.stopped} / ${s.capped}`, note:'stopped out / capped'},
+  ];
+  document.getElementById('simKpis').innerHTML = k.map(x=>`<div class="card kpi"><div class="label">${x.label}</div><div class="value ${x.c||''}" style="font-size:20px">${x.value}</div><div class="note">${x.note}</div></div>`).join('');
+  const need = (s.wins&&s.losses) ? (s.gl/s.losses)/((s.gl/s.losses)+(s.gw/s.wins)) : null;
+  document.getElementById('simNote').textContent = need!=null ? `With this bracket you need a ${pct(need)} win rate to break even; the simulated win rate is ${pct(s.wins/s.n)}.` : '';
+
+  const SLS=[0,0.15,0.2,0.25,0.3,0.4,0.5], TPS=[0,0.15,0.2,0.3,0.5];
+  const lab=v=>v?Math.round(v*100)+'%':'none';
+  const near=(a,b)=>Math.abs(a-b)<0.001;
+  document.getElementById('simGrid').innerHTML = `<table class="mini"><thead><tr><th>Cap \\ Stop</th>${SLS.map(x=>`<th>${lab(x)}</th>`).join('')}</tr></thead><tbody>${TPS.map(tp=>`<tr><td>${tp?'+'+lab(tp):'none'}</td>${SLS.map(sl=>{const v=simulate(R,sl,tp).net; return `<td class="${cls(v)} ${near(sl,sim.sl)&&near(tp,sim.tp)?'sel':''}">${fmt$(v)}</td>`;}).join('')}</tr>`).join('')}</tbody></table>`;
+
+  const xs=[0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.5,0.6];
+  const ys=xs.map(sl=>Math.round(simulate(R,sl,0).net));
+  mk('cSim',{type:'line',data:{labels:xs.map(lab),datasets:[{data:ys,borderColor:th.s1,borderWidth:2,pointRadius:4,pointBackgroundColor:th.s1,pointBorderColor:th.surface,pointBorderWidth:2,pointHitRadius:12,tension:0}]},
+    options:{...baseOpts(th),interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10,displayColors:false,callbacks:{title:i=>'Stop at '+i[0].label,label:c=>'Net '+fmt$(c.raw)}}},
+      scales:{x:{grid:{display:false},border:{color:th.axis},ticks:{color:th.muted}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>fmt$c(v)}}}}});
+}
+
+// ---------- log ----------
+let sortKey='xt', sortDir=-1;
+const COLS=[
+  {k:'xt',h:'Closed',f:t=>`${fmtDate(t.xtD)} ${fmtTime(t.xtD)}`,v:t=>t.xt},
+  {k:'sym',h:'Contract',f:t=>t.sym,v:t=>t.sym},
+  {k:'qty',h:'Qty',f:t=>t.qty,v:t=>t.qty},
+  {k:'entry',h:'Entry',f:t=>'$'+t.entry.toFixed(2),v:t=>t.entry},
+  {k:'exit',h:'Exit',f:t=>'$'+t.exit.toFixed(2),v:t=>t.exit},
+  {k:'pnl',h:'P&L',f:t=>`<span class="${cls(t.pnl)}">${fmt$(t.pnl)}</span>`,v:t=>t.pnl},
+  {k:'holdMin',h:'Held',f:t=>mins(t.holdMin),v:t=>t.holdMin},
+  {k:'et',h:'Entered',f:t=>fmtTime(t.etD),v:t=>t.et},
+  {k:'entryType',h:'Entry order',f:t=>t.entryType,v:t=>t.entryType},
+  {k:'exitType',h:'Exit order',f:t=>t.exitType,v:t=>t.exitType},
+  {k:'add',h:'Entry kind',f:t=>addLabel(t),v:t=>t.add},
+  {k:'dte',h:'DTE',f:t=>t.dte,v:t=>t.dte},
+];
+function renderLog(R){
+  const rows=[...R].sort((a,b)=>{const c=COLS.find(c=>c.k===sortKey); const x=c.v(a),y=c.v(b); return (x<y?-1:x>y?1:0)*sortDir;});
+  document.querySelector('#log thead').innerHTML='<tr>'+COLS.map(c=>`<th data-k="${c.k}">${c.h}${sortKey===c.k?(sortDir<0?' ↓':' ↑'):''}</th>`).join('')+'</tr>';
+  document.querySelector('#log tbody').innerHTML=rows.map(t=>'<tr>'+COLS.map(c=>`<td>${c.f(t)}</td>`).join('')+'</tr>').join('');
+  document.getElementById('logCount').textContent=`${rows.length} closed lots`;
+  document.querySelectorAll('#log th').forEach(th=>th.onclick=()=>{ if(sortKey===th.dataset.k) sortDir*=-1; else {sortKey=th.dataset.k; sortDir=-1;} renderLog(filtered()); });
+}
+
+render();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 Tax Planning Baseline</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.10);
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--neg:#e34948;--good:#006300;--bad:#d03b3b;--warn:#b86a00;--good-bg:rgba(12,163,12,.10);--bad-bg:rgba(208,59,59,.10);--warn-bg:rgba(250,178,25,.14);--wash:#eef4fc}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--neg:#e66767;--good:#0ca30c;--bad:#e66767;--warn:#fab219;--wash:#1f2a3a}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:24px;margin:0 0 4px;font-weight:650}.sub{color:var(--ink2)}
+h2{font-size:17px;font-weight:650;margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--grid)}
+h3{font-size:14px;font-weight:600;margin:0 0 4px}
+.desc{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}
+.kpi .label{color:var(--ink2);font-size:12px}.kpi .value{font-size:24px;font-weight:600;white-space:nowrap}.kpi .note{color:var(--muted);font-size:12px}
+.pos{color:var(--good)}.neg{color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:5px 8px;text-align:right;border-bottom:1px solid var(--grid)}th:first-child,td:first-child{text-align:left}
+th{color:var(--ink2);font-weight:600}tr.total td{font-weight:650;border-top:2px solid var(--axis)}
+tr.sub td:first-child{padding-left:22px;color:var(--ink2)}
+.chart{position:relative;width:100%}.card>div:not(.chart){overflow-x:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:0 0 6px}.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+p{margin:8px 0}.callout{border-left:4px solid var(--s1);background:var(--wash);padding:10px 14px;border-radius:6px;margin:10px 0}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px;margin-right:6px}
+.tag.hi{background:var(--bad-bg);color:var(--bad)}.tag.md{background:var(--warn-bg);color:var(--warn)}.tag.lo{background:var(--good-bg);color:var(--good)}
+ul{margin:6px 0;padding-left:20px}li{margin:4px 0}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.small{font-size:12px;color:var(--ink2)}
+</style>
+</head>
+<body><div class="wrap">
+<h1>2026 Tax Planning Baseline</h1>
+<div class="sub">B LLC (S corporation) and its sole shareholder. Built from the 2025 federal and California returns. Projection: revenue to $600,000 with no other changes.</div>
+
+<h2>At a glance</h2>
+<div class="grid kpis" id="kpis"></div>
+<div class="callout" id="headline"></div>
+
+<h2>1. The business in 2025</h2>
+<div class="grid g2">
+  <div class="card"><h3>Revenue up 64%, profit down 28%</h3><p class="desc">Gross receipts and ordinary income passed to the shareholder, three years</p>
+    <div class="legend"><span style="--c:var(--s1)">Revenue</span><span style="--c:var(--s2)">Ordinary income (K-1)</span></div>
+    <div class="chart"><canvas id="cHist" height="230"></canvas></div><div id="tHist"></div></div>
+  <div class="card"><h3>Where the $290K went</h3><p class="desc">Each expense as a share of revenue, 2025</p><div class="chart"><canvas id="cExp" height="420"></canvas></div></div>
+</div>
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>Income statement per the 1120-S</h3><div id="tIS"></div></div>
+  <div class="card"><h3>What stands out</h3>
+    <ul>
+      <li><b>Margin compression.</b> Revenue grew $113K but total deductions grew $121K, so profit fell. Ordinary income was 77% of revenue in 2023, 54% in 2024 and 24% in 2025.</li>
+      <li><b>Travel, meals and vehicles are 31% of revenue.</b> Auto $31.7K, travel $29.6K and meals $29.2K (half deductible) total $90.5K. Plus $12.5K of vehicle depreciation and about $11K of vehicle loan interest. These lines are also the first ones an examiner reads on a sales and installation business.</li>
+      <li><b>Interest is 10.7% of revenue.</b> $30.9K of interest, up from $734. Most of it is the Fundbox advance ($53.6K) and Headway Capital loan ($7.0K) taken in 2025 plus two vehicle loans ($93.9K). The company borrowed at high cost while lending $125K to its owner (section 2).</li>
+      <li><b>Officer salary is $13,700</b> on $69K of profit, $52K of distributions and $37K of new shareholder loans. That ratio is the reasonable-compensation issue the IRS targets in one-owner S corporations, and it also caps the QBI deduction once income rises (section 4).</li>
+      <li><b>$17.3K of spending was not deductible</b> (50% of meals, all entertainment) but still reduced cash and basis.</li>
+      <li><b>No retirement plan, no health insurance, no accountable plan</b> appear anywhere on either return.</li>
+    </ul></div>
+</div>
+
+<h2>2. Loans to shareholder</h2>
+<div class="grid g2">
+  <div class="card"><h3>How cash moved in 2025</h3><p class="desc">Balance sheet and Schedule M-2 of the 1120-S</p>
+    <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="Cash flow between lenders, the company and the shareholder">
+      <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>
+      <rect x="10" y="105" width="140" height="90" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="80" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Lenders</text>
+      <text x="80" y="155" text-anchor="middle" font-size="11" fill="var(--ink2)">Fundbox, Headway,</text>
+      <text x="80" y="170" text-anchor="middle" font-size="11" fill="var(--ink2)">vehicle loans</text>
+      <rect x="215" y="85" width="140" height="130" rx="10" fill="var(--wash)" stroke="var(--s1)"/>
+      <text x="285" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">B LLC</text>
+      <text x="285" y="134" text-anchor="middle" font-size="11" fill="var(--ink2)">profit $69.1K</text>
+      <text x="285" y="150" text-anchor="middle" font-size="11" fill="var(--ink2)">cash $5.1K → $42.7K</text>
+      <text x="285" y="166" text-anchor="middle" font-size="11" fill="var(--ink2)">debt $154.5K</text>
+      <text x="285" y="182" text-anchor="middle" font-size="11" fill="var(--ink2)">equity $7.5K</text>
+      <rect x="450" y="105" width="140" height="90" rx="10" fill="var(--wash)" stroke="var(--s2)"/>
+      <text x="520" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Shareholder</text>
+      <text x="520" y="155" text-anchor="middle" font-size="11" fill="var(--ink2)">owes company</text>
+      <text x="520" y="170" text-anchor="middle" font-size="11" fill="var(--ink2)">$125.1K</text>
+      <line x1="152" y1="125" x2="213" y2="125" stroke="var(--muted)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="182" y="117" text-anchor="middle" font-size="10" fill="var(--ink2)">$60.6K borrowed</text>
+      <line x1="213" y1="175" x2="152" y2="175" stroke="var(--muted)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="182" y="192" text-anchor="middle" font-size="10" fill="var(--ink2)">$30.9K interest</text>
+      <line x1="357" y1="112" x2="448" y2="112" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="104" text-anchor="middle" font-size="10" fill="var(--ink2)">$36.9K new loan</text>
+      <line x1="357" y1="150" x2="448" y2="150" stroke="var(--s2)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">$52.3K distributions</text>
+      <line x1="357" y1="188" x2="448" y2="188" stroke="var(--s1)" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="402" y="180" text-anchor="middle" font-size="10" fill="var(--ink2)">$13.7K salary</text>
+      <text x="300" y="250" text-anchor="middle" font-size="11.5" fill="var(--ink)">Owner took $102.9K out of a company that earned $69.1K and borrowed $60.6K.</text>
+      <text x="300" y="268" text-anchor="middle" font-size="11" fill="var(--ink2)">Loan to shareholder: $88.2K at start of year → $125.1K at year end.</text>
+    </svg></div>
+  <div class="card"><h3>Why it matters</h3>
+    <p>The $125,100 "loan to shareholder" is the largest asset on the balance sheet (67% of total assets). It is cash the owner received that has not been taxed, because it is booked as a loan rather than salary or a distribution. The return shows no interest income on it and no repayments.</p>
+    <table><thead><tr><th>Exposure</th><th>Mechanics</th><th>Rough cost if it happens</th></tr></thead><tbody>
+      <tr><td>Recharacterized as a distribution</td><td>Stock basis is only $7,505, so almost all of $125K would be a capital gain (distribution in excess of basis)</td><td class="neg">≈ $28K to $35K federal and CA</td></tr>
+      <tr><td>Recharacterized as wages</td><td>Payroll taxes at 15.3% plus income tax at the marginal rate, plus penalties</td><td class="neg">≈ $19K payroll tax plus income tax</td></tr>
+      <tr><td>Imputed interest (§7872)</td><td>Below-market loan over $10K: the company must report interest income at the federal rate (about 4%), with a matching deemed payment by the owner</td><td>≈ $5K/yr of phantom income in the S corp, flows back to the owner's K-1</td></tr>
+      <tr><td>Interest tracing</td><td>Borrowed money that funded the owner's loan is personal-use debt; the matching share of the $30.9K interest is not a business deduction</td><td>Up to ≈ $12K of 2025 interest at risk</td></tr>
+    </tbody></table>
+    <p class="small">What protects the loan treatment: a signed note, a stated interest rate at or above the applicable federal rate, a repayment schedule that is actually followed, and consistent treatment on the books. None of that is visible in the return. Cleaning this up is scenario work for the next round; the choice between repaying it, converting it to salary over time, or declaring it a distribution has very different tax results.</p>
+  </div>
+</div>
+
+<h2>3. The personal return in 2025</h2>
+<div class="grid g2">
+  <div class="card"><h3>Income by source</h3><p class="desc">Total income (AGI) $126,792. The three business entities are all the owner's.</p><div id="tInc"></div></div>
+  <div class="card"><h3>From income to tax</h3><p class="desc">Federal and California, dollars and percent of AGI</p><div id="tTax"></div></div>
+</div>
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>Why the federal tax was $46</h3>
+    <ul>
+      <li><b>Itemized deductions of $49,923</b> took 39% of income off the top: mortgage interest $31,679, state and local taxes $14,809 (capped), charity $3,039, investment interest $396.</li>
+      <li><b>QBI deduction of $14,414</b> (20% of qualified business income) took another 11%.</li>
+      <li>Tax on the remaining $62,455 was $8,655. The <b>residential clean energy credit</b> (solar, carried forward from 2024) wiped out all of it.</li>
+      <li>The only federal tax paid was the $46 early-withdrawal penalty on a $455 IRA distribution.</li>
+      <li>California taxed $55,073 at $1,699 (1.3% of AGI). CA does not allow the solar credit or the QBI deduction.</li>
+      <li>Payroll taxes on the $49,700 of W-2 wages were $3,802 (employee share), the largest tax actually paid.</li>
+    </ul></div>
+  <div class="card"><h3>Carryforwards available for 2026</h3><p class="desc">These shelter future income and matter a lot at $600K</p>
+    <table><thead><tr><th>Item</th><th>Amount</th><th>How it helps in 2026</th></tr></thead><tbody>
+      <tr><td>Residential clean energy credit</td><td>$10,543</td><td>Dollar-for-dollar against federal tax, no limit</td></tr>
+      <tr><td>General business credit (eligible small business credits)</td><td>$22,385</td><td>Against federal tax, subject to the 25%-over-$25K limit; fully usable at the projected tax</td></tr>
+      <tr><td>Capital loss carryforward (ST $5,279 + LT $54,580)</td><td>$59,859</td><td>Offsets future capital gains, otherwise $3,000 a year</td></tr>
+      <tr><td>Suspended passive loss, rental property</td><td>$155,304</td><td>Released only against passive income or when the property is sold; grows every year the rental loses money</td></tr>
+      <tr><td>At-risk loss not allowed, V, LLC (Form 6198)</td><td>$26,495</td><td>Released when basis or at-risk amount is restored</td></tr>
+      <tr><td>Federal overpayment applied to 2026</td><td>$1,350</td><td>First estimated payment</td></tr>
+    </tbody></table></div>
+</div>
+
+<h2>4. What $600,000 of revenue looks like with no other changes</h2>
+<p>Revenue of $600,000 is 2.07 times 2025. The result depends on what happens to costs, so three cost assumptions are shown. The middle one is the base case used below: cost of goods, outside services, permits, commissions, supplies, equipment rental and payroll processing grow with sales (they were 13.9% of revenue in 2025) and every other expense stays at its 2025 dollar amount.</p>
+<div class="card"><h3>Business and personal outcome by cost assumption</h3><div id="tScen"></div>
+<p class="small">Personal items other than the B LLC K-1 are held at 2025 levels. Mechanical changes are applied: the rental loss allowance disappears above $150K AGI; state and local taxes are assumed paid in the year and capped at the 2026 limit of $40,400; the QBI deduction above the $201,750 threshold is limited by B LLC's W-2 wages and asset basis; 2026 federal and California bracket tables; the two credit carryforwards are applied. The 2025 federal tax reproduces to within $1 under the same engine.</p></div>
+
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>Base case: from $600K of revenue to take-home</h3><p class="desc">Only variable costs grow</p>
+    <svg viewBox="0 0 560 330" width="100%" role="img" aria-label="Waterfall from revenue to take-home" id="flow"></svg></div>
+  <div class="card"><h3>Taxes, 2025 actual vs 2026 base case</h3><p class="desc">Federal income tax after credits, California personal, California S-corp, employee payroll tax</p>
+    <div class="legend"><span style="--c:var(--s1)">2025</span><span style="--c:var(--s2)">2026 base case</span></div>
+    <div class="chart"><canvas id="cTax" height="240"></canvas></div><div id="tTaxCmp"></div></div>
+</div>
+
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><h3>What changes at $600K</h3>
+    <ul id="changes"></ul></div>
+  <div class="card"><h3>Levers this points to for the next round</h3>
+    <ul>
+      <li><span class="tag hi">Large</span><b>Reasonable salary and the QBI wage cap.</b> At $13,700 of W-2 wages the QBI deduction on B LLC is capped near $6,850. Raising salary costs payroll tax but raises the cap by 50 cents per dollar and funds a retirement plan. There is an optimal point.</li>
+      <li><span class="tag hi">Large</span><b>California pass-through entity (PTE) elective tax.</b> The S corp pays 9.3% of the owner's share to California and deducts it federally, converting a capped SALT deduction into an uncapped business deduction. Worth roughly $9K to $12K of federal tax at the base case.</li>
+      <li><span class="tag hi">Large</span><b>Retirement plan through the S corp</b> (solo 401(k) or SEP, or a defined benefit plan at this income). Each $10K contributed saves about $4,400 in combined federal and CA tax at the projected marginal rates.</li>
+      <li><span class="tag md">Medium</span><b>Clean up the shareholder loan</b> before the balance grows again. Decide between repayment, salary conversion, or a documented note.</li>
+      <li><span class="tag md">Medium</span><b>Expense discipline on travel, meals and vehicles.</b> Every $10K cut adds $10K of taxable profit but $5.6K of cash, and lowers audit exposure. Separate the question of what is deductible from what is necessary.</li>
+      <li><span class="tag md">Medium</span><b>Estimated payments.</b> 2025 federal tax was $46, so the prior-year safe harbor means almost no federal estimates are required for 2026 regardless of income; the bill is due April 2027. California's safe harbor is 110% of 2025 tax, about $1,870. This is a cash-flow planning point, not a savings.</li>
+      <li><span class="tag lo">Smaller</span><b>Health insurance through the S corp</b> (deductible above the line), an accountable plan for the home office and personal vehicle, and the Section 179 / bonus decisions on any 2026 equipment.</li>
+      <li><span class="tag lo">Smaller</span><b>Rental property.</b> $155K of suspended losses only come back against passive income or on sale. If the owner qualifies as a real estate professional, or the property is sold, that changes the picture.</li>
+    </ul></div>
+</div>
+
+<h2>Sources and assumptions</h2>
+<div class="card small">
+  <ul>
+    <li>Business figures: 2025 Form 1120-S pages 1 to 5, Schedule K-1, Form 1125-E, Form 4562 depreciation report, Other Deductions Worksheet, Two-Year Comparison, Five-Year Tax History, Schedule L detail, Form 100S.</li>
+    <li>Personal figures: 2025 Form 1040 and Schedules 1, 2, 3, A, D, E; Form 8995; Tax Summary Report; Two-Year Comparison; Federal Carryover Worksheet; Capital Loss Carryforward Worksheet; Form 540 sides 1 to 4.</li>
+    <li>2026 federal brackets and the $16,100 standard deduction follow the IRS 2026 inflation adjustments as amended by the 2025 reconciliation act; the SALT cap of $40,400 and the QBI threshold of $201,750 likewise. California brackets are the 2025 tables; 2026 indexing will move them slightly.</li>
+    <li>The general business credit carryforward of $22,385 is assumed usable. Its origin (eligible small business credits from a pass-through) should be confirmed from the 2021 and 2022 returns.</li>
+    <li>Interest, dividends, capital gains, IRA, the partnership K-1 ($76,351) and the V, LLC items are held at 2025 amounts. The prior-year allowed loss of $58,496 from V, LLC was a one-time release and is also held, which is conservative; if it does not repeat, 2026 taxable income is higher by that amount.</li>
+    <li>Take-home is a cash view: AGI less all income and payroll taxes. It ignores non-cash items (depreciation) and the owner's personal debt service.</li>
+    <li>This is a baseline for scenario work, not tax advice. Numbers should be rerun by the preparer before any election is made.</li>
+  </ul>
+</div>
+</div>
+<script id="data" type="application/json">{"rev25": 289584, "cogs25": 18745, "ded25": {"Officer compensation": 13700, "Taxes and licenses": 1391, "Interest": 30941, "Depreciation": 12544, "Advertising": 4067, "Auto and truck": 31663, "Travel": 29642, "Meals (50% allowed)": 14590, "Office expense": 18107, "Outside services": 11395, "Printing": 7204, "Legal and professional": 5715, "Permits and fees": 5003, "Utilities": 3756, "Uniforms": 2967, "Equipment rental": 2528, "Software": 2380, "Bank charges": 1210, "Commissions": 975, "Supplies": 868, "Payroll processing": 645, "Telephone": 316, "Insurance": 99}, "k1_25": 69133, "var25": 40159, "fixed25": 180292, "p25": {"wages": 49700, "interest": 7143, "dividends": 87, "ira": 455, "capgain": -3000, "f4797": -4106, "rental": -7736, "k1_vc": 76351, "k1_v": -2739, "k1_pya": -58496, "k1_b": 69133}, "agi25": 126792, "scen": [{"name": "Costs scale with revenue", "k1": 143239, "cogs": 38838, "ded": 417922, "note": "Every expense line grows in proportion to sales; margin stays at 23.9%.", "personal": {"label": "Costs scale with revenue", "note": "Every expense line grows in proportion to sales; margin stays at 23.9%.", "k1_b": 143239, "agi": 208634, "rental": 0, "itemized": 55981, "salt": 20867, "qbi": 30531, "ti": 122122, "fed_gross": 21907, "energy": 10543, "gbc": 11364, "fed": 0, "marginal": 0.24, "ca": 9051, "ca_ti": 136147, "ca_corp": 1793, "fica": 3802, "total": 14646, "eff": 7.0, "takehome": 193988}}, {"name": "Only variable costs grow", "k1": 336501, "cogs": 38838, "ded": 224660, "note": "COGS, outside services, permits, commissions, supplies, equipment rental and payroll processing grow with sales (13.6%); everything else held at 2025 dollars.", "personal": {"label": "Only variable costs grow", "note": "COGS, outside services, permits, commissions, supplies, equipment rental and payroll processing grow with sales (13.6%); everything else held at 2025 dollars.", "k1_b": 336501, "agi": 401896, "rental": 0, "itemized": 73954, "salt": 38840, "qbi": 22120, "ti": 305822, "fed_gross": 75807, "energy": 10543, "gbc": 22385, "fed": 42879, "marginal": 0.35, "ca": 27024, "ca_ti": 329409, "ca_corp": 4692, "fica": 3802, "total": 78397, "eff": 19.5, "takehome": 323499}}, {"name": "All costs held flat", "k1": 379549, "cogs": 18745, "ded": 201706, "note": "Every 2025 expense repeats at the same dollar amount; all added revenue is profit.", "personal": {"label": "All costs held flat", "note": "Every 2025 expense repeats at the same dollar amount; all added revenue is profit.", "k1_b": 379549, "agi": 444944, "rental": 0, "itemized": 75514, "salt": 40400, "qbi": 22120, "ti": 347310, "fed_gross": 90328, "energy": 10543, "gbc": 22385, "fed": 57400, "marginal": 0.35, "ca": 31146, "ca_ti": 372457, "ca_corp": 5337, "fica": 3802, "total": 97685, "eff": 22.0, "takehome": 347259}}], "fed_marg25": 0.22}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $=v=>(v<0?'−':'')+'$'+Math.abs(Math.round(v)).toLocaleString();
+const $k=v=>(v<0?'−':'')+'$'+(Math.abs(v)/1000).toFixed(Math.abs(v)>=100000?0:1)+'K';
+const pct=(a,b)=>(a/b*100).toFixed(1)+'%';
+const base=D.scen[1], P=base.personal;
+const tax25=46+1699+800+3802;
+// KPIs
+const k=[
+ {l:'2025 revenue',v:$(D.rev25),n:'+64% vs 2024'},
+ {l:'2025 ordinary income (K-1)',v:$(D.k1_25),n:'23.9% of revenue, −28% vs 2024'},
+ {l:'2025 personal AGI',v:$(D.agi25),n:'single filer'},
+ {l:'2025 taxes paid, all kinds',v:$(tax25),n:pct(tax25,D.agi25)+' of AGI (federal $46)'},
+ {l:'2026 K-1 at $600K, base case',v:$(base.k1),n:'only variable costs grow'},
+ {l:'2026 taxes, base case',v:$(P.total),n:P.eff+'% of AGI · take-home '+$(P.takehome)},
+];
+document.getElementById('kpis').innerHTML=k.map(x=>`<div class="card kpi"><div class="label">${x.l}</div><div class="value">${x.v}</div><div class="note">${x.n}</div></div>`).join('');
+document.getElementById('headline').innerHTML=`<b>Headline.</b> In 2025 the owner paid almost no income tax: $46 federal and $1,699 to California on $126,792 of income, thanks to $49.9K of itemized deductions, a $14.4K QBI deduction and a solar credit. At $600K of revenue with the same cost structure, the S corp passes through about ${$k(base.k1)} and the combined tax bill rises to about ${$k(P.total)}, roughly ${P.eff}% of income, with a federal marginal rate of ${Math.round(P.marginal*100)}% plus 9.3% California. Every dollar of additional profit above that point keeps about 56 cents. The two biggest structural problems to fix first are the $125K shareholder loan and a $13.7K salary that caps the QBI deduction.`;
+// history
+const hist=[{y:'2023',r:217647,i:167090},{y:'2024',r:176156,i:95698},{y:'2025',r:289584,i:69133}];
+const th={ink:css('--ink'),ink2:css('--ink2'),muted:css('--muted'),grid:css('--grid'),axis:css('--axis'),s1:css('--s1'),s2:css('--s2'),surface:css('--surface')};
+const tip={backgroundColor:th.surface,titleColor:th.ink,bodyColor:th.ink2,borderColor:th.grid,borderWidth:1,padding:10};
+const base_opts=(extra={})=>({responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>`${c.dataset.label||''} ${$(c.raw)}`}}},scales:{x:{grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2}},y:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>$k(v)}}},...extra});
+const mk=(id,cfg)=>{const c=document.getElementById(id);c.parentElement.style.height=c.getAttribute('height')+'px';new Chart(c,cfg);};
+mk('cHist',{type:'bar',data:{labels:hist.map(h=>h.y),datasets:[{label:'Revenue',data:hist.map(h=>h.r),backgroundColor:th.s1,borderRadius:4,borderSkipped:'start',maxBarThickness:28},{label:'Ordinary income',data:hist.map(h=>h.i),backgroundColor:th.s2,borderRadius:4,borderSkipped:'start',maxBarThickness:28}]},options:base_opts()});
+document.getElementById('tHist').innerHTML=`<table><thead><tr><th>Year</th><th>Revenue</th><th>Ordinary income</th><th>Margin</th></tr></thead><tbody>${hist.map(h=>`<tr><td>${h.y}</td><td>${$(h.r)}</td><td>${$(h.i)}</td><td>${pct(h.i,h.r)}</td></tr>`).join('')}</tbody></table>`;
+// expenses
+const exp=Object.entries(D.ded25).sort((a,b)=>b[1]-a[1]);
+exp.unshift(['Cost of goods sold',D.cogs25]); exp.sort((a,b)=>b[1]-a[1]);
+mk('cExp',{type:'bar',data:{labels:exp.map(e=>e[0]),datasets:[{data:exp.map(e=>e[1]),backgroundColor:exp.map(e=>['Auto and truck','Travel','Meals (50% allowed)','Interest'].includes(e[0])?th.s2:th.s1),borderRadius:4,borderSkipped:'start',maxBarThickness:16}]},
+ options:{...base_opts({indexAxis:'y'}),plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>`${$(c.raw)} · ${pct(c.raw,D.rev25)} of revenue`}}},scales:{x:{grid:{color:th.grid,drawTicks:false},border:{display:false},ticks:{color:th.muted,callback:v=>$k(v),maxTicksLimit:5}},y:{grid:{display:false},border:{color:th.axis},ticks:{color:th.ink2,autoSkip:false,font:{size:11}}}}}});
+// income statement table
+const ded=sum=>Object.values(D.ded25).reduce((a,b)=>a+b,0);
+const isRows=[['Gross receipts',D.rev25],['Cost of goods sold',-D.cogs25],['Gross profit',D.rev25-D.cogs25,'total'],
+ ...exp.filter(e=>e[0]!=='Cost of goods sold').map(e=>[e[0],-e[1],'sub']),['Total deductions',-ded(),'total'],['Ordinary business income (K-1)',D.k1_25,'total'],
+ ['Nondeductible meals and entertainment (reduces cash and basis)',-17252,'sub'],['Distributions to shareholder',-52309,'sub'],['Net increase in loan to shareholder',-36870,'sub']];
+document.getElementById('tIS').innerHTML=`<table><thead><tr><th>Line</th><th>2025</th><th>% of revenue</th></tr></thead><tbody>${isRows.map(r=>`<tr class="${r[2]||''}"><td>${r[0]}</td><td class="${r[1]<0&&r[2]!=='sub'?'':''}">${$(r[1])}</td><td>${pct(Math.abs(r[1]),D.rev25)}</td></tr>`).join('')}</tbody></table>`;
+// personal income
+const inc=[['W-2 wages (B LLC $13,700 and V C LLC about $36,000)',49700],['B LLC, S corporation K-1',69133],['V C LLC, partnership K-1 (nonpassive)',76351],['V, LLC, S corporation K-1: current year',-2739],['V, LLC: prior-year suspended loss released',-58496],['Form 4797 ordinary loss (V, LLC)',-4106],['Rental property, allowed loss (of −$41,691)',-7736],['Interest',7143],['Dividends',87],['Capital gain or loss (−$7,106, limited to −$3,000)',-3000],['IRA early distribution',455]];
+document.getElementById('tInc').innerHTML=`<table><thead><tr><th>Source</th><th>2025</th><th>% of AGI</th></tr></thead><tbody>${inc.map(r=>`<tr><td>${r[0]}</td><td class="${r[1]<0?'neg':''}">${$(r[1])}</td><td>${pct(r[1],D.agi25)}</td></tr>`).join('')}<tr class="total"><td>Adjusted gross income</td><td>${$(D.agi25)}</td><td>100%</td></tr></tbody></table>`;
+const taxRows=[['Adjusted gross income',126792,'','total'],['Itemized deductions',-49923,'39.4%'],['QBI deduction',-14414,'11.4%'],['Taxable income',62455,'49.3%','total'],['Federal income tax before credits (22% bracket)',8655,'6.8%'],['Residential clean energy credit + foreign tax credit',-8655,''],['Federal income tax',0,'0.0%','total'],['Other federal tax (IRA penalty)',46,'0.0%'],['California income tax',1699,'1.3%'],['California S-corp minimum tax (paid by B LLC)',800,'0.6%'],['Employee Social Security and Medicare (on $49,700 W-2)',3802,'3.0%'],['All taxes paid',tax25,pct(tax25,126792),'total']];
+document.getElementById('tTax').innerHTML=`<table><thead><tr><th></th><th>2025</th><th>% of AGI</th></tr></thead><tbody>${taxRows.map(r=>`<tr class="${r[3]||''}"><td>${r[0]}</td><td>${$(r[1])}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>`;
+// scenarios
+const S=D.scen;
+const row=(label,f,cls)=>`<tr class="${cls||''}"><td>${label}</td>${S.map(s=>`<td>${f(s)}</td>`).join('')}</tr>`;
+document.getElementById('tScen').innerHTML=`<table><thead><tr><th></th>${S.map(s=>`<th>${s.name}${s===base?' (base)':''}</th>`).join('')}</tr></thead><tbody>
+${row('Revenue',s=>$(600000))}${row('Cost of goods sold',s=>$(-s.cogs))}${row('Deductions',s=>$(-s.ded))}${row('Ordinary income to K-1',s=>$(s.k1),'total')}${row('Margin',s=>pct(s.k1,600000))}
+<tr><td colspan="4" style="color:var(--ink2);font-weight:600;padding-top:12px">Personal return, 2026</td></tr>
+${row('Adjusted gross income',s=>$(s.personal.agi))}${row('Itemized deductions (SALT capped at $40,400)',s=>$(-s.personal.itemized))}${row('QBI deduction',s=>$(-s.personal.qbi))}${row('Taxable income',s=>$(s.personal.ti),'total')}
+${row('Federal tax before credits',s=>$(s.personal.fed_gross))}${row('Energy credit carryforward used',s=>$(-s.personal.energy))}${row('General business credit used',s=>$(-s.personal.gbc))}${row('Federal income tax',s=>$(s.personal.fed),'total')}
+${row('Federal marginal bracket',s=>Math.round(s.personal.marginal*100)+'%')}${row('California personal income tax',s=>$(s.personal.ca))}${row('California S-corp tax (1.5%)',s=>$(s.personal.ca_corp))}${row('Employee payroll tax',s=>$(s.personal.fica))}
+${row('All taxes',s=>$(s.personal.total),'total')}${row('Effective rate on AGI',s=>s.personal.eff+'%')}${row('Take-home after all taxes',s=>$(s.personal.takehome),'total')}
+${row('vs 2025 take-home of '+$(126792-tax25),s=>$(s.personal.takehome-(126792-tax25)))}
+</tbody></table>`;
+// flow svg (waterfall)
+(function(){
+ const steps=[['Revenue',600000],['Cost of goods',-base.cogs],['Other deductions',-(base.ded)],['K-1 income',base.k1,'sub'],['Other income, net',P.agi-base.k1],['Deductions and QBI',-(P.itemized+P.qbi)],['Taxable income',P.ti,'sub'],['Federal tax',-P.fed],['California',-(P.ca+P.ca_corp)],['Payroll tax',-P.fica],['Take-home',P.takehome,'sub']];
+ const W=560,H=330,L=150,R=70,T=16,B=36,ph=H-T-B; const max=600000; const sc=v=>v/max*(W-L-R);
+ let x=0,html='';
+ const bh=ph/steps.length-6;
+ steps.forEach((s,i)=>{const y=T+i*(ph/steps.length);
+  let x0,x1,fill;
+  if(s[2]==='sub'){x0=0;x1=s[1];fill=css('--s1');x=s[1];}else if(s[1]>=0&&i===0){x0=0;x1=s[1];fill=css('--s1');x=s[1];}else if(s[1]>=0){x0=x;x1=x+s[1];fill=css('--s3');x=x1;}else{x1=x;x0=x+s[1];fill=css('--neg');x=x0;}
+  html+=`<text x="${L-8}" y="${y+bh/2+4}" text-anchor="end" font-size="11" fill="${css('--ink2')}">${s[0]}</text>`;
+  html+=`<rect x="${L+sc(Math.min(x0,x1))}" y="${y}" width="${Math.max(2,sc(Math.abs(x1-x0)))}" height="${bh}" rx="3" fill="${fill}"/>`;
+  html+=`<text x="${L+sc(Math.max(x0,x1))+6}" y="${y+bh/2+4}" font-size="11" fill="${css('--ink')}">${$k(s[1])}</text>`;
+ });
+ html+=`<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B+4}" stroke="${css('--axis')}"/>`;
+ html+=`<text x="${L}" y="${H-10}" font-size="11" fill="${css('--muted')}">Blue: running subtotal · green: adds · red: subtracts</text>`;
+ document.getElementById('flow').innerHTML=html;
+})();
+// tax comparison chart
+const cats=['Federal income tax','California personal','California S-corp','Employee payroll'];
+const v25=[46,1699,800,3802], v26=[P.fed,P.ca,P.ca_corp,P.fica];
+mk('cTax',{type:'bar',data:{labels:cats,datasets:[{label:'2025',data:v25,backgroundColor:th.s1,borderRadius:4,borderSkipped:'start',maxBarThickness:26},{label:'2026 base',data:v26,backgroundColor:th.s2,borderRadius:4,borderSkipped:'start',maxBarThickness:26}]},options:base_opts()});
+document.getElementById('tTaxCmp').innerHTML=`<table><thead><tr><th>Tax</th><th>2025</th><th>2026 base</th><th>Change</th></tr></thead><tbody>${cats.map((c,i)=>`<tr><td>${c}</td><td>${$(v25[i])}</td><td>${$(v26[i])}</td><td class="neg">${$(v26[i]-v25[i])}</td></tr>`).join('')}<tr class="total"><td>Total</td><td>${$(tax25)}</td><td>${$(P.total)}</td><td class="neg">${$(P.total-tax25)}</td></tr></tbody></table>`;
+document.getElementById('changes').innerHTML=[
+ `<b>Income tax goes from $46 to about ${$k(P.fed+P.ca)}.</b> The itemized deductions and credits that erased the 2025 bill cover a much smaller share of a ${$k(P.agi)} income.`,
+ `<b>Marginal rate jumps to ${Math.round(P.marginal*100)}% federal + 9.3% California.</b> In 2025 the marginal federal rate was effectively zero because credits exceeded the tax. From here every added $10K of profit costs about $4,400 in tax.`,
+ `<b>The QBI deduction shrinks relative to income.</b> Above the $201,750 threshold it is capped at 50% of B LLC's W-2 wages, about $6,850, instead of 20% of $336K ($67K). The partnership share adds roughly $15K. The missing deduction is worth roughly $20K of federal tax at the base case.`,
+ `<b>The rental loss allowance disappears.</b> Above $150K of AGI none of the rental loss is deductible; it joins the $155K of suspended losses.`,
+ `<b>SALT becomes meaningful.</b> California tax of about ${$k(P.ca)} plus property taxes exceeds the $40,400 cap. The cap is the reason the PTE election matters.`,
+ `<b>California S-corp tax rises from the $800 minimum to about ${$k(P.ca_corp)}</b> (1.5% of CA net income).`,
+ `<b>Both credit carryforwards are consumed in 2026.</b> After that the federal bill is about $33K higher at the same income.`,
+ `<b>Cash flow.</b> The business must fund roughly ${$k(P.total)} of taxes during 2026 and early 2027. The federal safe harbor based on 2025 tax ($46) means most of it is legally deferrable to April 2027, but it has to be set aside.`,
+].map(t=>`<li>${t}</li>`).join('');
+</script>
+</div></body></html>

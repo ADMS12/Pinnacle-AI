@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahawi Legacy Proposal</title>
+<style>
+:root{--navy:#0d366b;--blue:#2a78d6;--blue2:#5598e7;--teal:#1baf7a;--gold:#eda100;--red:#e34948;--violet:#6250d6;--pink:#d6508f;--orange:#e8702a;--ink:#0b0b0b;--ink2:#4b5563;--muted:#8a8f98;--line:#e5e7eb;--bg:#f6f7f9;--card:#fff;--wash:#eef4fc;--wash2:#fdf0e9;--wash3:#e8f7f1;--washr:#fdeaea;--washv:#efecfb;--washp:#fbeaf2;--washg:#fff8e6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1400px;margin:0 auto;padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav a{font-size:13px;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:999px}nav a:hover{background:var(--wash);color:var(--navy)}
+nav .brand{font-weight:700;color:var(--navy);margin-right:auto;font-size:14px}
+.slide{max-width:1400px;margin:0 auto;padding:64px 28px 56px;border-bottom:1px solid var(--line)}
+.hero{background:var(--navy);color:#fff;border:0}.hero .in{max-width:1400px;margin:0 auto;padding:80px 28px 70px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:50px;line-height:1.08;margin:0 0 16px;font-weight:750;letter-spacing:-.01em}.hero .sub{color:#cde2fb;font-size:21px}
+.hero .firms{margin-top:32px;display:flex;gap:28px;flex-wrap:wrap}.hero .firms div{font-size:14px;color:#cde2fb}.hero .firms b{display:block;color:#fff;font-size:16px}
+.k{display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}.k .n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.k .tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h2{font-size:36px;margin:0 0 10px;font-weight:750;letter-spacing:-.01em}h3{font-size:22px;margin:0 0 10px;font-weight:700}h4{font-size:17px;margin:0 0 6px;font-weight:700}
+.lede{color:var(--ink2);font-size:20px;max-width:1000px;margin:0 0 30px}
+.grid{display:grid;gap:22px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g21{grid-template-columns:1.3fr 1fr}.g12{grid-template-columns:1fr 1.3fr}
+@media(max-width:1000px){.g2,.g3,.g4,.g21,.g12,.hero .in{grid-template-columns:1fr}.hero h1{font-size:36px}h2{font-size:30px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+.card.soft{background:var(--wash)}.card.warn{background:var(--washr);border-color:#f3c6c6}.card.good{background:var(--wash3)}.card.v{background:var(--washv)}.card.o{background:var(--wash2)}.card.p{background:var(--washp)}.card.gl{background:var(--washg)}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}.kpi .l{font-size:13px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}.kpi .v{font-size:32px;font-weight:750;margin:4px 0 2px;letter-spacing:-.01em}.kpi .s{font-size:14px;color:var(--muted)}
+.kpi.red .v{color:#c0392b}.kpi.green .v{color:#0f8a5f}.kpi.gold .v{color:#b86a00}.kpi.violet .v{color:#4a3bb0}
+p{margin:8px 0;color:var(--ink2)}ul{margin:8px 0;padding-left:22px}li{margin:6px 0;color:var(--ink2)}li b,p b{color:var(--ink)}
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.now{background:rgba(227,73,72,.12);color:#b42318}.pill.soon{background:rgba(237,161,0,.16);color:#9a5b00}.pill.later{background:rgba(27,175,122,.14);color:#0f6b4b}.pill.info{background:var(--wash);color:var(--navy)}.pill.v{background:rgba(98,80,214,.14);color:#4a3bb0}
+.pill.keep{background:rgba(27,175,122,.14);color:#0f6b4b}.pill.mod{background:rgba(237,161,0,.16);color:#9a5b00}.pill.add{background:rgba(42,120,214,.14);color:#1a4f93}.pill.drop{background:rgba(227,73,72,.12);color:#b42318}
+.callout{border-left:6px solid var(--blue);background:var(--wash);padding:16px 22px;border-radius:10px;font-size:18px;color:var(--ink)}
+.callout.o{border-color:var(--gold);background:var(--wash2)}.callout.r{border-color:var(--red);background:var(--washr)}.callout.g{border-color:var(--teal);background:var(--wash3)}.callout.v{border-color:var(--violet);background:var(--washv)}
+table{width:100%;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}th:first-child,td:first-child{text-align:left}th{color:var(--ink2);font-weight:600;font-size:14px}tr.total td{font-weight:700;border-top:2px solid #c3c2b7}
+td.l,th.l{text-align:left}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.small{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}.steps .st{position:relative;padding:18px 18px 18px 22px;border-left:3px solid var(--line)}.steps .st::before{content:counter(s);counter-increment:s;position:absolute;left:-17px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.steps .st:nth-child(2)::before{background:var(--gold)}.steps .st:nth-child(3)::before{background:var(--violet)}.steps .st:nth-child(4)::before{background:var(--teal)}
+@media(max-width:1000px){.steps{grid-template-columns:1fr}}
+.foot{max-width:1400px;margin:0 auto;padding:30px 28px 60px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<nav><div class="in"><span class="brand">Shahawi Family · Estate &amp; Legacy Planning Proposal</span>
+<a href="#findings">The family</a><a href="#changes">Recommendations</a><a href="#family">Family</a><a href="#business">Business</a><a href="#realestate">Real estate</a><a href="#liquidity">Liquidity</a><a href="#foundation">Foundation</a><a href="#generations">Generations</a><a href="#funding">Funding by asset</a><a href="#governance">Governance</a><a href="#roadmap">Roadmap</a></div></nav>
+
+<header class="hero"><div class="in">
+  <div>
+    <div style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#86b6ef;margin-bottom:14px">Prepared for Ihab Shahawi and Vivian El-Shahawi · October 2026</div>
+    <h1>Estate &amp; Legacy Planning Proposal</h1>
+    <div class="sub">A plan for a family with a $67 million enterprise, four children in four very different situations, two grandchildren, sixteen properties in four countries, a foundation that already carries its mission, and a stated dislike of life insurance. It holds every share in a lifetime trust, moves the growth out of a 40% estate tax, puts the foundation at the center of the legacy, and settles how the Institute passes on.</div>
+    <div class="firms"><div><b>Pinnacle Planning</b>Advanced planning for business owners</div><div><b>Wealth Advisory Now</b>Fee-based fiduciary wealth management</div><div><b>M&amp;M Wealth Associates</b>Insurance solutions and advanced planning</div></div>
+  </div>
+  <div>
+    <div class="grid g2" style="gap:14px">
+      <div class="kpi" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="l" style="color:#cde2fb">Net worth today</div><div class="v" style="color:#fff">$67.1M</div><div class="s" style="color:#86b6ef">99.9% in the Institute and real estate; $100K of cash</div></div>
+      <div class="kpi" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="l" style="color:#cde2fb">Estate tax if both passed today</div><div class="v" style="color:#f3a978">$14.8M</div><div class="s" style="color:#86b6ef">due in nine months, with nothing liquid to pay it</div></div>
+      <div class="kpi" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="l" style="color:#cde2fb">Projected tax in 2053, current path</div><div class="v" style="color:#eda100">$46.4M</div><div class="s" style="color:#86b6ef">plus $9M of probate; 69% of the estate reaches the family</div></div>
+      <div class="kpi" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="l" style="color:#cde2fb">With this plan</div><div class="v" style="color:#5cc48a">94%+</div><div class="s" style="color:#86b6ef">to heirs and family trusts; the remainder paid without selling the company</div></div>
+    </div>
+  </div>
+</div></header>
+
+<!-- ===================== 1 FINDINGS ===================== -->
+<section class="slide" id="findings">
+  <div class="k"><span class="n">1</span><span class="tag">The family</span></div>
+  <h2>Who this plan is for, and what each fact means for it</h2>
+  <div class="card">
+    <table><thead><tr><th class="l" style="width:16%">Topic</th><th class="l" style="width:42%">The facts</th><th class="l" style="width:42%">What it means for the plan</th></tr></thead><tbody>
+      <tr><td class="l"><b>The children</b></td><td class="l">Five children, one lost in a car accident 13 years ago at 24. Son 21; daughter 31, married last November, living in London; son 42, unmarried; daughter 46, recently divorced, mother of the two teenage grandchildren</td><td class="l">Equal shares stay, but each share needs its own design: a UK-resident beneficiary, a newly divorced beneficiary, a 21-year-old, and a memorial the family may want to carry into the foundation</td></tr>
+      <tr><td class="l"><b>The grandchildren</b></td><td class="l">20% of the legacy to the two grandchildren, who are both children of the 46-year-old daughter</td><td class="l">As written, one branch of the family receives 40% and future grandchildren from the other three children receive nothing. Section 3 proposes a fix</td></tr>
+      <tr><td class="l"><b>Life insurance</b></td><td class="l">&#8220;Don&#39;t believe in life insurance.&#8221; $50K of coverage through the company, no annuities</td><td class="l">This proposal shows the insurance-free ways to pay the tax first, then the cost of each against the policy, so the decision is made on numbers rather than belief</td></tr>
+      <tr><td class="l"><b>Existing documents</b></td><td class="l">A living trust exists, last updated 12 years ago, around the time of the son&#39;s death</td><td class="l">Restate rather than draft new. The old document almost certainly names the deceased son, predates the grandchildren&#39;s ages, the London marriage, the divorce, and the 2026 exemption</td></tr>
+      <tr><td class="l"><b>The Institute</b></td><td class="l">Valuation $40M &#8220;conservatively.&#8221; $5M invested inside the company earns $55K a month, about 13%. $2M operating cash. No children in the business. Ihab and Vivian own 100%</td><td class="l">The 13% yield on $5M needs a look: it is either a private lending book or a concentrated position, and either way it is inside a C corporation. No family successor means the succession plan is a management transition, an ESOP, or a sale</td></tr>
+      <tr><td class="l"><b>Real estate</b></td><td class="l">Nine US properties in the two LLCs (Kansas, Missouri, and seven in California including Bakersfield, Beverly Hills, Artesia, San Bernardino and a Pasadena rental that loses money). Seven more abroad, held personally: five in the UK, one in Egypt, one in Colombia, value not yet stated</td><td class="l">The foreign properties are in the US estate at 40% and also in three other countries&#39; inheritance regimes. They must stay out of the US trusts and get local wills. Section 5 covers each</td></tr>
+      <tr><td class="l"><b>Charity</b></td><td class="l">Ihab founded and leads the IABA Research &amp; Education Foundation, a 501(c)(3). Three charities supported for 12 years: autism services for children and young adults, and tutoring. $150K given to UCLA psychology</td><td class="l">The foundation becomes the hub of the family&#39;s giving and governance. The DAF stays for gifts outside the foundation&#39;s mission. UCLA psychology&#39;s autism research is squarely inside it</td></tr>
+      <tr><td class="l"><b>Income and spending</b></td><td class="l">Confirmed: $400K and $300K; 37% bracket; $27K to $30K a month, some paid through the business; Social Security estimates of $3,500 and $4,000 a month</td><td class="l">Expenses run through the business are a reasonable-compensation and audit flag worth cleaning up before the appraisal</td></tr>
+      <tr><td class="l"><b>Retirement</b></td><td class="l">Ihab at 66 and Vivian at 70, both in 2029</td><td class="l">Three working years to put the structure in place before salaries stop</td></tr>
+      <tr><td class="l"><b>How they want to work</b></td><td class="l">&#8220;Client wants collaborative&#8221;</td><td class="l">Every irrevocable step is staged behind a decision meeting; nothing is drafted as a package to sign</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ===================== 2 CHANGES ===================== -->
+<section class="slide" id="changes">
+  <div class="k"><span class="n">2</span><span class="tag">The recommendations</span></div>
+  <h2>The plan at a glance, and why each piece is there</h2>
+  <div class="grid g2">
+    <div class="card good"><h3><span class="pill keep">Structure</span> The trust architecture</h3>
+      <ul><li><b>Revocable living trust</b> as the foundation document, with bypass and QTIP sub-trusts at the first death.</li>
+      <li><b>Two SLATs and one IDGT sale</b>, drafted as GST-exempt dynasty trusts with Nevada situs, funded with discounted non-voting Institute shares and LLC2 interests.</li>
+      <li><b>Recapitalization and appraisal</b> first, then gifts; voting shares stay with Ihab.</li>
+      <li><b>GRAT and CRT</b> funded with shares before any sale of the Institute.</li>
+      <li><b>Cash reserve</b> before any irrevocable gift. The $200K real estate operating account plus $100K personal already meets the $180K target.</li></ul></div>
+    <div class="card gl"><h3><span class="pill mod">Family design</span> How each share is held</h3>
+      <ul><li><b>Living trust: restate the existing one, don&#39;t replace it.</b> Same trust, new document, so existing titles do not have to move twice. Why: the LLC interests and shares may already be titled to it.</li>
+      <li><b>Children&#39;s shares in lifetime trusts, never outright.</b> Why: one child lives in the UK, one is newly divorced, one is 21. Outright distributions would be exposed in each case.</li>
+      <li><b>Grandchildren&#39;s 20% becomes a &#8220;grandchildren&#39;s trust&#8221; open to all grandchildren,</b> present and future. Why: as written, only one branch benefits. Section 3 shows the options.</li>
+      <li><b>Insurance: present the alternatives first.</b> Why: Ihab does not believe in it. Section 6 shows the four ways to pay the tax and what each costs; the policy is kept as a recommendation because it wins on the numbers.</li>
+      <li><b>Donor-advised fund in a supporting role.</b> Why: the family already has a foundation it controls. Mission gifts go through the foundation; the DAF handles the rest.</li>
+      <li><b>SLAT 2&#39;s assets chosen property by property.</b> Why: some properties should stay in the estate for the basis step-up; the growth properties should go.</li></ul></div>
+    <div class="card soft"><h3><span class="pill add">Legacy, business, property</span> Eight further recommendations</h3>
+      <ul><li><b>The foundation as the family&#39;s philanthropic and governance hub</b> (section 7).</li>
+      <li><b>A foreign property plan:</b> local wills in the UK, Egypt and Colombia; the properties stay out of the US trusts; a path to pass the UK properties to the London daughter (section 5).</li>
+      <li><b>An ESOP feasibility study</b> alongside the market check, because there is no family successor (section 4).</li>
+      <li><b>A contingency succession agreement</b> naming who runs the Institute the day Ihab cannot, with retention terms for clinical leadership (section 4).</li>
+      <li><b>A grantor charitable lead trust at the sale</b> that funds the foundation for 20 years from pre-tax dollars and passes the remainder to the children gift-free (section 7).</li>
+      <li><b>Family governance:</b> a family council, a charter, staggered board seats, and a next-generation grant committee (section 10).</li>
+      <li><b>Incentive and stewardship provisions</b> in the children&#39;s and grandchildren&#39;s trusts (section 3).</li>
+      <li><b>A section 303 redemption reserve inside the Institute</b> as the insurance-free backstop for estate tax (section 6).</li></ul></div>
+    <div class="card o"><h3><span class="pill drop">Not recommended</span> Two choices, explained</h3>
+      <ul><li><b>The Rockefeller waterfall is optional, not recommended.</b> Why: it depends on permanent policies on each child, and the family&#39;s view of insurance makes a multi-generation insurance program unlikely to be maintained. The dynasty trusts do their job without it. It stays available if the children, who will govern the trusts, choose it later.</li>
+      <li><b>UCLA gifts route through the foundation rather than a DAF.</b> Why: UCLA psychology&#39;s autism research is inside the foundation&#39;s mission, so the foundation can fund a named research program there. The family keeps the same tax benefit, adds its own name to the work, and gives the children a board seat in the decision.</li></ul></div>
+  </div>
+</section>
+
+<!-- ===================== 3 FAMILY ===================== -->
+<section class="slide" id="family">
+  <div class="k"><span class="n">3</span><span class="tag">Family legacy planning</span></div>
+  <h2>Four children, four designs, one set of rules</h2>
+  <p class="lede">The split is equal. How each share is held is not, because the four children are in four different situations. Every share goes into a lifetime trust rather than outright, and each trust says something different.</p>
+  <div class="card" style="margin-bottom:22px">
+    <svg viewBox="0 0 1200 330" width="100%">
+      <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#898781"/></marker></defs>
+      <g font-size="13">
+      <rect x="440" y="16" width="320" height="56" rx="12" fill="#0d366b"/><text x="600" y="40" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Ihab (63) and Vivian (67)</text><text x="600" y="60" text-anchor="middle" fill="#cde2fb" font-size="12">the dynasty trusts: 80% to children, 20% to grandchildren</text>
+      <line x1="600" y1="74" x2="600" y2="96" stroke="#898781" stroke-width="2"/><line x1="130" y1="96" x2="1070" y2="96" stroke="#898781" stroke-width="2"/>
+      <g><line x1="130" y1="96" x2="130" y2="118" stroke="#898781" stroke-width="2" marker-end="url(#ar)"/><line x1="365" y1="96" x2="365" y2="118" stroke="#898781" stroke-width="2" marker-end="url(#ar)"/><line x1="600" y1="96" x2="600" y2="118" stroke="#898781" stroke-width="2" marker-end="url(#ar)"/><line x1="835" y1="96" x2="835" y2="118" stroke="#898781" stroke-width="2" marker-end="url(#ar)"/><line x1="1070" y1="96" x2="1070" y2="118" stroke="#898781" stroke-width="2" marker-end="url(#ar)"/></g>
+      <rect x="20" y="122" width="220" height="118" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/><text x="130" y="146" text-anchor="middle" font-weight="700">Son, 21</text><text x="130" y="166" text-anchor="middle" fill="#4b5563" font-size="12">20% · incentive trust</text><text x="130" y="186" text-anchor="middle" fill="#4b5563" font-size="12">education, matched earnings,</text><text x="130" y="202" text-anchor="middle" fill="#4b5563" font-size="12">loans for a home or business,</text><text x="130" y="218" text-anchor="middle" fill="#4b5563" font-size="12">trustee discretion until 35</text>
+      <rect x="255" y="122" width="220" height="118" rx="12" fill="#fbeaf2" stroke="#d6508f" stroke-width="2"/><text x="365" y="146" text-anchor="middle" font-weight="700">Daughter, 31 · London</text><text x="365" y="166" text-anchor="middle" fill="#4b5563" font-size="12">20% · US dynasty trust</text><text x="365" y="186" text-anchor="middle" fill="#4b5563" font-size="12">no outright distributions while</text><text x="365" y="202" text-anchor="middle" fill="#4b5563" font-size="12">UK resident; UK adviser signs off;</text><text x="365" y="218" text-anchor="middle" fill="#4b5563" font-size="12">UK properties earmarked to her</text>
+      <rect x="490" y="122" width="220" height="118" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="600" y="146" text-anchor="middle" font-weight="700">Son, 42</text><text x="600" y="166" text-anchor="middle" fill="#4b5563" font-size="12">20% · dynasty trust</text><text x="600" y="186" text-anchor="middle" fill="#4b5563" font-size="12">broad access, protected from a</text><text x="600" y="202" text-anchor="middle" fill="#4b5563" font-size="12">future spouse without a prenup;</text><text x="600" y="218" text-anchor="middle" fill="#4b5563" font-size="12">candidate for trustee and board</text>
+      <rect x="725" y="122" width="220" height="118" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/><text x="835" y="146" text-anchor="middle" font-weight="700">Daughter, 46 · divorced</text><text x="835" y="166" text-anchor="middle" fill="#4b5563" font-size="12">20% · dynasty trust</text><text x="835" y="186" text-anchor="middle" fill="#4b5563" font-size="12">creditor and ex-spouse shield,</text><text x="835" y="202" text-anchor="middle" fill="#4b5563" font-size="12">independent trustee, support</text><text x="835" y="218" text-anchor="middle" fill="#4b5563" font-size="12">for her two children&#39;s costs</text>
+      <rect x="960" y="122" width="220" height="118" rx="12" fill="#fdf0e9" stroke="#eb6834" stroke-width="2"/><text x="1070" y="146" text-anchor="middle" font-weight="700">Grandchildren&#39;s trust</text><text x="1070" y="166" text-anchor="middle" fill="#4b5563" font-size="12">20% · open class</text><text x="1070" y="186" text-anchor="middle" fill="#4b5563" font-size="12">today: the two teenagers (16, 14)</text><text x="1070" y="202" text-anchor="middle" fill="#4b5563" font-size="12">tomorrow: any grandchild born</text><text x="1070" y="218" text-anchor="middle" fill="#4b5563" font-size="12">before the second death</text>
+      <line x1="835" y1="242" x2="835" y2="262" stroke="#1baf7a" stroke-width="2" stroke-dasharray="4 3"/><line x1="835" y1="262" x2="1070" y2="262" stroke="#1baf7a" stroke-width="2" stroke-dasharray="4 3"/><line x1="1070" y1="262" x2="1070" y2="244" stroke="#1baf7a" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="952" y="282" text-anchor="middle" fill="#0f6b4b" font-size="12">today both grandchildren are in this branch</text>
+      <rect x="20" y="296" width="1160" height="26" rx="8" fill="#f3f4f6"/><text x="600" y="314" text-anchor="middle" fill="#4b5563" font-size="12">In memory: the son lost 13 years ago. A named program or award at the foundation keeps him in the family&#39;s legacy without changing any share.</text>
+      </g>
+    </svg>
+  </div>
+  <div class="grid g2">
+    <div class="card warn"><h3>The grandchildren&#39;s clause needs a decision</h3>
+      <p>The profile says 20% to each child and 20% to &#8220;the two grandkids.&#8221; Both grandchildren are the 46-year-old daughter&#39;s children, so her branch receives 40% of the legacy and the other three children&#39;s future children receive nothing. That may be exactly what you intend, since those two grandchildren are the ones you know, but it should be a choice rather than an accident of timing. Three ways to write it:</p>
+      <ul><li><b>Open class (recommended).</b> 20% to a grandchildren&#39;s trust for every grandchild living at the second death, shared equally. The two teenagers are in it today; any later grandchildren join. College funding comes from this trust.</li>
+      <li><b>Named beneficiaries.</b> 20% to the two named grandchildren only, as the profile reads. Simple, but it has to be revisited at every birth.</li>
+      <li><b>Per stirpes.</b> No separate grandchildren&#39;s share; each child&#39;s 25% continues to that child&#39;s descendants. Treats every branch alike, but gives the two teenagers less than the profile intends.</li></ul>
+      <p class="small">Whichever you choose, the trusts are GST-exempt, so none of it is taxed again at the children&#39;s deaths.</p></div>
+    <div class="card v"><h3>The rules every trust shares: incentives and stewardship</h3>
+      <ul><li><b>Lifetime dynasty trusts, not staged outright payouts.</b> Each child is a beneficiary for life and can become a co-trustee at 35, with an independent Nevada trustee always in place. That is what protects the shares from divorce, creditors and a second estate tax.</li>
+      <li><b>Incentive provisions,</b> drafted as guidance to the trustee rather than rigid tests: distributions for education and health without limit; a match of earned income; loans rather than gifts for a home or a business (the family-bank idea from the proposal, without the insurance); support for a child who works in the nonprofit sector or raises children full-time, so the incentive does not punish the choices the family values.</li>
+      <li><b>Stewardship education</b> as a condition of co-trusteeship: an annual family meeting, a financial literacy course by 25, and a term on the foundation&#39;s grant committee by 30.</li>
+      <li><b>For the 21-year-old:</b> no discretionary distributions beyond education and health until 25, then the full rules; a trusted adult of his choosing may be consulted by the trustee.</li>
+      <li><b>For the London daughter:</b> the trust holds her share and makes no outright distributions while she is UK resident. US trusts settled by non-UK parents with non-UK assets sit outside UK inheritance tax; money distributed to her does not. Her UK adviser reviews before any distribution, and she should not serve as trustee while resident there.</li>
+      <li><b>For the divorced daughter:</b> an independent trustee only, no withdrawal rights, and a spendthrift clause, so the share is never hers to be claimed against. Her children&#39;s costs can be paid directly to schools and providers.</li></ul></div>
+  </div>
+</section>
+
+<!-- ===================== 4 BUSINESS ===================== -->
+<section class="slide" id="business">
+  <div class="k"><span class="n">4</span><span class="tag">Business succession</span></div>
+  <h2>The Institute: no family successor, three real exits, and one agreement that cannot wait</h2>
+  <p class="lede">None of the four children works in the Institute, and Ihab and Vivian own all of it. That settles the succession question: the company will pass to management, to its employees, or to a buyer. The trusts should own the non-voting shares before that happens, so the proceeds, not just the shares, land outside the estate.</p>
+  <div class="grid g3">
+    <div class="card warn"><h4>Transition risks, as the profile reveals them</h4>
+      <ul><li><b>Key-person risk.</b> A $40M clinical services company whose founder-owner is three years from retirement, with no named successor and no agreement about who runs it the day he cannot.</li>
+      <li><b>Concentration inside the company.</b> $5M earning 13% is not a bank deposit. If it is private lending or a single position, it is a second business inside the first, and it is at risk in any sale or audit.</li>
+      <li><b>Expenses through the business.</b> Personal costs paid by the company depress the appraisal defensibly, but they are the first thing a buyer&#39;s accountant and an examiner add back.</li>
+      <li><b>Valuation gap.</b> $40M conservatively against $47M in the plan. The appraisal settles it; the gifts are sized on the appraisal.</li></ul></div>
+    <div class="card soft"><h4>Three exits, in the order to study them</h4>
+      <ul><li><b>Management transition with a trustee-held company.</b> Clinical leadership runs it; the trusts and the living trust own it; the family receives distributions. Works if leadership wants to stay and can be retained. Lowest proceeds, highest continuity.</li>
+      <li><b>ESOP.</b> Sell 30% or more to an employee stock ownership plan. Because the Institute is a C corporation, section 1042 lets Ihab defer the capital gain on the sale, 37% on nearly the whole price, by reinvesting in US operating company securities, and the gain disappears at death through the basis step-up. The company repays the ESOP loan with pre-tax dollars. A $12M first tranche defers about $4.5M of tax.</li>
+      <li><b>Sale to a strategic or private equity buyer.</b> Autism and behavioral services are an active acquisition market. Highest price, least continuity. The GRAT and CRT go in first.</li></ul></div>
+    <div class="card good"><h4>What to put in place now, whichever exit wins</h4>
+      <ul><li><b>Contingency succession agreement.</b> Names the interim CEO, the board, and the authority of the successor trustee over the voting shares. Signed within 90 days.</li>
+      <li><b>Retention for clinical leadership.</b> Stay bonuses or phantom equity vesting over three to five years, so the people the value depends on are still there at the transition.</li>
+      <li><b>Shareholder agreement among Ihab, the SLATs and the IDGT.</b> Right of first refusal, drag-along so the trusts&#39; non-voting shares join any sale, and a formula for redemptions. Required before the first gift.</li>
+      <li><b>Key-person coverage, corporate-owned.</b> Term coverage on Ihab, paid by the company, as a buyer and lender would expect. Presented because it is a business decision, not a personal one.</li>
+      <li><b>Clean the books:</b> move personal expenses to salary, document the $5M portfolio&#39;s holdings, and restate the last three years before the appraisal.</li></ul></div>
+  </div>
+  <div class="callout" style="margin-top:22px"><b>Should the shares stay in the estate or go into trust?</b> Into trust, for everything except the voting shares. The reason is arithmetic: at the plan&#39;s growth the Institute is worth $180M in 2053, and the family&#39;s goal is $25M. Every non-voting share that sits in a dynasty trust before the exit sends its share of the proceeds to the children without estate tax; every share still in the estate sends 40% of its proceeds to the IRS first. The voting shares stay with Ihab, inside the restated living trust, until the exit, and the living trust&#39;s successor trustee is the person who signs the sale if Ihab cannot.</div>
+</section>
+
+<!-- ===================== 5 REAL ESTATE ===================== -->
+<section class="slide" id="realestate">
+  <div class="k"><span class="n">5</span><span class="tag">Real estate holdings</span></div>
+  <h2>Sixteen properties, four countries: what each one needs</h2>
+  <p class="lede">Nine US properties sit inside two LLCs, seven more abroad are held personally, one loses money, and several may be sold or bought. The structure has to handle liability, three foreign inheritance regimes, and a choice between gifting a property&#39;s growth and keeping it for the basis step-up at death.</p>
+  <div class="card">
+    <table><thead><tr><th class="l">Property</th><th class="l">Ownership today</th><th class="l">Estate and local implications</th><th class="l">Income tax</th><th class="l">Recommended structure</th></tr></thead><tbody>
+      <tr><td class="l"><b>Beverly Hills, CA</b></td><td class="l">LLC2 (assumed; confirm)</td><td class="l">Likely the highest value and the highest built-in gain; moderate growth ahead. In the US estate at 40%</td><td class="l">Low basis. A sale during life is a 37% gain; at death the basis steps up to market and the gain disappears</td><td class="l"><b>Keep in the estate</b> inside the living trust for the step-up, unless the appraisal shows strong growth ahead. The one property where keeping beats gifting</td></tr>
+      <tr><td class="l"><b>Pasadena, CA</b> (rental, negative cash flow)</td><td class="l">LLC2 (assumed)</td><td class="l">A drag on the LLC; a candidate to exit</td><td class="l">If appreciated: 1031 exchange into a net-leased property, or gift it to the foundation or DAF and deduct the full value with no gain. If not appreciated: sell outright</td><td class="l"><b>Dispose in 2026.</b> Gift if appreciated, exchange if the family wants to stay invested, sell if neither</td></tr>
+      <tr><td class="l"><b>Bakersfield, Artesia, San Bernardino, CA</b> and two further California properties</td><td class="l">LLC2 / LLC1</td><td class="l">Cash-flow properties with growth ahead; the natural SLAT 2 assets</td><td class="l">Cost segregation on the larger buildings; depreciation shelters the rents, and inside a grantor trust Ihab still gets the deduction</td><td class="l"><b>Non-managing LLC interests to SLAT 2 (Vivian, 2027)</b> at a discount. Manager interest stays in the living trust so Ihab keeps control</td></tr>
+      <tr><td class="l"><b>Kansas and Missouri</b></td><td class="l">LLC1 or LLC2</td><td class="l">Out-of-state real estate owned directly would need ancillary probate in each state; owned by an LLC whose interest is in the living trust, it does not</td><td class="l">State income tax filings in both states already apply</td><td class="l"><b>Confirm the LLC interests are titled to the living trust.</b> Then SLAT 2 with the California cash-flow properties</td></tr>
+      <tr><td class="l"><b>United Kingdom, five properties</b></td><td class="l">Held personally</td><td class="l">UK inheritance tax at 40% above a £325,000 allowance applies to UK real estate whoever owns it, on top of the US 40%, with a treaty credit so the total is not 80% but is still 40% with two filings. UK probate is needed. Putting them into the US trusts would trigger UK trust entry and ten-year charges</td><td class="l">UK tax on rents and on gains at sale, even for non-residents; US credit for UK tax paid</td><td class="l"><b>UK wills, a UK solicitor, outside the US trusts.</b> Earmark them for the London daughter&#39;s 20% share: lifetime gifts to her are free of UK tax after seven years, and she can own UK property as a UK resident without the trust complications</td></tr>
+      <tr><td class="l"><b>Egypt, one property</b></td><td class="l">Held personally</td><td class="l">Egyptian succession law applies fixed shares to real estate in Egypt and does not recognize a US trust; the US plan&#39;s shares will not control it</td><td class="l">Local tax on rents and sale</td><td class="l"><b>Local will; decide whether to keep it.</b> If it is not a family home, sell during life and bring the proceeds into the plan</td></tr>
+      <tr><td class="l"><b>Colombia, one property</b></td><td class="l">Held personally</td><td class="l">Forced heirship: half of the estate is reserved for children by law; inheritance is taxed locally; a US trust is not recognized</td><td class="l">Local tax on rents and sale</td><td class="l"><b>Local will; same decision.</b> Sell during life unless there is a reason to hold it</td></tr>
+      <tr><td class="l"><b>Residence</b></td><td class="l">Joint</td><td class="l">In the estate; probate without the trust</td><td class="l">$500K gain exclusion; step-up at death</td><td class="l"><b>Living trust.</b> No change</td></tr>
+    </tbody></table>
+    <p class="small">Individual values, basis and LLC assignments were not in the profile. The appraisal engagement should cover every property so these recommendations can be sized. Egypt and Colombia need local counsel to confirm the succession rules that apply to Ihab&#39;s nationality and the property&#39;s use.</p></div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card soft"><h4>Asset protection across the portfolio</h4>
+      <p>Two LLCs holding nine properties means one lawsuit at one property reaches the other six in that LLC. Put the highest-value properties in their own LLCs under a holding LLC, keep the cash-flow properties together, and carry umbrella liability coverage of $5M or more. The holding LLC&#39;s non-managing units are what SLAT 2 receives, which also raises the discount.</p></div>
+    <div class="card good"><h4>Gift the growth, keep the gain</h4>
+      <p>The rule for choosing what goes into SLAT 2: a property with high growth ahead and modest built-in gain should be gifted, because the growth escapes the estate. A property with a large built-in gain and modest growth should stay, because death erases the gain. Beverly Hills probably stays; Bakersfield and San Bernardino probably go. The appraisal decides.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 6 LIQUIDITY ===================== -->
+<section class="slide" id="liquidity">
+  <div class="k"><span class="n">6</span><span class="tag">Liquidity and the insurance question</span></div>
+  <h2>Four ways to pay a $15M tax bill, and what each one costs the family</h2>
+  <p class="lede">Ihab does not believe in life insurance, so the question is not &#8220;insurance or nothing&#8221; but &#8220;which of the four ways to pay the tax is cheapest.&#8221; The estate tax if both passed today is $14.8M on $67M, due in nine months, against $100K of personal cash. With the trust plan it falls to about $7M. Either way the cash has to come from somewhere.</p>
+  <div class="card">
+    <table><thead><tr><th class="l" style="width:17%">Option</th><th class="l" style="width:30%">How it works</th><th class="l" style="width:23%">What it costs</th><th class="l" style="width:30%">What it does to the family</th></tr></thead><tbody>
+      <tr><td class="l"><b>A. Corporate reserve and a section 303 redemption</b></td><td class="l">The Institute keeps building cash (it already holds $7M and is projected to reach $120M). At death the company redeems enough shares from the estate to pay the tax; section 303 treats it as a sale at stepped-up basis, so no income tax</td><td class="l">Every $1 of cash retained to pay the tax is itself in the estate and taxed at 40%. A $15M reserve adds $6M of tax, so it must be $21M. Plus 21% corporate tax on the earnings that build it</td><td class="l">Works without insurance and the company can afford it. But it locks $21M inside the company that could have gone into the trusts, and it means the company must stay unsold until the second death</td></tr>
+      <tr><td class="l"><b>B. Section 6166 installments</b></td><td class="l">Because the business is more than 35% of the estate, the tax on the business portion can be paid over 14 years: interest only for four years, then ten annual payments</td><td class="l">Interest of about 2% on the first $1.9M and roughly 3% on the rest, not deductible. On $15M that is about $4M of interest over the term</td><td class="l">The IRS holds a lien on the Institute for 14 years. Selling more than half of it accelerates the whole balance. The estate stays illiquid for a generation</td></tr>
+      <tr><td class="l"><b>C. Graegin loan</b></td><td class="l">The estate borrows the tax from a bank, or from the trusts, on a fixed-term note; the interest is deductible on the estate tax return</td><td class="l">Interest at commercial rates on $15M for ten years: roughly $8M, of which about 40% comes back as a tax deduction</td><td class="l">Needs a lender willing to take Institute shares or real estate as collateral at the worst possible time, and a borrower (the estate) with no income</td></tr>
+      <tr><td class="l"><b>D. Second-to-die policy in an ILIT</b></td><td class="l">The trust owns a $20M policy. At the second death it pays $20M, income- and estate-tax free, and buys shares from or lends to the estate</td><td class="l">About $350K a year of premium, gifted to the trust, for the joint life expectancy of 20 to 25 years: $7M to $9M in total, to be quoted</td><td class="l">The only option where the money used to pay the tax is <i>not itself taxed</i>. Nothing stays locked in the company, no lien, no lender, and the policy is a tax-free asset of the dynasty trust if the tax turns out smaller than expected</td></tr>
+    </tbody></table></div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="kpi red"><div class="l">A: corporate reserve</div><div class="v">$21M</div><div class="s">locked in the company to net $15M after its own tax</div></div>
+    <div class="kpi gold"><div class="l">B and C: borrow it</div><div class="v">$4M to $8M</div><div class="s">of interest, plus a lien or a lender</div></div>
+    <div class="kpi green"><div class="l">D: insure it</div><div class="v">$7M to $9M</div><div class="s">of premiums over 20+ years for $20M, taxed nowhere</div></div>
+  </div>
+  <div class="callout g" style="margin-top:22px"><b>Our recommendation, restated for a family that does not believe in insurance.</b> Think of the policy not as insurance but as pre-paying the estate tax at a discount: about 40 cents on the dollar, in installments, with the IRS&#39;s own rules excluding the proceeds from tax. The premium is money the family would otherwise pay anyway, only later and at full price. If the answer is still no, option A is the fallback: raise the corporate reserve target to $21M, document it as a section 303 reserve so it is a &#8220;reasonable need&#8221; and not an accumulated earnings problem, and accept that the Institute cannot be sold before the second death. Options B and C are backstops, not plans. The waterfall is withdrawn as a recommendation; the dynasty trusts do not need it.</div>
+</section>
+
+<!-- ===================== 7 FOUNDATION ===================== -->
+<section class="slide" id="foundation">
+  <div class="k"><span class="n">7</span><span class="tag">The IABA Research &amp; Education Foundation</span></div>
+  <h2>The foundation as the center of the legacy</h2>
+  <p class="lede">Ihab founded the IABA Research &amp; Education Foundation and serves as its chief executive. Its mission, education, training and research for people with intellectual and developmental disabilities, is the family&#39;s mission: it is what the Institute does, what the three supported charities do, and what the UCLA psychology gift funds. A donor-advised fund would be the default answer for a family without one; this family has something better, with one condition to confirm first.</p>
+  <div class="grid g12">
+    <div class="card warn"><h3>The condition: public charity or private foundation?</h3>
+      <p>The foundation is a 501(c)(3). The application in the file, a volunteer board, program grants and public funding, reads like a <b>public charity</b>. That status matters more than anything else in this section:</p>
+      <ul><li><b>If it is a public charity,</b> gifts of appreciated non-voting Institute shares and LLC interests are deductible at full value, up to 30% of income, and the foundation may hold them while the Institute redeems them over time. Everything below assumes this.</li>
+      <li><b>If it is a private foundation,</b> gifts of closely held stock are deductible only at basis, near zero, it may not own more than 20% of the Institute with the family, and redemptions between the Institute and the foundation are prohibited self-dealing. In that case the appreciated gifts go to the DAF and the foundation receives cash.</li></ul>
+      <p class="small">Ask Dr. Dotson for the IRS determination letter and the most recent Form 990 Schedule A. This is a one-day question with a large answer.</p></div>
+    <div class="card v"><h3>Four vehicles, one job each</h3>
+      <table><thead><tr><th class="l">Vehicle</th><th class="l">Best for</th><th class="l">Role in this family</th></tr></thead><tbody>
+        <tr><td class="l"><b>Foundation</b></td><td class="l">Mission-driven giving the family wants its name on, with a board the children can join</td><td class="l"><b>The hub.</b> Receives the annual gifts, makes the UCLA research grant, funds the autism and tutoring programs, carries the memorial program, seats the next generation</td></tr>
+        <tr><td class="l"><b>Donor-advised fund</b></td><td class="l">Gifts outside the mission, anonymity, parking a deduction in a high-income year</td><td class="l"><b>Supporting.</b> Opened now for non-mission gifts and for the sale year if the foundation cannot take a large tranche of shares</td></tr>
+        <tr><td class="l"><b>Charitable remainder trust</b></td><td class="l">Converting an appreciated asset into lifetime income with the remainder to charity</td><td class="l"><b>At the sale.</b> 20% of the Institute into a CRT: no gain, $600K a year for life, remainder to the foundation</td></tr>
+        <tr><td class="l"><b>Charitable lead trust</b></td><td class="l">Funding a charity for a term of years while passing the remainder to heirs with little or no gift tax</td><td class="l"><b>At the sale, new.</b> A 20-year grantor CLAT to the foundation. Below</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card good"><h3>New: a grantor charitable lead trust at the sale</h3>
+      <p>In the year the Institute is sold, income is $40M or more and the family will want deductions. A grantor CLAT funds the foundation&#39;s budget for twenty years from that income and sends what is left to the children.</p>
+      <table><tbody>
+        <tr><td class="l">Funded from sale proceeds</td><td>$10,000,000</td></tr>
+        <tr><td class="l">Annual payment to the foundation, 20 years</td><td>$800,000</td></tr>
+        <tr><td class="l">Total received by the foundation</td><td>$16,000,000</td></tr>
+        <tr><td class="l">Income tax deduction in the sale year (present value at the IRS rate)</td><td>about $10,000,000</td></tr>
+        <tr><td class="l">Income tax saved at 45%</td><td><b>about $4,500,000</b></td></tr>
+        <tr><td class="l">Taxable gift to the children</td><td><b>$0</b> (&#8220;zeroed out&#8221;)</td></tr>
+        <tr><td class="l">Remainder to the children&#39;s dynasty trust at 7% growth</td><td><b>about $6,000,000</b>, tax-free</td></tr>
+      </tbody></table>
+      <p class="small">Ihab pays income tax on the CLAT&#39;s earnings during the term, which is the price of the upfront deduction. The deduction is limited to 30% of income; at a $40M sale that limit is $12M, so it fits. Twenty years of foundation funding also lets the children govern a funded institution rather than a mission with a fundraising problem.</p></div>
+    <div class="card p"><h3>UCLA, re-evaluated with the foundation in the picture</h3>
+      <table><thead><tr><th class="l">Route for $175,000 a year</th><th>Tax benefit a year</th><th class="l">Family involvement</th><th class="l">Legacy impact</th></tr></thead><tbody>
+        <tr><td class="l">Direct cash gift (today)</td><td>$79,000</td><td class="l">None</td><td class="l">A donor line in a UCLA report</td></tr>
+        <tr><td class="l">DAF funded with appreciated interests</td><td>$144,000</td><td class="l">Children as successor advisors</td><td class="l">Flexible, anonymous if wanted, no name on the work</td></tr>
+        <tr><td class="l">CRT funded with $3.5M of LLC2 real estate</td><td>$169,000 plus $1.1M once</td><td class="l">None until the second death</td><td class="l">A $3.5M legacy gift, decades away</td></tr>
+        <tr><td class="l"><b>Foundation funded with appreciated interests, foundation grants to UCLA</b></td><td><b>$144,000</b></td><td class="l"><b>The board, including the children, approves the grant</b></td><td class="l"><b>A named IABA research program in UCLA psychology; the family&#39;s mission, not just its money</b></td></tr>
+      </tbody></table>
+      <p><b>Recommendation.</b> Give the $175,000 of discounted non-voting shares or LLC interests to the foundation each year, subject to the public-charity confirmation, and have the foundation make a multi-year grant to UCLA psychology for autism research. The tax result equals the DAF route; the difference is that the family&#39;s name, mission and children are on the grant. Pre-fund four years while salaries keep the deduction usable. The DAF opens alongside for the tutoring charity and other gifts outside the mission.</p></div>
+  </div>
+  <div class="callout v" style="margin-top:22px"><b>Should the foundation be the centerpiece? Yes, for three reasons.</b> It already exists and already does the work the family cares about, so nothing has to be invented. It is the one place the four children, in London, in California, at 21 and at 46, can hold a shared role without owning anything together. And it is where the family&#39;s history, including the son who died, can be carried forward in a form that outlasts the Institute. The design: Ihab remains chief executive through the transition; two children join the board in 2027 on staggered three-year terms; a next-generation grant committee of $50,000 a year is created for the grandchildren at 16; the foundation receives the annual gifts now, the CLAT at the sale, and the CRT remainder at the second death.</div>
+</section>
+
+<!-- ===================== 8 GENERATIONS ===================== -->
+<section class="slide" id="generations">
+  <div class="k"><span class="n">8</span><span class="tag">Multi-generational wealth transfer</span></div>
+  <h2>Three generations: who owns what, who governs what, and what the foundation holds</h2>
+  <div class="card" style="margin-bottom:22px">
+    <svg viewBox="0 0 1200 560" width="100%">
+      <g font-size="13">
+      <!-- column headers -->
+      <text x="90" y="24" font-weight="700" fill="#4b5563">Generation</text><text x="330" y="24" font-weight="700" fill="#2a78d6">Owned directly / in the estate</text><text x="620" y="24" font-weight="700" fill="#6250d6">In the family trusts</text><text x="870" y="24" font-weight="700" fill="#0f6b4b">The Institute</text><text x="1060" y="24" font-weight="700" fill="#b0306e">The foundation</text>
+      <line x1="20" y1="32" x2="1180" y2="32" stroke="#e5e7eb"/>
+      <!-- Gen 1 -->
+      <rect x="20" y="48" width="190" height="140" rx="12" fill="#0d366b"/><text x="115" y="80" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Generation 1</text><text x="115" y="102" text-anchor="middle" fill="#cde2fb" font-size="12">Ihab and Vivian</text><text x="115" y="120" text-anchor="middle" fill="#cde2fb" font-size="12">2026 to about 2053</text><text x="115" y="150" text-anchor="middle" fill="#cde2fb" font-size="12">control, income,</text><text x="115" y="166" text-anchor="middle" fill="#cde2fb" font-size="12">and the decisions</text>
+      <rect x="230" y="48" width="330" height="140" rx="12" fill="#eef4fc" stroke="#2a78d6" stroke-width="2"/><text x="395" y="72" text-anchor="middle" font-weight="700">Restated living trust</text><text x="395" y="92" text-anchor="middle" fill="#4b5563" font-size="12">voting shares · home · cash · Beverly Hills</text><text x="395" y="108" text-anchor="middle" fill="#4b5563" font-size="12">manager interests in the LLCs · the IDGT note</text><text x="395" y="132" text-anchor="middle" font-weight="700">Held personally, outside the trusts</text><text x="395" y="150" text-anchor="middle" fill="#4b5563" font-size="12">UK, Egypt and Colombia properties, with local wills</text><text x="395" y="172" text-anchor="middle" fill="#b42318" font-size="12">taxed at 40% at the second death; paid by the ILIT</text>
+      <rect x="580" y="48" width="260" height="140" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="710" y="72" text-anchor="middle" font-weight="700">SLAT 1 · SLAT 2 · IDGT · ILIT</text><text x="710" y="92" text-anchor="middle" fill="#4b5563" font-size="12">non-voting shares ($30M discounted)</text><text x="710" y="108" text-anchor="middle" fill="#4b5563" font-size="12">growth properties via LLC units</text><text x="710" y="124" text-anchor="middle" fill="#4b5563" font-size="12">the policy, if chosen</text><text x="710" y="148" text-anchor="middle" fill="#4a3bb0" font-size="12">GST-exempt, Nevada, independent trustee</text><text x="710" y="166" text-anchor="middle" fill="#4a3bb0" font-size="12">spouses have access; growth is already out</text>
+      <rect x="860" y="48" width="170" height="140" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/><text x="945" y="72" text-anchor="middle" font-weight="700">Ihab runs it</text><text x="945" y="92" text-anchor="middle" fill="#4b5563" font-size="12">to 2029, then a</text><text x="945" y="108" text-anchor="middle" fill="#4b5563" font-size="12">management transition,</text><text x="945" y="124" text-anchor="middle" fill="#4b5563" font-size="12">ESOP, or sale</text><text x="945" y="148" text-anchor="middle" fill="#0f6b4b" font-size="12">succession agreement</text><text x="945" y="164" text-anchor="middle" fill="#0f6b4b" font-size="12">and retention in place</text>
+      <rect x="1050" y="48" width="130" height="140" rx="12" fill="#fbeaf2" stroke="#d6508f" stroke-width="2"/><text x="1115" y="72" text-anchor="middle" font-weight="700">Ihab, CEO</text><text x="1115" y="92" text-anchor="middle" fill="#4b5563" font-size="12">annual gifts of</text><text x="1115" y="108" text-anchor="middle" fill="#4b5563" font-size="12">shares; UCLA grant;</text><text x="1115" y="124" text-anchor="middle" fill="#4b5563" font-size="12">memorial program</text><text x="1115" y="148" text-anchor="middle" fill="#b0306e" font-size="12">CLAT at the sale</text>
+      <!-- Gen 2 -->
+      <rect x="20" y="208" width="190" height="140" rx="12" fill="#2a78d6"/><text x="115" y="240" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Generation 2</text><text x="115" y="262" text-anchor="middle" fill="#dbe9fb" font-size="12">four children</text><text x="115" y="280" text-anchor="middle" fill="#dbe9fb" font-size="12">21, 31, 42, 46</text><text x="115" y="310" text-anchor="middle" fill="#dbe9fb" font-size="12">beneficiaries, then</text><text x="115" y="326" text-anchor="middle" fill="#dbe9fb" font-size="12">co-trustees and directors</text>
+      <rect x="230" y="208" width="330" height="140" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="2"/><text x="395" y="232" text-anchor="middle" font-weight="700">Nothing outright</text><text x="395" y="252" text-anchor="middle" fill="#4b5563" font-size="12">Each child&#39;s 20% is a lifetime dynasty trust</text><text x="395" y="268" text-anchor="middle" fill="#4b5563" font-size="12">Exception: UK properties may pass to the London daughter</text><text x="395" y="284" text-anchor="middle" fill="#4b5563" font-size="12">directly, under UK rules, as part of her share</text><text x="395" y="308" text-anchor="middle" fill="#4b5563" font-size="12">Their own homes and earnings are theirs;</text><text x="395" y="324" text-anchor="middle" fill="#4b5563" font-size="12">the inheritance is never in their estates or their divorces</text>
+      <rect x="580" y="208" width="260" height="140" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="710" y="232" text-anchor="middle" font-weight="700">Four children&#39;s trusts</text><text x="710" y="252" text-anchor="middle" fill="#4b5563" font-size="12">carved from the dynasty trusts in 2053</text><text x="710" y="268" text-anchor="middle" fill="#4b5563" font-size="12">incentive and stewardship terms</text><text x="710" y="284" text-anchor="middle" fill="#4b5563" font-size="12">loans for homes and businesses</text><text x="710" y="308" text-anchor="middle" fill="#4a3bb0" font-size="12">no estate tax at their deaths</text><text x="710" y="324" text-anchor="middle" fill="#4a3bb0" font-size="12">$110M+ in 2053 on the plan&#39;s growth</text>
+      <rect x="860" y="208" width="170" height="140" rx="12" fill="#fff" stroke="#1baf7a" stroke-width="2"/><text x="945" y="232" text-anchor="middle" font-weight="700">Owned by the trusts</text><text x="945" y="252" text-anchor="middle" fill="#4b5563" font-size="12">or sold, with proceeds</text><text x="945" y="268" text-anchor="middle" fill="#4b5563" font-size="12">in the trusts and the</text><text x="945" y="284" text-anchor="middle" fill="#4b5563" font-size="12">CRT and CLAT</text><text x="945" y="308" text-anchor="middle" fill="#0f6b4b" font-size="12">the 42-year-old as a</text><text x="945" y="324" text-anchor="middle" fill="#0f6b4b" font-size="12">candidate board member</text>
+      <rect x="1050" y="208" width="130" height="140" rx="12" fill="#fff" stroke="#d6508f" stroke-width="2"/><text x="1115" y="232" text-anchor="middle" font-weight="700">Board seats</text><text x="1115" y="252" text-anchor="middle" fill="#4b5563" font-size="12">two children in</text><text x="1115" y="268" text-anchor="middle" fill="#4b5563" font-size="12">2027, staggered;</text><text x="1115" y="284" text-anchor="middle" fill="#4b5563" font-size="12">a child as chair</text><text x="1115" y="300" text-anchor="middle" fill="#4b5563" font-size="12">after Ihab</text><text x="1115" y="324" text-anchor="middle" fill="#b0306e" font-size="12">$16M CLAT income</text>
+      <!-- Gen 3 -->
+      <rect x="20" y="368" width="190" height="140" rx="12" fill="#1baf7a"/><text x="115" y="400" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Generation 3</text><text x="115" y="422" text-anchor="middle" fill="#e8f7f1" font-size="12">two grandchildren today,</text><text x="115" y="440" text-anchor="middle" fill="#e8f7f1" font-size="12">16 and 14, and any to come</text><text x="115" y="470" text-anchor="middle" fill="#e8f7f1" font-size="12">educated, then stewards</text>
+      <rect x="230" y="368" width="330" height="140" rx="12" fill="#fff" stroke="#2a78d6" stroke-width="2"/><text x="395" y="392" text-anchor="middle" font-weight="700">Nothing outright</text><text x="395" y="412" text-anchor="middle" fill="#4b5563" font-size="12">College paid directly from the grandchildren&#39;s trust</text><text x="395" y="428" text-anchor="middle" fill="#4b5563" font-size="12">(2030 to 2037 for the two teenagers)</text><text x="395" y="452" text-anchor="middle" fill="#4b5563" font-size="12">Loans and matched earnings from 25;</text><text x="395" y="468" text-anchor="middle" fill="#4b5563" font-size="12">co-trustee eligibility at 35</text>
+      <rect x="580" y="368" width="260" height="140" rx="12" fill="#efecfb" stroke="#6250d6" stroke-width="2"/><text x="710" y="392" text-anchor="middle" font-weight="700">Grandchildren&#39;s trust (20%)</text><text x="710" y="412" text-anchor="middle" fill="#4b5563" font-size="12">plus the continuation of each</text><text x="710" y="428" text-anchor="middle" fill="#4b5563" font-size="12">child&#39;s trust for that child&#39;s line</text><text x="710" y="452" text-anchor="middle" fill="#4a3bb0" font-size="12">still GST-exempt: no tax</text><text x="710" y="468" text-anchor="middle" fill="#4a3bb0" font-size="12">at the grandchildren&#39;s deaths either</text>
+      <rect x="860" y="368" width="170" height="140" rx="12" fill="#fff" stroke="#1baf7a" stroke-width="2"/><text x="945" y="392" text-anchor="middle" font-weight="700">Capital, not a job</text><text x="945" y="412" text-anchor="middle" fill="#4b5563" font-size="12">by then the Institute is</text><text x="945" y="428" text-anchor="middle" fill="#4b5563" font-size="12">sold or professionally</text><text x="945" y="444" text-anchor="middle" fill="#4b5563" font-size="12">run; the trusts hold</text><text x="945" y="460" text-anchor="middle" fill="#4b5563" font-size="12">the proceeds</text>
+      <rect x="1050" y="368" width="130" height="140" rx="12" fill="#fff" stroke="#d6508f" stroke-width="2"/><text x="1115" y="392" text-anchor="middle" font-weight="700">Grant committee</text><text x="1115" y="412" text-anchor="middle" fill="#4b5563" font-size="12">$50K a year to</text><text x="1115" y="428" text-anchor="middle" fill="#4b5563" font-size="12">direct from 16;</text><text x="1115" y="444" text-anchor="middle" fill="#4b5563" font-size="12">board eligibility</text><text x="1115" y="460" text-anchor="middle" fill="#4b5563" font-size="12">at 25</text><text x="1115" y="484" text-anchor="middle" fill="#b0306e" font-size="12">CRT remainder</text>
+      <!-- timeline -->
+      <line x1="20" y1="530" x2="1180" y2="530" stroke="#898781" stroke-width="2"/>
+      <g fill="#4b5563" font-size="12" text-anchor="middle"><circle cx="110" cy="530" r="5" fill="#2a78d6"/><text x="110" y="552">2026 restate, recap, appraise</text><circle cx="300" cy="530" r="5" fill="#2a78d6"/><text x="300" y="552">2027 SLATs, IDGT, board seats</text><circle cx="540" cy="530" r="5" fill="#eda100"/><text x="540" y="552">2029 retirement, exit decision</text><circle cx="780" cy="530" r="5" fill="#eda100"/><text x="780" y="552">at the sale: GRAT, CRT, CLAT</text><circle cx="1020" cy="530" r="5" fill="#1baf7a"/><text x="1020" y="552">2053 second death: trusts continue</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h4>Generation 1 keeps</h4><p>Every voting share, the salaries, the home, the cash, the Beverly Hills property, the foreign properties, and indirect access to both SLATs. The estate that remains is roughly $18M of US assets plus the foreign properties, and it is the only part taxed.</p></div>
+    <div class="card"><h4>Generation 2 receives</h4><p>Four equal lifetime trusts holding, between them, the non-voting shares or their sale proceeds and the growth properties: on the plan&#39;s numbers more than $110M in 2053, untaxed at their deaths. Board seats at the foundation and, for those who want them, trustee roles.</p></div>
+    <div class="card"><h4>Generation 3 receives</h4><p>A 20% grandchildren&#39;s trust that pays for college directly and then follows the same rules; each child&#39;s trust continuing down its own line; and a foundation that is funded for twenty years by the CLAT, with a committee seat waiting at 16 and a board seat at 25.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 9 FUNDING BY ASSET ===================== -->
+<section class="slide" id="funding">
+  <div class="k"><span class="n">9</span><span class="tag">Trust funding by asset</span></div>
+  <h2>Where every asset goes, and when</h2>
+  <div class="card">
+    <table><thead><tr><th class="l">Asset</th><th>Value</th><th class="l">Destination</th><th class="l">When</th><th class="l">Why</th></tr></thead><tbody>
+      <tr><td class="l"><b>Institute voting shares</b> (after recapitalization)</td><td>control</td><td class="l">Restated living trust</td><td class="l">Q1 2027</td><td class="l">Control stays with Ihab; the successor trustee signs if he cannot</td></tr>
+      <tr><td class="l"><b>Institute non-voting shares, tranche 1</b></td><td>$15M discounted ($21M underlying)</td><td class="l">SLAT 1, Ihab as grantor, Vivian and descendants as beneficiaries</td><td class="l">2026, after appraisal</td><td class="l">Highest-growth asset first; uses Ihab&#39;s exemption</td></tr>
+      <tr><td class="l"><b>Institute non-voting shares, tranche 2</b></td><td>$15M discounted ($21M underlying)</td><td class="l">IDGT, sold for a 9-year note</td><td class="l">2027</td><td class="l">Moves growth with no exemption; note stays in the estate at face</td></tr>
+      <tr><td class="l"><b>Institute non-voting shares, annual</b></td><td>$175K a year</td><td class="l">The foundation (if public charity) or the DAF</td><td class="l">Each year from 2026</td><td class="l">Full deduction, no gain, Institute redeems over time</td></tr>
+      <tr><td class="l"><b>Institute non-voting shares, at a sale</b></td><td>20% of the price</td><td class="l">CRT, remainder to the foundation; and a GRAT for the jump in value</td><td class="l">Before any binding agreement</td><td class="l">No gain on the sale; lifetime income; growth to heirs</td></tr>
+      <tr><td class="l"><b>Sale proceeds</b></td><td>$10M</td><td class="l">Grantor CLAT, 20 years to the foundation, remainder to the children&#39;s trusts</td><td class="l">Sale year</td><td class="l">$4.5M income tax saved; $16M to the foundation; remainder gift-free</td></tr>
+      <tr><td class="l"><b>Institute cash and investments</b></td><td>$7M, growing</td><td class="l">Stays inside; part designated a section 303 reserve; part funds the retirement plan in the main plan</td><td class="l">2026</td><td class="l">Liquidity backstop; the 13% portfolio to be reviewed</td></tr>
+      <tr><td class="l"><b>LLC2 growth properties</b> (Bakersfield, San Bernardino, Artesia, Kansas, Missouri)</td><td>part of $17M</td><td class="l">Non-managing units to SLAT 2, Vivian as grantor</td><td class="l">2027, a year after SLAT 1</td><td class="l">Growth out of the estate; different asset, year and trustee from SLAT 1</td></tr>
+      <tr><td class="l"><b>Beverly Hills</b></td><td>to confirm</td><td class="l">Living trust, kept in the estate</td><td class="l">Now</td><td class="l">Basis step-up at death is worth more than removing modest growth</td></tr>
+      <tr><td class="l"><b>Pasadena rental</b></td><td>to confirm</td><td class="l">Gift to the foundation or DAF if appreciated; 1031 or sale if not</td><td class="l">2026</td><td class="l">Negative cash flow; a gift converts a loss-maker into a deduction</td></tr>
+      <tr><td class="l"><b>LLC1 properties</b></td><td>$3M</td><td class="l">Living trust now; candidates for the IDGT or a later gift</td><td class="l">Now</td><td class="l">Small; decide after the appraisal</td></tr>
+      <tr><td class="l"><b>UK properties (5)</b></td><td>to value</td><td class="l">Personal ownership with UK wills; lifetime gifts toward the London daughter&#39;s share</td><td class="l">Wills in 2026; gifts from 2027</td><td class="l">UK inheritance tax regardless of owner; US trusts would make it worse</td></tr>
+      <tr><td class="l"><b>Egypt and Colombia properties</b></td><td>to value</td><td class="l">Local wills; sell during life unless there is a reason to hold</td><td class="l">2026 to 2027</td><td class="l">Forced-heirship regimes that do not recognize the US plan</td></tr>
+      <tr><td class="l"><b>Residence, personal cash, real estate operating account</b></td><td>$300K + home</td><td class="l">Restated living trust</td><td class="l">Now</td><td class="l">Probate avoidance; reserve already meets the target</td></tr>
+      <tr><td class="l"><b>New second-to-die policy</b> (if chosen)</td><td>$20M face</td><td class="l">ILIT, drafted as a dynasty trust</td><td class="l">Underwrite now, decide after quotes</td><td class="l">Pays the tax with money that is never taxed</td></tr>
+      <tr><td class="l"><b>Future retirement accounts</b></td><td>from 2026</td><td class="l">Beneficiary: spouse, then the living trust</td><td class="l">At setup</td><td class="l">Keeps the spousal rollover; trust as contingent</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ===================== 10 GOVERNANCE ===================== -->
+<section class="slide" id="governance">
+  <div class="k"><span class="n">10</span><span class="tag">Family governance</span></div>
+  <h2>A structure the four children can share without owning anything together</h2>
+  <p class="lede">The children are 25 years apart in age, live on two continents, and are at very different points in life. The governance design keeps them out of each other&#39;s money and inside each other&#39;s mission.</p>
+  <div class="grid g4">
+    <div class="card soft"><h4>Family council</h4><p>Ihab, Vivian and the four children. Meets once a year, in person or online for London. Hears the trustee&#39;s report, the foundation&#39;s report, and the Institute&#39;s status. No votes on anyone&#39;s trust; its authority is the charter and the foundation&#39;s direction.</p></div>
+    <div class="card v"><h4>Family charter</h4><p>A short written statement of what the family stands for, drafted with the children in 2027: the disability mission, the expectation of work, the loan-not-gift principle, how the memorial program is run, and how disputes are resolved. Referenced by every trust as guidance to the trustee.</p></div>
+    <div class="card p"><h4>Foundation board</h4><p>Ihab as chief executive through the transition. Two children join in 2027 on staggered three-year terms, the other two later. A child as chair after Ihab. A grandchildren&#39;s grant committee with a $50,000 annual budget from 16. Independent directors with lived experience of disability remain a majority, as the foundation&#39;s own application promises.</p></div>
+    <div class="card good"><h4>Trust roles</h4><p>Independent Nevada trustee for every irrevocable trust. A trust protector, initially an outside adviser, who can replace trustees and fix drafting. Children eligible as co-trustees of their own trusts at 35, after the stewardship conditions. The London daughter does not serve while UK resident. The 42-year-old is the natural first family co-trustee and board member.</p></div>
+  </div>
+  <div class="callout o" style="margin-top:22px"><b>What governance does not do.</b> It does not give any child a say over another child&#39;s share, it does not require anyone to work in the Institute or the foundation, and it does not make the inheritance conditional on agreement. The money is protected by the trusts; the family is held together by the mission.</div>
+</section>
+
+<!-- ===================== 11 ROADMAP ===================== -->
+<section class="slide" id="roadmap">
+  <div class="k"><span class="n">11</span><span class="tag">Implementation roadmap</span></div>
+  <h2>The order of work</h2>
+  <div class="steps">
+    <div class="st"><h4>Next 90 days</h4><ul>
+      <li><span class="pill now">Now</span> Confirm the foundation&#39;s public-charity status (determination letter, Form 990 Schedule A).</li>
+      <li><span class="pill now">Now</span> Restate the living trust: deceased son, the four children&#39;s trusts, the grandchildren&#39;s clause decision, bypass and QTIP formulas, trust protector, succession instructions for the Institute.</li>
+      <li><span class="pill now">Now</span> Contingency succession agreement and retention terms for clinical leadership.</li>
+      <li><span class="pill now">Now</span> Engage the appraiser for the Institute and all nine US properties; engage UK, Egyptian and Colombian counsel for local wills and valuations.</li>
+      <li><span class="pill now">Now</span> Start underwriting at 63 and 67 so the insurance decision is made on a quote, not a belief.</li>
+      <li><span class="pill now">Now</span> Move personal expenses out of the business; document the $5M portfolio.</li></ul></div>
+    <div class="st"><h4>2026 to 2027</h4><ul>
+      <li><span class="pill soon">Next</span> Recapitalize the Institute; shareholder agreement among Ihab and the trusts.</li>
+      <li><span class="pill soon">Next</span> Fund SLAT 1 with non-voting shares (2026); the IDGT sale (2027); SLAT 2 with the growth properties&#39; LLC units (2027). Allocate GST exemption on each gift tax return.</li>
+      <li><span class="pill soon">Next</span> 2026 gift of $175K of shares to the foundation, or the DAF if the status requires; foundation grant to UCLA psychology.</li>
+      <li><span class="pill soon">Next</span> Dispose of Pasadena; restructure the LLCs under a holding LLC; umbrella coverage.</li>
+      <li><span class="pill soon">Next</span> Insurance decision: ILIT policy in force, or the 303 reserve target raised to $21M.</li>
+      <li><span class="pill soon">Next</span> First family council; charter drafted; two children join the foundation board.</li></ul></div>
+    <div class="st"><h4>2028 to the exit</h4><ul>
+      <li><span class="pill v">Then</span> ESOP feasibility study and a market check run in parallel; decision by the 2029 retirement date.</li>
+      <li><span class="pill v">Then</span> Before any binding sale agreement: GRAT and CRT funded with shares.</li>
+      <li><span class="pill v">Then</span> In the sale year: grantor CLAT to the foundation; the DAF absorbs any deduction the foundation cannot.</li>
+      <li><span class="pill v">Then</span> Lifetime gifts of UK property toward the London daughter&#39;s share begin, on UK advice.</li>
+      <li><span class="pill v">Then</span> Decide on Egypt and Colombia: hold with local wills, or sell.</li></ul></div>
+    <div class="st"><h4>Ongoing</h4><ul>
+      <li><span class="pill later">Always</span> Annual family council and foundation board cycle; grant committee for the grandchildren from 16.</li>
+      <li><span class="pill later">Always</span> Crummey notices if the ILIT is used; note payments on the IDGT; policy and trust reviews.</li>
+      <li><span class="pill later">Always</span> Revisit the grandchildren&#39;s clause at each birth if the named option is chosen.</li>
+      <li><span class="pill later">Always</span> Re-run the estate model every two years and after any exit, sale or move abroad by a child.</li></ul></div>
+  </div>
+  <div class="callout g" style="margin-top:22px"><b>What this proposal asks you to decide, in your words, before anything is drafted.</b> The grandchildren&#39;s clause (open class, named, or per stirpes). The insurance decision, after the quotes. Whether the foundation carries a program in your son&#39;s name. Which two children join the foundation board first. Whether the Egypt and Colombia properties are family homes or investments. Everything else follows from those five answers.</div>
+</section>
+
+<div class="foot">Proposal prepared by Pinnacle Planning, Wealth Advisory Now and M&amp;M Wealth Associates for Ihab Shahawi and Vivian El-Shahawi, October 2026. Sources: the family profile, the IABA Research &amp; Education Foundation&#39;s RCOC application, the RightCapital plan and the planning outline. Property values, basis and LLC assignments for individual properties, the foreign properties&#39; values, the foundation&#39;s public-charity status, insurance premiums, ESOP feasibility, and the UK, Egyptian and Colombian succession rules as they apply to this family are all to be confirmed by appraisal, the foundation&#39;s records, carrier quotes and local counsel. Tax figures use a 40% estate tax, a $15M per-person exemption, 45% combined ordinary and 37.1% combined capital gains rates, a 30% valuation discount and a 5% IRS rate, and are estimates for discussion, not legal or tax advice.</div>
+</body></html>

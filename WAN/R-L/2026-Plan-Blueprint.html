@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R.L. and B LLC Case Blueprint</title>
+<style>
+:root{--bg:#f6f7f9;--card:#ffffff;--soft:#eef2f7;--soft2:#e9f0f8;--ink:#111827;--ink2:#4b5563;--muted:#6b7280;--line:#e5e7eb;--blue:#2563eb;--amber:#b45309;--red:#b91c1c;--green:#047857;--pill:#e8edf5;--pill2:#e3e9f4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 48px}
+.tags{display:flex;gap:8px;margin-bottom:10px}.tag{background:var(--pill);color:#334155;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:600}
+h1{font-size:30px;margin:0 0 6px;font-weight:750;letter-spacing:-.01em}.lede{color:var(--ink2);font-size:15px;margin:0 0 18px}
+.grid{display:grid;gap:14px}.g21{grid-template-columns:2fr 1fr}.g12{grid-template-columns:1fr 1.9fr}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g21,.g12,.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.soft{background:var(--soft)}.card.soft2{background:var(--soft2)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.hd h2{font-size:19px;margin:0;font-weight:700;display:flex;align-items:center;gap:8px}.hd .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.ico{display:inline-flex;width:26px;height:26px;border-radius:7px;background:var(--soft2);color:var(--blue);align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.pill{border:1px solid #d6b370;color:var(--amber);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;white-space:nowrap}.pill.b{border-color:#b8c7e6;color:var(--blue);background:#f3f6fc}
+p{margin:6px 0;color:var(--ink2)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.mini .box{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+.box .k{font-size:12px;color:var(--muted)}.box .t{font-weight:700;margin:2px 0 4px;font-size:14px}.box .d{font-size:13px;color:var(--ink2)}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}.stat .k{font-size:12px;color:var(--muted)}.stat .v{font-size:26px;font-weight:750;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}.stat .v small{font-size:13px;color:var(--ink2);font-weight:500}
+.big{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center;margin:8px 0 12px}.big .v{font-size:30px;font-weight:750}.big .k{color:var(--muted);font-size:13px}
+ul.dots{list-style:none;padding:0;margin:8px 0}ul.dots li{padding-left:20px;position:relative;margin:7px 0;color:var(--ink2)}ul.dots li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border:2px solid #9aa7bd;border-radius:50%}
+ul.dots li b{color:var(--ink)}
+.note{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px}.note b{display:block;margin-bottom:3px}
+.alt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 15px}.alt .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.alt .hz{background:var(--pill2);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;color:#334155}
+.alt h3{margin:0 0 4px;font-size:15.5px}.alt p{font-size:13px;margin:0 0 10px}.alt .kv{border-top:1px solid var(--line);padding-top:8px}.alt .kv b{display:block;font-size:13.5px}.alt .kv span{font-size:12.5px;color:var(--ink2)}
+.ctx{display:flex;gap:8px;align-items:flex-start;color:var(--ink2);font-size:13px;margin-top:12px}
+.caution{display:flex;justify-content:space-between;gap:16px;color:var(--ink2);font-size:12.5px;margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+.person{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.person .who{display:flex;align-items:center;gap:8px;font-weight:700}.av{width:24px;height:24px;border-radius:50%;background:#1f2937;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+.task{display:flex;gap:10px;margin:10px 0}.task .g{width:16px;color:#9aa7bd;flex:none;padding-top:2px}.task .due{color:var(--muted);font-size:12.5px;margin-top:3px}
+.pos{color:var(--green)}.neg{color:var(--red)}.amb{color:var(--amber)}
+.small{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}th,td{padding:5px 6px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:600}
+</style>
+</head>
+<body><div class="wrap">
+<div class="tags"><span class="tag">Strategic Advisory Blueprint</span><span class="tag">Entity Diagnostics</span><span class="tag">Plan Summary · v2</span></div>
+<h1>R.L. and B LLC Case: Financial Architecture</h1>
+<p class="lede">Protecting the family, funding retirement and fixing the shareholder loan as B LLC grows from $289,584 of revenue in 2025 to $600,000 in 2026 and $750,000 in 2027. Built from the 2025 federal and California returns under 2026 rules, married filing jointly. v2 adds the spouse&#39;s $125,000 outside job from 2027, her vehicle as a business expense, a 20% employer 401(k) contribution, the existing $165K policy and the household&#39;s living costs.</p>
+
+<div class="grid g21">
+  <div class="card soft">
+    <div class="hd"><h2><span class="ico">⚠</span>Core Blocker: The $125,100 Shareholder Loan</h2><span class="pill">Fix before anything else</span></div>
+    <p>Over several years the owner took $125,100 out of B LLC as a "loan": no written note, no interest, no repayments, no collateral. It is the largest asset on the books, and without it the company is about $125K underwater. If the IRS calls it a distribution or hidden wages, the bill is roughly $28,000 to $35,000 plus penalties. Lenders and the IRS read this line first, so every scenario starts by freezing and documenting it.</p>
+    <div class="mini">
+      <div class="box"><div class="k">1. B LLC (S corp), 2025</div><div class="t">Grew fast, kept little</div><div class="d">Revenue $289,584, up 64%. Profit to the owner $69,133, down 28% and only 24% of revenue (77% in 2023). Travel, meals and vehicles $90K. Debt $171,549 at about 21% interest.</div></div>
+      <div class="box"><div class="k">2. The household</div><div class="t">Thin margins at home</div><div class="d">2025 income $126,792, federal tax $46, California $1,699. Married in 2026. Living costs about $17,000 a month ($204K a year); $16,000 while the spouse&#39;s vehicle is carried by B LLC. Spouse starts a $125,000 job in 2027 and keeps her $12,000 B LLC role.</div></div>
+      <div class="box"><div class="k">3. The family&#39;s gaps</div><div class="t">Four open risks</div><div class="d">Undocumented loan · no health insurance · minimal life protection (one $165K policy with $15K cash value against $171K of guaranteed debt) · no retirement savings at age 31.</div></div>
+    </div>
+    <div class="ctx"><span>⊘</span><span>Constant across scenarios: variable costs grow with sales, other costs held at 2025 levels; profit before owner and spouse pay $350,201 (2026) and $479,399 (2027); other household income $51,695; credits of $32,928 used once in 2026.</span></div>
+  </div>
+  <div class="card soft2">
+    <div class="hd"><h2><span class="ico">⚖</span>The 2026 Baseline</h2></div>
+    <p>What $600K of revenue looks like if nothing changes but the loan freeze (scenario 1).</p>
+    <div class="stat"><div class="k">Profit to the owner (K-1)</div><div class="v">$340,457 <small>from $69,133 in 2025</small></div></div>
+    <div class="stat"><div class="k">All taxes 2026 / 2027</div><div class="v">$50.3K / $192K <small>2027 has no credits left; spouse&#39;s salary taxed on top</small></div></div>
+    <div class="stat"><div class="k">Spendable 2026 / 2027</div><div class="v">$322K / $411K <small>nothing protected or saved</small></div></div>
+    <div class="note"><b>Why the baseline is not a plan</b>Spendable clears the $204K living bar by $117,619 in 2026 only because no gap is funded. With a $13,700 salary and $340K of profit, reasonable compensation is the next thing an examiner raises, and 2027 federal tax reaches $125,734 once the credits are gone.</div>
+  </div>
+</div>
+
+<div class="grid g12" style="margin-top:14px">
+  <div class="card soft">
+    <div class="hd"><div><h2><span class="ico">▭</span>Debt Prioritization</h2><div class="sub">Loan payoff first, then the 21% company debt</div></div></div>
+    <div class="big"><div class="v">$125,100</div><div class="k">Shareholder loan to document and repay</div></div>
+    <ul class="dots">
+      <li><b>Steps 1 and 2:</b> freeze all withdrawals, sign a 4% note, repay $25,000 a year from after-tax cash. Balance $75,100 at the end of 2027.</li>
+      <li><b>Steps 3 and 4:</b> repay $62,550 in 2026 and $62,550 in 2027 through distributions the owner immediately pays back; tax-free because the income is already taxed. Loan cleared end of 2027.</li>
+      <li><b>Step 5:</b> the C corp lends the owner the payoff at 4%: $27,366 in 2026 after the premiums, the remaining $97,734 in 2027.</li>
+      <li><b>Every repayment goes to the company&#39;s most expensive debt:</b> Fundbox $53.6K, Headway $7K, cards $17K, vehicle loans $94K.</li>
+    </ul>
+    <div class="note"><b>Sequencing imperative</b>Steps 3 and 4 front-load the payoff, $100K of expansion set-aside, retirement and health into 2026, leaving $91,973 (step 3) or $55,973 (step 4) against $192K of living costs. 2027 covers costs in every protected scenario once the spouse&#39;s salary arrives and the health premium drops. For 2026, start the set-aside in 2027 or spread the payoff over three years.</div>
+  </div>
+  <div class="card">
+    <div class="hd"><div><h2><span class="ico">⚙</span>Planning Alternatives</h2><div class="sub">Steps 3, 4 and 5 of the plan; steps 1 and 2 are housekeeping</div></div><span class="pill b">3 evaluative models</span></div>
+    <div class="grid g3">
+      <div class="alt"><div class="h"><span class="hz">Step 3 · 2026 start</span><span>◎</span></div><h3>Put the business to work for the family</h3><p>Owner $140K and spouse $12K on payroll; her vehicle ($12,984 a year) becomes a B LLC expense. 401(k): owner defers $24,500, spouse $12,000, B LLC contributes 20% of pay. Health plan paid by B LLC in 2026, by her employer from 2027. $100K a year set aside. Loan cleared in two years.</p><div class="kv"><b>$81,900 / yr into retirement</b><span>All taxes $42.5K (2026), $167K (2027) · spendable $92.0K then $242K · vs living cost <span class="neg">−$100,027</span> / <span class="pos">+$49,814</span></span></div></div>
+      <div class="alt"><div class="h"><span class="hz">Step 4 · protection</span><span>◈</span></div><h3>Insure the people who make it work</h3><p>The existing $165K policy stays. Cash-value policies added: $24K a year on the owner (about $1.5M), $12K on the spouse (about $1M), paid personally. A $1.5M term policy under $1K a year bridges the gap now.</p><div class="kv"><b>$36K after tax ≈ $54K of earnings</b><span>Same taxes as step 3 · spendable $56.0K (2026), $206K (2027) · vs living cost <span class="neg">−$136,027</span> / <span class="pos">+$13,814</span></span></div></div>
+      <div class="alt"><div class="h"><span class="hz">Step 5 · 2027 decision</span><span>▤</span></div><h3>Let a second company carry the load</h3><p>A sibling C corp bills B LLC $320K then $440K, runs payroll, the 401(k) and health, pays about 28% tax, and lends what it keeps to the family on 4% notes: premiums first, then the loan payoff, then acquisitions.</p><div class="kv"><b>Collateral structure</b><span>Policies pledged to the C corp · all taxes $57.4K (2026), $164K (2027) · spendable $176K then $239K · vs living cost <span class="neg">−$15,814</span> / <span class="pos">+$47,202</span> · owner owes C corp $197K by end-2027</span></div></div>
+    </div>
+    <table><thead><tr><th>2026 / 2027</th><th>Step 1</th><th>Step 2</th><th>Step 3</th><th>Step 4</th><th>Step 5</th></tr></thead><tbody>
+      <tr><td>All taxes</td><td>$50.3K / $192K</td><td>$48.7K / $186K</td><td>$42.5K / $167K</td><td>$42.5K / $167K</td><td>$57.4K / $164K</td></tr>
+      <tr><td>Retirement funded</td><td>$0 / $24.5K</td><td>$0 / $24.5K</td><td>$81.9K / $81.9K</td><td>$81.9K / $81.9K</td><td>$81.9K / $81.9K</td></tr>
+      <tr><td>Protection</td><td class="neg">$165K only</td><td class="neg">$165K only</td><td class="amb">health</td><td class="pos">health + life</td><td class="pos">health + life</td></tr>
+      <tr><td>Loan at end of 2027</td><td class="">$75,100</td><td class="">$75,100</td><td class="pos">$0</td><td class="pos">$0</td><td class="pos">$0</td></tr>
+      <tr><td>Spendable</td><td>$322K / $411K</td><td>$323K / $417K</td><td>$92.0K / $242K</td><td>$56.0K / $206K</td><td>$176K / $239K</td></tr>
+      <tr><td>vs living cost ($17K/mo; $16K while spouse on payroll)</td><td><span class="pos">+$117,619</span> / <span class="pos">+$206,718</span></td><td><span class="pos">+$131,168</span> / <span class="pos">+$224,988</span></td><td><span class="neg">−$100,027</span> / <span class="pos">+$49,814</span></td><td><span class="neg">−$136,027</span> / <span class="pos">+$13,814</span></td><td><span class="neg">−$15,814</span> / <span class="pos">+$47,202</span></td></tr>
+    </tbody></table>
+    <div class="caution"><span>Caution: a C corp cannot own an S corp without ending the S election; the holding entity must be a sibling. The fee needs a real services agreement, interest actually paid each year, collateral assignments filed, and board minutes for the acquisition plan. Anything later paid out as a dividend is taxed twice. The spouse&#39;s vehicle deduction holds only to the extent of documented business use.</span><span>Posture: Diagnostic inquiry</span></div>
+  </div>
+</div>
+
+<div class="card soft" style="margin-top:14px">
+  <div class="hd"><div><h2><span class="ico">☑</span>Immediate Execution Matrix</h2><div class="sub">From the decisions and action items on the closing slide</div></div><span class="pill b">Recommended path: steps 1 to 3 now, term bridge, C corp for 2027</span></div>
+  <div class="grid g2">
+    <div class="card"><div class="person"><span class="who"><span class="av">O</span>Owner and spouse</span><span class="tag">Decisions and 30-day actions</span></div>
+      <div class="task"><span class="g">▤</span><div>Decide today: payoff pace (two years vs five), owner salary ($140,000 as modeled), when the $100K expansion set-aside starts (at $16K a month of living costs, 2026 only works if the set-aside or the payoff pace gives way), permanent policies now or term now, and whether to form the C corporation for 2027.<div class="due">Due: this meeting</div></div></div>
+      <div class="task"><span class="g">⚇</span><div>Sign a 4% note on the $125,100 loan and make the first payment. Put the owner and spouse on payroll with withholding set to cover the projected tax; document her role and the business use of her vehicle. Enroll the family health plan through B LLC.<div class="due">Due: within 30 days</div></div></div>
+      <div class="task"><span class="g">◈</span><div>Keep the $165K policy in force and review its cost against the $15K cash value; bind a $1.5M term policy on the owner; request permanent-policy illustrations for both. Open the 401(k) with the 20% employer contribution and the Roth IRAs. Send every loan repayment to the Fundbox and Headway balances.<div class="due">Due: within 30 days</div></div></div>
+    </div>
+    <div class="card"><div class="person"><span class="who"><span class="av">A</span>Advisors and preparer</span><span class="tag">Next 90 days</span></div>
+      <div class="task"><span class="g">▤</span><div>Preparer to confirm the $32,928 of credit carryforwards and rerun 2026 estimates; set up California estimates on the prior-year safe harbor and a reserve for the April 2027 federal bill.<div class="due">Due: within 90 days</div></div></div>
+      <div class="task"><span class="g">⚇</span><div>Attorney to draft the services agreement and split-dollar notes if the C corp proceeds; document the acquisition plan that justifies retained earnings.<div class="due">Due: within 90 days</div></div></div>
+      <div class="task"><span class="g">◈</span><div>Confirm the spouse&#39;s job start date and her employer&#39;s family health coverage and cost; review travel, meals and vehicle spending ($90K in 2025); revisit the California pass-through entity election (about $9K to $12K of federal tax); confirm life insurance amounts with an insurer&#39;s illustration.<div class="due">Due: within 90 days</div></div></div>
+    </div>
+  </div>
+</div>
+
+<p class="small" style="margin-top:14px">Summarizes 2026-Plan-12-Slides v2.html (13 slides). Supporting detail: five-scenarios-guided.html, loan-scenarios.html and the scenario pages. Planning analysis built from the 2025 returns under 2026 rules; not tax, legal or insurance advice. The preparer, an attorney and a licensed insurance professional should review before anything is signed.</p>
+</div></body></html>
